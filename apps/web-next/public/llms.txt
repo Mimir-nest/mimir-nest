@@ -1,0 +1,23 @@
+# Mimir Nest
+
+Mimir Nest is a free and open-source platform for college students, providing academic, learning, productivity, DSA, placement, project, and career-oriented tools.
+
+## Core Features and Pages
+
+- **Home (/)**: Overview of the platform and features.
+- **Courses (/courses)**: Handpicked, high-quality, free courses and academic learning paths tailored for students.
+- **Roadmaps (/roadmaps)**: Flexible step-by-step career developer roadmaps.
+- **Placement & DSA (/placement-dsa)**: A curated vault of Data Structures and Algorithms questions from 190+ top tech companies.
+- **Projects (/projects)**: A curated directory of open-source project ideas and build guides.
+- **CGPA Calculator (/cgpa)**: Mathematically rigorous credit-weighted grade calculator and GPA predictor.
+- **Pomodoro Timer (/pomodoro)**: Customizable focus timer with ambient soundscapes.
+- **Typing Practice (/typing)**: Developer-centric speed and accuracy assessment tool.
+- **Student Perks (/email-perks)**: Verified software discounts and perks using academic university email addresses.
+- **About (/about)**: Mission, values, and origin of Mimir Nest.
+- **FAQ (/faq)**: Frequently asked questions.
+- **Privacy (/privacy)**: Privacy policy outlining the local-first data processing.
+
+## Project Resources
+- Production Domain: https://mimirnest.vercel.app
+- GitHub Organization: https://github.com/Mimir-nest
+- Main Repository: https://github.com/Mimir-nest/mimir-nest
