@@ -112,7 +112,7 @@ const FullscreenPomodoro = ({ isOpen, onClose, timeLeft, isActive, mode, onToggl
                 </Button>
                 <div className="flex items-center gap-2">
                   <input type="range" min="0" max="100" value={youtubeVolume} onChange={(e) => onYoutubeVolumeChange(Number(e.target.value))} className="w-16 h-1 bg-zinc-700 rounded-lg appearance-none" style={{
-                    background: `linear-gradient(to right, #ffffff 0%, #ffffff ${youtubeVolume}%, #4a5568 ${youtubeVolume}%, #4a5568 100%)`
+                    background: `linear-gradient(to right, #FF5A36 0%, #FF5A36 ${youtubeVolume}%, #4a5568 ${youtubeVolume}%, #4a5568 100%)`
                 }}/>
                 </div>
               </>)}
@@ -143,8 +143,8 @@ const FullscreenPomodoro = ({ isOpen, onClose, timeLeft, isActive, mode, onToggl
               <circle cx="50" cy="50" r="45" stroke="url(#gradient)" strokeWidth="8" fill="none" strokeLinecap="round" strokeDasharray={`${2 * Math.PI * 45}`} strokeDashoffset={`${2 * Math.PI * 45 * (1 - calculateProgress() / 100)}`} className="transition-all duration-1000 ease-out"/>
               <defs>
                 <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor={mode === 'pomodoro' ? '#ef4444' : mode === 'shortBreak' ? '#22c55e' : '#3b82f6'}/>
-                  <stop offset="100%" stopColor={mode === 'pomodoro' ? '#dc2626' : mode === 'shortBreak' ? '#16a34a' : '#2563eb'}/>
+                  <stop offset="0%" stopColor={mode === 'pomodoro' ? '#FF5A36' : mode === 'shortBreak' ? '#D6D2C9' : '#5D5B56'}/>
+                  <stop offset="100%" stopColor={mode === 'pomodoro' ? '#FF6A3D' : mode === 'shortBreak' ? '#9B9992' : '#242525'}/>
                 </linearGradient>
               </defs>
             </svg>
@@ -164,12 +164,12 @@ const FullscreenPomodoro = ({ isOpen, onClose, timeLeft, isActive, mode, onToggl
         {/* Controls */}
         <div className="flex gap-6">
           <Button size="lg" className={`${isActive
-            ? 'bg-orange-500 hover:bg-orange-600 shadow-lg shadow-orange-500/25'
-            : 'bg-green-500 hover:bg-green-600 shadow-lg shadow-green-500/25'} text-white px-12 py-6 text-xl font-semibold rounded-xl transition-all duration-300 hover:scale-105`} onClick={onToggleTimer}>
+            ? 'bg-primary text-primary-foreground hover:opacity-90 shadow-lg shadow-primary/20'
+            : 'bg-zinc-800 text-white hover:bg-zinc-700'} px-12 py-6 text-xl font-semibold rounded-xl transition-all duration-300 hover:scale-105 border-none`} onClick={onToggleTimer}>
             {isActive ? <Pause className="mr-4 h-8 w-8"/> : <Play className="mr-4 h-8 w-8"/>}
             {isActive ? 'Pause' : 'Start'}
           </Button>
-          <Button size="lg" variant="outline" className="border-2 border-zinc-700 bg-zinc-800/50 text-zinc-300 hover:text-white hover:border-zinc-600 hover:bg-zinc-700/80 px-10 py-6 text-xl font-semibold rounded-xl transition-all duration-300 hover:scale-105" onClick={onResetTimer}>
+          <Button size="lg" variant="outline" className="border-2 border-zinc-700 bg-zinc-850 text-zinc-300 hover:text-white hover:border-zinc-650 hover:bg-zinc-700/80 px-10 py-6 text-xl font-semibold rounded-xl transition-all duration-300 hover:scale-105" onClick={onResetTimer}>
             <RotateCcw className="mr-4 h-8 w-8"/>
             Reset
           </Button>

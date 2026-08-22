@@ -4,36 +4,36 @@
 
 @layer base {
   :root {
-    /* shadcn compatibility — mapped to the green design system */
-    --background: 138 60% 97%;        /* #f2fcf0 */
-    --foreground: 138 30% 9%;         /* #151e16 */
+    /* shadcn compatibility — mapped to Charcoal + Orange */
+    --background: 180 1% 6%;          /* #0F1010 */
+    --foreground: 40 18% 94%;         /* #F4F1EA */
 
-    --card: 138 40% 92%;
-    --card-foreground: 138 30% 9%;
+    --card: 180 1% 9%;                /* #151616 */
+    --card-foreground: 40 18% 94%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 138 30% 9%;
+    --popover: 180 1% 9%;
+    --popover-foreground: 40 18% 94%;
 
-    --primary: 150 100% 4%;           /* #001308 */
-    --primary-foreground: 0 0% 100%;
+    --primary: 11 100% 61%;           /* #FF5A36 - Orange */
+    --primary-foreground: 180 1% 6%;
 
-    --secondary: 138 10% 88%;         /* surface-container #e7f1e5 */
-    --secondary-foreground: 138 30% 9%;
+    --secondary: 180 1% 12%;          /* #1E2020 */
+    --secondary-foreground: 40 18% 94%;
 
-    --muted: 138 20% 90%;
-    --muted-foreground: 138 8% 40%;   /* on-surface-variant */
+    --muted: 180 1% 15%;              /* #242525 */
+    --muted-foreground: 45 4% 59%;    /* #9B9992 */
 
-    --accent: 144 17% 34%;            /* surface-tint #466552 */
-    --accent-foreground: 0 0% 100%;
+    --accent: 11 100% 61%;            /* #FF5A36 */
+    --accent-foreground: 180 1% 6%;
 
-    --destructive: 0 72% 51%;         /* #ba1a1a */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 138 12% 76%;            /* outline-variant #c2c8c1 */
-    --input: 138 12% 76%;
-    --ring: 144 17% 34%;              /* surface-tint */
+    --border: 180 1% 15%;             /* #242525 */
+    --input: 180 1% 15%;
+    --ring: 11 100% 61%;
 
-    --radius: 1rem;
+    --radius: 0.5rem;
   }
 }
 
@@ -48,8 +48,8 @@
   }
 
   body {
-    background-color: #f2fcf0;
-    color: #151e16;
+    background-color: #0F1010;
+    color: #F4F1EA;
     font-family: 'Inter', sans-serif;
     @apply antialiased;
     -webkit-text-size-adjust: 100%;
@@ -58,12 +58,12 @@
   }
 
   ::selection {
-    background-color: #0a2a1a;
-    color: #72937d;
+    background-color: #FF5A36;
+    color: #0F1010;
   }
 
   button, a, input, select, textarea {
-    -webkit-tap-highlight-color: rgba(70, 101, 82, 0.3);
+    -webkit-tap-highlight-color: rgba(255, 90, 54, 0.3);
     touch-action: manipulation;
   }
 
@@ -85,21 +85,21 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #e7f1e5;
+    background: #151616;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #466552;
-    border-radius: 9999px;
+    background: #5d5b56;
+    border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #2e4d3b;
+    background: #FF5A36;
   }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: #466552 #e7f1e5;
+    scrollbar-color: #5d5b56 #151616;
   }
 
   @supports (-webkit-touch-callout: none) {
@@ -119,30 +119,30 @@
   }
 
   .glass-panel-dark {
-    background: rgba(10, 42, 26, 0.6);
+    background: rgba(21, 22, 22, 0.7);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .glass-card {
-    background: rgba(231, 241, 229, 0.8);
+    background: rgba(30, 32, 32, 0.8);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(194, 200, 193, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .blue-glow {
-    text-shadow: 0 0 10px rgba(70, 101, 82, 0.5);
+    text-shadow: 0 0 10px rgba(255, 90, 54, 0.5);
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-[0_0_20px_rgba(70,101,82,0.15)] hover:border-surface-tint/20;
+    @apply transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,90,54,0.15)] hover:border-surface-tint/20;
   }
 
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #466552, #accfb7);
+    background-image: linear-gradient(135deg, #FF5A36, #FF6A3D);
   }
 
   .scrollbar-hide {
@@ -185,6 +185,6 @@
 html, body { overflow-x: hidden; }
 
 :focus-visible {
-  outline: 2px solid #466552;
+  outline: 2px solid #FF5A36;
   outline-offset: 2px;
 }

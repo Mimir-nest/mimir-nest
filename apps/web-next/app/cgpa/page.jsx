@@ -15,11 +15,11 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { motion } from "framer-motion";
 // Company data with tier categorization
 const companyTiers = {
-    'S+': { minCGPA: 8.0, companies: [], ctc: '₹30+ LPA', color: '#466552' },
-    'A+': { minCGPA: 7.5, companies: [], ctc: '₹20-30 LPA', color: '#72937d' },
-    'A': { minCGPA: 7.5, companies: [], ctc: '₹10-20 LPA', color: '#accfb7' },
-    'B': { minCGPA: 7.0, companies: [], ctc: '₹5-10 LPA', color: '#d97706' },
-    'C': { minCGPA: 6.0, companies: [], ctc: 'Below ₹5 LPA', color: '#2563eb' }
+    'S+': { minCGPA: 8.0, companies: [], ctc: '₹30+ LPA', color: '#FF5A36' },
+    'A+': { minCGPA: 7.5, companies: [], ctc: '₹20-30 LPA', color: '#FF6A3D' },
+    'A': { minCGPA: 7.5, companies: [], ctc: '₹10-20 LPA', color: '#F4512C' },
+    'B': { minCGPA: 7.0, companies: [], ctc: '₹5-10 LPA', color: '#D6D2C9' },
+    'C': { minCGPA: 6.0, companies: [], ctc: 'Below ₹5 LPA', color: '#9B9992' }
 };
 // Company data
 const companyData = [
@@ -506,15 +506,15 @@ const CGPA = () => {
             {semesterChartData.length > 0 ? (<div className="h-64">
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={semesterChartData} margin={{ top: 20, right: 30, left: 0, bottom: 20 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e7f1e5"/>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#242525"/>
                     <XAxis dataKey="semester" stroke="#727973" fontSize={12}/>
                     <YAxis domain={[0, 10]} stroke="#727973" fontSize={12}/>
                     <Tooltip content={<CustomTooltip />}/>
                     <Legend />
-                    <Line type="monotone" dataKey="cgpa" stroke="#466552" strokeWidth={3} dot={{ r: 4, fill: "#466552" }} activeDot={{ r: 6, fill: "#001308" }}/>
+                    <Line type="monotone" dataKey="cgpa" stroke="#FF5A36" strokeWidth={3} dot={{ r: 4, fill: "#FF5A36" }} activeDot={{ r: 6, fill: "#0F1010" }}/>
                   </LineChart>
                 </ResponsiveContainer>
-              </div>) : (<div className="h-64 flex items-center justify-center text-on-surface-variant/60 bg-surface-container/40 rounded-2xl border border-dashed border-outline-variant/40">
+              </div>) : (<div className="h-64 flex items-center justify-center text-on-surface-variant/60 bg-surface-container/40 rounded-xl border border-dashed border-outline-variant/40">
                 <div className="text-center p-6">
                   <ChartIcon className="h-10 w-10 mx-auto mb-2 text-surface-tint/50"/>
                   <p className="font-body-md text-sm">Enter your current and target CGPA to project future semester milestones</p>
@@ -529,7 +529,7 @@ const CGPA = () => {
                     <div className="h-56">
                       <ResponsiveContainer width="100%" height="100%">
                         <PieChart>
-                          <Pie data={tierDistribution} cx="50%" cy="50%" labelLine={false} outerRadius={75} fill="#466552" dataKey="value" label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}>
+                          <Pie data={tierDistribution} cx="50%" cy="50%" labelLine={false} outerRadius={75} fill="#FF5A36" dataKey="value" label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}>
                             {tierDistribution.map((entry, index) => {
                 return <Cell key={`cell-${index}`} fill={entry.color}/>;
             })}

@@ -281,13 +281,13 @@ const Pomodoro = () => {
         }
     };
     // Progress ring accent color per mode
-    const ringColor = mode === 'pomodoro' ? '#466552' : mode === 'shortBreak' ? '#72937d' : '#accfb7';
-    return (<div className="min-h-screen bg-mn-primary text-on-primary relative overflow-hidden">
+    const ringColor = mode === 'pomodoro' ? '#FF5A36' : mode === 'shortBreak' ? '#D6D2C9' : '#9B9992';
+    return (<div className="min-h-screen bg-mn-background text-on-background relative overflow-hidden">
       {/* Decorative rings */}
-      <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full border border-surface-tint/10 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-primary-container/30 -translate-x-1/2 translate-y-1/2 pointer-events-none"/>
-      <div className="absolute bottom-40 right-20 w-[200px] h-[200px] rounded-full border border-surface-tint/10 pointer-events-none"/>
+      <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full border border-surface-tint/5 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full border border-surface-tint/10 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-primary-container/20 -translate-x-1/2 translate-y-1/2 pointer-events-none"/>
+      <div className="absolute bottom-40 right-20 w-[200px] h-[200px] rounded-full border border-surface-tint/5 pointer-events-none"/>
 
       <Navbar />
 
@@ -296,37 +296,37 @@ const Pomodoro = () => {
 
           {/* Page Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-6 w-fit mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg glass-panel mb-6 w-fit mx-auto">
               <Sparkles className="w-4 h-4 text-surface-tint"/>
               <span className="font-label-caps text-label-caps text-surface-tint tracking-widest">
                 Productivity Hub
               </span>
             </div>
-            <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary mb-4 leading-tight">
+            <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-4 leading-tight">
               Deep Focus <span className="text-surface-tint">Sanctuary</span>
             </h1>
-            <p className="font-body-lg text-body-lg text-on-primary/70 max-w-lg mx-auto">
+            <p className="font-body-lg text-body-lg text-on-background/70 max-w-lg mx-auto">
               Cultivate undisturbed attention in a serene digital environment.
             </p>
           </div>
 
           {/* ── Main Timer Card ── */}
-          <div className="bg-surface-container-lowest rounded-[32px] shadow-[0_24px_64px_rgba(0,0,0,0.35)] mb-6 overflow-hidden">
+          <div className="bg-surface-container rounded-2xl border border-border shadow-[0_16px_48px_rgba(0,0,0,0.45)] mb-6 overflow-hidden">
 
             {/* Tab bar + controls */}
-            <div className="flex items-center justify-between px-6 md:px-8 pt-5 pb-4 border-b border-outline-variant/20">
-              <div className="flex bg-surface-container rounded-full p-1 gap-1">
-                {['pomodoro', 'shortBreak', 'longBreak'].map((m) => (<button key={m} onClick={() => changeMode(m)} className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 font-body-md ${mode === m
-                ? 'bg-mn-primary text-on-primary shadow-sm'
-                : 'text-on-surface-variant hover:text-mn-primary hover:bg-surface-container-high'}`}>
+            <div className="flex items-center justify-between px-6 md:px-8 pt-5 pb-4 border-b border-border/40">
+              <div className="flex bg-surface-container-low rounded-xl p-1 gap-1 border border-border/20">
+                {['pomodoro', 'shortBreak', 'longBreak'].map((m) => (<button key={m} onClick={() => changeMode(m)} className={`px-5 py-2 rounded-lg text-sm font-medium transition-all duration-300 font-body-md ${mode === m
+                ? 'bg-primary text-primary-foreground font-semibold shadow-sm'
+                : 'text-on-surface-variant hover:text-foreground hover:bg-surface-container-high'}`}>
                     {m === 'pomodoro' ? 'Focus' : m === 'shortBreak' ? 'Short Break' : 'Long Break'}
                   </button>))}
               </div>
               <div className="flex items-center gap-1">
-                <Button variant="ghost" size="icon" onClick={() => setIsFullscreen(true)} className="text-on-surface-variant hover:text-mn-primary hover:bg-surface-container rounded-xl">
+                <Button variant="ghost" size="icon" onClick={() => setIsFullscreen(true)} className="text-on-surface-variant hover:text-foreground hover:bg-surface-container rounded-lg">
                   <Maximize2 className="h-5 w-5"/>
                 </Button>
-                <Button variant="ghost" size="icon" onClick={() => setShowSettings(true)} className="text-on-surface-variant hover:text-mn-primary hover:bg-surface-container rounded-xl">
+                <Button variant="ghost" size="icon" onClick={() => setShowSettings(true)} className="text-on-surface-variant hover:text-foreground hover:bg-surface-container rounded-lg">
                   <Settings className="h-5 w-5"/>
                 </Button>
               </div>
@@ -341,14 +341,14 @@ const Pomodoro = () => {
               {/* Clock with progress ring */}
               <div className="relative w-52 h-52 md:w-60 md:h-60 mb-6">
                 <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="46" stroke="#e7f1e5" strokeWidth="2" fill="none"/>
+                  <circle cx="50" cy="50" r="46" stroke="#242525" strokeWidth="2" fill="none"/>
                   <circle cx="50" cy="50" r="46" stroke={ringColor} strokeWidth="2.5" fill="none" strokeLinecap="round" strokeDasharray={`${2 * Math.PI * 46}`} strokeDashoffset={`${2 * Math.PI * 46 * (1 - calculateProgress() / 100)}`} style={{ transition: 'stroke-dashoffset 1s linear, stroke 0.5s ease' }}/>
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className="tabular-nums tracking-tighter text-mn-primary font-bold leading-none" style={{ fontSize: 'clamp(2.8rem, 9vw, 4rem)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  <span className="tabular-nums tracking-tighter text-foreground font-bold leading-none" style={{ fontSize: 'clamp(2.8rem, 9vw, 4rem)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                     {formatTime(timeLeft)}
                   </span>
-                  <span className={`mt-2 text-xs font-label-caps tracking-widest uppercase px-3 py-1 rounded-full ${isActive ? 'bg-surface-container text-surface-tint' : 'bg-surface-container-low text-on-surface-variant'}`}>
+                  <span className={`mt-2 text-xs font-label-caps tracking-widest uppercase px-3 py-1 rounded-md ${isActive ? 'bg-surface-container-high text-surface-tint' : 'bg-surface-container-low text-on-surface-variant'}`}>
                     {isActive ? 'IN PROGRESS' : 'PAUSED'}
                   </span>
                 </div>
