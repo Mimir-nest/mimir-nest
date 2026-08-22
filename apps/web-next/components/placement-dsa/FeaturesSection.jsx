@@ -31,28 +31,28 @@ const FeaturesSection = () => {
             title: "Comprehensive Archive",
             description: "Access curated DSA questions sourced directly from technical rounds at top tech companies worldwide.",
             tag: "190+ Archives",
-            accent: "bg-surface-container text-surface-tint",
+            accent: "bg-surface-container text-surface-tint border border-border/40",
         },
         {
             icon: BarChart3,
             title: "Real-Time Mastery Analytics",
             description: "Track your solved ratios, measure difficulty breakdown, and observe your rank progression live.",
             tag: "Smart Tracking",
-            accent: "bg-emerald-50 text-emerald-700",
+            accent: "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20",
         },
         {
             icon: Code2,
             title: "Precision Topic Filtering",
             description: "Filter problem sets by dynamic programming, graphs, trees, and specific data structures instantly.",
             tag: "Topic Deep-Dive",
-            accent: "bg-amber-50 text-amber-700",
+            accent: "bg-amber-500/10 text-amber-400 border border-amber-500/20",
         },
         {
             icon: Users,
             title: "Curated Interview Intel",
             description: "Questions verified by recent successful candidates from Google, Meta, Microsoft, and leading unicorns.",
             tag: "Verified Questions",
-            accent: "bg-primary-fixed/60 text-mn-primary",
+            accent: "bg-primary/10 text-primary border border-primary/20",
         }
     ];
     return (<div className="mt-20 pt-12 border-t border-outline-variant/30">
@@ -68,10 +68,10 @@ const FeaturesSection = () => {
       <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" variants={containerVariants} initial="hidden" animate="visible">
         {features.map((feature, index) => {
             const Icon = feature.icon;
-            return (<motion.div key={index} variants={itemVariants} className="group relative bg-surface-container-lowest rounded-[32px] border border-outline-variant/40 p-7 hover:border-surface-tint/60 hover:shadow-[0_20px_40px_rgba(0,19,8,0.08)] transition-all duration-300 flex flex-col justify-between">
+            return (<motion.div key={index} variants={itemVariants} className="group relative bg-surface-container-lowest rounded-2xl border border-border/60 p-7 hover:border-surface-tint/60 transition-all duration-300 flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${feature.accent}`}>
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${feature.accent}`}>
                     <Icon className="h-6 w-6"/>
                   </div>
                   <span className="text-[10px] font-label-caps text-on-surface-variant/70 uppercase tracking-wider px-2.5 py-1 rounded-full bg-surface-container">

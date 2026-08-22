@@ -234,10 +234,10 @@ const QuestionsTable = ({ filteredQuestions, copiedQuestionId, handleCopyQuestio
                       {/* Difficulty Badge */}
                       <TableCell>
                         <Badge variant="outline" className={`
-                            font-semibold text-xs border px-3 py-1 rounded-full
-                            ${question.difficulty === 'Easy' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' :
-                    question.difficulty === 'Medium' ? 'bg-amber-50 text-amber-700 border-amber-200' :
-                        'bg-rose-50 text-rose-700 border-rose-200'}
+                            font-semibold text-xs border px-3 py-1 rounded-md
+                            ${question.difficulty === 'Easy' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
+                    question.difficulty === 'Medium' ? 'bg-amber-500/10 text-amber-400 border-amber-500/20' :
+                        'bg-rose-500/10 text-rose-400 border-rose-500/20'}
                           `}>
                           {question.difficulty}
                         </Badge>

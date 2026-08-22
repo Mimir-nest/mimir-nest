@@ -56,23 +56,23 @@ const About = () => {
                 icon: Target,
                 title: "Placement Mastery",
                 desc: "Curated real-time company interview problem archives from 190+ tech companies.",
-                accent: "bg-emerald-50 text-emerald-700",
+                accent: "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20",
             },
             {
                 icon: Users,
                 title: "Global Cohort",
                 desc: "Fostering collaboration, open-source project building, and peer learning networks.",
-                accent: "bg-amber-50 text-amber-700",
+                accent: "bg-amber-500/10 text-amber-400 border border-amber-500/20",
             },
             {
                 icon: Zap,
                 title: "Focus Productivity",
                 desc: "Deep focus timers, soundscapes, and speed assessments engineered for peak performance.",
-                accent: "bg-primary-fixed/60 text-mn-primary",
+                accent: "bg-primary/10 text-primary border border-primary/20",
             },
         ].map((item, index) => {
             const Icon = item.icon;
-            return (<motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="group p-8 rounded-[32px] bg-surface-container-lowest border border-outline-variant/40 hover:border-surface-tint/60 hover:shadow-[0_20px_40px_rgba(0,19,8,0.08)] transition-all duration-300 flex flex-col justify-between">
+            return (<motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="group p-8 rounded-2xl bg-surface-container-lowest border border-border/60 hover:border-surface-tint/60 transition-all duration-300 flex flex-col justify-between">
                 <div>
                   <div className={`w-14 h-14 rounded-2xl ${item.accent} flex items-center justify-center mb-6 group-hover:scale-105 transition-transform`}>
                     <Icon className="h-7 w-7"/>

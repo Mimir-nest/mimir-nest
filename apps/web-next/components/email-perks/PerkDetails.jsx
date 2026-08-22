@@ -29,8 +29,8 @@ const PerkDetails = ({ title, description, offers, icon, link, value }) => {
           </div>
         </div>
         
-        {value && (<div className="sm:text-right shrink-0 bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200">
-            <div className="flex items-center gap-1.5 text-sm font-bold text-emerald-700">
+        {value && (<div className="sm:text-right shrink-0 bg-emerald-500/10 px-3.5 py-1.5 rounded-lg border border-emerald-500/20">
+            <div className="flex items-center gap-1.5 text-sm font-bold text-emerald-400">
               <Gift className="h-4 w-4"/>
               <span>{value} Value</span>
             </div>

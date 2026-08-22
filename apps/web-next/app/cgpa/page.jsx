@@ -280,11 +280,11 @@ const CGPA = () => {
     // Get badge color by tier
     const getTierBadgeStyle = (tier) => {
         switch (tier) {
-            case 'S+': return 'text-purple-700 bg-purple-50 border-purple-200';
-            case 'A+': return 'text-emerald-700 bg-emerald-50 border-emerald-200';
-            case 'A': return 'text-surface-tint bg-surface-container border-outline-variant/30';
-            case 'B': return 'text-amber-700 bg-amber-50 border-amber-200';
-            case 'C': return 'text-blue-700 bg-blue-50 border-blue-200';
+            case 'S+': return 'text-[#FF5A36] bg-[#FF5A36]/10 border-[#FF5A36]/20';
+            case 'A+': return 'text-[#FF6A3D] bg-[#FF6A3D]/10 border-[#FF6A3D]/20';
+            case 'A': return 'text-[#F4512C] bg-[#F4512C]/10 border-[#F4512C]/20';
+            case 'B': return 'text-[#D6D2C9] bg-[#D6D2C9]/10 border-[#D6D2C9]/20';
+            case 'C': return 'text-[#9B9992] bg-[#9B9992]/10 border-[#9B9992]/20';
             default: return 'text-on-surface-variant bg-surface-container border-outline-variant/30';
         }
     };

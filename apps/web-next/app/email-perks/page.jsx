@@ -146,15 +146,15 @@ const EmailPerks = () => {
           </div>) : filteredPerks.length > 0 ? (<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence>
               {filteredPerks.map((perk, index) => (<motion.div key={perk.id || index} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: index * 0.04 }} layout>
-                  <div className="group relative h-full bg-surface-container-lowest border border-outline-variant/40 rounded-[32px] overflow-hidden hover:border-surface-tint/60 transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,19,8,0.08)] flex flex-col justify-between p-7">
+                  <div className="group relative h-full bg-surface-container-lowest border border-border/50 rounded-2xl overflow-hidden hover:border-surface-tint/60 transition-all duration-300 flex flex-col justify-between p-7">
                     
                     <div>
                       {/* Top Row: Icon + Value Badge */}
                       <div className="flex justify-between items-start mb-5">
-                        <div className="p-3 bg-surface-container rounded-2xl border border-outline-variant/30 group-hover:scale-105 transition-transform">
+                        <div className="p-3 bg-surface-container rounded-xl border border-outline-variant/30 group-hover:scale-105 transition-transform">
                           {perkIcons[perk.iconKey] || <Gift className="h-5 w-5 text-surface-tint"/>}
                         </div>
-                        <span className="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+                        <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-md">
                           {perk.value} Value
                         </span>
                       </div>
@@ -181,16 +181,16 @@ const EmailPerks = () => {
                     <div className="pt-4 border-t border-outline-variant/20 flex gap-2.5">
                       <Dialog>
                         <DialogTrigger asChild>
-                          <Button variant="outline" className="flex-1 bg-surface-container border-outline-variant/40 text-mn-primary hover:bg-surface-container-high rounded-full text-xs font-label-caps tracking-wider">
+                          <Button variant="outline" className="flex-1 bg-surface-container border-outline-variant/40 text-mn-primary hover:bg-surface-container-high rounded-lg text-xs font-label-caps tracking-wider">
                             Details
                           </Button>
                         </DialogTrigger>
-                        <DialogContent className="bg-surface-container-lowest border-outline-variant/40 rounded-[32px] max-w-2xl p-8">
+                        <DialogContent className="bg-surface-container border-border rounded-2xl max-w-2xl p-8">
                           <PerkDetails {...perk} icon={perkIcons[perk.iconKey] || <Gift className="h-5 w-5 text-surface-tint"/>}/>
                         </DialogContent>
                       </Dialog>
 
-                      <Button className="flex-1 bg-mn-primary hover:opacity-90 text-on-primary rounded-full text-xs font-label-caps tracking-wider shadow-sm" onClick={() => handleAccessClick(perk.link, perk.title)}>
+                      <Button className="flex-1 bg-primary text-primary-foreground hover:opacity-90 rounded-lg text-xs font-label-caps tracking-wider shadow-sm font-semibold border-none" onClick={() => handleAccessClick(perk.link, perk.title)}>
                         Claim
                         <ExternalLink className="w-3.5 h-3.5 ml-1.5"/>
                       </Button>
@@ -198,7 +198,7 @@ const EmailPerks = () => {
                   </div>
                 </motion.div>))}
             </AnimatePresence>
-          </div>) : (<div className="text-center py-32 bg-surface-container-lowest rounded-[32px] border border-outline-variant/30">
+          </div>) : (<div className="text-center py-32 bg-surface-container-lowest rounded-2xl border border-outline-variant/30">
             <div className="inline-flex p-4 rounded-full bg-surface-container text-surface-tint mb-4">
               <Search className="w-8 h-8"/>
             </div>

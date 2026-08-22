@@ -63,9 +63,9 @@ const Hero = () => {
 
         {/* Hero Floating Cards (desktop only) */}
         <div className="lg:col-span-6 relative h-[500px] mt-12 lg:mt-0 hidden md:block">
-          {/* Main hero video card */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-[380px] rounded-2xl overflow-hidden shadow-[0_12px_28px_rgba(0,0,0,0.45)]">
-            <video src="/logo/v1.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover"/>
+          {/* Main hero logo card */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-[380px] rounded-2xl overflow-hidden border border-border/45 bg-surface-container flex items-center justify-center">
+            <img src="/logo/logo.png" alt="Mimir Nest Logo" className="w-48 h-auto object-contain brightness-95"/>
           </div>
 
           {/* Floating Stat Card 1 — Resources */}

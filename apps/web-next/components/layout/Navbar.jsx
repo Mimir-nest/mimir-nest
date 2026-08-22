@@ -36,7 +36,7 @@ const Navbar = () => {
       <div className="flex justify-between items-center px-16 max-w-full">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
-          <img src="/logo/logo.svg" alt="Mimir Nest" className="h-8 w-auto"/>
+          <img src="/logo/logo.png" alt="Mimir Nest" className="h-8 w-auto"/>
           <span className="font-headline-md text-xl font-bold text-foreground">Mimir <span className="text-surface-tint">Nest</span></span>
         </Link>
 
@@ -81,7 +81,7 @@ const MobileNav = () => {
     ];
     return (<nav className="md:hidden fixed top-0 w-full z-50 bg-mn-surface/90 backdrop-blur-md px-6 py-4 flex justify-between items-center border-b border-outline-variant/30 shadow-sm">
       <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
-        <img src="/logo/logo.svg" alt="Mimir Nest" className="h-8 w-auto"/>
+        <img src="/logo/logo.png" alt="Mimir Nest" className="h-8 w-auto"/>
         <span className="font-bold text-foreground text-xl">Mimir <span className="text-surface-tint">Nest</span></span>
       </Link>
       <button onClick={() => setIsOpen(!isOpen)} className="text-on-background p-1.5 rounded-lg hover:bg-surface-container transition-colors">

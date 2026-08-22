@@ -162,7 +162,7 @@ const YouTubePlayer = ({ className }) => {
       <div className="p-4 border-b border-dark-800">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
-            <Music2 className="h-5 w-5 text-blue-500"/>
+            <Music2 className="h-5 w-5 text-surface-tint"/>
             <h3 className="text-white text-lg font-medium">Background Music</h3>
           </div>
           {!videoId && (<Button variant="ghost" size="sm" className="text-gray-400 hover:text-white" onClick={() => setShowUrlInput(true)}>
@@ -198,7 +198,7 @@ const YouTubePlayer = ({ className }) => {
                 <SkipBack className="h-5 w-5"/>
               </Button>
               
-              <Button variant="ghost" size="icon" onClick={togglePlay} className={`${isPlaying ? "text-blue-500 hover:text-blue-400" : "text-gray-400 hover:text-white"} transition-colors`}>
+              <Button variant="ghost" size="icon" onClick={togglePlay} className={`${isPlaying ? "text-primary hover:text-surface-tint" : "text-gray-400 hover:text-white"} transition-colors`}>
                 {isPlaying ? <Pause className="h-6 w-6"/> : <Play className="h-6 w-6"/>}
               </Button>
               

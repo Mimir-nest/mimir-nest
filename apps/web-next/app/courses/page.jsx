@@ -57,9 +57,9 @@ const categoryIcons = {
     "ai-ml": Brain,
 };
 const levelBadgeStyles = {
-    Beginner: "bg-emerald-50 text-emerald-700 border-emerald-200",
-    Intermediate: "bg-amber-50 text-amber-700 border-amber-200",
-    Advanced: "bg-rose-50 text-rose-700 border-rose-200",
+    Beginner: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+    Intermediate: "bg-amber-500/10 text-amber-400 border-amber-500/20",
+    Advanced: "bg-rose-500/10 text-rose-400 border-rose-500/20",
     "All Levels": "bg-surface-container text-surface-tint border-outline-variant/30",
 };
 const Courses = () => {

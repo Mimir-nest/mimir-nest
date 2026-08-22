@@ -46,7 +46,7 @@ const Projects = () => {
       <Navbar />
 
       {/* ── Deep Green Sanctuary Hero ── */}
-      <section className="relative bg-mn-primary pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-[40px] md:rounded-b-[80px]">
+      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl">
         {/* Decorative Rings */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
         <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
@@ -175,13 +175,13 @@ const Projects = () => {
             </div>
 
             <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
-              {featuredProjects.slice(0, 2).map((project, index) => (<div key={`feat-${index}`} className="bg-surface-container-lowest border border-outline-variant/40 rounded-[32px] p-8 hover:border-surface-tint/60 hover:shadow-[0_20px_40px_rgba(0,19,8,0.08)] transition-all duration-300 flex flex-col justify-between">
+              {featuredProjects.slice(0, 2).map((project, index) => (<div key={`feat-${index}`} className="bg-surface-container-lowest border border-border/50 rounded-2xl p-8 hover:border-surface-tint/60 transition-all duration-300 flex flex-col justify-between">
                   <div>
                     <div className="flex items-start justify-between gap-4 mb-3">
                       <h3 className="font-headline-md text-xl font-bold text-mn-primary">
                         {project.title}
                       </h3>
-                      <div className="flex items-center gap-1.5 text-amber-600 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full text-xs font-bold shrink-0">
+                      <div className="flex items-center gap-1.5 text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-md text-xs font-bold shrink-0">
                         <Star className="h-3.5 w-3.5 fill-current"/>
                         <span>{project.stars || "4.9"}</span>
                       </div>
@@ -199,11 +199,11 @@ const Projects = () => {
                   </div>
 
                   <div className="pt-4 border-t border-outline-variant/20 flex gap-3">
-                    <Button variant="outline" className="flex-1 bg-surface-container border-outline-variant/40 text-mn-primary hover:bg-surface-container-high rounded-full text-xs font-label-caps tracking-wider" onClick={() => window.open(project.github, "_blank")}>
+                    <Button variant="outline" className="flex-1 bg-surface-container border-outline-variant/40 text-mn-primary hover:bg-surface-container-high rounded-lg text-xs font-label-caps tracking-wider" onClick={() => window.open(project.github, "_blank")}>
                       <Github className="mr-1.5 h-3.5 w-3.5"/>
                       Code
                     </Button>
-                    {project.demo && (<Button className="flex-1 bg-mn-primary hover:opacity-90 text-on-primary rounded-full text-xs font-label-caps tracking-wider shadow-sm" onClick={() => project.demo && window.open(project.demo, "_blank")}>
+                    {project.demo && (<Button className="flex-1 bg-primary text-primary-foreground rounded-lg text-xs font-label-caps tracking-wider shadow-sm font-semibold border-none" onClick={() => project.demo && window.open(project.demo, "_blank")}>
                         <ExternalLink className="mr-1.5 h-3.5 w-3.5"/>
                         Live Demo
                       </Button>)}
@@ -224,13 +224,13 @@ const Projects = () => {
           </div>
 
           <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {filteredProjects.map((project, index) => (<div key={project.id || index} className="bg-surface-container-lowest border border-outline-variant/40 rounded-[32px] p-7 hover:border-surface-tint/60 hover:shadow-[0_20px_40px_rgba(0,19,8,0.08)] transition-all duration-300 flex flex-col justify-between">
+            {filteredProjects.map((project, index) => (<div key={project.id || index} className="bg-surface-container-lowest border border-border/50 rounded-2xl p-7 hover:border-surface-tint/60 transition-all duration-300 flex flex-col justify-between">
                 <div>
                   <div className="flex items-start justify-between gap-3 mb-3">
                     <h3 className="font-headline-md text-lg font-bold text-mn-primary line-clamp-1">
                       {project.title}
                     </h3>
-                    <div className="flex items-center gap-1 text-amber-600 bg-amber-50 px-2.5 py-0.5 rounded-full text-xs font-bold shrink-0">
+                    <div className="flex items-center gap-1 text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-md text-xs font-bold shrink-0">
                       <Star className="h-3 w-3 fill-current"/>
                       <span>{project.stars || "5.0"}</span>
                     </div>
@@ -251,11 +251,11 @@ const Projects = () => {
                 </div>
 
                 <div className="pt-4 border-t border-outline-variant/20 flex gap-2.5">
-                  <Button variant="outline" className="flex-1 bg-surface-container border-outline-variant/40 text-mn-primary hover:bg-surface-container-high rounded-full text-xs font-label-caps tracking-wider" onClick={() => window.open(project.github, "_blank")}>
+                  <Button variant="outline" className="flex-1 bg-surface-container border-outline-variant/40 text-mn-primary hover:bg-surface-container-high rounded-lg text-xs font-label-caps tracking-wider" onClick={() => window.open(project.github, "_blank")}>
                     <Github className="mr-1.5 h-3.5 w-3.5"/>
                     Code
                   </Button>
-                  {project.demo && (<Button className="flex-1 bg-mn-primary hover:opacity-90 text-on-primary rounded-full text-xs font-label-caps tracking-wider shadow-sm" onClick={() => project.demo && window.open(project.demo, "_blank")}>
+                  {project.demo && (<Button className="flex-1 bg-primary text-primary-foreground rounded-lg text-xs font-label-caps tracking-wider shadow-sm font-semibold border-none" onClick={() => project.demo && window.open(project.demo, "_blank")}>
                         <ExternalLink className="mr-1.5 h-3.5 w-3.5"/>
                         Demo
                       </Button>)}
@@ -265,8 +265,8 @@ const Projects = () => {
         </div>
 
         {/* ── Community Contribution Banner ── */}
-        <div className="text-center p-10 rounded-[32px] bg-surface-container border border-outline-variant/40 space-y-4">
-          <h3 className="font-headline-lg text-headline-lg text-mn-primary">
+        <div className="text-center p-10 rounded-2xl bg-surface-container border border-border/45 space-y-4">
+          <h3 className="font-headline-lg text-headline-lg text-foreground">
             Ready to Contribute?
           </h3>
           <p className="text-on-surface-variant max-w-xl mx-auto font-body-md text-sm">
