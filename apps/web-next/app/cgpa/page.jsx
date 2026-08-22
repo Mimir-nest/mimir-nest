@@ -370,7 +370,7 @@ const CGPA = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
           {/* Input Section Card */}
-          <div className="lg:col-span-4 bg-surface-container-lowest rounded-[32px] p-7 md:p-8 border border-outline-variant/40 shadow-[0_20px_50px_rgba(0,19,8,0.06)] flex flex-col justify-between">
+          <div className="lg:col-span-4 bg-surface-container-lowest rounded-[32px] p-5 md:p-8 border border-outline-variant/40 shadow-[0_20px_50px_rgba(0,19,8,0.06)] flex flex-col justify-between">
             <div className="space-y-6">
               <div className="flex items-center justify-between pb-4 border-b border-outline-variant/20">
                 <div className="flex items-center gap-2.5">
@@ -529,7 +529,7 @@ const CGPA = () => {
                     <div className="h-56">
                       <ResponsiveContainer width="100%" height="100%">
                         <PieChart>
-                          <Pie data={tierDistribution} cx="50%" cy="50%" labelLine={false} outerRadius={75} fill="#FF5A36" dataKey="value" label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}>
+                          <Pie data={tierDistribution} cx="50%" cy="50%" labelLine={false} outerRadius={60} fill="#FF5A36" dataKey="value" label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}>
                             {tierDistribution.map((entry, index) => {
                 return <Cell key={`cell-${index}`} fill={entry.color}/>;
             })}

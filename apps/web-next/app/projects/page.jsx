@@ -102,7 +102,7 @@ const Projects = () => {
 
       <main className="max-w-7xl mx-auto px-6 md:px-16 pb-24 space-y-12">
         {/* ── Prominent Resume Projects Trigger Banner ── */}
-        <div className="bg-surface-container text-foreground rounded-2xl p-8 md:p-10 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-border/50 shadow-xl">
+        <div className="bg-surface-container text-foreground rounded-2xl p-6 sm:p-8 md:p-10 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-border/50 shadow-xl">
           <div className="absolute top-0 right-0 w-96 h-96 rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
           
           <div className="relative z-10 space-y-2 text-center md:text-left">
@@ -125,7 +125,7 @@ const Projects = () => {
                 <ArrowRight className="w-4 h-4 ml-2"/>
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-5xl w-full bg-surface-container-lowest text-mn-primary border-outline-variant/40 rounded-[32px] p-8 shadow-2xl">
+            <DialogContent className="max-w-5xl w-full bg-surface-container-lowest text-mn-primary border-outline-variant/40 rounded-[32px] p-4 sm:p-8 shadow-2xl">
               <div className="mb-6">
                 <h2 className="text-2xl font-bold font-headline-md text-mn-primary">
                   Common Resume Projects vs Advanced Architectures

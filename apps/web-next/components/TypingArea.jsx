@@ -198,7 +198,7 @@ export default function TypingArea({ snippet, timeLeft, onType, cursorPosition, 
     };
     return (<div className="relative">
       {/* Premium Header */}
-      <div className="flex justify-between items-center mb-8 p-6 bg-gradient-to-r from-zinc-800/70 via-zinc-700/70 to-zinc-800/70 rounded-xl border border-zinc-600/50 backdrop-blur-sm">
+      <div className="flex justify-between items-center mb-4 md:mb-8 p-4 md:p-6 bg-gradient-to-r from-zinc-800/70 via-zinc-700/70 to-zinc-800/70 rounded-xl border border-zinc-600/50 backdrop-blur-sm">
         <div className="flex items-center space-x-6">
           <div className="flex items-center space-x-3">
             <div className="w-3 h-3 bg-gradient-to-r from-red-400 to-red-500 rounded-full shadow-lg shadow-red-500/30"></div>
@@ -228,7 +228,7 @@ export default function TypingArea({ snippet, timeLeft, onType, cursorPosition, 
       </div>
 
       {/* Premium Code Display */}
-      <div ref={containerRef} className={`relative font-mono text-lg leading-relaxed whitespace-pre-wrap outline-none bg-gradient-to-br from-zinc-900/50 via-black/50 to-zinc-900/50 p-8 rounded-xl border transition-all duration-300 min-h-[350px] backdrop-blur-sm ${isStarted ? 'focus:border-white/50 cursor-text border-zinc-600/50 shadow-inner' : 'cursor-pointer border-zinc-600/50 hover:border-zinc-500/50'}`} tabIndex={0} onBlur={handleBlur} onClick={handleContainerClick} style={{ lineHeight: '1.8' }}>
+      <div ref={containerRef} className={`relative font-mono text-sm md:text-lg leading-relaxed whitespace-pre-wrap outline-none bg-gradient-to-br from-zinc-900/50 via-black/50 to-zinc-900/50 p-4 md:p-8 rounded-xl border transition-all duration-300 min-h-[250px] md:min-h-[350px] backdrop-blur-sm ${isStarted ? 'focus:border-white/50 cursor-text border-zinc-600/50 shadow-inner' : 'cursor-pointer border-zinc-600/50 hover:border-zinc-500/50'}`} tabIndex={0} onBlur={handleBlur} onClick={handleContainerClick} style={{ lineHeight: '1.8' }}>
         {!isStarted && (<div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-zinc-900/95 via-black/95 to-zinc-900/95 rounded-xl backdrop-blur-sm">
             <div className="text-center p-8">
               <p className="text-zinc-300 text-xl mb-3 font-medium">Click here or press any key to start typing</p>

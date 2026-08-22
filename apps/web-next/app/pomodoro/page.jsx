@@ -314,9 +314,9 @@ const Pomodoro = () => {
           <div className="bg-surface-container rounded-2xl border border-border shadow-[0_16px_48px_rgba(0,0,0,0.45)] mb-6 overflow-hidden">
 
             {/* Tab bar + controls */}
-            <div className="flex items-center justify-between px-6 md:px-8 pt-5 pb-4 border-b border-border/40">
-              <div className="flex bg-surface-container-low rounded-xl p-1 gap-1 border border-border/20">
-                {['pomodoro', 'shortBreak', 'longBreak'].map((m) => (<button key={m} onClick={() => changeMode(m)} className={`px-5 py-2 rounded-lg text-sm font-medium transition-all duration-300 font-body-md ${mode === m
+            <div className="flex flex-col sm:flex-row items-center justify-between px-4 sm:px-6 md:px-8 pt-5 pb-4 border-b border-border/40 gap-4">
+              <div className="flex bg-surface-container-low rounded-xl p-1 gap-1 border border-border/20 overflow-x-auto w-full sm:w-auto justify-start sm:justify-center scrollbar-hide">
+                {['pomodoro', 'shortBreak', 'longBreak'].map((m) => (<button key={m} onClick={() => changeMode(m)} className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 font-body-md shrink-0 ${mode === m
                 ? 'bg-primary text-primary-foreground font-semibold shadow-sm'
                 : 'text-on-surface-variant hover:text-foreground hover:bg-surface-container-high'}`}>
                     {m === 'pomodoro' ? 'Focus' : m === 'shortBreak' ? 'Short Break' : 'Long Break'}
@@ -333,7 +333,7 @@ const Pomodoro = () => {
             </div>
 
             {/* Timer display */}
-            <div className="px-8 md:px-20 py-10 md:py-14 flex flex-col items-center">
+            <div className="px-4 sm:px-8 md:px-20 py-8 md:py-14 flex flex-col items-center">
               <span className="font-label-caps text-label-caps text-on-surface-variant tracking-widest mb-8 uppercase">
                 {getModeTitle()}
               </span>

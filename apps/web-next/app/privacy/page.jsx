@@ -34,7 +34,7 @@ const PrivacyPolicy = () => {
 
       {/* ── Document Body ── */}
       <main className="max-w-4xl mx-auto px-6 py-16">
-        <div className="bg-surface-container-lowest rounded-[40px] border border-outline-variant/40 p-8 md:p-14 shadow-[0_20px_50px_rgba(0,19,8,0.06)] space-y-10">
+        <div className="bg-surface-container-lowest rounded-[40px] border border-outline-variant/40 p-6 sm:p-10 md:p-14 shadow-[0_20px_50px_rgba(0,19,8,0.06)] space-y-10">
           {/* Introduction */}
           <div className="space-y-3">
             <h2 className="text-xl font-bold text-mn-primary font-headline-md flex items-center gap-2.5">

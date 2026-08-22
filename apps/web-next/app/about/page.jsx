@@ -91,7 +91,7 @@ const About = () => {
 
       {/* ── Story Section Bento ── */}
       <section className="py-12 px-6 md:px-16 max-w-5xl mx-auto">
-        <div className="bg-surface-container-lowest rounded-[40px] p-8 md:p-14 border border-outline-variant/40 shadow-[0_20px_50px_rgba(0,19,8,0.06)] relative overflow-hidden">
+        <div className="bg-surface-container-lowest rounded-[40px] p-6 sm:p-10 md:p-14 border border-outline-variant/40 shadow-[0_20px_50px_rgba(0,19,8,0.06)] relative overflow-hidden">
           <div className="text-center max-w-xl mx-auto mb-10">
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-surface-container text-surface-tint text-xs font-label-caps tracking-widest uppercase mb-3">
               <Compass className="w-3.5 h-3.5"/>

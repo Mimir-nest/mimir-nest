@@ -92,7 +92,7 @@ const FAQ = () => {
         </Accordion>
 
         {/* ── Support Card ── */}
-        <div className="mt-16 bg-surface-container text-foreground rounded-2xl p-8 md:p-12 text-center relative overflow-hidden border border-border/50 shadow-xl space-y-4">
+        <div className="mt-16 bg-surface-container text-foreground rounded-2xl p-6 sm:p-8 md:p-12 text-center relative overflow-hidden border border-border/50 shadow-xl space-y-4">
           <div className="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mx-auto text-surface-tint mb-2 border border-border/40">
             <Mail className="w-6 h-6"/>
           </div>

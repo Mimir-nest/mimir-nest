@@ -54,7 +54,7 @@ const Typing = () => {
       <Navbar />
 
       {/* ── Deep Green Sanctuary Hero ── */}
-      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl">
+      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-4 sm:px-6 md:px-16 overflow-hidden rounded-b-3xl">
         {/* Decorative Rings */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
         <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
@@ -79,7 +79,7 @@ const Typing = () => {
       </section>
 
       {/* ── Main Interactive Typing Section ── */}
-      <main className="max-w-5xl mx-auto px-6 md:px-16 py-12 w-full flex-grow">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 md:px-16 py-12 w-full flex-grow">
         {!showResults ? (<motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="space-y-6">
             {/* Control Bar */}
             <div className="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/40 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">

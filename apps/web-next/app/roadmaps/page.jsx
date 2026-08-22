@@ -16,7 +16,7 @@ const Roadmaps = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-surface-tint/10 pointer-events-none"/>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-surface-tint/15 pointer-events-none"/>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="w-full max-w-xl mx-auto text-center bg-surface-container-lowest rounded-[40px] shadow-[0_24px_64px_rgba(0,19,8,0.08)] p-10 md:p-14 border border-outline-variant/40 relative z-10 space-y-6">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="w-full max-w-xl mx-auto text-center bg-surface-container-lowest rounded-[40px] shadow-[0_24px_64px_rgba(0,19,8,0.08)] p-6 sm:p-10 md:p-14 border border-outline-variant/40 relative z-10 space-y-6">
           <div className="w-16 h-16 rounded-2xl bg-surface-container flex items-center justify-center mx-auto text-surface-tint border border-surface-tint/20 shadow-inner">
             <Compass className="w-8 h-8 animate-spin-slow"/>
           </div>

@@ -185,7 +185,7 @@ const EmailPerks = () => {
                             Details
                           </Button>
                         </DialogTrigger>
-                        <DialogContent className="bg-surface-container border-border rounded-2xl max-w-2xl p-8">
+                        <DialogContent className="bg-surface-container border-border rounded-2xl max-w-2xl p-4 sm:p-8">
                           <PerkDetails {...perk} icon={perkIcons[perk.iconKey] || <Gift className="h-5 w-5 text-surface-tint"/>}/>
                         </DialogContent>
                       </Dialog>

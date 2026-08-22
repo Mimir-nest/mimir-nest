@@ -68,6 +68,19 @@ const MobileNav = () => {
     useEffect(() => {
         setIsOpen(false);
     }, [pathname]);
+
+    // Prevent background page scrolling when menu is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isOpen]);
+
     const navLinks = [
         { name: "Home", path: "/", icon: BookOpen },
         { name: "CGPA Scan", path: "/cgpa", icon: Calculator },
@@ -79,24 +92,34 @@ const MobileNav = () => {
         { name: "Email Perks", path: "/email-perks", icon: Mail },
         { name: "Roadmaps", path: "/roadmaps", icon: Map },
     ];
-    return (<nav className="md:hidden fixed top-0 w-full z-50 bg-mn-surface/90 backdrop-blur-md px-6 py-4 flex justify-between items-center border-b border-outline-variant/30 shadow-sm">
+    return (<nav className="md:hidden fixed top-0 w-full z-50 bg-mn-surface px-6 h-16 flex justify-between items-center border-b border-outline-variant shadow-md">
       <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
         <img src="/logo/logo.png" alt="Mimir Nest" className="h-8 w-auto"/>
         <span className="font-bold text-foreground text-xl">Mimir <span className="text-surface-tint">Nest</span></span>
       </Link>
-      <button onClick={() => setIsOpen(!isOpen)} className="text-on-background p-1.5 rounded-lg hover:bg-surface-container transition-colors">
+      <button 
+        onClick={() => setIsOpen(!isOpen)} 
+        className="text-on-background p-1.5 rounded-lg hover:bg-surface-container transition-colors"
+        aria-label="Toggle menu"
+        aria-expanded={isOpen}
+      >
         {isOpen ? <X className="w-6 h-6"/> : <Menu className="w-6 h-6"/>}
       </button>
 
       {/* Mobile Dropdown */}
-      {isOpen && (<div className="absolute top-full left-0 right-0 bg-mn-surface/98 backdrop-blur-2xl border-b border-outline-variant/40 animate-in slide-in-from-top-4 duration-300">
-          <div className="px-4 py-6 space-y-1 max-h-[80vh] overflow-y-auto">
-            {navLinks.map((link) => (<Link key={link.name} href={link.path} className={cn("flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200", pathname === link.path
-                    ? "bg-surface-container-high text-surface-tint border border-surface-tint/20"
+      {isOpen && (<div className="absolute top-full left-0 right-0 bg-mn-surface border-b border-outline-variant shadow-xl animate-in slide-in-from-top-4 duration-300 z-50">
+          <div className="px-4 py-6 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.path;
+              return (
+                <Link key={link.name} href={link.path} className={cn("flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200", isActive
+                    ? "bg-surface-container-high text-surface-tint border border-surface-tint/20 font-semibold"
                     : "text-on-surface-variant hover:text-surface-tint hover:bg-surface-container border border-transparent")}>
-                {link.icon && <link.icon className="h-5 w-5 flex-shrink-0"/>}
-                {link.name}
-              </Link>))}
+                  {link.icon && <link.icon className="h-5 w-5 flex-shrink-0"/>}
+                  {link.name}
+                </Link>
+              );
+            })}
           </div>
         </div>)}
     </nav>);

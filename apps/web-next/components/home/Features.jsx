@@ -2,7 +2,7 @@ import React from "react";
 import { BookMarked, Map, ArrowRight } from "lucide-react";
 import Link from "next/link";
 const Features = () => {
-    return (<section id="features" className="py-[120px] px-6 md:px-16 bg-mn-background max-w-full">
+    return (<section id="features" className="py-16 md:py-[120px] px-6 md:px-16 bg-mn-background max-w-full">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="mb-16 max-w-2xl">
@@ -19,9 +19,9 @@ const Features = () => {
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[280px]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:auto-rows-[280px]">
           {/* Large Feature Card — Dark (primary-container) */}
-          <Link href="/projects" className="md:col-span-8 rounded-2xl bg-primary-container relative overflow-hidden group flex flex-col justify-end p-10 cursor-pointer border border-border/30">
+          <Link href="/projects" className="md:col-span-8 h-72 md:h-auto rounded-2xl bg-primary-container relative overflow-hidden group flex flex-col justify-end p-6 md:p-10 cursor-pointer border border-border/30">
             <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent z-10 opacity-90"/>
             {/* Background abstract bars */}
             <div className="absolute inset-0 flex items-end justify-center gap-3 p-6 opacity-20">
@@ -44,7 +44,7 @@ const Features = () => {
           </Link>
 
           {/* Small Feature Card — Ivory (surface-container) */}
-          <Link href="/courses" className="md:col-span-4 rounded-2xl bg-surface-container p-8 flex flex-col items-start border border-border/40 group transition-colors hover:border-surface-tint/30">
+          <Link href="/courses" className="md:col-span-4 rounded-2xl bg-surface-container p-6 md:p-8 flex flex-col items-start border border-border/40 group transition-colors hover:border-surface-tint/30">
             <div className="w-12 h-12 rounded-xl bg-surface-tint/10 flex items-center justify-center mb-auto group-hover:bg-surface-tint/20 transition-colors">
               <BookMarked className="w-6 h-6 text-surface-tint" strokeWidth={1.5}/>
             </div>
@@ -59,7 +59,7 @@ const Features = () => {
           </Link>
 
           {/* Small Feature Card — Tint (surface-tint) */}
-          <Link href="/roadmaps" className="md:col-span-4 rounded-2xl bg-surface-tint p-8 flex flex-col items-start relative overflow-hidden group">
+          <Link href="/roadmaps" className="md:col-span-4 rounded-2xl bg-surface-tint p-6 md:p-8 flex flex-col items-start relative overflow-hidden group">
             <div className="absolute -right-8 -bottom-8 w-40 h-40 border border-white/20 rounded-full pointer-events-none"/>
             <div className="absolute -right-16 -bottom-16 w-56 h-56 border border-white/10 rounded-full pointer-events-none"/>
             <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-auto group-hover:bg-white/20 transition-colors">
@@ -76,7 +76,7 @@ const Features = () => {
           </Link>
 
           {/* Medium Feature Card — White (surface-container-lowest) */}
-          <Link href="/placement-dsa" className="md:col-span-8 rounded-2xl bg-surface-container-lowest border border-border p-10 flex items-center gap-8 group hover:border-surface-tint/30 transition-colors">
+          <Link href="/placement-dsa" className="md:col-span-8 rounded-2xl bg-surface-container-lowest border border-border p-6 md:p-10 flex flex-col sm:flex-row items-center gap-6 md:gap-8 group hover:border-surface-tint/30 transition-colors">
             <div className="flex-1">
               <span className="font-label-caps text-label-caps text-surface-tint tracking-widest block mb-4">
                 ANALYTICS
@@ -93,7 +93,7 @@ const Features = () => {
               </span>
             </div>
             {/* Abstract Data Viz */}
-            <div className="w-1/3 h-full bg-surface-container rounded-xl border border-border/40 relative overflow-hidden flex items-end p-4 gap-2 shrink-0">
+            <div className="w-full sm:w-1/3 h-32 sm:h-full bg-surface-container rounded-xl border border-border/40 relative overflow-hidden flex items-end p-4 gap-2 shrink-0">
               {[40, 70, 90, 60].map((h, i) => (<div key={i} className="flex-1 rounded-t-sm" style={{
                 height: `${h}%`,
                 background: i === 0
