@@ -135,7 +135,7 @@ const Projects = () => {
                 </p>
               </div>
               <div className="overflow-x-auto max-h-[70vh] border border-outline-variant/30 rounded-2xl">
-                <table className="min-w-full text-sm text-left">
+                <table className="min-w-[700px] text-sm text-left">
                   <thead className="bg-surface-container text-mn-primary font-bold text-xs uppercase tracking-wider">
                     <tr>
                       <th className="py-3.5 px-4">#</th>

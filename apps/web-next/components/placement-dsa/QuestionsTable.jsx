@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Copy, Check, ExternalLink, Trophy, Target, Zap, BarChart3, Filter, CircleDot, RotateCcw } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 const QuestionsTable = ({ filteredQuestions, copiedQuestionId, handleCopyQuestion }) => {
     const [solvedQuestions, setSolvedQuestions] = useState(() => {
         try {
@@ -195,7 +195,7 @@ const QuestionsTable = ({ filteredQuestions, copiedQuestionId, handleCopyQuestio
       {/* ── Questions Table Terminal ── */}
       <div className="border border-outline-variant/40 rounded-[32px] overflow-hidden bg-surface-container-lowest shadow-[0_20px_50px_rgba(0,19,8,0.06)]">
         <ScrollArea className="h-[600px] md:h-[700px]">
-          <Table>
+          <Table className="min-w-[800px]">
             <TableHeader className="bg-surface-container/90 sticky top-0 z-20 backdrop-blur-md border-b border-outline-variant/30">
               <TableRow className="border-outline-variant/30 hover:bg-transparent">
                 <TableHead className="text-mn-primary font-bold pl-6 w-[50px]">Done</TableHead>
@@ -267,7 +267,7 @@ const QuestionsTable = ({ filteredQuestions, copiedQuestionId, handleCopyQuestio
                             {copiedQuestionId === Number(question.id) ? (<Check className="h-4 w-4 text-surface-tint"/>) : (<Copy className="h-4 w-4"/>)}
                           </Button>
 
-                          <Button size="sm" className="bg-mn-primary hover:opacity-90 text-on-primary border-none shadow-sm transition-all duration-300 gap-1.5 h-8 px-4 font-label-caps text-label-caps tracking-wider rounded-full hover:scale-105" onClick={() => window.open(question.link, '_blank')}>
+                          <Button size="sm" className="bg-primary text-primary-foreground hover:opacity-90 border-none shadow-sm transition-all duration-300 gap-1.5 h-8 px-4 font-label-caps text-label-caps tracking-wider rounded-full hover:scale-105" onClick={() => window.open(question.link, '_blank')}>
                             <span>Solve</span>
                             <ExternalLink className="h-3 w-3"/>
                           </Button>
@@ -289,6 +289,7 @@ const QuestionsTable = ({ filteredQuestions, copiedQuestionId, handleCopyQuestio
                 </TableRow>)}
             </TableBody>
           </Table>
+          <ScrollBar orientation="horizontal" />
         </ScrollArea>
       </div>
     </motion.div>);
