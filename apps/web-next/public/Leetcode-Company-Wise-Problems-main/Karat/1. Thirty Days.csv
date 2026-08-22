@@ -1,0 +1,3 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Text Justification,100.0,0.47093350390662947,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+EASY,Find Words That Can Be Formed by Characters,80.4,0.7090272206023366,https://leetcode.com/problems/find-words-that-can-be-formed-by-characters,"Array, Hash Table, String, Counting"

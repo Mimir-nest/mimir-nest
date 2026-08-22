@@ -1,0 +1,51 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Insert Delete GetRandom O(1),54.9%,Medium,100.0,https://leetcode.com/problems/insert-delete-getrandom-o1,"Array, Hash Table, Math, Design, Randomized"
+2,Trapping Rain Water,64.3%,Hard,91.0,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+3,Flatten Nested List Iterator,65.2%,Medium,91.0,https://leetcode.com/problems/flatten-nested-list-iterator,"Stack, Tree, Depth-First Search, Design, Queue, Iterator"
+4,Merge Intervals,48.8%,Medium,91.0,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+5,Implement Trie (Prefix Tree),67.4%,Medium,85.0,https://leetcode.com/problems/implement-trie-prefix-tree,"Hash Table, String, Design, Trie"
+6,Tweet Counts Per Frequency,45.1%,Medium,85.0,https://leetcode.com/problems/tweet-counts-per-frequency,"Hash Table, Binary Search, Design, Sorting, Ordered Set"
+7,Design Twitter,41.6%,Medium,85.0,https://leetcode.com/problems/design-twitter,"Hash Table, Linked List, Design, Heap (Priority Queue)"
+8,Investments in 2016,49.7%,Medium,77.3,https://leetcode.com/problems/investments-in-2016,Database
+9,Best Meeting Point,61.2%,Hard,77.3,https://leetcode.com/problems/best-meeting-point,"Array, Math, Sorting, Matrix"
+10,The Skyline Problem,43.6%,Hard,66.4,https://leetcode.com/problems/the-skyline-problem,"Array, Divide and Conquer, Binary Indexed Tree, Segment Tree, Line Sweep, Heap (Priority Queue), Ordered Set"
+11,Rectangles Area,68.7%,Medium,66.4,https://leetcode.com/problems/rectangles-area,Database
+12,Happy Number,57.6%,Easy,66.4,https://leetcode.com/problems/happy-number,"Hash Table, Math, Two Pointers"
+13,Customer Placing the Largest Number of Orders,64.5%,Easy,66.4,https://leetcode.com/problems/customer-placing-the-largest-number-of-orders,Database
+14,Number of Black Blocks,37.4%,Medium,66.4,https://leetcode.com/problems/number-of-black-blocks,"Array, Hash Table, Enumeration"
+15,Reverse Linked List,78.7%,Easy,66.4,https://leetcode.com/problems/reverse-linked-list,"Linked List, Recursion"
+16,Validate IP Address,27.7%,Medium,66.4,https://leetcode.com/problems/validate-ip-address,String
+17,Tree Node,73.5%,Medium,66.4,https://leetcode.com/problems/tree-node,Database
+18,Masking Personal Information,50.2%,Medium,66.4,https://leetcode.com/problems/masking-personal-information,String
+19,Process Tasks Using Servers,40.8%,Medium,66.4,https://leetcode.com/problems/process-tasks-using-servers,"Array, Heap (Priority Queue)"
+20,Number of Connected Components in an Undirected Graph,63.8%,Medium,66.4,https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph,"Depth-First Search, Breadth-First Search, Union Find, Graph"
+21,Remove All Occurrences of a Substring,78.0%,Medium,66.4,https://leetcode.com/problems/remove-all-occurrences-of-a-substring,"String, Stack, Simulation"
+22,Lowest Common Ancestor of a Binary Search Tree,67.4%,Medium,66.4,https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree,"Tree, Depth-First Search, Binary Search Tree, Binary Tree"
+23,Design Authentication Manager,58.1%,Medium,66.4,https://leetcode.com/problems/design-authentication-manager,"Hash Table, Linked List, Design, Doubly-Linked List"
+24,Count Sub Islands,72.8%,Medium,66.4,https://leetcode.com/problems/count-sub-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+25,Pascal's Triangle,76.4%,Easy,66.4,https://leetcode.com/problems/pascals-triangle,"Array, Dynamic Programming"
+26,Minimum Elements to Add to Form a Given Sum,44.1%,Medium,66.4,https://leetcode.com/problems/minimum-elements-to-add-to-form-a-given-sum,"Array, Greedy"
+27,Kth Smallest Element in a Sorted Matrix,63.2%,Medium,66.4,https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix,"Array, Binary Search, Sorting, Heap (Priority Queue), Matrix"
+28,Count Student Number in Departments,59.6%,Medium,66.4,https://leetcode.com/problems/count-student-number-in-departments,Database
+29,Minimum Genetic Mutation,55.0%,Medium,66.4,https://leetcode.com/problems/minimum-genetic-mutation,"Hash Table, String, Breadth-First Search"
+30,Minimum Number of Steps to Make Two Strings Anagram,82.2%,Medium,66.4,https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram,"Hash Table, String, Counting"
+31,Valid Parentheses,41.8%,Easy,66.4,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+32,Gas Station,46.0%,Medium,66.4,https://leetcode.com/problems/gas-station,"Array, Greedy"
+33,Binary Gap,64.5%,Easy,66.4,https://leetcode.com/problems/binary-gap,Bit Manipulation
+34,Regular Expression Matching,29.0%,Hard,66.4,https://leetcode.com/problems/regular-expression-matching,"String, Dynamic Programming, Recursion"
+35,Integer to Roman,67.9%,Medium,66.4,https://leetcode.com/problems/integer-to-roman,"Hash Table, Math, String"
+36,Word Break II,52.9%,Hard,66.4,https://leetcode.com/problems/word-break-ii,"Array, Hash Table, String, Dynamic Programming, Backtracking, Trie, Memoization"
+37,Alien Dictionary,36.4%,Hard,66.4,https://leetcode.com/problems/alien-dictionary,"Array, String, Depth-First Search, Breadth-First Search, Graph, Topological Sort"
+38,LRU Cache,44.4%,Medium,66.4,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+39,Time Needed to Buy Tickets,70.3%,Easy,66.4,https://leetcode.com/problems/time-needed-to-buy-tickets,"Array, Queue, Simulation"
+40,Max Points on a Line,28.4%,Hard,66.4,https://leetcode.com/problems/max-points-on-a-line,"Array, Hash Table, Math, Geometry"
+41,Permutation Sequence,49.2%,Hard,66.4,https://leetcode.com/problems/permutation-sequence,"Math, Recursion"
+42,Merge k Sorted Lists,55.8%,Hard,66.4,https://leetcode.com/problems/merge-k-sorted-lists,"Linked List, Divide and Conquer, Heap (Priority Queue), Merge Sort"
+43,Trapping Rain Water II,58.7%,Hard,66.4,https://leetcode.com/problems/trapping-rain-water-ii,"Array, Breadth-First Search, Heap (Priority Queue), Matrix"
+44,Finding the Users Active Minutes,80.4%,Medium,66.4,https://leetcode.com/problems/finding-the-users-active-minutes,"Array, Hash Table"
+45,One Edit Distance,34.4%,Medium,66.4,https://leetcode.com/problems/one-edit-distance,"Two Pointers, String"
+46,Invalid Tweets,85.7%,Easy,66.4,https://leetcode.com/problems/invalid-tweets,Database
+47,Multiply Strings,41.8%,Medium,66.4,https://leetcode.com/problems/multiply-strings,"Math, String, Simulation"
+48,Wildcard Matching,29.4%,Hard,66.4,https://leetcode.com/problems/wildcard-matching,"String, Dynamic Programming, Greedy, Recursion"
+49,Design Skiplist,61.8%,Hard,66.4,https://leetcode.com/problems/design-skiplist,"Linked List, Design"
+50,Flatten 2D Vector,50.0%,Medium,66.4,https://leetcode.com/problems/flatten-2d-vector,"Array, Two Pointers, Design, Iterator"

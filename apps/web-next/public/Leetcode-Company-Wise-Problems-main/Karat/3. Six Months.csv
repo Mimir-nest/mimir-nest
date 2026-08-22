@@ -1,0 +1,8 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Text Justification,100.0,0.47093350390662947,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+MEDIUM,Word Search,88.7,0.4462623986513085,https://leetcode.com/problems/word-search,"Array, String, Backtracking, Depth-First Search, Matrix"
+EASY,Find Words That Can Be Formed by Characters,79.2,0.7090272206023366,https://leetcode.com/problems/find-words-that-can-be-formed-by-characters,"Array, Hash Table, String, Counting"
+EASY,Check if Every Row and Column Contains All Numbers,79.2,0.5252827334914578,https://leetcode.com/problems/check-if-every-row-and-column-contains-all-numbers,"Array, Hash Table, Matrix"
+MEDIUM,Alert Using Same Key-Card Three or More Times in a One Hour Period,68.8,0.4618695359784802,https://leetcode.com/problems/alert-using-same-key-card-three-or-more-times-in-a-one-hour-period,"Array, Hash Table, String, Sorting"
+EASY,Ransom Note,60.6,0.6391437631956618,https://leetcode.com/problems/ransom-note,"Hash Table, String, Counting"
+MEDIUM,Jump Game,60.6,0.3911357948180106,https://leetcode.com/problems/jump-game,"Array, Dynamic Programming, Greedy"

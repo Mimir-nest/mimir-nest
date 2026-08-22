@@ -1,0 +1,3 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Zigzag Conversion,100.0,0.5079153547273076,https://leetcode.com/problems/zigzag-conversion,String
+MEDIUM,Next Permutation,100.0,0.4232421470433192,https://leetcode.com/problems/next-permutation,"Array, Two Pointers"

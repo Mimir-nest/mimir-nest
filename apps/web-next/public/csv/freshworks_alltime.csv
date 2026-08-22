@@ -1,0 +1,10 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Two Sum,55.1%,Easy,100.0,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+2,Longest Substring Without Repeating Characters,36.3%,Medium,88.0,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+3,Zigzag Conversion,50.8%,Medium,88.0,https://leetcode.com/problems/zigzag-conversion,String
+4,Letter Combinations of a Phone Number,63.1%,Medium,88.0,https://leetcode.com/problems/letter-combinations-of-a-phone-number,"Hash Table, String, Backtracking"
+5,Valid Parentheses,41.8%,Easy,88.0,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+6,Best Time to Buy and Sell Stock,54.8%,Easy,88.0,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+7,Find Minimum in Rotated Sorted Array,52.2%,Medium,88.0,https://leetcode.com/problems/find-minimum-in-rotated-sorted-array,"Array, Binary Search"
+8,Maximum Product of Three Numbers,45.2%,Easy,88.0,https://leetcode.com/problems/maximum-product-of-three-numbers,"Array, Math, Sorting"
+9,LRU Cache,44.4%,Medium,88.0,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"

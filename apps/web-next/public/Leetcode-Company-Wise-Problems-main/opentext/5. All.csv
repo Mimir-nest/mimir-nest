@@ -1,0 +1,6 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,Largest 3-Same-Digit Number in String,100.0,0.6912672655186292,https://leetcode.com/problems/largest-3-same-digit-number-in-string,String
+MEDIUM,Longest Substring Without Repeating Characters,73.9,0.36326988074001426,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+EASY,Two Sum,65.2,0.5507401026978466,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+EASY,Best Time to Buy and Sell Stock,65.2,0.5477006758788603,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+EASY,Valid Parentheses,65.2,0.4184532462167559,https://leetcode.com/problems/valid-parentheses,"String, Stack"

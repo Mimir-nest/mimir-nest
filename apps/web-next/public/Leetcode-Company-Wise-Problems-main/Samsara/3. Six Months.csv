@@ -1,0 +1,2 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Valid Sudoku,100.0,0.6165326462695703,https://leetcode.com/problems/valid-sudoku,"Array, Hash Table, Matrix"

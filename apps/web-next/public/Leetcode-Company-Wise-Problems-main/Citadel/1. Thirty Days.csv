@@ -1,0 +1,4 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Palindromic Substrings,100.0,0.7126854175577977,https://leetcode.com/problems/palindromic-substrings,"Two Pointers, String, Dynamic Programming"
+HARD,Count Palindromic Subsequences,94.9,0.38648175347418373,https://leetcode.com/problems/count-palindromic-subsequences,"String, Dynamic Programming"
+MEDIUM,Find the Duplicate Number,78.9,0.6234291174328758,https://leetcode.com/problems/find-the-duplicate-number,"Array, Two Pointers, Binary Search, Bit Manipulation"

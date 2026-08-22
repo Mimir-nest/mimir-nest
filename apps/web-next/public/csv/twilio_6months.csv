@@ -1,0 +1,8 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Maximize Greatness of an Array,58.7%,Medium,100.0,https://leetcode.com/problems/maximize-greatness-of-an-array,"Array, Two Pointers, Greedy, Sorting"
+2,Text Justification,47.1%,Hard,86.6,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+3,Univalued Binary Tree,71.8%,Easy,86.6,https://leetcode.com/problems/univalued-binary-tree,"Tree, Depth-First Search, Breadth-First Search, Binary Tree"
+4,Letter Combinations of a Phone Number,63.1%,Medium,76.1,https://leetcode.com/problems/letter-combinations-of-a-phone-number,"Hash Table, String, Backtracking"
+5,Minimum Number of Swaps to Make the String Balanced,78.0%,Medium,76.1,https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced,"Two Pointers, String, Stack, Greedy"
+6,Minimum Equal Sum of Two Arrays After Replacing Zeros,36.3%,Medium,76.1,https://leetcode.com/problems/minimum-equal-sum-of-two-arrays-after-replacing-zeros,"Array, Greedy"
+7,Reformat Date,67.2%,Easy,76.1,https://leetcode.com/problems/reformat-date,String

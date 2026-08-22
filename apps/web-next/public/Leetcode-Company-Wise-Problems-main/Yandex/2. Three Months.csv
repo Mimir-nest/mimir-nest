@@ -1,0 +1,22 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,Summary Ranges,100.0,0.525608088788803,https://leetcode.com/problems/summary-ranges,Array
+MEDIUM,Longest Subarray of 1's After Deleting One Element,98.0,0.6878805919524289,https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element,"Array, Dynamic Programming, Sliding Window"
+MEDIUM,Find K Closest Elements,84.0,0.4834732150587973,https://leetcode.com/problems/find-k-closest-elements,"Array, Two Pointers, Binary Search, Sliding Window, Sorting, Heap (Priority Queue)"
+MEDIUM,String Compression,84.0,0.5727262854853801,https://leetcode.com/problems/string-compression,"Two Pointers, String"
+MEDIUM,Maximize Distance to Closest Person,79.8,0.4870415197084244,https://leetcode.com/problems/maximize-distance-to-closest-person,Array
+MEDIUM,Line Reflection,79.8,0.3587024122461503,https://leetcode.com/problems/line-reflection,"Array, Hash Table, Math"
+MEDIUM,Find the Prefix Common Array of Two Arrays,74.7,0.8769069915069642,https://leetcode.com/problems/find-the-prefix-common-array-of-two-arrays,"Array, Hash Table, Bit Manipulation"
+MEDIUM,Subarray Sum Equals K,68.1,0.44931317696743306,https://leetcode.com/problems/subarray-sum-equals-k,"Array, Hash Table, Prefix Sum"
+MEDIUM,One Edit Distance,68.1,0.344465493153644,https://leetcode.com/problems/one-edit-distance,"Two Pointers, String"
+EASY,Merge Sorted Array,68.1,0.5225684483517402,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+MEDIUM,Longest Substring Without Repeating Characters,68.1,0.3632672259610971,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+MEDIUM,Find Duplicate Subtrees,58.8,0.5994563770907163,https://leetcode.com/problems/find-duplicate-subtrees,"Hash Table, Tree, Depth-First Search, Binary Tree"
+HARD,Reconstruct Itinerary,58.8,0.43428432801381894,https://leetcode.com/problems/reconstruct-itinerary,"Depth-First Search, Graph, Eulerian Circuit"
+EASY,Move Zeroes,58.8,0.6254444911389615,https://leetcode.com/problems/move-zeroes,"Array, Two Pointers"
+EASY,Longest Strictly Increasing or Strictly Decreasing Subarray,58.8,0.653457935296232,https://leetcode.com/problems/longest-strictly-increasing-or-strictly-decreasing-subarray,Array
+MEDIUM,Simplify Path,58.8,0.4659590867505188,https://leetcode.com/problems/simplify-path,"String, Stack"
+HARD,Binary Tree Maximum Path Sum,58.8,0.40904577335466075,https://leetcode.com/problems/binary-tree-maximum-path-sum,"Dynamic Programming, Tree, Depth-First Search, Binary Tree"
+MEDIUM,Lowest Common Ancestor of a Binary Tree,58.8,0.6566973620097329,https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree,"Tree, Depth-First Search, Binary Tree"
+EASY,Squares of a Sorted Array,58.8,0.7309319904601211,https://leetcode.com/problems/squares-of-a-sorted-array,"Array, Two Pointers, Sorting"
+EASY,Valid Palindrome II,58.8,0.424764791076395,https://leetcode.com/problems/valid-palindrome-ii,"Two Pointers, String, Greedy"
+EASY,Two Sum,58.8,0.5507380788715822,https://leetcode.com/problems/two-sum,"Array, Hash Table"

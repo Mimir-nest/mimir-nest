@@ -1,0 +1,10 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Valid Parentheses,41.8%,Easy,100.0,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+2,Two Sum,55.1%,Easy,92.1,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+3,Subsets,80.3%,Medium,80.9,https://leetcode.com/problems/subsets,"Array, Backtracking, Bit Manipulation"
+4,Fizz Buzz,73.9%,Easy,80.9,https://leetcode.com/problems/fizz-buzz,"Math, String, Simulation"
+5,Valid Anagram,66.2%,Easy,80.9,https://leetcode.com/problems/valid-anagram,"Hash Table, String, Sorting"
+6,Container With Most Water,57.2%,Medium,80.9,https://leetcode.com/problems/container-with-most-water,"Array, Two Pointers, Greedy"
+7,Rotate Image,77.2%,Medium,80.9,https://leetcode.com/problems/rotate-image,"Array, Math, Matrix"
+8,Longest Palindromic Substring,35.3%,Medium,80.9,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"
+9,Candy,44.4%,Hard,80.9,https://leetcode.com/problems/candy,"Array, Greedy"

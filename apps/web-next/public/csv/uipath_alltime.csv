@@ -1,0 +1,9 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Escape a Large Maze,35.2%,Hard,100.0,https://leetcode.com/problems/escape-a-large-maze,"Array, Hash Table, Depth-First Search, Breadth-First Search"
+2,Sorting Three Groups,42.0%,Medium,100.0,https://leetcode.com/problems/sorting-three-groups,"Array, Binary Search, Dynamic Programming"
+3,As Far from Land as Possible,51.7%,Medium,100.0,https://leetcode.com/problems/as-far-from-land-as-possible,"Array, Dynamic Programming, Breadth-First Search, Matrix"
+4,Number of Islands,61.6%,Medium,72.3,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+5,Minimum Window Substring,44.7%,Hard,63.0,https://leetcode.com/problems/minimum-window-substring,"Hash Table, String, Sliding Window"
+6,Longest Palindromic Substring,35.3%,Medium,63.0,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"
+7,Integer to Roman,67.9%,Medium,63.0,https://leetcode.com/problems/integer-to-roman,"Hash Table, Math, String"
+8,Making A Large Island,54.3%,Hard,63.0,https://leetcode.com/problems/making-a-large-island,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"

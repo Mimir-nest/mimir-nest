@@ -1,0 +1,10 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Design In-Memory File System,100.0,0.4802936773240909,https://leetcode.com/problems/design-in-memory-file-system,"Hash Table, String, Design, Trie, Sorting"
+HARD,String Transformation,100.0,0.30690389819773134,https://leetcode.com/problems/string-transformation,"Math, String, Dynamic Programming, String Matching"
+MEDIUM,Time Based Key-Value Store,88.2,0.4936204160978852,https://leetcode.com/problems/time-based-key-value-store,"Hash Table, String, Binary Search, Design"
+EASY,Count Vowel Substrings of a String,88.2,0.6991177568100645,https://leetcode.com/problems/count-vowel-substrings-of-a-string,"Hash Table, String"
+MEDIUM,Most Profitable Path in a Tree,88.2,0.6807515945526633,https://leetcode.com/problems/most-profitable-path-in-a-tree,"Array, Tree, Depth-First Search, Breadth-First Search, Graph"
+HARD,Trapping Rain Water,88.2,0.6428745912239254,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+EASY,Happy Number,88.2,0.5756148228328275,https://leetcode.com/problems/happy-number,"Hash Table, Math, Two Pointers"
+MEDIUM,Copy List with Random Pointer,88.2,0.5950403704397801,https://leetcode.com/problems/copy-list-with-random-pointer,"Hash Table, Linked List"
+HARD,Maximum Profit in Job Scheduling,88.2,0.5433499666760837,https://leetcode.com/problems/maximum-profit-in-job-scheduling,"Array, Binary Search, Dynamic Programming, Sorting"

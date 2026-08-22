@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Arithmetic Slices II - Subsequence,54.6%,Hard,100.0,https://leetcode.com/problems/arithmetic-slices-ii-subsequence,"Array, Dynamic Programming"
+2,Out of Boundary Paths,48.2%,Medium,89.2,https://leetcode.com/problems/out-of-boundary-paths,Dynamic Programming
+3,Zuma Game,31.9%,Hard,89.2,https://leetcode.com/problems/zuma-game,"String, Dynamic Programming, Stack, Breadth-First Search, Memoization"
+4,Length of Longest Fibonacci Subsequence,57.7%,Medium,89.2,https://leetcode.com/problems/length-of-longest-fibonacci-subsequence,"Array, Hash Table, Dynamic Programming"
+5,Longest Substring with At Least K Repeating Characters,45.3%,Medium,89.2,https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters,"Hash Table, String, Divide and Conquer, Sliding Window"
+6,Design In-Memory File System,48.0%,Hard,89.2,https://leetcode.com/problems/design-in-memory-file-system,"Hash Table, String, Design, Trie, Sorting"
+7,Integer Replacement,36.3%,Medium,89.2,https://leetcode.com/problems/integer-replacement,"Dynamic Programming, Greedy, Bit Manipulation, Memoization"
+8,Split Array Largest Sum,57.4%,Hard,89.2,https://leetcode.com/problems/split-array-largest-sum,"Array, Binary Search, Dynamic Programming, Greedy, Prefix Sum"
+9,Binary Tree Maximum Path Sum,40.9%,Hard,89.2,https://leetcode.com/problems/binary-tree-maximum-path-sum,"Dynamic Programming, Tree, Depth-First Search, Binary Tree"
+10,Arithmetic Slices,64.9%,Medium,89.2,https://leetcode.com/problems/arithmetic-slices,"Array, Dynamic Programming, Sliding Window"

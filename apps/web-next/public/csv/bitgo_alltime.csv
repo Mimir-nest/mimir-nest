@@ -1,0 +1,9 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Check if an Original String Exists Given Two Encoded Strings,43.7%,Hard,100.0,https://leetcode.com/problems/check-if-an-original-string-exists-given-two-encoded-strings,"String, Dynamic Programming"
+2,Gas Station,46.0%,Medium,79.9,https://leetcode.com/problems/gas-station,"Array, Greedy"
+3,Zigzag Conversion,50.8%,Medium,73.5,https://leetcode.com/problems/zigzag-conversion,String
+4,Number of Islands,61.6%,Medium,73.5,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+5,Longest Substring with At Most K Distinct Characters,49.3%,Medium,73.5,https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters,"Hash Table, String, Sliding Window"
+6,Longest Substring Without Repeating Characters,36.3%,Medium,64.6,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+7,Game of Life,70.9%,Medium,64.6,https://leetcode.com/problems/game-of-life,"Array, Matrix, Simulation"
+8,Bus Routes,47.1%,Hard,64.6,https://leetcode.com/problems/bus-routes,"Array, Hash Table, Breadth-First Search"

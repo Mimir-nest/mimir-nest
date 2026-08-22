@@ -1,0 +1,10 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Insert Delete GetRandom O(1),54.9%,Medium,100.0,https://leetcode.com/problems/insert-delete-getrandom-o1,"Array, Hash Table, Math, Design, Randomized"
+2,Group Anagrams,70.3%,Medium,78.6,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+3,Design Hit Counter,69.0%,Medium,78.6,https://leetcode.com/problems/design-hit-counter,"Array, Binary Search, Design, Queue, Data Stream"
+4,Shortest Uncommon Substring in an Array,47.3%,Medium,70.7,https://leetcode.com/problems/shortest-uncommon-substring-in-an-array,"Array, Hash Table, String, Trie"
+5,Insert Delete GetRandom O(1) - Duplicates allowed,35.8%,Hard,65.1,https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed,"Array, Hash Table, Math, Design, Randomized"
+6,String Compression,57.3%,Medium,65.1,https://leetcode.com/problems/string-compression,"Two Pointers, String"
+7,Valid Anagram,66.2%,Easy,57.2,https://leetcode.com/problems/valid-anagram,"Hash Table, String, Sorting"
+8,String Compression III,68.1%,Medium,57.2,https://leetcode.com/problems/string-compression-iii,String
+9,Parse Lisp Expression,52.3%,Hard,57.2,https://leetcode.com/problems/parse-lisp-expression,"Hash Table, String, Stack, Recursion"

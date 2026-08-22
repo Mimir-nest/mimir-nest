@@ -1,0 +1,8 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Length of Longest V-Shaped Diagonal Segment,100.0,0.3891479019938498,https://leetcode.com/problems/length-of-longest-v-shaped-diagonal-segment,"Array, Dynamic Programming, Memoization, Matrix"
+HARD,Text Justification,58.3,0.47093296579330096,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+EASY,Best Time to Buy and Sell Stock,58.3,0.547698124538477,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+EASY,Two Sum,58.3,0.5507381358292469,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+MEDIUM,Group Anagrams,58.3,0.7033698794136874,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+MEDIUM,3Sum,58.3,0.3642306812514666,https://leetcode.com/problems/3sum,"Array, Two Pointers, Sorting"
+EASY,Longest Common Prefix,58.3,0.44887905919285687,https://leetcode.com/problems/longest-common-prefix,"String, Trie"

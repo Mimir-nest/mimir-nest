@@ -1,0 +1,10 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Top K Frequent Elements,64.1%,Medium,100.0,https://leetcode.com/problems/top-k-frequent-elements,"Array, Hash Table, Divide and Conquer, Sorting, Heap (Priority Queue), Bucket Sort, Counting, Quickselect"
+2,Add Two Numbers,45.4%,Medium,84.1,https://leetcode.com/problems/add-two-numbers,"Linked List, Math, Recursion"
+3,Add Strings,51.7%,Easy,74.3,https://leetcode.com/problems/add-strings,"Math, String, Simulation"
+4,Generate Parentheses,76.5%,Medium,61.0,https://leetcode.com/problems/generate-parentheses,"String, Dynamic Programming, Backtracking"
+5,Merge Sorted Array,52.3%,Easy,61.0,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+6,Add to Array-Form of Integer,45.0%,Easy,53.3,https://leetcode.com/problems/add-to-array-form-of-integer,"Array, Math"
+7,Merge Two Sorted Lists,66.3%,Easy,53.3,https://leetcode.com/problems/merge-two-sorted-lists,"Linked List, Recursion"
+8,Group Anagrams,70.3%,Medium,53.3,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+9,Kth Largest Element in an Array,67.6%,Medium,53.3,https://leetcode.com/problems/kth-largest-element-in-an-array,"Array, Divide and Conquer, Sorting, Heap (Priority Queue), Quickselect"

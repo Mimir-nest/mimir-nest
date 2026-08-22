@@ -1,0 +1,10 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Longest Substring Without Repeating Characters,100.0,0.3632698290496073,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+EASY,Happy Number,100.0,0.5756183812000967,https://leetcode.com/problems/happy-number,"Hash Table, Math, Two Pointers"
+MEDIUM,Diagonal Traverse,100.0,0.6246070802735213,https://leetcode.com/problems/diagonal-traverse,"Array, Matrix, Simulation"
+EASY,Valid Parentheses,100.0,0.41845326639767877,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+MEDIUM,Maximum Subarray,100.0,0.51733985738986,https://leetcode.com/problems/maximum-subarray,"Array, Divide and Conquer, Dynamic Programming"
+HARD,Design Graph With Shortest Path Calculator,100.0,0.7059424603174604,https://leetcode.com/problems/design-graph-with-shortest-path-calculator,"Graph, Design, Heap (Priority Queue), Shortest Path"
+MEDIUM,Min Stack,100.0,0.559154282742445,https://leetcode.com/problems/min-stack,"Stack, Design"
+EASY,Can Place Flowers,100.0,0.2882163232824915,https://leetcode.com/problems/can-place-flowers,"Array, Greedy"
+MEDIUM,Next Permutation,100.0,0.4232421470433192,https://leetcode.com/problems/next-permutation,"Array, Two Pointers"

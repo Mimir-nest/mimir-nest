@@ -1,0 +1,10 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Integer to English Words,34.3%,Hard,100.0,https://leetcode.com/problems/integer-to-english-words,"Math, String, Recursion"
+2,Number of Accounts That Did Not Stream,72.3%,Medium,96.0,https://leetcode.com/problems/number-of-accounts-that-did-not-stream,Database
+3,Game of Life,70.9%,Medium,88.3,https://leetcode.com/problems/game-of-life,"Array, Matrix, Simulation"
+4,Product of Array Except Self,67.4%,Medium,88.3,https://leetcode.com/problems/product-of-array-except-self,"Array, Prefix Sum"
+5,Merge k Sorted Lists,55.8%,Hard,85.0,https://leetcode.com/problems/merge-k-sorted-lists,"Linked List, Divide and Conquer, Heap (Priority Queue), Merge Sort"
+6,Missing Number,69.3%,Easy,81.0,https://leetcode.com/problems/missing-number,"Array, Hash Table, Math, Binary Search, Bit Manipulation, Sorting"
+7,Find the Index of the First Occurrence in a String,44.5%,Easy,81.0,https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string,"Two Pointers, String, String Matching"
+8,Flatten Nested List Iterator,65.2%,Medium,61.2,https://leetcode.com/problems/flatten-nested-list-iterator,"Stack, Tree, Depth-First Search, Design, Queue, Iterator"
+9,3Sum,36.4%,Medium,61.2,https://leetcode.com/problems/3sum,"Array, Two Pointers, Sorting"

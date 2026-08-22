@@ -1,0 +1,5 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Shortest Common Supersequence ,100.0,0.6131559633027522,https://leetcode.com/problems/shortest-common-supersequence,"String, Dynamic Programming"
+MEDIUM,Minimum Falling Path Sum,100.0,0.6200937741112232,https://leetcode.com/problems/minimum-falling-path-sum,"Array, Dynamic Programming, Matrix"
+EASY,Final Prices With a Special Discount in a Shop,100.0,0.8316997970937711,https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop,"Array, Stack, Monotonic Stack"
+MEDIUM,Furthest Building You Can Reach,100.0,0.5014003019817295,https://leetcode.com/problems/furthest-building-you-can-reach,"Array, Greedy, Heap (Priority Queue)"

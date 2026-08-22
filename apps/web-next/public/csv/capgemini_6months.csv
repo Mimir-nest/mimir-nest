@@ -1,0 +1,15 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Two Sum,55.1%,Easy,100.0,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+2,Count Elements With Maximum Frequency,78.2%,Easy,83.8,https://leetcode.com/problems/count-elements-with-maximum-frequency,"Array, Hash Table, Counting"
+3,Remove Duplicates from Sorted Array,59.5%,Easy,71.8,https://leetcode.com/problems/remove-duplicates-from-sorted-array,"Array, Two Pointers"
+4,Fibonacci Number,72.5%,Easy,71.8,https://leetcode.com/problems/fibonacci-number,"Math, Dynamic Programming, Recursion, Memoization"
+5,Rotate Array,42.5%,Medium,71.8,https://leetcode.com/problems/rotate-array,"Array, Math, Two Pointers"
+6,Longest Common Prefix,44.9%,Easy,71.8,https://leetcode.com/problems/longest-common-prefix,"String, Trie"
+7,Add Two Numbers,45.4%,Medium,62.3,https://leetcode.com/problems/add-two-numbers,"Linked List, Math, Recursion"
+8,Remove Nth Node From End of List,48.1%,Medium,62.3,https://leetcode.com/problems/remove-nth-node-from-end-of-list,"Linked List, Two Pointers"
+9,Best Time to Buy and Sell Stock,54.8%,Easy,62.3,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+10,Valid Palindrome,50.2%,Easy,62.3,https://leetcode.com/problems/valid-palindrome,"Two Pointers, String"
+11,Reverse Words in a String,50.1%,Medium,62.3,https://leetcode.com/problems/reverse-words-in-a-string,"Two Pointers, String"
+12,Number of Unique Subjects Taught by Each Teacher,89.3%,Easy,62.3,https://leetcode.com/problems/number-of-unique-subjects-taught-by-each-teacher,Database
+13,Nth Highest Salary,37.9%,Medium,62.3,https://leetcode.com/problems/nth-highest-salary,Database
+14,Palindrome Number,58.7%,Easy,62.3,https://leetcode.com/problems/palindrome-number,Math

@@ -1,0 +1,8 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Top K Frequent Elements,64.1%,Medium,100.0,https://leetcode.com/problems/top-k-frequent-elements,"Array, Hash Table, Divide and Conquer, Sorting, Heap (Priority Queue), Bucket Sort, Counting, Quickselect"
+2,Add Two Numbers,45.4%,Medium,85.7,https://leetcode.com/problems/add-two-numbers,"Linked List, Math, Recursion"
+3,Add Strings,51.7%,Easy,75.8,https://leetcode.com/problems/add-strings,"Math, String, Simulation"
+4,Generate Parentheses,76.5%,Medium,62.4,https://leetcode.com/problems/generate-parentheses,"String, Dynamic Programming, Backtracking"
+5,Merge Two Sorted Lists,66.3%,Easy,54.6,https://leetcode.com/problems/merge-two-sorted-lists,"Linked List, Recursion"
+6,Merge Sorted Array,52.3%,Easy,54.6,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+7,Add to Array-Form of Integer,45.0%,Easy,54.6,https://leetcode.com/problems/add-to-array-form-of-integer,"Array, Math"

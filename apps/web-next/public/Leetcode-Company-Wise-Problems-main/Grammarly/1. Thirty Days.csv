@@ -1,0 +1,3 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Generate Parentheses,100.0,0.7652988696533802,https://leetcode.com/problems/generate-parentheses,"String, Dynamic Programming, Backtracking"
+EASY,Sqrt(x),90.2,0.4002713314398575,https://leetcode.com/problems/sqrtx,"Math, Binary Search"

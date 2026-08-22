@@ -1,0 +1,6 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Number of Valid Subarrays,79.2%,Hard,100.0,https://leetcode.com/problems/number-of-valid-subarrays,"Array, Stack, Monotonic Stack"
+2,Basic Calculator III,51.9%,Hard,100.0,https://leetcode.com/problems/basic-calculator-iii,"Math, String, Stack, Recursion"
+3,Binary Tree Pruning,72.3%,Medium,100.0,https://leetcode.com/problems/binary-tree-pruning,"Tree, Depth-First Search, Binary Tree"
+4,Sum of Two Integers,53.2%,Medium,100.0,https://leetcode.com/problems/sum-of-two-integers,"Math, Bit Manipulation"
+5,K-th Smallest in Lexicographical Order,42.0%,Hard,100.0,https://leetcode.com/problems/k-th-smallest-in-lexicographical-order,Trie

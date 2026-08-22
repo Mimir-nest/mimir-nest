@@ -1,0 +1,10 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Trapping Rain Water,100.0,0.6428752323916056,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+MEDIUM,String Compression,82.5,0.572726801988401,https://leetcode.com/problems/string-compression,"Two Pointers, String"
+EASY,First Unique Character in a String,77.6,0.6322655217965654,https://leetcode.com/problems/first-unique-character-in-a-string,"Hash Table, String, Queue, Counting"
+HARD,Median of Two Sorted Arrays,77.6,0.429393714636432,https://leetcode.com/problems/median-of-two-sorted-arrays,"Array, Binary Search, Divide and Conquer"
+MEDIUM,Fraction to Recurring Decimal,71.2,0.2588380732395776,https://leetcode.com/problems/fraction-to-recurring-decimal,"Hash Table, Math, String"
+MEDIUM,Construct Smallest Number From DI String,71.2,0.8590968719607355,https://leetcode.com/problems/construct-smallest-number-from-di-string,"String, Backtracking, Stack, Greedy"
+MEDIUM,Remove All Occurrences of a Substring,62.3,0.7798073987195457,https://leetcode.com/problems/remove-all-occurrences-of-a-substring,"String, Stack, Simulation"
+MEDIUM,Longest Substring Without Repeating Characters,62.3,0.36326696791205315,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+EASY,Two Sum,62.3,0.5507380277708298,https://leetcode.com/problems/two-sum,"Array, Hash Table"

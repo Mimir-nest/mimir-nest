@@ -1,0 +1,9 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Find the Safest Path in a Grid,48.6%,Medium,100.0,https://leetcode.com/problems/find-the-safest-path-in-a-grid,"Array, Binary Search, Breadth-First Search, Union Find, Heap (Priority Queue), Matrix"
+2,Time Taken to Cross the Door,48.9%,Hard,87.7,https://leetcode.com/problems/time-taken-to-cross-the-door,"Array, Queue, Simulation"
+3,Asteroid Collision,45.1%,Medium,71.2,https://leetcode.com/problems/asteroid-collision,"Array, Stack, Simulation"
+4,Design a Stack With Increment Operation,80.5%,Medium,67.0,https://leetcode.com/problems/design-a-stack-with-increment-operation,"Array, Stack, Design"
+5,Maximum Side Length of a Square with Sum Less than or Equal to Threshold,53.8%,Medium,67.0,https://leetcode.com/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold,"Array, Binary Search, Matrix, Prefix Sum"
+6,Min Stack,55.9%,Medium,61.6,https://leetcode.com/problems/min-stack,"Stack, Design"
+7,Minimum Knight Moves,41.2%,Medium,53.9,https://leetcode.com/problems/minimum-knight-moves,Breadth-First Search
+8,Shortest Path in a Grid with Obstacles Elimination,45.5%,Hard,53.9,https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination,"Array, Breadth-First Search, Matrix"

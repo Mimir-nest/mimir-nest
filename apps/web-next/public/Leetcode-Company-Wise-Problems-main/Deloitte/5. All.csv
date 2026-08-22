@@ -1,0 +1,22 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Change Null Values in a Table to the Previous Value,100.0,0.5139728096676737,https://leetcode.com/problems/change-null-values-in-a-table-to-the-previous-value,Database
+EASY,Two Sum,94.5,0.5507387535590981,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+HARD,Merge k Sorted Lists,77.4,0.5579544672415442,https://leetcode.com/problems/merge-k-sorted-lists,"Linked List, Divide and Conquer, Heap (Priority Queue), Merge Sort"
+EASY,Valid Palindrome,70.4,0.501550126165675,https://leetcode.com/problems/valid-palindrome,"Two Pointers, String"
+MEDIUM,Second Highest Salary,70.4,0.42976871515675424,https://leetcode.com/problems/second-highest-salary,Database
+MEDIUM,Longest Palindromic Substring,70.4,0.3529841065070686,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"
+MEDIUM,Reverse Integer,70.4,0.29864355044801355,https://leetcode.com/problems/reverse-integer,Math
+MEDIUM,Managers with at Least 5 Direct Reports,70.4,0.49128721066186665,https://leetcode.com/problems/managers-with-at-least-5-direct-reports,Database
+EASY,Valid Parentheses,70.4,0.41845225327247165,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+EASY,Palindrome Number,70.4,0.5865356390997741,https://leetcode.com/problems/palindrome-number,Math
+EASY,Best Time to Buy and Sell Stock,60.4,0.5476982872025801,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+EASY,Majority Element,60.4,0.6549763284571334,https://leetcode.com/problems/majority-element,"Array, Hash Table, Divide and Conquer, Sorting, Counting"
+EASY,Pascal's Triangle,60.4,0.7642551593354525,https://leetcode.com/problems/pascals-triangle,"Array, Dynamic Programming"
+EASY,Climbing Stairs,60.4,0.5334306859690069,https://leetcode.com/problems/climbing-stairs,"Math, Dynamic Programming, Memoization"
+EASY,Find Customer Referee,60.4,0.7160235977969011,https://leetcode.com/problems/find-customer-referee,Database
+EASY,Article Views I,60.4,0.7712497674147744,https://leetcode.com/problems/article-views-i,Database
+EASY,Longest Common Prefix,60.4,0.44887944888292625,https://leetcode.com/problems/longest-common-prefix,"String, Trie"
+MEDIUM,Maximum Subarray,60.4,0.5173372922089127,https://leetcode.com/problems/maximum-subarray,"Array, Divide and Conquer, Dynamic Programming"
+EASY,Reverse Linked List,60.4,0.7865009266635312,https://leetcode.com/problems/reverse-linked-list,"Linked List, Recursion"
+HARD,Department Top Three Salaries,60.4,0.5680467971489643,https://leetcode.com/problems/department-top-three-salaries,Database
+MEDIUM,Search in Rotated Sorted Array II,60.4,0.3858967372289241,https://leetcode.com/problems/search-in-rotated-sorted-array-ii,"Array, Binary Search"

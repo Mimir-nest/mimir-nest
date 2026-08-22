@@ -1,0 +1,10 @@
+[
+  { "id": "all", "label": "All Courses", "iconKey": "sparkles" },
+  { "id": "web-dev", "label": "Web Development", "iconKey": "globe" },
+  { "id": "data-science", "label": "Data Science", "iconKey": "database" },
+  { "id": "mobile", "label": "Mobile Development", "iconKey": "smartphone" },
+  { "id": "cybersecurity", "label": "Cybersecurity", "iconKey": "shield" },
+  { "id": "design", "label": "Design", "iconKey": "palette" },
+  { "id": "algorithms", "label": "Algorithms & CS", "iconKey": "calculator" },
+  { "id": "ai-ml", "label": "AI & Machine Learning", "iconKey": "brain" }
+]

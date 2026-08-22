@@ -1,0 +1,9 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Find Candidates for Data Scientist Position,75.6%,Easy,100.0,https://leetcode.com/problems/find-candidates-for-data-scientist-position,Database
+2,Maximize Items,74.3%,Hard,100.0,https://leetcode.com/problems/maximize-items,Database
+3,Count the Number of Powerful Integers,26.8%,Hard,84.4,https://leetcode.com/problems/count-the-number-of-powerful-integers,"Math, String, Dynamic Programming"
+4,Minimize Length of Array Using Operations,34.8%,Medium,84.4,https://leetcode.com/problems/minimize-length-of-array-using-operations,"Array, Math, Greedy, Number Theory"
+5,Best Time to Buy and Sell Stock,54.8%,Easy,63.8,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+6,3Sum,36.4%,Medium,63.8,https://leetcode.com/problems/3sum,"Array, Two Pointers, Sorting"
+7,Maximum Subarray,51.7%,Medium,63.8,https://leetcode.com/problems/maximum-subarray,"Array, Divide and Conquer, Dynamic Programming"
+8,Maximum Points Inside the Square,39.0%,Medium,63.8,https://leetcode.com/problems/maximum-points-inside-the-square,"Array, Hash Table, String, Binary Search, Sorting"

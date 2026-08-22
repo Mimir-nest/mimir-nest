@@ -1,0 +1,18 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Merge Intervals,100.0,0.4880663892565131,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+EASY,Remove All Adjacent Duplicates In String,93.6,0.7106661551649438,https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string,"String, Stack"
+MEDIUM,Remove All Adjacent Duplicates in String II,84.7,0.5910188914000947,https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii,"String, Stack"
+EASY,Backspace String Compare,80.6,0.4939404934884166,https://leetcode.com/problems/backspace-string-compare,"Two Pointers, String, Stack, Simulation"
+MEDIUM,Repeated DNA Sequences,75.7,0.5071108370184008,https://leetcode.com/problems/repeated-dna-sequences,"Hash Table, String, Bit Manipulation, Sliding Window, Rolling Hash, Hash Function"
+HARD,Word Break II,75.7,0.5293088581143587,https://leetcode.com/problems/word-break-ii,"Array, Hash Table, String, Dynamic Programming, Backtracking, Trie, Memoization"
+MEDIUM,Number of Islands,69.3,0.6158108005549446,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+MEDIUM,Word Search,69.3,0.4462623708743378,https://leetcode.com/problems/word-search,"Array, String, Backtracking, Depth-First Search, Matrix"
+MEDIUM,Vowel Spellchecker,69.3,0.5148869926199262,https://leetcode.com/problems/vowel-spellchecker,"Array, Hash Table, String"
+MEDIUM,Generate Parentheses,69.3,0.7652988696533802,https://leetcode.com/problems/generate-parentheses,"String, Dynamic Programming, Backtracking"
+MEDIUM,Word Break,69.3,0.4787517596162985,https://leetcode.com/problems/word-break,"Array, Hash Table, String, Dynamic Programming, Trie, Memoization"
+MEDIUM,Insert Delete GetRandom O(1),69.3,0.5490670294993965,https://leetcode.com/problems/insert-delete-getrandom-o1,"Array, Hash Table, Math, Design, Randomized"
+EASY,Climbing Stairs,60.4,0.5334306415400593,https://leetcode.com/problems/climbing-stairs,"Math, Dynamic Programming, Memoization"
+EASY,Perfect Number,60.4,0.43952606651533493,https://leetcode.com/problems/perfect-number,Math
+EASY,Sleep,60.4,0.8769389914634551,https://leetcode.com/problems/sleep,
+EASY,Logger Rate Limiter,60.4,0.7635642018282964,https://leetcode.com/problems/logger-rate-limiter,"Hash Table, Design, Data Stream"
+MEDIUM,Search in Rotated Sorted Array,60.4,0.423240596684246,https://leetcode.com/problems/search-in-rotated-sorted-array,"Array, Binary Search"

@@ -1,0 +1,3 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Flatten 2D Vector,100.0,0.49992264167624434,https://leetcode.com/problems/flatten-2d-vector,"Array, Two Pointers, Design, Iterator"
+MEDIUM,Simple Bank System,90.4,0.6338894946748921,https://leetcode.com/problems/simple-bank-system,"Array, Hash Table, Design, Simulation"

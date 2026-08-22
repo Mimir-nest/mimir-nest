@@ -1,0 +1,27 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Two Sum,55.1%,Easy,100.0,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+2,Minimum Moves to Capture The Queen,21.3%,Medium,100.0,https://leetcode.com/problems/minimum-moves-to-capture-the-queen,"Math, Enumeration"
+3,Palindrome Number,58.7%,Easy,82.8,https://leetcode.com/problems/palindrome-number,Math
+4,Second Highest Salary,43.0%,Medium,77.3,https://leetcode.com/problems/second-highest-salary,Database
+5,Median of Two Sorted Arrays,42.9%,Hard,77.3,https://leetcode.com/problems/median-of-two-sorted-arrays,"Array, Binary Search, Divide and Conquer"
+6,Valid Parentheses,41.8%,Easy,77.3,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+7,Remove Duplicates from Sorted Array,59.5%,Easy,77.3,https://leetcode.com/problems/remove-duplicates-from-sorted-array,"Array, Two Pointers"
+8,Reverse Integer,29.9%,Medium,77.3,https://leetcode.com/problems/reverse-integer,Math
+9,Count Primes,34.4%,Medium,77.3,https://leetcode.com/problems/count-primes,"Array, Math, Enumeration, Number Theory"
+10,Sort Characters By Frequency,73.7%,Medium,70.2,https://leetcode.com/problems/sort-characters-by-frequency,"Hash Table, String, Sorting, Heap (Priority Queue), Bucket Sort, Counting"
+11,Kth Largest Element in an Array,67.6%,Medium,70.2,https://leetcode.com/problems/kth-largest-element-in-an-array,"Array, Divide and Conquer, Sorting, Heap (Priority Queue), Quickselect"
+12,Longest Substring Without Repeating Characters,36.3%,Medium,70.2,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+13,Rotate Array,42.5%,Medium,70.2,https://leetcode.com/problems/rotate-array,"Array, Math, Two Pointers"
+14,Valid Palindrome,50.2%,Easy,70.2,https://leetcode.com/problems/valid-palindrome,"Two Pointers, String"
+15,Majority Element,65.5%,Easy,60.2,https://leetcode.com/problems/majority-element,"Array, Hash Table, Divide and Conquer, Sorting, Counting"
+16,Linked List Cycle,52.0%,Easy,60.2,https://leetcode.com/problems/linked-list-cycle,"Hash Table, Linked List, Two Pointers"
+17,Article Views I,77.1%,Easy,60.2,https://leetcode.com/problems/article-views-i,Database
+18,Binary Search,59.1%,Easy,60.2,https://leetcode.com/problems/binary-search,"Array, Binary Search"
+19,Find the Distance Value Between Two Arrays,69.8%,Easy,60.2,https://leetcode.com/problems/find-the-distance-value-between-two-arrays,"Array, Two Pointers, Binary Search, Sorting"
+20,Reverse Linked List,78.7%,Easy,60.2,https://leetcode.com/problems/reverse-linked-list,"Linked List, Recursion"
+21,Add Two Numbers,45.4%,Medium,60.2,https://leetcode.com/problems/add-two-numbers,"Linked List, Math, Recursion"
+22,Jump Game,39.1%,Medium,60.2,https://leetcode.com/problems/jump-game,"Array, Dynamic Programming, Greedy"
+23,Merge Sorted Array,52.3%,Easy,60.2,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+24,Climbing Stairs,53.3%,Easy,60.2,https://leetcode.com/problems/climbing-stairs,"Math, Dynamic Programming, Memoization"
+25,Roman to Integer,64.2%,Easy,60.2,https://leetcode.com/problems/roman-to-integer,"Hash Table, Math, String"
+26,Create Hello World Function,81.8%,Easy,60.2,https://leetcode.com/problems/create-hello-world-function,

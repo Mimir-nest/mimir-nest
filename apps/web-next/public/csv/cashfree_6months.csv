@@ -1,0 +1,6 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Max Chunks To Make Sorted,63.9%,Medium,100.0,https://leetcode.com/problems/max-chunks-to-make-sorted,"Array, Stack, Greedy, Sorting, Monotonic Stack"
+2,LRU Cache,44.4%,Medium,100.0,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+3,House Robber IV,45.9%,Medium,100.0,https://leetcode.com/problems/house-robber-iv,"Array, Binary Search"
+4,Maximum Erasure Value,59.0%,Medium,100.0,https://leetcode.com/problems/maximum-erasure-value,"Array, Hash Table, Sliding Window"
+5,Non-decreasing Array,25.0%,Medium,100.0,https://leetcode.com/problems/non-decreasing-array,Array

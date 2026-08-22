@@ -1,0 +1,10 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Count Number of Ways to Place Houses,100.0,0.42524666926807514,https://leetcode.com/problems/count-number-of-ways-to-place-houses,Dynamic Programming
+MEDIUM,Longest Substring Without Repeating Characters,79.4,0.3632696928878811,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+HARD,Minimum Window Substring,79.4,0.4466554893002095,https://leetcode.com/problems/minimum-window-substring,"Hash Table, String, Sliding Window"
+EASY,Two Sum,72.9,0.5507399260075672,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+EASY,Valid Parentheses,72.9,0.41845285069108457,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+EASY,Remove Duplicates from Sorted Array,63.8,0.5945108946606584,https://leetcode.com/problems/remove-duplicates-from-sorted-array,"Array, Two Pointers"
+EASY,Contains Duplicate,63.8,0.628171403922917,https://leetcode.com/problems/contains-duplicate,"Array, Hash Table, Sorting"
+MEDIUM,Subarray Sum Equals K,63.8,0.4493135419281241,https://leetcode.com/problems/subarray-sum-equals-k,"Array, Hash Table, Prefix Sum"
+MEDIUM,Letter Combinations of a Phone Number,63.8,0.6308060223713159,https://leetcode.com/problems/letter-combinations-of-a-phone-number,"Hash Table, String, Backtracking"

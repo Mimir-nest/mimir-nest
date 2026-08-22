@@ -1,0 +1,6 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Group Anagrams,70.3%,Medium,100.0,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+2,Palindrome Number,58.7%,Easy,100.0,https://leetcode.com/problems/palindrome-number,Math
+3,Valid Parentheses,41.8%,Easy,88.5,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+4,Valid Anagram,66.2%,Easy,88.5,https://leetcode.com/problems/valid-anagram,"Hash Table, String, Sorting"
+5,Minimum Bit Flips to Convert Number,87.5%,Easy,88.5,https://leetcode.com/problems/minimum-bit-flips-to-convert-number,Bit Manipulation

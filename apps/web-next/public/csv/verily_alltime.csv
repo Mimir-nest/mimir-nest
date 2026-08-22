@@ -1,0 +1,15 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Happy Number,57.6%,Easy,100.0,https://leetcode.com/problems/happy-number,"Hash Table, Math, Two Pointers"
+2,Jump Game,39.1%,Medium,100.0,https://leetcode.com/problems/jump-game,"Array, Dynamic Programming, Greedy"
+3,Find Original Array From Doubled Array,40.5%,Medium,92.3,https://leetcode.com/problems/find-original-array-from-doubled-array,"Array, Hash Table, Greedy, Sorting"
+4,Guess the Word,38.0%,Hard,92.3,https://leetcode.com/problems/guess-the-word,"Array, Math, String, Interactive, Game Theory"
+5,Longest String Chain,61.7%,Medium,92.3,https://leetcode.com/problems/longest-string-chain,"Array, Hash Table, Two Pointers, String, Dynamic Programming, Sorting"
+6,Minimum Area Rectangle II,55.4%,Medium,92.3,https://leetcode.com/problems/minimum-area-rectangle-ii,"Array, Math, Geometry"
+7,Find All Possible Recipes from Given Supplies,50.7%,Medium,92.3,https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies,"Array, Hash Table, String, Graph, Topological Sort"
+8,Group Anagrams,70.3%,Medium,92.3,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+9,Minimum Knight Moves,41.2%,Medium,92.3,https://leetcode.com/problems/minimum-knight-moves,Breadth-First Search
+10,Kth Largest Element in an Array,67.6%,Medium,92.3,https://leetcode.com/problems/kth-largest-element-in-an-array,"Array, Divide and Conquer, Sorting, Heap (Priority Queue), Quickselect"
+11,Time Needed to Inform All Employees,60.2%,Medium,81.5,https://leetcode.com/problems/time-needed-to-inform-all-employees,"Tree, Depth-First Search, Breadth-First Search"
+12,Longest Common Subsequence,58.0%,Medium,81.5,https://leetcode.com/problems/longest-common-subsequence,"String, Dynamic Programming"
+13,Video Stitching,51.8%,Medium,81.5,https://leetcode.com/problems/video-stitching,"Array, Dynamic Programming, Greedy"
+14,Minimum Area Rectangle,54.8%,Medium,81.5,https://leetcode.com/problems/minimum-area-rectangle,"Array, Hash Table, Math, Geometry, Sorting"

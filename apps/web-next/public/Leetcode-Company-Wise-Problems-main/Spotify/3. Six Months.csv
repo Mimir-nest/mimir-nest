@@ -1,0 +1,4 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,Moving Average from Data Stream,100.0,0.7958760290957754,https://leetcode.com/problems/moving-average-from-data-stream,"Array, Design, Queue, Data Stream"
+MEDIUM,Analyze User Website Visit Pattern,100.0,0.4323115117050953,https://leetcode.com/problems/analyze-user-website-visit-pattern,"Array, Hash Table, Sorting"
+EASY,Two Sum,90.0,0.550738668371342,https://leetcode.com/problems/two-sum,"Array, Hash Table"

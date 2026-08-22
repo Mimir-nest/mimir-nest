@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Add Two Numbers,45.4%,Medium,100.0,https://leetcode.com/problems/add-two-numbers,"Linked List, Math, Recursion"
+2,Remove Zero Sum Consecutive Nodes from Linked List,52.8%,Medium,100.0,https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list,"Hash Table, Linked List"
+3,Find the Minimum and Maximum Number of Nodes Between Critical Points,69.6%,Medium,91.9,https://leetcode.com/problems/find-the-minimum-and-maximum-number-of-nodes-between-critical-points,Linked List
+4,Number of Good Leaf Nodes Pairs,71.9%,Medium,91.9,https://leetcode.com/problems/number-of-good-leaf-nodes-pairs,"Tree, Depth-First Search, Binary Tree"
+5,Best Time to Buy and Sell Stock,54.8%,Easy,91.9,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+6,Merge Nodes in Between Zeros,89.7%,Medium,91.9,https://leetcode.com/problems/merge-nodes-in-between-zeros,"Linked List, Simulation"
+7,Longest Substring Without Repeating Characters,36.3%,Medium,80.5,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+8,Move Zeroes,62.5%,Easy,80.5,https://leetcode.com/problems/move-zeroes,"Array, Two Pointers"
+9,Construct Smallest Number From DI String,85.9%,Medium,80.5,https://leetcode.com/problems/construct-smallest-number-from-di-string,"String, Backtracking, Stack, Greedy"
+10,Find the Substring With Maximum Cost,57.2%,Medium,80.5,https://leetcode.com/problems/find-the-substring-with-maximum-cost,"Array, Hash Table, String, Dynamic Programming"

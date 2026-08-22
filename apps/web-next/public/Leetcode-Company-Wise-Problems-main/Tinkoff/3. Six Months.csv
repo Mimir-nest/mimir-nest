@@ -1,0 +1,7 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,Form Smallest Number From Two Digit Arrays,100.0,0.5451672207111917,https://leetcode.com/problems/form-smallest-number-from-two-digit-arrays,"Array, Hash Table, Enumeration"
+EASY,Minimum Difference Between Highest and Lowest of K Scores,92.5,0.5822727962018968,https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores,"Array, Sliding Window, Sorting"
+MEDIUM,Number of Islands,92.5,0.6158106409656198,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+EASY,Find All Numbers Disappeared in an Array,82.0,0.6199864659292011,https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array,"Array, Hash Table"
+MEDIUM,Find First and Last Position of Element in Sorted Array,82.0,0.46149785798626863,https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array,"Array, Binary Search"
+EASY,Two Sum,82.0,0.5507388372905243,https://leetcode.com/problems/two-sum,"Array, Hash Table"

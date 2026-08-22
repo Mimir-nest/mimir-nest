@@ -1,0 +1,12 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Additive Number,32.3%,Medium,100.0,https://leetcode.com/problems/additive-number,"String, Backtracking"
+2,Letter Combinations of a Phone Number,63.1%,Medium,96.9,https://leetcode.com/problems/letter-combinations-of-a-phone-number,"Hash Table, String, Backtracking"
+3,Self Dividing Numbers,79.4%,Easy,90.3,https://leetcode.com/problems/self-dividing-numbers,Math
+4,Stepping Numbers,47.5%,Medium,84.9,https://leetcode.com/problems/stepping-numbers,"Math, Backtracking, Breadth-First Search"
+5,Valid Parentheses,41.8%,Easy,82.8,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+6,Spiral Matrix,52.9%,Medium,80.4,https://leetcode.com/problems/spiral-matrix,"Array, Matrix, Simulation"
+7,Word Search,44.6%,Medium,66.4,https://leetcode.com/problems/word-search,"Array, String, Backtracking, Depth-First Search, Matrix"
+8,Angle Between Hands of a Clock,64.1%,Medium,60.5,https://leetcode.com/problems/angle-between-hands-of-a-clock,Math
+9,Two Sum,55.1%,Easy,60.5,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+10,Longest Substring Without Repeating Characters,36.3%,Medium,52.3,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+11,Bulls and Cows,51.1%,Medium,52.3,https://leetcode.com/problems/bulls-and-cows,"Hash Table, String, Counting"

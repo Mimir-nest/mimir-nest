@@ -1,0 +1,4 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,Height Checker,100.0,0.8103064541229046,https://leetcode.com/problems/height-checker,"Array, Sorting, Counting Sort"
+EASY,Find Pivot Index,83.1,0.5989552769707727,https://leetcode.com/problems/find-pivot-index,"Array, Prefix Sum"
+MEDIUM,Count Vowel Strings in Ranges,83.1,0.6793653971643827,https://leetcode.com/problems/count-vowel-strings-in-ranges,"Array, String, Prefix Sum"

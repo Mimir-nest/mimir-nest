@@ -1,0 +1,23 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Maximize Distance to Closest Person,100.0,0.4870415197084244,https://leetcode.com/problems/maximize-distance-to-closest-person,Array
+MEDIUM,Task Scheduler,98.6,0.610292664115186,https://leetcode.com/problems/task-scheduler,"Array, Hash Table, Greedy, Sorting, Heap (Priority Queue), Counting"
+MEDIUM,Reorganize String,91.9,0.5578367808394188,https://leetcode.com/problems/reorganize-string,"Hash Table, String, Greedy, Sorting, Heap (Priority Queue), Counting"
+HARD,Text Justification,84.9,0.47093296579330096,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+HARD,Integer to English Words,82.0,0.3425973688509723,https://leetcode.com/problems/integer-to-english-words,"Math, String, Recursion"
+MEDIUM,Design Hit Counter,82.0,0.690145319433361,https://leetcode.com/problems/design-hit-counter,"Array, Binary Search, Design, Queue, Data Stream"
+EASY,Valid Parentheses,74.7,0.41845167888058926,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+MEDIUM,Spiral Matrix,69.9,0.5293294861000031,https://leetcode.com/problems/spiral-matrix,"Array, Matrix, Simulation"
+MEDIUM,Implement Trie (Prefix Tree),63.6,0.6744646075005423,https://leetcode.com/problems/implement-trie-prefix-tree,"Hash Table, String, Design, Trie"
+MEDIUM,Rotate Image,63.6,0.7717078200311817,https://leetcode.com/problems/rotate-image,"Array, Math, Matrix"
+MEDIUM,Merge Intervals,63.6,0.48806527274880024,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+HARD,Block Placement Queries,63.6,0.1609268707482993,https://leetcode.com/problems/block-placement-queries,"Array, Binary Search, Binary Indexed Tree, Segment Tree"
+HARD,Subarrays with K Different Integers,54.8,0.6508083495467054,https://leetcode.com/problems/subarrays-with-k-different-integers,"Array, Hash Table, Sliding Window, Counting"
+EASY,Longest Common Prefix,54.8,0.448879069966426,https://leetcode.com/problems/longest-common-prefix,"String, Trie"
+EASY,Image Smoother,54.8,0.6814680032699313,https://leetcode.com/problems/image-smoother,"Array, Matrix"
+MEDIUM,Longest Substring Without Repeating Characters,54.8,0.36326736654377373,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+MEDIUM,Find the Length of the Longest Common Prefix,54.8,0.5629081231022979,https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix,"Array, Hash Table, String, Trie"
+MEDIUM,Rotting Oranges,54.8,0.5596871680478486,https://leetcode.com/problems/rotting-oranges,"Array, Breadth-First Search, Matrix"
+HARD,Employee Free Time,54.8,0.7250129048185471,https://leetcode.com/problems/employee-free-time,"Array, Sorting, Heap (Priority Queue)"
+HARD,Largest Rectangle in Histogram,54.8,0.46599567068000325,https://leetcode.com/problems/largest-rectangle-in-histogram,"Array, Stack, Monotonic Stack"
+HARD,Number of Flowers in Full Bloom,54.8,0.5705492453710908,https://leetcode.com/problems/number-of-flowers-in-full-bloom,"Array, Hash Table, Binary Search, Sorting, Prefix Sum, Ordered Set"
+MEDIUM,Number of Adjacent Elements With the Same Color,54.8,0.5417296548248929,https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color,Array

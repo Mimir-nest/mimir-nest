@@ -1,0 +1,12 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Convert Sorted List to Binary Search Tree,100.0,0.6386789577936919,https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree,"Linked List, Divide and Conquer, Tree, Binary Search Tree, Binary Tree"
+HARD,Minimum Window Substring,88.7,0.446649014064627,https://leetcode.com/problems/minimum-window-substring,"Hash Table, String, Sliding Window"
+HARD,Max Stack,88.7,0.452812440007679,https://leetcode.com/problems/max-stack,"Linked List, Stack, Design, Doubly-Linked List, Ordered Set"
+MEDIUM,Rotting Oranges,84.6,0.5596871096393305,https://leetcode.com/problems/rotting-oranges,"Array, Breadth-First Search, Matrix"
+MEDIUM,Time Based Key-Value Store,84.6,0.4936204160978852,https://leetcode.com/problems/time-based-key-value-store,"Hash Table, String, Binary Search, Design"
+HARD,Read N Characters Given read4 II - Call Multiple Times,73.3,0.42749409638038893,https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times,"Array, Simulation, Interactive"
+MEDIUM,Longest Consecutive Sequence,73.3,0.47190680833777776,https://leetcode.com/problems/longest-consecutive-sequence,"Array, Hash Table, Union Find"
+MEDIUM,Longest Substring Without Repeating Characters,73.3,0.3632672921516049,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+MEDIUM,Min Stack,64.3,0.5591510888058357,https://leetcode.com/problems/min-stack,"Stack, Design"
+HARD,Word Ladder II,64.3,0.2711824702996659,https://leetcode.com/problems/word-ladder-ii,"Hash Table, String, Backtracking, Breadth-First Search"
+MEDIUM,Decode Ways,64.3,0.361050543696366,https://leetcode.com/problems/decode-ways,"String, Dynamic Programming"

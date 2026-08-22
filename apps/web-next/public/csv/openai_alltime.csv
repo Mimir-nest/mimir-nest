@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Design SQL,74.1%,Medium,100.0,https://leetcode.com/problems/design-sql,"Array, Hash Table, String, Design"
+2,Design Excel Sum Formula,44.1%,Hard,88.7,https://leetcode.com/problems/design-excel-sum-formula,"Array, Graph, Design, Topological Sort, Matrix"
+3,Flatten Nested List Iterator,65.2%,Medium,88.7,https://leetcode.com/problems/flatten-nested-list-iterator,"Stack, Tree, Depth-First Search, Design, Queue, Iterator"
+4,Web Crawler Multithreaded,49.6%,Medium,79.7,https://leetcode.com/problems/web-crawler-multithreaded,"Depth-First Search, Breadth-First Search, Concurrency"
+5,Time Based Key-Value Store,49.4%,Medium,79.7,https://leetcode.com/problems/time-based-key-value-store,"Hash Table, String, Binary Search, Design"
+6,Simplify Path,46.6%,Medium,64.4,https://leetcode.com/problems/simplify-path,"String, Stack"
+7,Flood Fill,65.8%,Easy,64.4,https://leetcode.com/problems/flood-fill,"Array, Depth-First Search, Breadth-First Search, Matrix"
+8,Encode and Decode Strings,49.0%,Medium,64.4,https://leetcode.com/problems/encode-and-decode-strings,"Array, String, Design"
+9,Design Memory Allocator,53.5%,Medium,64.4,https://leetcode.com/problems/design-memory-allocator,"Array, Hash Table, Design, Simulation"
+10,Largest Local Values in a Matrix,87.8%,Easy,64.4,https://leetcode.com/problems/largest-local-values-in-a-matrix,"Array, Matrix"

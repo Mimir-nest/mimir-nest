@@ -1,0 +1,10 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Subarray Product Less Than K,100.0,0.5237852374403545,https://leetcode.com/problems/subarray-product-less-than-k,"Array, Binary Search, Sliding Window, Prefix Sum"
+MEDIUM,Flatten 2D Vector,100.0,0.49992264167624434,https://leetcode.com/problems/flatten-2d-vector,"Array, Two Pointers, Design, Iterator"
+HARD,Maximum Profit in Job Scheduling,92.8,0.543351798175992,https://leetcode.com/problems/maximum-profit-in-job-scheduling,"Array, Binary Search, Dynamic Programming, Sorting"
+HARD,Text Justification,82.7,0.47093296579330096,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+HARD,Making A Large Island,82.7,0.542550636867284,https://leetcode.com/problems/making-a-large-island,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+MEDIUM,Combination Sum,82.7,0.7393128847591091,https://leetcode.com/problems/combination-sum,"Array, Backtracking"
+MEDIUM,Pour Water,82.7,0.47592635212888384,https://leetcode.com/problems/pour-water,"Array, Simulation"
+MEDIUM,Simple Bank System,82.7,0.6338894946748921,https://leetcode.com/problems/simple-bank-system,"Array, Hash Table, Design, Simulation"
+HARD,Palindrome Pairs,82.7,0.3602233547703319,https://leetcode.com/problems/palindrome-pairs,"Array, Hash Table, String, Trie"

@@ -1,0 +1,18 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Video Stitching,100.0,0.5177357456140351,https://leetcode.com/problems/video-stitching,"Array, Dynamic Programming, Greedy"
+MEDIUM,Number of Islands,91.9,0.6158104387999113,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+MEDIUM,Group Anagrams,84.2,0.7033697360549983,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+MEDIUM,Daily Temperatures,79.1,0.669688431874366,https://leetcode.com/problems/daily-temperatures,"Array, Stack, Monotonic Stack"
+MEDIUM,Heaters,79.1,0.3940185763508764,https://leetcode.com/problems/heaters,"Array, Two Pointers, Binary Search, Sorting"
+MEDIUM,Course Schedule,79.1,0.4847691811850963,https://leetcode.com/problems/course-schedule,"Depth-First Search, Breadth-First Search, Graph, Topological Sort"
+MEDIUM,Course Schedule II,79.1,0.526302762568137,https://leetcode.com/problems/course-schedule-ii,"Depth-First Search, Breadth-First Search, Graph, Topological Sort"
+HARD,Find Median from Data Stream,72.5,0.5297418173972335,https://leetcode.com/problems/find-median-from-data-stream,"Two Pointers, Design, Sorting, Heap (Priority Queue), Data Stream"
+MEDIUM,Time Based Key-Value Store,63.3,0.49362132086900123,https://leetcode.com/problems/time-based-key-value-store,"Hash Table, String, Binary Search, Design"
+MEDIUM,Spiral Matrix,63.3,0.5293297276822649,https://leetcode.com/problems/spiral-matrix,"Array, Matrix, Simulation"
+MEDIUM,Search Suggestions System,63.3,0.6504522992244536,https://leetcode.com/problems/search-suggestions-system,"Array, String, Binary Search, Trie, Sorting, Heap (Priority Queue)"
+EASY,Move Zeroes,63.3,0.625445250182245,https://leetcode.com/problems/move-zeroes,"Array, Two Pointers"
+MEDIUM,Insert into a Sorted Circular Linked List,63.3,0.3764670234618055,https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list,Linked List
+MEDIUM,Find the Duplicate Number,63.3,0.6234280231745553,https://leetcode.com/problems/find-the-duplicate-number,"Array, Two Pointers, Binary Search, Bit Manipulation"
+EASY,Shortest Word Distance,63.3,0.6577336656167434,https://leetcode.com/problems/shortest-word-distance,"Array, String"
+MEDIUM,Shortest Word Distance II,63.3,0.6185566620684442,https://leetcode.com/problems/shortest-word-distance-ii,"Array, Hash Table, Two Pointers, String, Design"
+MEDIUM,Minesweeper,63.3,0.6774598193814402,https://leetcode.com/problems/minesweeper,"Array, Depth-First Search, Breadth-First Search, Matrix"

@@ -1,0 +1,11 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,Valid Parentheses,100.0,0.4184528015645565,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+EASY,Squares of a Sorted Array,84.1,0.7309239220657702,https://leetcode.com/problems/squares-of-a-sorted-array,"Array, Two Pointers, Sorting"
+EASY,Move Zeroes,77.5,0.6254476858660134,https://leetcode.com/problems/move-zeroes,"Array, Two Pointers"
+MEDIUM,Merge Intervals,77.5,0.4880666270814643,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+EASY,Two Sum,77.5,0.5507398670988988,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+EASY,Remove Duplicates from Sorted Array,68.2,0.5945108946606584,https://leetcode.com/problems/remove-duplicates-from-sorted-array,"Array, Two Pointers"
+MEDIUM,Number of Islands,68.2,0.6158150341615298,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+EASY,Reverse Linked List,68.2,0.7865035356010459,https://leetcode.com/problems/reverse-linked-list,"Linked List, Recursion"
+EASY,Merge Sorted Array,68.2,0.522572464657358,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+EASY,Invert Binary Tree,68.2,0.7859403930000597,https://leetcode.com/problems/invert-binary-tree,"Tree, Depth-First Search, Breadth-First Search, Binary Tree"

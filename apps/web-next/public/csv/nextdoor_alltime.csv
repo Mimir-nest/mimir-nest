@@ -1,0 +1,8 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Compare Version Numbers,42.0%,Medium,100.0,https://leetcode.com/problems/compare-version-numbers,"Two Pointers, String"
+2,Merge Intervals,48.8%,Medium,81.2,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+3,Letter Combinations of a Phone Number,63.1%,Medium,67.0,https://leetcode.com/problems/letter-combinations-of-a-phone-number,"Hash Table, String, Backtracking"
+4,Trapping Rain Water,64.3%,Hard,67.0,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+5,Nested List Weight Sum,85.2%,Medium,67.0,https://leetcode.com/problems/nested-list-weight-sum,"Depth-First Search, Breadth-First Search"
+6,Divide Two Integers,18.1%,Medium,67.0,https://leetcode.com/problems/divide-two-integers,"Math, Bit Manipulation"
+7,Time Based Key-Value Store,49.4%,Medium,67.0,https://leetcode.com/problems/time-based-key-value-store,"Hash Table, String, Binary Search, Design"

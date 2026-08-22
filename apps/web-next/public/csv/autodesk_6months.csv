@@ -1,0 +1,15 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Group Anagrams,70.3%,Medium,100.0,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+2,Number of Changing Keys,80.4%,Easy,100.0,https://leetcode.com/problems/number-of-changing-keys,String
+3,Combination Sum,73.9%,Medium,87.3,https://leetcode.com/problems/combination-sum,"Array, Backtracking"
+4,Sliding Window Maximum,47.2%,Hard,87.3,https://leetcode.com/problems/sliding-window-maximum,"Array, Queue, Sliding Window, Heap (Priority Queue), Monotonic Queue"
+5,Block Placement Queries,16.1%,Hard,87.3,https://leetcode.com/problems/block-placement-queries,"Array, Binary Search, Binary Indexed Tree, Segment Tree"
+6,Valid Sudoku,61.7%,Medium,87.3,https://leetcode.com/problems/valid-sudoku,"Array, Hash Table, Matrix"
+7,Number of Subarrays That Match a Pattern I,67.0%,Medium,87.3,https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-i,"Array, Rolling Hash, String Matching, Hash Function"
+8,Count Prefix and Suffix Pairs II,27.7%,Hard,87.3,https://leetcode.com/problems/count-prefix-and-suffix-pairs-ii,"Array, String, Trie, Rolling Hash, String Matching, Hash Function"
+9,Count Prefix and Suffix Pairs I,77.8%,Easy,87.3,https://leetcode.com/problems/count-prefix-and-suffix-pairs-i,"Array, String, Trie, Rolling Hash, String Matching, Hash Function"
+10,Distribute Elements Into Two Arrays I,72.9%,Easy,87.3,https://leetcode.com/problems/distribute-elements-into-two-arrays-i,"Array, Simulation"
+11,Distribute Elements Into Two Arrays II,27.7%,Hard,87.3,https://leetcode.com/problems/distribute-elements-into-two-arrays-ii,"Array, Binary Indexed Tree, Segment Tree, Simulation"
+12,Number of Subarrays That Match a Pattern II,32.3%,Hard,87.3,https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-ii,"Array, Rolling Hash, String Matching, Hash Function"
+13,Product of Array Except Self,67.4%,Medium,87.3,https://leetcode.com/problems/product-of-array-except-self,"Array, Prefix Sum"
+14,Restore IP Addresses,52.4%,Medium,87.3,https://leetcode.com/problems/restore-ip-addresses,"String, Backtracking"

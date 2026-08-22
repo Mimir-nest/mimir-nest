@@ -1,0 +1,17 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,LRU Cache,44.4%,Medium,100.0,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+2,Merge Intervals,48.8%,Medium,91.7,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+3,Ransom Note,63.9%,Easy,91.7,https://leetcode.com/problems/ransom-note,"Hash Table, String, Counting"
+4,Max Area of Island,72.9%,Medium,91.7,https://leetcode.com/problems/max-area-of-island,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+5,Valid Parentheses,41.8%,Easy,91.7,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+6,Search in Rotated Sorted Array,42.3%,Medium,80.1,https://leetcode.com/problems/search-in-rotated-sorted-array,"Array, Binary Search"
+7,Valid Word Abbreviation,36.6%,Easy,80.1,https://leetcode.com/problems/valid-word-abbreviation,"Two Pointers, String"
+8,Number of Islands,61.6%,Medium,80.1,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+9,Egg Drop With 2 Eggs and N Floors,73.6%,Medium,80.1,https://leetcode.com/problems/egg-drop-with-2-eggs-and-n-floors,"Math, Dynamic Programming"
+10,Valid Anagram,66.2%,Easy,80.1,https://leetcode.com/problems/valid-anagram,"Hash Table, String, Sorting"
+11,Climbing Stairs,53.3%,Easy,80.1,https://leetcode.com/problems/climbing-stairs,"Math, Dynamic Programming, Memoization"
+12,Generate Parentheses,76.5%,Medium,80.1,https://leetcode.com/problems/generate-parentheses,"String, Dynamic Programming, Backtracking"
+13,Subarray Sum Equals K,44.9%,Medium,80.1,https://leetcode.com/problems/subarray-sum-equals-k,"Array, Hash Table, Prefix Sum"
+14,Reverse Linked List II,49.1%,Medium,80.1,https://leetcode.com/problems/reverse-linked-list-ii,Linked List
+15,Remove All Adjacent Duplicates in String II,59.1%,Medium,80.1,https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii,"String, Stack"
+16,Longest Common Prefix,44.9%,Easy,80.1,https://leetcode.com/problems/longest-common-prefix,"String, Trie"

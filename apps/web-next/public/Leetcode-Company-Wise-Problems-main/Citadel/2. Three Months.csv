@@ -1,0 +1,11 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Count Palindromic Subsequences,100.0,0.38648175347418373,https://leetcode.com/problems/count-palindromic-subsequences,"String, Dynamic Programming"
+MEDIUM,Palindromic Substrings,81.2,0.7126854175577977,https://leetcode.com/problems/palindromic-substrings,"Two Pointers, String, Dynamic Programming"
+MEDIUM,Evaluate Division,76.4,0.6274952877381696,https://leetcode.com/problems/evaluate-division,"Array, String, Depth-First Search, Breadth-First Search, Union Find, Graph, Shortest Path"
+MEDIUM,Insert Delete GetRandom O(1),70.2,0.5490690532656376,https://leetcode.com/problems/insert-delete-getrandom-o1,"Array, Hash Table, Math, Design, Randomized"
+MEDIUM,Merge Intervals,70.2,0.4880650144927678,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+HARD,Parallel Courses III,70.2,0.6684587149160209,https://leetcode.com/problems/parallel-courses-iii,"Array, Dynamic Programming, Graph, Topological Sort"
+MEDIUM,Number of Islands,61.6,0.6158089928119199,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+HARD,LFU Cache,61.6,0.4584725068954174,https://leetcode.com/problems/lfu-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+MEDIUM,Find the Duplicate Number,61.6,0.6234289285045418,https://leetcode.com/problems/find-the-duplicate-number,"Array, Two Pointers, Binary Search, Bit Manipulation"
+MEDIUM,Binary Tree Zigzag Level Order Traversal,61.6,0.6100933771069217,https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal,"Tree, Breadth-First Search, Binary Tree"

@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Zigzag Conversion,50.8%,Medium,100.0,https://leetcode.com/problems/zigzag-conversion,String
+2,Rotate Image,77.2%,Medium,100.0,https://leetcode.com/problems/rotate-image,"Array, Math, Matrix"
+3,Coin Change,45.8%,Medium,92.3,https://leetcode.com/problems/coin-change,"Array, Dynamic Programming, Breadth-First Search"
+4,Candy,44.4%,Hard,92.3,https://leetcode.com/problems/candy,"Array, Greedy"
+5,Transpose Matrix,73.7%,Easy,81.5,https://leetcode.com/problems/transpose-matrix,"Array, Matrix, Simulation"
+6,Count and Say,57.9%,Medium,81.5,https://leetcode.com/problems/count-and-say,String
+7,Minimum Deletions to Make Character Frequencies Unique,61.3%,Medium,81.5,https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique,"Hash Table, String, Greedy, Sorting"
+8,Jump Game II,41.1%,Medium,81.5,https://leetcode.com/problems/jump-game-ii,"Array, Dynamic Programming, Greedy"
+9,Group Anagrams,70.3%,Medium,81.5,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+10,Merge Intervals,48.8%,Medium,81.5,https://leetcode.com/problems/merge-intervals,"Array, Sorting"

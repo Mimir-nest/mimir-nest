@@ -1,0 +1,6 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Design SQL,100.0,0.7410198116271516,https://leetcode.com/problems/design-sql,"Array, Hash Table, String, Design"
+MEDIUM,Flatten Nested List Iterator,87.6,0.6515950546651197,https://leetcode.com/problems/flatten-nested-list-iterator,"Stack, Tree, Depth-First Search, Design, Queue, Iterator"
+MEDIUM,Time Based Key-Value Store,72.3,0.4936204160978852,https://leetcode.com/problems/time-based-key-value-store,"Hash Table, String, Binary Search, Design"
+MEDIUM,Encode and Decode Strings,72.3,0.4895192062577655,https://leetcode.com/problems/encode-and-decode-strings,"Array, String, Design"
+EASY,Largest Local Values in a Matrix,72.3,0.8776965274108893,https://leetcode.com/problems/largest-local-values-in-a-matrix,"Array, Matrix"

@@ -1,0 +1,8 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,LRU Cache,100.0,0.4443116153250814,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+EASY,Valid Parentheses,92.2,0.4184524993881009,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+MEDIUM,Jump Game,92.2,0.39113610620616535,https://leetcode.com/problems/jump-game,"Array, Dynamic Programming, Greedy"
+EASY,Merge Sorted Array,81.1,0.522569552237065,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+EASY,Merge Two Sorted Lists,81.1,0.6628960524910158,https://leetcode.com/problems/merge-two-sorted-lists,"Linked List, Recursion"
+MEDIUM,Count Pairs in Two Arrays,81.1,0.600650042625746,https://leetcode.com/problems/count-pairs-in-two-arrays,"Array, Two Pointers, Binary Search, Sorting"
+EASY,Best Time to Buy and Sell Stock,81.1,0.5476985240680702,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"

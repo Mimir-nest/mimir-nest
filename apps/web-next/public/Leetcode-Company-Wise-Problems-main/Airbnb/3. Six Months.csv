@@ -1,0 +1,13 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Maximum Profit in Job Scheduling,100.0,0.543351798175992,https://leetcode.com/problems/maximum-profit-in-job-scheduling,"Array, Binary Search, Dynamic Programming, Sorting"
+HARD,Palindrome Pairs,96.3,0.3602233547703319,https://leetcode.com/problems/palindrome-pairs,"Array, Hash Table, String, Trie"
+HARD,Text Justification,96.3,0.47093296579330096,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+MEDIUM,Flatten 2D Vector,91.8,0.49992264167624434,https://leetcode.com/problems/flatten-2d-vector,"Array, Two Pointers, Design, Iterator"
+MEDIUM,Pour Water,91.8,0.47592635212888384,https://leetcode.com/problems/pour-water,"Array, Simulation"
+MEDIUM,Subarray Product Less Than K,86.4,0.5237852374403545,https://leetcode.com/problems/subarray-product-less-than-k,"Array, Binary Search, Sliding Window, Prefix Sum"
+HARD,Minimum Window Substring,79.5,0.44664959668017445,https://leetcode.com/problems/minimum-window-substring,"Hash Table, String, Sliding Window"
+MEDIUM,Smallest Common Region,79.5,0.6785071206416763,https://leetcode.com/problems/smallest-common-region,"Array, Hash Table, String, Tree, Depth-First Search, Breadth-First Search"
+MEDIUM,Simple Bank System,79.5,0.6338894946748921,https://leetcode.com/problems/simple-bank-system,"Array, Hash Table, Design, Simulation"
+MEDIUM,Shortest Path in Binary Matrix,69.7,0.4915701165540501,https://leetcode.com/problems/shortest-path-in-binary-matrix,"Array, Breadth-First Search, Matrix"
+HARD,Making A Large Island,69.7,0.542550636867284,https://leetcode.com/problems/making-a-large-island,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+MEDIUM,Combination Sum,69.7,0.7393128847591091,https://leetcode.com/problems/combination-sum,"Array, Backtracking"

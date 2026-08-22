@@ -1,0 +1,16 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Trapping Rain Water,100.0,0.6428745738503359,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+MEDIUM,Copy List with Random Pointer,97.1,0.5950412448736729,https://leetcode.com/problems/copy-list-with-random-pointer,"Hash Table, Linked List"
+MEDIUM,Number of Islands,93.7,0.6158105111509724,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+EASY,Valid Parentheses,89.8,0.41845171347286486,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+EASY,Best Time to Buy and Sell Stock,72.5,0.5476984895253054,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+MEDIUM,Longest Substring Without Repeating Characters,72.5,0.36326734447174247,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+EASY,Two Sum,62.4,0.550738586592287,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+MEDIUM,Best Time to Buy and Sell Stock II,62.4,0.6885635654788532,https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii,"Array, Dynamic Programming, Greedy"
+MEDIUM,Add Two Numbers,62.4,0.45439813370636256,https://leetcode.com/problems/add-two-numbers,"Linked List, Math, Recursion"
+MEDIUM,Count Primes,62.4,0.34430337744312645,https://leetcode.com/problems/count-primes,"Array, Math, Enumeration, Number Theory"
+MEDIUM,Reverse Integer,62.4,0.2986434722555557,https://leetcode.com/problems/reverse-integer,Math
+MEDIUM,Reverse Words in a String,62.4,0.5006661305062892,https://leetcode.com/problems/reverse-words-in-a-string,"Two Pointers, String"
+MEDIUM,LRU Cache,62.4,0.4443110186522549,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+EASY,Maximum Nesting Depth of the Parentheses,62.4,0.8416774274634454,https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses,"String, Stack"
+MEDIUM,Find Consecutive Integers from a Data Stream,62.4,0.5039886515353805,https://leetcode.com/problems/find-consecutive-integers-from-a-data-stream,"Hash Table, Design, Queue, Counting, Data Stream"

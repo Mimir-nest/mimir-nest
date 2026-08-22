@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,LRU Cache,44.4%,Medium,100.0,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+2,Group Anagrams,70.3%,Medium,88.7,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+3,Sliding Window Median,38.7%,Hard,88.7,https://leetcode.com/problems/sliding-window-median,"Array, Hash Table, Sliding Window, Heap (Priority Queue)"
+4,Product Sales Analysis I,84.3%,Easy,88.7,https://leetcode.com/problems/product-sales-analysis-i,Database
+5,Linked List Cycle II,54.0%,Medium,88.7,https://leetcode.com/problems/linked-list-cycle-ii,"Hash Table, Linked List, Two Pointers"
+6,Product of Array Except Self,67.4%,Medium,88.7,https://leetcode.com/problems/product-of-array-except-self,"Array, Prefix Sum"
+7,Subarray Sum Equals K,44.9%,Medium,88.7,https://leetcode.com/problems/subarray-sum-equals-k,"Array, Hash Table, Prefix Sum"
+8,Stock Price Fluctuation ,48.7%,Medium,88.7,https://leetcode.com/problems/stock-price-fluctuation,"Hash Table, Design, Heap (Priority Queue), Data Stream, Ordered Set"
+9,Maximum Subarray,51.7%,Medium,88.7,https://leetcode.com/problems/maximum-subarray,"Array, Divide and Conquer, Dynamic Programming"
+10,String Compression,57.3%,Medium,88.7,https://leetcode.com/problems/string-compression,"Two Pointers, String"

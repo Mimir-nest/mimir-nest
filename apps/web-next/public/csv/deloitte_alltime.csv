@@ -1,0 +1,22 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Change Null Values in a Table to the Previous Value,51.4%,Medium,100.0,https://leetcode.com/problems/change-null-values-in-a-table-to-the-previous-value,Database
+2,Two Sum,55.1%,Easy,94.5,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+3,Merge k Sorted Lists,55.8%,Hard,77.4,https://leetcode.com/problems/merge-k-sorted-lists,"Linked List, Divide and Conquer, Heap (Priority Queue), Merge Sort"
+4,Valid Palindrome,50.2%,Easy,70.4,https://leetcode.com/problems/valid-palindrome,"Two Pointers, String"
+5,Second Highest Salary,43.0%,Medium,70.4,https://leetcode.com/problems/second-highest-salary,Database
+6,Longest Palindromic Substring,35.3%,Medium,70.4,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"
+7,Reverse Integer,29.9%,Medium,70.4,https://leetcode.com/problems/reverse-integer,Math
+8,Managers with at Least 5 Direct Reports,49.1%,Medium,70.4,https://leetcode.com/problems/managers-with-at-least-5-direct-reports,Database
+9,Valid Parentheses,41.8%,Easy,70.4,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+10,Palindrome Number,58.7%,Easy,70.4,https://leetcode.com/problems/palindrome-number,Math
+11,Best Time to Buy and Sell Stock,54.8%,Easy,60.4,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+12,Majority Element,65.5%,Easy,60.4,https://leetcode.com/problems/majority-element,"Array, Hash Table, Divide and Conquer, Sorting, Counting"
+13,Pascal's Triangle,76.4%,Easy,60.4,https://leetcode.com/problems/pascals-triangle,"Array, Dynamic Programming"
+14,Climbing Stairs,53.3%,Easy,60.4,https://leetcode.com/problems/climbing-stairs,"Math, Dynamic Programming, Memoization"
+15,Find Customer Referee,71.6%,Easy,60.4,https://leetcode.com/problems/find-customer-referee,Database
+16,Article Views I,77.1%,Easy,60.4,https://leetcode.com/problems/article-views-i,Database
+17,Longest Common Prefix,44.9%,Easy,60.4,https://leetcode.com/problems/longest-common-prefix,"String, Trie"
+18,Maximum Subarray,51.7%,Medium,60.4,https://leetcode.com/problems/maximum-subarray,"Array, Divide and Conquer, Dynamic Programming"
+19,Reverse Linked List,78.7%,Easy,60.4,https://leetcode.com/problems/reverse-linked-list,"Linked List, Recursion"
+20,Department Top Three Salaries,56.8%,Hard,60.4,https://leetcode.com/problems/department-top-three-salaries,Database
+21,Search in Rotated Sorted Array II,38.6%,Medium,60.4,https://leetcode.com/problems/search-in-rotated-sorted-array-ii,"Array, Binary Search"

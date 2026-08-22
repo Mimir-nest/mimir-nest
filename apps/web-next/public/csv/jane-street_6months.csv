@@ -1,0 +1,9 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Count Common Words With One Occurrence,72.0%,Easy,100.0,https://leetcode.com/problems/count-common-words-with-one-occurrence,"Array, Hash Table, String, Counting"
+2,Add Two Integers,88.1%,Easy,95.5,https://leetcode.com/problems/add-two-integers,Math
+3,Stream of Characters,52.3%,Hard,89.9,https://leetcode.com/problems/stream-of-characters,"Array, String, Design, Trie, Data Stream"
+4,Walking Robot Simulation,58.1%,Medium,82.8,https://leetcode.com/problems/walking-robot-simulation,"Array, Hash Table, Simulation"
+5,Longest Common Prefix,44.9%,Easy,72.8,https://leetcode.com/problems/longest-common-prefix,"String, Trie"
+6,Evaluate Division,62.7%,Medium,72.8,https://leetcode.com/problems/evaluate-division,"Array, String, Depth-First Search, Breadth-First Search, Union Find, Graph, Shortest Path"
+7,Minimum Time to Make Array Sum At Most x,27.4%,Hard,72.8,https://leetcode.com/problems/minimum-time-to-make-array-sum-at-most-x,"Array, Dynamic Programming, Sorting"
+8,Design a Text Editor,47.4%,Hard,72.8,https://leetcode.com/problems/design-a-text-editor,"Linked List, String, Stack, Design, Simulation, Doubly-Linked List"

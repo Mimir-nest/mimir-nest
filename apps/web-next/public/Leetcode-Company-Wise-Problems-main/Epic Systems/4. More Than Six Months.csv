@@ -1,0 +1,9 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Letter Combinations of a Phone Number,100.0,0.6308039611222227,https://leetcode.com/problems/letter-combinations-of-a-phone-number,"Hash Table, String, Backtracking"
+MEDIUM,Additive Number,92.3,0.32299927901946646,https://leetcode.com/problems/additive-number,"String, Backtracking"
+EASY,Valid Parentheses,83.8,0.4184525164437973,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+MEDIUM,Spiral Matrix,75.3,0.5293306764008043,https://leetcode.com/problems/spiral-matrix,"Array, Matrix, Simulation"
+EASY,Self Dividing Numbers,75.3,0.7938637733223485,https://leetcode.com/problems/self-dividing-numbers,Math
+MEDIUM,Word Search,69.3,0.44626234309745444,https://leetcode.com/problems/word-search,"Array, String, Backtracking, Depth-First Search, Matrix"
+MEDIUM,Longest Substring Without Repeating Characters,60.8,0.3632674114975531,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+MEDIUM,Stepping Numbers,60.8,0.47524935352789066,https://leetcode.com/problems/stepping-numbers,"Math, Backtracking, Breadth-First Search"

@@ -1,0 +1,6 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Smallest Missing Non-negative Integer After Operations,39.6%,Medium,100.0,https://leetcode.com/problems/smallest-missing-non-negative-integer-after-operations,"Array, Hash Table, Math, Greedy"
+2,Crawler Log Folder,71.6%,Easy,94.5,https://leetcode.com/problems/crawler-log-folder,"Array, String, Stack"
+3,Count Largest Group,66.6%,Easy,94.5,https://leetcode.com/problems/count-largest-group,"Hash Table, Math"
+4,Minimum Subsequence in Non-Increasing Order,72.9%,Easy,94.5,https://leetcode.com/problems/minimum-subsequence-in-non-increasing-order,"Array, Greedy, Sorting"
+5,Max Difference You Can Get From Changing an Integer,40.8%,Medium,94.5,https://leetcode.com/problems/max-difference-you-can-get-from-changing-an-integer,"Math, Greedy"

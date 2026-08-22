@@ -1,0 +1,11 @@
+[
+  { "id": "all", "label": "All Projects" },
+  { "id": "ai", "label": "AI/ML & Data Science" },
+  { "id": "cloud", "label": "Cloud Computing" },
+  { "id": "cybersecurity", "label": "Cybersecurity" },
+  { "id": "devops", "label": "DevOps" },
+  { "id": "iot", "label": "IoT" },
+  { "id": "blockchain", "label": "Blockchain" },
+  { "id": "arvr", "label": "AR/VR" },
+  { "id": "appdev", "label": "App Development" }
+]

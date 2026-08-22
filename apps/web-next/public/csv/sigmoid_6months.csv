@@ -1,0 +1,3 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,House Robber,52.0%,Medium,100.0,https://leetcode.com/problems/house-robber,"Array, Dynamic Programming"
+2,Binary Tree Zigzag Level Order Traversal,61.0%,Medium,89.0,https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal,"Tree, Breadth-First Search, Binary Tree"

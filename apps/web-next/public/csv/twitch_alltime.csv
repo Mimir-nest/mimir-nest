@@ -1,0 +1,7 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Create a Session Bar Chart,75.0%,Easy,100.0,https://leetcode.com/problems/create-a-session-bar-chart,Database
+2,Design a File Sharing System,41.9%,Medium,100.0,https://leetcode.com/problems/design-a-file-sharing-system,"Hash Table, Design, Sorting, Heap (Priority Queue), Data Stream"
+3,Toss Strange Coins,58.1%,Medium,100.0,https://leetcode.com/problems/toss-strange-coins,"Array, Math, Dynamic Programming, Probability and Statistics"
+4,LRU Cache,44.4%,Medium,92.2,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+5,Reverse Vowels of a String,57.0%,Easy,64.9,https://leetcode.com/problems/reverse-vowels-of-a-string,"Two Pointers, String"
+6,Letter Combinations of a Phone Number,63.1%,Medium,64.9,https://leetcode.com/problems/letter-combinations-of-a-phone-number,"Hash Table, String, Backtracking"

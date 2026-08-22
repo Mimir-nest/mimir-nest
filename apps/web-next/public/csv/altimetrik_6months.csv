@@ -1,0 +1,7 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Two Sum,55.1%,Easy,100.0,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+2,3Sum,36.4%,Medium,100.0,https://leetcode.com/problems/3sum,"Array, Two Pointers, Sorting"
+3,Longest Palindromic Substring,35.3%,Medium,89.2,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"
+4,Valid Parentheses,41.8%,Easy,89.2,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+5,Monthly Transactions I,58.4%,Medium,89.2,https://leetcode.com/problems/monthly-transactions-i,Database
+6,Maximum Number of Pairs in Array,75.5%,Easy,89.2,https://leetcode.com/problems/maximum-number-of-pairs-in-array,"Array, Hash Table, Counting"

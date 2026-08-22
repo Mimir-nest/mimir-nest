@@ -1,0 +1,5 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Zigzag Conversion,50.8%,Medium,100.0,https://leetcode.com/problems/zigzag-conversion,String
+2,Longest Substring Without Repeating Characters,36.3%,Medium,89.1,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+3,Longest Substring with At Most K Distinct Characters,49.3%,Medium,89.1,https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters,"Hash Table, String, Sliding Window"
+4,Check if an Original String Exists Given Two Encoded Strings,43.7%,Hard,89.1,https://leetcode.com/problems/check-if-an-original-string-exists-given-two-encoded-strings,"String, Dynamic Programming"

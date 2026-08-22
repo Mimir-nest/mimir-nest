@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Valid Parentheses,41.8%,Easy,100.0,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+2,Squares of a Sorted Array,73.1%,Easy,84.1,https://leetcode.com/problems/squares-of-a-sorted-array,"Array, Two Pointers, Sorting"
+3,Move Zeroes,62.5%,Easy,77.5,https://leetcode.com/problems/move-zeroes,"Array, Two Pointers"
+4,Merge Intervals,48.8%,Medium,77.5,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+5,Two Sum,55.1%,Easy,77.5,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+6,Remove Duplicates from Sorted Array,59.5%,Easy,68.2,https://leetcode.com/problems/remove-duplicates-from-sorted-array,"Array, Two Pointers"
+7,Number of Islands,61.6%,Medium,68.2,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+8,Reverse Linked List,78.7%,Easy,68.2,https://leetcode.com/problems/reverse-linked-list,"Linked List, Recursion"
+9,Merge Sorted Array,52.3%,Easy,68.2,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+10,Invert Binary Tree,78.6%,Easy,68.2,https://leetcode.com/problems/invert-binary-tree,"Tree, Depth-First Search, Breadth-First Search, Binary Tree"

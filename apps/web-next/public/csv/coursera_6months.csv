@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Text Justification,47.1%,Hard,100.0,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+2,Rank Teams by Votes,59.0%,Medium,82.3,https://leetcode.com/problems/rank-teams-by-votes,"Array, Hash Table, String, Sorting, Counting"
+3,Wildcard Matching,29.4%,Hard,76.0,https://leetcode.com/problems/wildcard-matching,"String, Dynamic Programming, Greedy, Recursion"
+4,Search Suggestions System,65.0%,Medium,76.0,https://leetcode.com/problems/search-suggestions-system,"Array, String, Binary Search, Trie, Sorting, Heap (Priority Queue)"
+5,Regular Expression Matching,29.0%,Hard,67.1,https://leetcode.com/problems/regular-expression-matching,"String, Dynamic Programming, Recursion"
+6,Minimum Moves to Equal Array Elements,57.5%,Medium,67.1,https://leetcode.com/problems/minimum-moves-to-equal-array-elements,"Array, Math"
+7,Reaching Points,33.6%,Hard,67.1,https://leetcode.com/problems/reaching-points,Math
+8,N-th Tribonacci Number,63.6%,Easy,67.1,https://leetcode.com/problems/n-th-tribonacci-number,"Math, Dynamic Programming, Memoization"
+9,Minimum Increment to Make Array Unique,60.2%,Medium,67.1,https://leetcode.com/problems/minimum-increment-to-make-array-unique,"Array, Greedy, Sorting, Counting"
+10,Special Binary String,63.3%,Hard,67.1,https://leetcode.com/problems/special-binary-string,"String, Recursion"
+11,Number of Music Playlists,60.2%,Hard,67.1,https://leetcode.com/problems/number-of-music-playlists,"Math, Dynamic Programming, Combinatorics"
+12,Highest Grade For Each Student,71.0%,Medium,67.1,https://leetcode.com/problems/highest-grade-for-each-student,Database

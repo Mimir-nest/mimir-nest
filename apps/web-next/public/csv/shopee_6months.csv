@@ -1,0 +1,8 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,LRU Cache,44.4%,Medium,100.0,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+2,Valid Parentheses,41.8%,Easy,92.2,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+3,Jump Game,39.1%,Medium,92.2,https://leetcode.com/problems/jump-game,"Array, Dynamic Programming, Greedy"
+4,Merge Sorted Array,52.3%,Easy,81.1,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+5,Merge Two Sorted Lists,66.3%,Easy,81.1,https://leetcode.com/problems/merge-two-sorted-lists,"Linked List, Recursion"
+6,Count Pairs in Two Arrays,60.1%,Medium,81.1,https://leetcode.com/problems/count-pairs-in-two-arrays,"Array, Two Pointers, Binary Search, Sorting"
+7,Best Time to Buy and Sell Stock,54.8%,Easy,81.1,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"

@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Count the Number of Infection Sequences,35.7%,Hard,100.0,https://leetcode.com/problems/count-the-number-of-infection-sequences,"Array, Math, Combinatorics"
+2,Trapping Rain Water,64.3%,Hard,72.3,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+3,Most Stones Removed with Same Row or Column,62.1%,Medium,72.3,https://leetcode.com/problems/most-stones-removed-with-same-row-or-column,"Hash Table, Depth-First Search, Union Find, Graph"
+4,Cousins in Binary Tree,57.7%,Easy,63.0,https://leetcode.com/problems/cousins-in-binary-tree,"Tree, Depth-First Search, Breadth-First Search, Binary Tree"
+5,Best Time to Buy and Sell Stock,54.8%,Easy,63.0,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+6,Product of Array Except Self,67.4%,Medium,63.0,https://leetcode.com/problems/product-of-array-except-self,"Array, Prefix Sum"
+7,Longest Palindromic Substring,35.3%,Medium,63.0,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"
+8,Spiral Matrix,52.9%,Medium,63.0,https://leetcode.com/problems/spiral-matrix,"Array, Matrix, Simulation"
+9,Next Greater Element III,34.4%,Medium,63.0,https://leetcode.com/problems/next-greater-element-iii,"Math, Two Pointers, String"
+10,Is Subsequence,48.2%,Easy,63.0,https://leetcode.com/problems/is-subsequence,"Two Pointers, String, Dynamic Programming"
+11,Jump Game,39.1%,Medium,63.0,https://leetcode.com/problems/jump-game,"Array, Dynamic Programming, Greedy"
+12,Find Peak Element,46.3%,Medium,63.0,https://leetcode.com/problems/find-peak-element,"Array, Binary Search"

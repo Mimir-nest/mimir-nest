@@ -1,0 +1,17 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Palindrome Number,58.7%,Easy,100.0,https://leetcode.com/problems/palindrome-number,Math
+2,Managers with at Least 5 Direct Reports,49.1%,Medium,85.5,https://leetcode.com/problems/managers-with-at-least-5-direct-reports,Database
+3,Fibonacci Number,72.5%,Easy,85.5,https://leetcode.com/problems/fibonacci-number,"Math, Dynamic Programming, Recursion, Memoization"
+4,Two Sum,55.1%,Easy,78.0,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+5,Longest Common Prefix,44.9%,Easy,78.0,https://leetcode.com/problems/longest-common-prefix,"String, Trie"
+6,Valid Parentheses,41.8%,Easy,78.0,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+7,Reverse Integer,29.9%,Medium,78.0,https://leetcode.com/problems/reverse-integer,Math
+8,Merge Two Sorted Lists,66.3%,Easy,67.5,https://leetcode.com/problems/merge-two-sorted-lists,"Linked List, Recursion"
+9,Consecutive Numbers,45.4%,Medium,67.5,https://leetcode.com/problems/consecutive-numbers,Database
+10,Binary Search,59.1%,Easy,67.5,https://leetcode.com/problems/binary-search,"Array, Binary Search"
+11,Move Zeroes,62.5%,Easy,67.5,https://leetcode.com/problems/move-zeroes,"Array, Two Pointers"
+12,Counter,82.0%,Easy,67.5,https://leetcode.com/problems/counter,
+13,3Sum,36.4%,Medium,67.5,https://leetcode.com/problems/3sum,"Array, Two Pointers, Sorting"
+14,Happy Number,57.6%,Easy,67.5,https://leetcode.com/problems/happy-number,"Hash Table, Math, Two Pointers"
+15,Smallest Value of the Rearranged Number,52.7%,Medium,67.5,https://leetcode.com/problems/smallest-value-of-the-rearranged-number,"Math, Sorting"
+16,Count Primes,34.4%,Medium,67.5,https://leetcode.com/problems/count-primes,"Array, Math, Enumeration, Number Theory"

@@ -1,0 +1,8 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Scramble String,41.7%,Hard,100.0,https://leetcode.com/problems/scramble-string,"String, Dynamic Programming"
+2,Spiral Matrix,52.9%,Medium,66.6,https://leetcode.com/problems/spiral-matrix,"Array, Matrix, Simulation"
+3,House Robber II,43.1%,Medium,58.8,https://leetcode.com/problems/house-robber-ii,"Array, Dynamic Programming"
+4,Generate Parentheses,76.5%,Medium,58.8,https://leetcode.com/problems/generate-parentheses,"String, Dynamic Programming, Backtracking"
+5,Majority Element II,53.7%,Medium,58.8,https://leetcode.com/problems/majority-element-ii,"Array, Hash Table, Sorting, Counting"
+6,Number of Great Partitions,32.2%,Hard,58.8,https://leetcode.com/problems/number-of-great-partitions,"Array, Dynamic Programming"
+7,Minimum Size Subarray Sum,48.7%,Medium,58.8,https://leetcode.com/problems/minimum-size-subarray-sum,"Array, Binary Search, Sliding Window, Prefix Sum"

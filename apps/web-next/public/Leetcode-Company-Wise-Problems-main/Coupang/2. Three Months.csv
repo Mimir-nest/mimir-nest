@@ -1,0 +1,10 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Shopping Offers,100.0,0.5181849406556501,https://leetcode.com/problems/shopping-offers,"Array, Dynamic Programming, Backtracking, Bit Manipulation, Memoization, Bitmask"
+MEDIUM,Find K Closest Elements,100.0,0.48347359407228685,https://leetcode.com/problems/find-k-closest-elements,"Array, Two Pointers, Binary Search, Sliding Window, Sorting, Heap (Priority Queue)"
+MEDIUM,Number of Distinct Islands,88.3,0.6197944599377883,https://leetcode.com/problems/number-of-distinct-islands,"Hash Table, Depth-First Search, Breadth-First Search, Union Find, Hash Function"
+MEDIUM,LRU Cache,88.3,0.44431037243296573,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+HARD,LFU Cache,88.3,0.4584725068954174,https://leetcode.com/problems/lfu-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+MEDIUM,Longest Repeating Substring,88.3,0.62729136373388,https://leetcode.com/problems/longest-repeating-substring,"String, Binary Search, Dynamic Programming, Rolling Hash, Suffix Array, Hash Function"
+HARD,Find Median from Data Stream,88.3,0.5297422453954074,https://leetcode.com/problems/find-median-from-data-stream,"Two Pointers, Design, Sorting, Heap (Priority Queue), Data Stream"
+MEDIUM,Design Hit Counter,88.3,0.690145319433361,https://leetcode.com/problems/design-hit-counter,"Array, Binary Search, Design, Queue, Data Stream"
+HARD,Wildcard Matching,88.3,0.29364447283067296,https://leetcode.com/problems/wildcard-matching,"String, Dynamic Programming, Greedy, Recursion"

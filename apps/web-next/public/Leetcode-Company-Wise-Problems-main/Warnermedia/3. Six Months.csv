@@ -1,0 +1,2 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Merge k Sorted Lists,100.0,0.5579591740856451,https://leetcode.com/problems/merge-k-sorted-lists,"Linked List, Divide and Conquer, Heap (Priority Queue), Merge Sort"

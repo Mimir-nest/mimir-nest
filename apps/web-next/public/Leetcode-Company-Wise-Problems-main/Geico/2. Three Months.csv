@@ -1,0 +1,4 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Coin Change,100.0,0.4581342962105665,https://leetcode.com/problems/coin-change,"Array, Dynamic Programming, Breadth-First Search"
+MEDIUM,Best Time to Buy and Sell Stock with Cooldown,100.0,0.5982922607504858,https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown,"Array, Dynamic Programming"
+MEDIUM,Maximum Number of Potholes That Can Be Fixed,78.9,0.5332317653780232,https://leetcode.com/problems/maximum-number-of-potholes-that-can-be-fixed,"String, Greedy, Sorting"

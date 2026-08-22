@@ -1,0 +1,9 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Valid Parentheses,41.8%,Easy,100.0,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+2,Longest Substring Without Repeating Characters,36.3%,Medium,94.1,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+3,Two Sum,55.1%,Easy,86.6,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+4,Merge Sorted Array,52.3%,Easy,86.6,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+5,Roman to Integer,64.2%,Easy,75.9,https://leetcode.com/problems/roman-to-integer,"Hash Table, Math, String"
+6,Longest Common Prefix,44.9%,Easy,75.9,https://leetcode.com/problems/longest-common-prefix,"String, Trie"
+7,Group Anagrams,70.3%,Medium,75.9,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+8,3Sum,36.4%,Medium,75.9,https://leetcode.com/problems/3sum,"Array, Two Pointers, Sorting"

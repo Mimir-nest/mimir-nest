@@ -1,0 +1,12 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Number of Orders in the Backlog,51.2%,Medium,100.0,https://leetcode.com/problems/number-of-orders-in-the-backlog,"Array, Heap (Priority Queue), Simulation"
+2,Restore the Array From Adjacent Pairs,74.7%,Medium,78.6,https://leetcode.com/problems/restore-the-array-from-adjacent-pairs,"Array, Hash Table, Depth-First Search"
+3,Best Time to Buy and Sell Stock,54.8%,Easy,78.6,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+4,Text Justification,47.1%,Hard,63.9,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+5,Course Schedule II,52.6%,Medium,63.9,https://leetcode.com/problems/course-schedule-ii,"Depth-First Search, Breadth-First Search, Graph, Topological Sort"
+6,Check if There is a Valid Path in a Grid,48.7%,Medium,63.9,https://leetcode.com/problems/check-if-there-is-a-valid-path-in-a-grid,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+7,Count Good Meals,31.1%,Medium,63.9,https://leetcode.com/problems/count-good-meals,"Array, Hash Table"
+8,Ways to Split Array Into Three Subarrays,33.3%,Medium,63.9,https://leetcode.com/problems/ways-to-split-array-into-three-subarrays,"Array, Two Pointers, Binary Search, Prefix Sum"
+9,Capital Gain/Loss,85.1%,Medium,63.9,https://leetcode.com/problems/capital-gainloss,Database
+10,Count the Number of Consistent Strings,88.2%,Easy,63.9,https://leetcode.com/problems/count-the-number-of-consistent-strings,"Array, Hash Table, String, Bit Manipulation, Counting"
+11,Brightest Position on Street,61.0%,Medium,63.9,https://leetcode.com/problems/brightest-position-on-street,"Array, Sorting, Prefix Sum, Ordered Set"

@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Maximum Profit in Job Scheduling,54.3%,Hard,100.0,https://leetcode.com/problems/maximum-profit-in-job-scheduling,"Array, Binary Search, Dynamic Programming, Sorting"
+2,Evaluate Division,62.7%,Medium,100.0,https://leetcode.com/problems/evaluate-division,"Array, String, Depth-First Search, Breadth-First Search, Union Find, Graph, Shortest Path"
+3,IPO,53.0%,Hard,100.0,https://leetcode.com/problems/ipo,"Array, Greedy, Sorting, Heap (Priority Queue)"
+4,Next Greater Element II,65.6%,Medium,100.0,https://leetcode.com/problems/next-greater-element-ii,"Array, Stack, Monotonic Stack"
+5,Task Scheduler,61.0%,Medium,87.4,https://leetcode.com/problems/task-scheduler,"Array, Hash Table, Greedy, Sorting, Heap (Priority Queue), Counting"
+6,Insert Delete GetRandom O(1) - Duplicates allowed,35.8%,Hard,87.4,https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed,"Array, Hash Table, Math, Design, Randomized"
+7,Find a Peak Element II,52.8%,Medium,87.4,https://leetcode.com/problems/find-a-peak-element-ii,"Array, Binary Search, Matrix"
+8,Interleaving String,41.4%,Medium,87.4,https://leetcode.com/problems/interleaving-string,"String, Dynamic Programming"
+9,Minimum Operations to Write the Letter Y on a Grid,62.3%,Medium,87.4,https://leetcode.com/problems/minimum-operations-to-write-the-letter-y-on-a-grid,"Array, Hash Table, Matrix, Counting"
+10,Apply Operations to Make Two Strings Equal,27.3%,Medium,87.4,https://leetcode.com/problems/apply-operations-to-make-two-strings-equal,"String, Dynamic Programming"
+11,House Robber,52.0%,Medium,87.4,https://leetcode.com/problems/house-robber,"Array, Dynamic Programming"
+12,Number of Islands,61.6%,Medium,87.4,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"

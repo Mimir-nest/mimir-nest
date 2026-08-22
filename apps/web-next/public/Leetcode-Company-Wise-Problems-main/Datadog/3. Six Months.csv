@@ -1,0 +1,12 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,Most Common Word,100.0,0.4448633280451142,https://leetcode.com/problems/most-common-word,"Array, Hash Table, String, Counting"
+MEDIUM,Meeting Scheduler,89.3,0.5520729654897845,https://leetcode.com/problems/meeting-scheduler,"Array, Two Pointers, Sorting"
+EASY,Valid Word Abbreviation,87.1,0.3661181400638188,https://leetcode.com/problems/valid-word-abbreviation,"Two Pointers, String"
+EASY,Maximum Depth of N-ary Tree,82.0,0.727825242176896,https://leetcode.com/problems/maximum-depth-of-n-ary-tree,"Tree, Depth-First Search, Breadth-First Search"
+MEDIUM,Coin Change,75.2,0.4581321650103458,https://leetcode.com/problems/coin-change,"Array, Dynamic Programming, Breadth-First Search"
+MEDIUM,Design Circular Queue,70.7,0.5236253635437477,https://leetcode.com/problems/design-circular-queue,"Array, Linked List, Design, Queue"
+MEDIUM,Design Add and Search Words Data Structure,70.7,0.4669621057497265,https://leetcode.com/problems/design-add-and-search-words-data-structure,"String, Depth-First Search, Design, Trie"
+HARD,Sliding Window Median,64.9,0.3868125455871627,https://leetcode.com/problems/sliding-window-median,"Array, Hash Table, Sliding Window, Heap (Priority Queue)"
+HARD,Binary Tree Maximum Path Sum,56.7,0.4090456614910705,https://leetcode.com/problems/binary-tree-maximum-path-sum,"Dynamic Programming, Tree, Depth-First Search, Binary Tree"
+MEDIUM,People Whose List of Favorite Companies Is Not a Subset of Another List,56.7,0.5925173247708659,https://leetcode.com/problems/people-whose-list-of-favorite-companies-is-not-a-subset-of-another-list,"Array, Hash Table, String"
+HARD,Maximum Vacation Days,56.7,0.46175153987307005,https://leetcode.com/problems/maximum-vacation-days,"Array, Dynamic Programming, Matrix"

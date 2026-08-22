@@ -1,0 +1,16 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Reward Top K Students,100.0,0.45571552406437266,https://leetcode.com/problems/reward-top-k-students,"Array, Hash Table, String, Sorting, Heap (Priority Queue)"
+HARD,Sliding Window Maximum,94.0,0.4724674874758977,https://leetcode.com/problems/sliding-window-maximum,"Array, Queue, Sliding Window, Heap (Priority Queue), Monotonic Queue"
+MEDIUM,Maximal Square,75.9,0.4822803101091829,https://leetcode.com/problems/maximal-square,"Array, Dynamic Programming, Matrix"
+HARD,Binary Tree Maximum Path Sum,65.3,0.4090457112384286,https://leetcode.com/problems/binary-tree-maximum-path-sum,"Dynamic Programming, Tree, Depth-First Search, Binary Tree"
+MEDIUM,Longest Increasing Subsequence,65.3,0.5717089001994923,https://leetcode.com/problems/longest-increasing-subsequence,"Array, Binary Search, Dynamic Programming"
+EASY,Backspace String Compare,65.3,0.4939402198306117,https://leetcode.com/problems/backspace-string-compare,"Two Pointers, String, Stack, Simulation"
+HARD,Delete Duplicate Folders in System,65.3,0.5489277652370204,https://leetcode.com/problems/delete-duplicate-folders-in-system,"Array, Hash Table, String, Trie, Hash Function"
+MEDIUM,Least Number of Unique Integers after K Removals,57.0,0.6326020024727872,https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals,"Array, Hash Table, Greedy, Sorting, Counting"
+MEDIUM,Number of Islands,57.0,0.6158107282039925,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+HARD,Reconstruct Itinerary,57.0,0.4342854797668883,https://leetcode.com/problems/reconstruct-itinerary,"Depth-First Search, Graph, Eulerian Circuit"
+MEDIUM,K Highest Ranked Items Within a Price Range,57.0,0.44059613252863655,https://leetcode.com/problems/k-highest-ranked-items-within-a-price-range,"Array, Breadth-First Search, Sorting, Heap (Priority Queue), Matrix"
+EASY,Two Out of Three,57.0,0.7621656490769007,https://leetcode.com/problems/two-out-of-three,"Array, Hash Table, Bit Manipulation"
+MEDIUM,Coloring A Border,57.0,0.4960934656540412,https://leetcode.com/problems/coloring-a-border,"Array, Depth-First Search, Breadth-First Search, Matrix"
+MEDIUM,Order Two Columns Independently,57.0,0.6073471035457175,https://leetcode.com/problems/order-two-columns-independently,Database
+MEDIUM,Count Number of Nice Subarrays,57.0,0.7235969926694642,https://leetcode.com/problems/count-number-of-nice-subarrays,"Array, Hash Table, Math, Sliding Window, Prefix Sum"

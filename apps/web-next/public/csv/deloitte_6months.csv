@@ -1,0 +1,16 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Two Sum,55.1%,Easy,100.0,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+2,Palindrome Number,58.7%,Easy,75.8,https://leetcode.com/problems/palindrome-number,Math
+3,Reverse Integer,29.9%,Medium,75.8,https://leetcode.com/problems/reverse-integer,Math
+4,Merge k Sorted Lists,55.8%,Hard,75.8,https://leetcode.com/problems/merge-k-sorted-lists,"Linked List, Divide and Conquer, Heap (Priority Queue), Merge Sort"
+5,Valid Parentheses,41.8%,Easy,65.8,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+6,Pascal's Triangle,76.4%,Easy,65.8,https://leetcode.com/problems/pascals-triangle,"Array, Dynamic Programming"
+7,Valid Palindrome,50.2%,Easy,65.8,https://leetcode.com/problems/valid-palindrome,"Two Pointers, String"
+8,Climbing Stairs,53.3%,Easy,65.8,https://leetcode.com/problems/climbing-stairs,"Math, Dynamic Programming, Memoization"
+9,Longest Palindromic Substring,35.3%,Medium,65.8,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"
+10,Maximum Subarray,51.7%,Medium,65.8,https://leetcode.com/problems/maximum-subarray,"Array, Divide and Conquer, Dynamic Programming"
+11,Change Null Values in a Table to the Previous Value,51.4%,Medium,65.8,https://leetcode.com/problems/change-null-values-in-a-table-to-the-previous-value,Database
+12,Majority Element,65.5%,Easy,65.8,https://leetcode.com/problems/majority-element,"Array, Hash Table, Divide and Conquer, Sorting, Counting"
+13,Managers with at Least 5 Direct Reports,49.1%,Medium,65.8,https://leetcode.com/problems/managers-with-at-least-5-direct-reports,Database
+14,Search in Rotated Sorted Array II,38.6%,Medium,65.8,https://leetcode.com/problems/search-in-rotated-sorted-array-ii,"Array, Binary Search"
+15,Best Time to Buy and Sell Stock,54.8%,Easy,65.8,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"

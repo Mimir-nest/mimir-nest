@@ -1,0 +1,8 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Keys and Rooms,74.2%,Medium,100.0,https://leetcode.com/problems/keys-and-rooms,"Depth-First Search, Breadth-First Search, Graph"
+2,Course Schedule,48.5%,Medium,100.0,https://leetcode.com/problems/course-schedule,"Depth-First Search, Breadth-First Search, Graph, Topological Sort"
+3,Binary Tree Cameras,47.0%,Hard,100.0,https://leetcode.com/problems/binary-tree-cameras,"Dynamic Programming, Tree, Depth-First Search, Binary Tree"
+4,Largest Number,40.9%,Medium,100.0,https://leetcode.com/problems/largest-number,"Array, String, Greedy, Sorting"
+5,Decode Ways,36.1%,Medium,100.0,https://leetcode.com/problems/decode-ways,"String, Dynamic Programming"
+6,01 Matrix,50.7%,Medium,100.0,https://leetcode.com/problems/01-matrix,"Array, Dynamic Programming, Breadth-First Search, Matrix"
+7,Collect Coins in a Tree,36.3%,Hard,89.4,https://leetcode.com/problems/collect-coins-in-a-tree,"Array, Tree, Graph, Topological Sort"

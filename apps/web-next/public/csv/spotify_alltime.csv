@@ -1,0 +1,14 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Longest Substring Without Repeating Characters,36.3%,Medium,100.0,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+2,Two Sum,55.1%,Easy,97.8,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+3,Leetcodify Friends Recommendations,27.7%,Hard,97.8,https://leetcode.com/problems/leetcodify-friends-recommendations,Database
+4,Leetcodify Similar Friends,42.5%,Hard,97.8,https://leetcode.com/problems/leetcodify-similar-friends,Database
+5,Moving Average from Data Stream,79.6%,Easy,97.8,https://leetcode.com/problems/moving-average-from-data-stream,"Array, Design, Queue, Data Stream"
+6,Analyze User Website Visit Pattern,43.2%,Medium,92.6,https://leetcode.com/problems/analyze-user-website-visit-pattern,"Array, Hash Table, Sorting"
+7,Valid Parentheses,41.8%,Easy,85.9,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+8,Valid Palindrome,50.2%,Easy,76.5,https://leetcode.com/problems/valid-palindrome,"Two Pointers, String"
+9,Kth Largest Element in an Array,67.6%,Medium,76.5,https://leetcode.com/problems/kth-largest-element-in-an-array,"Array, Divide and Conquer, Sorting, Heap (Priority Queue), Quickselect"
+10,Step-By-Step Directions From a Binary Tree Node to Another,56.4%,Medium,60.4,https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another,"String, Tree, Depth-First Search, Binary Tree"
+11,Valid Anagram,66.2%,Easy,60.4,https://leetcode.com/problems/valid-anagram,"Hash Table, String, Sorting"
+12,Find Median from Data Stream,53.0%,Hard,60.4,https://leetcode.com/problems/find-median-from-data-stream,"Two Pointers, Design, Sorting, Heap (Priority Queue), Data Stream"
+13,Ransom Note,63.9%,Easy,60.4,https://leetcode.com/problems/ransom-note,"Hash Table, String, Counting"

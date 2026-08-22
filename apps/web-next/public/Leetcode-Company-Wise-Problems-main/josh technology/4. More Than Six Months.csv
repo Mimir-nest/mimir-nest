@@ -1,0 +1,11 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Add Two Numbers,100.0,0.45440173904035386,https://leetcode.com/problems/add-two-numbers,"Linked List, Math, Recursion"
+MEDIUM,Remove Zero Sum Consecutive Nodes from Linked List,100.0,0.5275756828880146,https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list,"Hash Table, Linked List"
+MEDIUM,Find the Minimum and Maximum Number of Nodes Between Critical Points,91.9,0.6959486652900178,https://leetcode.com/problems/find-the-minimum-and-maximum-number-of-nodes-between-critical-points,Linked List
+MEDIUM,Number of Good Leaf Nodes Pairs,91.9,0.7185516007418584,https://leetcode.com/problems/number-of-good-leaf-nodes-pairs,"Tree, Depth-First Search, Binary Tree"
+EASY,Best Time to Buy and Sell Stock,91.9,0.5477002173396891,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+MEDIUM,Merge Nodes in Between Zeros,91.9,0.8970405476566614,https://leetcode.com/problems/merge-nodes-in-between-zeros,"Linked List, Simulation"
+MEDIUM,Longest Substring Without Repeating Characters,80.5,0.36326940710828376,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+EASY,Move Zeroes,80.5,0.625447624260758,https://leetcode.com/problems/move-zeroes,"Array, Two Pointers"
+MEDIUM,Construct Smallest Number From DI String,80.5,0.8590837389962176,https://leetcode.com/problems/construct-smallest-number-from-di-string,"String, Backtracking, Stack, Greedy"
+MEDIUM,Find the Substring With Maximum Cost,80.5,0.571896440934436,https://leetcode.com/problems/find-the-substring-with-maximum-cost,"Array, Hash Table, String, Dynamic Programming"

@@ -1,0 +1,20 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Integer to Roman,100.0,0.6785811547123167,https://leetcode.com/problems/integer-to-roman,"Hash Table, Math, String"
+MEDIUM,Minimum Processing Time,94.8,0.6956656346749226,https://leetcode.com/problems/minimum-processing-time,"Array, Greedy, Sorting"
+EASY,Best Time to Buy and Sell Stock,80.3,0.5476980593511396,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+MEDIUM,Next Permutation,80.3,0.42324029946606845,https://leetcode.com/problems/next-permutation,"Array, Two Pointers"
+EASY,Count Pairs Of Similar Strings,80.3,0.7213646642414708,https://leetcode.com/problems/count-pairs-of-similar-strings,"Array, Hash Table, String, Bit Manipulation, Counting"
+MEDIUM,3Sum,68.9,0.3642306371984945,https://leetcode.com/problems/3sum,"Array, Two Pointers, Sorting"
+MEDIUM,String to Integer (atoi),68.9,0.1871713970536988,https://leetcode.com/problems/string-to-integer-atoi,String
+MEDIUM,Largest Number,68.9,0.40860609611684745,https://leetcode.com/problems/largest-number,"Array, String, Greedy, Sorting"
+MEDIUM,Jump Game,68.9,0.3911364503499886,https://leetcode.com/problems/jump-game,"Array, Dynamic Programming, Greedy"
+MEDIUM,Generate Parentheses,68.9,0.7652984497625767,https://leetcode.com/problems/generate-parentheses,"String, Dynamic Programming, Backtracking"
+MEDIUM,Reverse Integer,68.9,0.29864317763528553,https://leetcode.com/problems/reverse-integer,Math
+EASY,Two Sum,68.9,0.5507380243620397,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+MEDIUM,Longest Substring Without Repeating Characters,68.9,0.36326694920948055,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+MEDIUM,Meeting Rooms II,68.9,0.5191552987461305,https://leetcode.com/problems/meeting-rooms-ii,"Array, Two Pointers, Greedy, Sorting, Heap (Priority Queue), Prefix Sum"
+MEDIUM,Number of Islands,68.9,0.6158089928119199,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+HARD,Median of Two Sorted Arrays,68.9,0.429393714636432,https://leetcode.com/problems/median-of-two-sorted-arrays,"Array, Binary Search, Divide and Conquer"
+EASY,Roman to Integer,68.9,0.6415382294669726,https://leetcode.com/problems/roman-to-integer,"Hash Table, Math, String"
+MEDIUM,Container With Most Water,68.9,0.5717347175888353,https://leetcode.com/problems/container-with-most-water,"Array, Two Pointers, Greedy"
+MEDIUM,Group Anagrams,68.9,0.7033699227766231,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"

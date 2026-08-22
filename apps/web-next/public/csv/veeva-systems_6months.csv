@@ -1,0 +1,6 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Valid Parentheses,41.8%,Easy,100.0,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+2,Generate Parentheses,76.5%,Medium,100.0,https://leetcode.com/problems/generate-parentheses,"String, Dynamic Programming, Backtracking"
+3,Valid Sudoku,61.7%,Medium,100.0,https://leetcode.com/problems/valid-sudoku,"Array, Hash Table, Matrix"
+4,Group Anagrams,70.3%,Medium,100.0,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+5,Min Stack,55.9%,Medium,100.0,https://leetcode.com/problems/min-stack,"Stack, Design"

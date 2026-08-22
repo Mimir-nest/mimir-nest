@@ -1,0 +1,8 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Stone Game VII,100.0,0.5828983382940217,https://leetcode.com/problems/stone-game-vii,"Array, Math, Dynamic Programming, Game Theory"
+HARD,Build Array Where You Can Find The Maximum Exactly K Comparisons,100.0,0.6749989993195373,https://leetcode.com/problems/build-array-where-you-can-find-the-maximum-exactly-k-comparisons,"Dynamic Programming, Prefix Sum"
+MEDIUM,Number of Distinct Substrings in a String,100.0,0.6439558170744296,https://leetcode.com/problems/number-of-distinct-substrings-in-a-string,"String, Trie, Rolling Hash, Suffix Array, Hash Function"
+HARD,Number of Ways to Form a Target String Given a Dictionary,100.0,0.5729806394130456,https://leetcode.com/problems/number-of-ways-to-form-a-target-string-given-a-dictionary,"Array, String, Dynamic Programming"
+HARD,Find All Good Strings,100.0,0.43277501131733814,https://leetcode.com/problems/find-all-good-strings,"String, Dynamic Programming, String Matching"
+MEDIUM,Ways to Make a Fair Array,100.0,0.6433505033949894,https://leetcode.com/problems/ways-to-make-a-fair-array,"Array, Prefix Sum"
+HARD,Arithmetic Slices II - Subsequence,63.3,0.5463153704880485,https://leetcode.com/problems/arithmetic-slices-ii-subsequence,"Array, Dynamic Programming"

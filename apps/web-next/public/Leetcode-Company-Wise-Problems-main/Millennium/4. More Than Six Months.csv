@@ -1,0 +1,5 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,"Pow(x, n)",100.0,0.36477465740684084,https://leetcode.com/problems/powx-n,"Math, Recursion"
+MEDIUM,Find the Smallest Divisor Given a Threshold,100.0,0.6264430680321406,https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold,"Array, Binary Search"
+MEDIUM,Broken Calculator,100.0,0.5497359422108011,https://leetcode.com/problems/broken-calculator,"Math, Greedy"
+HARD,Partition Array Into Two Arrays to Minimize Sum Difference,100.0,0.213166126175855,https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference,"Array, Two Pointers, Binary Search, Dynamic Programming, Bit Manipulation, Ordered Set, Bitmask"

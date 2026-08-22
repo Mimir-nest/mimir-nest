@@ -1,0 +1,277 @@
+[
+  {
+    "id": "github-student-developer-pack",
+    "title": "GitHub Student Developer Pack",
+    "company": "GitHub",
+    "description": "The ultimate collection of free developer tools and services for students",
+    "value": "$10,000+",
+    "category": "developers",
+    "link": "https://education.github.com/pack",
+    "verified": true,
+    "iconKey": "code",
+    "gradient": "from-orange-600/20 to-red-600/20",
+    "offers": [
+      "Free GitHub Pro account",
+      "Free domain (Namecheap .me or .xyz)",
+      "Free SSL certificate (Namecheap)",
+      "Canva Pro for 12 months",
+      "JetBrains IDEs (IntelliJ, PyCharm) free for a year"
+    ]
+  },
+  {
+    "id": "jetbrains-student-license",
+    "title": "JetBrains Student License",
+    "company": "JetBrains",
+    "description": "Professional IDEs for software development, completely free for students",
+    "value": "$1,500+",
+    "category": "developers",
+    "link": "https://www.jetbrains.com/community/education/",
+    "verified": true,
+    "iconKey": "code",
+    "gradient": "from-purple-600/20 to-indigo-600/20",
+    "offers": [
+      "Free access to all JetBrains professional IDEs",
+      "PyCharm Pro - Python development",
+      "IntelliJ IDEA Ultimate - Java/Kotlin development",
+      "WebStorm - JavaScript/TypeScript development"
+    ]
+  },
+  {
+    "id": "notion-pro",
+    "title": "Notion Pro",
+    "company": "Notion",
+    "description": "All-in-one workspace for notes, tasks, wikis, and databases",
+    "value": "$200+",
+    "category": "utilities",
+    "link": "https://www.notion.so/students",
+    "verified": true,
+    "iconKey": "settings",
+    "gradient": "from-gray-600/20 to-slate-600/20",
+    "offers": [
+      "Free Notion Pro for personal use",
+      "Unlimited blocks and file uploads",
+      "Advanced features and integrations"
+    ]
+  },
+  {
+    "id": "microsoft-office-365",
+    "title": "Microsoft Office 365",
+    "company": "Microsoft",
+    "description": "Complete office suite with Word, Excel, PowerPoint, and Teams",
+    "value": "$300+",
+    "category": "utilities",
+    "link": "https://www.microsoft.com/en-in/education/products/office",
+    "verified": true,
+    "iconKey": "briefcase",
+    "gradient": "from-blue-600/20 to-cyan-600/20",
+    "offers": [
+      "Free access to Word, Excel, PowerPoint",
+      "Microsoft Teams for collaboration",
+      "OneDrive cloud storage"
+    ]
+  },
+  {
+    "id": "google-workspace-for-education",
+    "title": "Google Workspace for Education",
+    "company": "Google",
+    "description": "Enhanced Google services with unlimited storage and advanced features",
+    "value": "$200+",
+    "category": "utilities",
+    "link": "https://edu.google.com/workspace-for-education/",
+    "verified": true,
+    "iconKey": "cloud",
+    "gradient": "from-green-600/20 to-emerald-600/20",
+    "offers": [
+      "Extra Google Drive storage",
+      "Enhanced Gmail with custom domain",
+      "Google Meet with no time limits"
+    ]
+  },
+  {
+    "id": "canva-pro",
+    "title": "Canva Pro",
+    "company": "Canva",
+    "description": "Professional design tool with premium templates and features",
+    "value": "$150+",
+    "category": "creativity",
+    "link": "https://www.canva.com/education/",
+    "verified": true,
+    "iconKey": "palette",
+    "gradient": "from-pink-600/20 to-rose-600/20",
+    "offers": [
+      "1 year free via GitHub Pack",
+      "Premium templates and design elements",
+      "Background remover and magic resize"
+    ]
+  },
+  {
+    "id": "figma-education-plan",
+    "title": "Figma Education Plan",
+    "company": "Figma",
+    "description": "Professional design and prototyping tool for UI/UX designers",
+    "value": "$200+",
+    "category": "creativity",
+    "link": "https://www.figma.com/education/",
+    "verified": true,
+    "iconKey": "palette",
+    "gradient": "from-purple-600/20 to-violet-600/20",
+    "offers": [
+      "Free Figma Professional Plan",
+      "Real-time collaboration features",
+      "Advanced prototyping tools"
+    ]
+  },
+  {
+    "id": "digitalocean-credits",
+    "title": "DigitalOcean Credits",
+    "company": "DigitalOcean",
+    "description": "Cloud hosting platform with $100 in free credits for students",
+    "value": "$100",
+    "category": "developers",
+    "link": "https://education.github.com/pack",
+    "verified": true,
+    "iconKey": "cloud",
+    "gradient": "from-blue-600/20 to-indigo-600/20",
+    "offers": [
+      "$100 credit from GitHub Student Pack",
+      "Deploy backend projects and APIs",
+      "Host portfolios and websites"
+    ]
+  },
+  {
+    "id": "microsoft-azure-for-students",
+    "title": "Microsoft Azure for Students",
+    "company": "Microsoft",
+    "description": "Cloud computing platform with free credits and services",
+    "value": "$100+",
+    "category": "developers",
+    "link": "https://azure.microsoft.com/en-us/free/students/",
+    "verified": true,
+    "iconKey": "cloud",
+    "gradient": "from-cyan-600/20 to-blue-600/20",
+    "offers": [
+      "$100 credit without needing a credit card",
+      "Free access to popular Azure services",
+      "AI and machine learning services"
+    ]
+  },
+  {
+    "id": "google-cloud-platform-credits",
+    "title": "Google Cloud Platform Credits",
+    "company": "Google",
+    "description": "Google's cloud platform with free credits for student projects",
+    "value": "$100+",
+    "category": "developers",
+    "link": "https://cloud.google.com/edu",
+    "verified": true,
+    "iconKey": "cloud",
+    "gradient": "from-orange-600/20 to-yellow-600/20",
+    "offers": [
+      "Via GitHub Pack: $50–$100 GCP credits",
+      "Access to Google Cloud Career Readiness Program",
+      "Compute Engine and storage"
+    ]
+  },
+  {
+    "id": "linkedin-learning",
+    "title": "LinkedIn Learning",
+    "company": "LinkedIn",
+    "description": "Professional development courses and skill building platform",
+    "value": "$300+",
+    "category": "placement-prep",
+    "link": "https://learning.linkedin.com/",
+    "verified": true,
+    "iconKey": "graduation-cap",
+    "gradient": "from-blue-600/20 to-indigo-600/20",
+    "offers": [
+      "Free via some universities or GitHub Pack",
+      "Courses on technology and programming",
+      "Certificates for course completion"
+    ]
+  },
+  {
+    "id": "educative-io",
+    "title": "Educative.io",
+    "company": "Educative",
+    "description": "Interactive coding courses and interview preparation platform",
+    "value": "$500+",
+    "category": "placement-prep",
+    "link": "https://www.educative.io/github-students",
+    "verified": true,
+    "iconKey": "graduation-cap",
+    "gradient": "from-green-600/20 to-emerald-600/20",
+    "offers": [
+      "6-month free plan via GitHub Student Pack",
+      "Interactive coding lessons",
+      "System design interview prep"
+    ]
+  },
+  {
+    "id": "frontendmasters",
+    "title": "FrontendMasters",
+    "company": "Frontend Masters",
+    "description": "Advanced frontend development courses from industry experts",
+    "value": "$500+",
+    "category": "placement-prep",
+    "link": "https://www.frontendmasters.com/teachers/students/",
+    "verified": true,
+    "iconKey": "graduation-cap",
+    "gradient": "from-orange-600/20 to-red-600/20",
+    "offers": [
+      "6 months free access with student verification",
+      "Advanced JavaScript and React courses",
+      "Interview preparation content"
+    ]
+  },
+  {
+    "id": "spotify-student-plan",
+    "title": "Spotify Student Plan",
+    "company": "Spotify",
+    "description": "Music streaming service with significant student discount",
+    "value": "$50+",
+    "category": "utilities",
+    "link": "https://www.spotify.com/student/",
+    "verified": true,
+    "iconKey": "music",
+    "gradient": "from-green-600/20 to-emerald-600/20",
+    "offers": [
+      "₹59/month (vs ₹119 regular price)",
+      "Ad-free music streaming",
+      "Offline downloads"
+    ]
+  },
+  {
+    "id": "youtube-premium-student",
+    "title": "YouTube Premium Student",
+    "company": "YouTube",
+    "description": "Ad-free YouTube experience with background play and downloads",
+    "value": "$50+",
+    "category": "utilities",
+    "link": "https://www.youtube.com/premium/student",
+    "verified": true,
+    "iconKey": "music",
+    "gradient": "from-red-600/20 to-pink-600/20",
+    "offers": [
+      "₹79/month (vs ₹129 regular price)",
+      "Ad-free YouTube videos",
+      "Background play on mobile"
+    ]
+  },
+  {
+    "id": "amazon-prime-student",
+    "title": "Amazon Prime Student",
+    "company": "Amazon",
+    "description": "Amazon's membership program with student pricing and benefits",
+    "value": "$100+",
+    "category": "utilities",
+    "link": "https://www.amazon.in/gp/student/signup/info",
+    "verified": true,
+    "iconKey": "shopping-bag",
+    "gradient": "from-orange-600/20 to-yellow-600/20",
+    "offers": [
+      "₹499/year (vs ₹1499 regular price)",
+      "Prime Video streaming access",
+      "Faster delivery on eligible items"
+    ]
+  }
+]

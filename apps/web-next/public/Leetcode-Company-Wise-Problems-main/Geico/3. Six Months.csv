@@ -1,0 +1,9 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Maximum Number of Potholes That Can Be Fixed,100.0,0.5332317653780232,https://leetcode.com/problems/maximum-number-of-potholes-that-can-be-fixed,"String, Greedy, Sorting"
+MEDIUM,Largest Palindromic Number,93.0,0.36221807166512326,https://leetcode.com/problems/largest-palindromic-number,"Hash Table, String, Greedy, Counting"
+MEDIUM,Number of Steps to Reduce a Number in Binary Representation to One,82.6,0.6143492670594051,https://leetcode.com/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one,"String, Bit Manipulation"
+MEDIUM,Coin Change,82.6,0.4581342962105665,https://leetcode.com/problems/coin-change,"Array, Dynamic Programming, Breadth-First Search"
+MEDIUM,Best Time to Buy and Sell Stock with Cooldown,82.6,0.5982922607504858,https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown,"Array, Dynamic Programming"
+MEDIUM,Number of Spaces Cleaning Robot Cleaned,77.7,0.6248964242462872,https://leetcode.com/problems/number-of-spaces-cleaning-robot-cleaned,"Array, Matrix, Simulation"
+HARD,First Missing Positive,62.4,0.406346269487847,https://leetcode.com/problems/first-missing-positive,"Array, Hash Table"
+MEDIUM,Best Time to Buy and Sell Stock II,62.4,0.6885666130267579,https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii,"Array, Dynamic Programming, Greedy"

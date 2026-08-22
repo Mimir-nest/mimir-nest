@@ -1,0 +1,6 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Sudoku Solver,100.0,0.6367254619283831,https://leetcode.com/problems/sudoku-solver,"Array, Hash Table, Backtracking, Matrix"
+EASY,Island Perimeter,100.0,0.7335131760126835,https://leetcode.com/problems/island-perimeter,"Array, Depth-First Search, Breadth-First Search, Matrix"
+MEDIUM,Merge Intervals,100.0,0.48806713578479605,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+EASY,Maximum Depth of Binary Tree,100.0,0.7675474806667278,https://leetcode.com/problems/maximum-depth-of-binary-tree,"Tree, Depth-First Search, Breadth-First Search, Binary Tree"
+EASY,Two Sum,100.0,0.5507400111925433,https://leetcode.com/problems/two-sum,"Array, Hash Table"

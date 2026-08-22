@@ -1,0 +1,8 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Number of Divisible Substrings,73.5%,Medium,100.0,https://leetcode.com/problems/number-of-divisible-substrings,"Hash Table, String, Counting, Prefix Sum"
+2,Design a 3D Binary Matrix with Efficient Layer Tracking,69.4%,Medium,100.0,https://leetcode.com/problems/design-a-3d-binary-matrix-with-efficient-layer-tracking,"Array, Hash Table, Design, Heap (Priority Queue), Matrix, Ordered Set"
+3,Backspace String Compare,49.4%,Easy,63.5,https://leetcode.com/problems/backspace-string-compare,"Two Pointers, String, Stack, Simulation"
+4,Second Highest Salary,43.0%,Medium,63.5,https://leetcode.com/problems/second-highest-salary,Database
+5,Build Array Where You Can Find The Maximum Exactly K Comparisons,67.5%,Hard,63.5,https://leetcode.com/problems/build-array-where-you-can-find-the-maximum-exactly-k-comparisons,"Dynamic Programming, Prefix Sum"
+6,Generate Parentheses,76.5%,Medium,63.5,https://leetcode.com/problems/generate-parentheses,"String, Dynamic Programming, Backtracking"
+7,Rotate String,63.5%,Easy,63.5,https://leetcode.com/problems/rotate-string,"String, String Matching"

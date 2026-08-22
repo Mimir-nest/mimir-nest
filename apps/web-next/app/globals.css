@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* shadcn compatibility — mapped to the green design system */
+    --background: 138 60% 97%;        /* #f2fcf0 */
+    --foreground: 138 30% 9%;         /* #151e16 */
+
+    --card: 138 40% 92%;
+    --card-foreground: 138 30% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 138 30% 9%;
+
+    --primary: 150 100% 4%;           /* #001308 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 138 10% 88%;         /* surface-container #e7f1e5 */
+    --secondary-foreground: 138 30% 9%;
+
+    --muted: 138 20% 90%;
+    --muted-foreground: 138 8% 40%;   /* on-surface-variant */
+
+    --accent: 144 17% 34%;            /* surface-tint #466552 */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;         /* #ba1a1a */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 138 12% 76%;            /* outline-variant #c2c8c1 */
+    --input: 138 12% 76%;
+    --ring: 144 17% 34%;              /* surface-tint */
+
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body {
+    background-color: #f2fcf0;
+    color: #151e16;
+    font-family: 'Inter', sans-serif;
+    @apply antialiased;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+
+  ::selection {
+    background-color: #0a2a1a;
+    color: #72937d;
+  }
+
+  button, a, input, select, textarea {
+    -webkit-tap-highlight-color: rgba(70, 101, 82, 0.3);
+    touch-action: manipulation;
+  }
+
+  input, textarea, select {
+    @apply appearance-none;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  @media (min-width: 768px) {
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #e7f1e5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #466552;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2e4d3b;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #466552 #e7f1e5;
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    .min-h-screen {
+      min-height: -webkit-fill-available;
+    }
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism panels matching reference design */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-panel-dark {
+    background: rgba(10, 42, 26, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-card {
+    background: rgba(231, 241, 229, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(194, 200, 193, 0.5);
+  }
+
+  .blue-glow {
+    text-shadow: 0 0 10px rgba(70, 101, 82, 0.5);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-[0_0_20px_rgba(70,101,82,0.15)] hover:border-surface-tint/20;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #466552, #accfb7);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12;
+  }
+
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+  }
+
+  .safe-top { padding-top: env(safe-area-inset-top); }
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+  .safe-left { padding-left: env(safe-area-inset-left); }
+  .safe-right { padding-right: env(safe-area-inset-right); }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+html, body { overflow-x: hidden; }
+
+:focus-visible {
+  outline: 2px solid #466552;
+  outline-offset: 2px;
+}

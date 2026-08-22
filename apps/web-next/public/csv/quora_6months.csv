@@ -1,0 +1,17 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Construct Target Array With Multiple Sums,36.2%,Hard,100.0,https://leetcode.com/problems/construct-target-array-with-multiple-sums,"Array, Heap (Priority Queue)"
+2,Number of Subarrays with Bounded Maximum,53.6%,Medium,65.2,https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum,"Array, Two Pointers"
+3,Substrings of Size Three with Distinct Characters,75.0%,Easy,65.2,https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters,"Hash Table, String, Sliding Window, Counting"
+4,Encode Number,70.1%,Medium,65.2,https://leetcode.com/problems/encode-number,"Math, String, Bit Manipulation"
+5,Sort the Matrix Diagonally,82.9%,Medium,65.2,https://leetcode.com/problems/sort-the-matrix-diagonally,"Array, Sorting, Matrix"
+6,Get Biggest Three Rhombus Sums in a Grid,49.0%,Medium,65.2,https://leetcode.com/problems/get-biggest-three-rhombus-sums-in-a-grid,"Array, Math, Sorting, Heap (Priority Queue), Matrix, Prefix Sum"
+7,Finding Pairs With a Certain Sum,51.7%,Medium,65.2,https://leetcode.com/problems/finding-pairs-with-a-certain-sum,"Array, Hash Table, Design"
+8,1-bit and 2-bit Characters,45.2%,Easy,65.2,https://leetcode.com/problems/1-bit-and-2-bit-characters,Array
+9,Range Frequency Queries,41.3%,Medium,65.2,https://leetcode.com/problems/range-frequency-queries,"Array, Hash Table, Binary Search, Design, Segment Tree"
+10,Find Numbers with Even Number of Digits,77.7%,Easy,65.2,https://leetcode.com/problems/find-numbers-with-even-number-of-digits,"Array, Math"
+11,Maximum Number of Words You Can Type,74.3%,Easy,65.2,https://leetcode.com/problems/maximum-number-of-words-you-can-type,"Hash Table, String"
+12,Exam Room,43.7%,Medium,65.2,https://leetcode.com/problems/exam-room,"Design, Heap (Priority Queue), Ordered Set"
+13,Find the K-Beauty of a Number,61.3%,Easy,65.2,https://leetcode.com/problems/find-the-k-beauty-of-a-number,"Math, String, Sliding Window"
+14,Subtract the Product and Sum of Digits of an Integer,86.7%,Easy,65.2,https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer,Math
+15,3Sum With Multiplicity,45.7%,Medium,65.2,https://leetcode.com/problems/3sum-with-multiplicity,"Array, Hash Table, Two Pointers, Sorting, Counting"
+16,Subarray Sum Equals K,44.9%,Medium,65.2,https://leetcode.com/problems/subarray-sum-equals-k,"Array, Hash Table, Prefix Sum"

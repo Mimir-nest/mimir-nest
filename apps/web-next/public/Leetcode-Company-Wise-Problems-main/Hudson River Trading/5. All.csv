@@ -1,0 +1,10 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,Detect Pattern of Length M Repeated K or More Times,100.0,0.4344806432530728,https://leetcode.com/problems/detect-pattern-of-length-m-repeated-k-or-more-times,"Array, Enumeration"
+HARD,Add Edges to Make Degrees of All Nodes Even,97.8,0.3342307534218422,https://leetcode.com/problems/add-edges-to-make-degrees-of-all-nodes-even,"Hash Table, Graph"
+HARD,Longest Path With Different Adjacent Characters,97.8,0.5396901389720061,https://leetcode.com/problems/longest-path-with-different-adjacent-characters,"Array, String, Tree, Depth-First Search, Graph, Topological Sort"
+MEDIUM,Maximum Total Importance of Roads,97.8,0.6919402406435623,https://leetcode.com/problems/maximum-total-importance-of-roads,"Greedy, Graph, Sorting, Heap (Priority Queue)"
+EASY,Convert Integer to the Sum of Two No-Zero Integers,97.8,0.5398854681611277,https://leetcode.com/problems/convert-integer-to-the-sum-of-two-no-zero-integers,Math
+EASY,Number of Steps to Reduce a Number to Zero,97.8,0.855472543394348,https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero,"Math, Bit Manipulation"
+EASY,Maximum 69 Number,97.8,0.8264977459357684,https://leetcode.com/problems/maximum-69-number,"Math, Greedy"
+HARD,Maximum Score From Grid Operations,97.8,0.24756901754778138,https://leetcode.com/problems/maximum-score-from-grid-operations,"Array, Dynamic Programming, Matrix, Prefix Sum"
+MEDIUM,Can I Win,61.0,0.3011986628871247,https://leetcode.com/problems/can-i-win,"Math, Dynamic Programming, Bit Manipulation, Memoization, Game Theory, Bitmask"

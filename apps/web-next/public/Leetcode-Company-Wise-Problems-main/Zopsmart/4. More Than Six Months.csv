@@ -1,0 +1,9 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Zigzag Conversion,100.0,0.5079155051694905,https://leetcode.com/problems/zigzag-conversion,String
+HARD,Minimum Window Substring,83.1,0.446655473096618,https://leetcode.com/problems/minimum-window-substring,"Hash Table, String, Sliding Window"
+MEDIUM,Fraction Addition and Subtraction,83.1,0.6616418709410256,https://leetcode.com/problems/fraction-addition-and-subtraction,"Math, String, Simulation"
+HARD,Trapping Rain Water,72.2,0.642875924802911,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+EASY,Best Time to Buy and Sell Stock,63.5,0.5477011018241003,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+MEDIUM,Group Anagrams,63.5,0.7033747926639667,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+MEDIUM,Reverse Nodes in Even Length Groups,63.5,0.602931907000198,https://leetcode.com/problems/reverse-nodes-in-even-length-groups,Linked List
+MEDIUM,3Sum,63.5,0.364233974870801,https://leetcode.com/problems/3sum,"Array, Two Pointers, Sorting"

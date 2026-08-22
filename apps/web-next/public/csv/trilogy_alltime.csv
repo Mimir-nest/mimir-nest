@@ -1,0 +1,6 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Substring XOR Queries,34.1%,Medium,100.0,https://leetcode.com/problems/substring-xor-queries,"Array, Hash Table, String, Bit Manipulation"
+2,Handling Sum Queries After Update,29.0%,Hard,100.0,https://leetcode.com/problems/handling-sum-queries-after-update,"Array, Segment Tree"
+3,Bitwise XOR of All Pairings,67.1%,Medium,100.0,https://leetcode.com/problems/bitwise-xor-of-all-pairings,"Array, Bit Manipulation, Brainteaser"
+4,Minimum Time to Kill All Monsters,55.8%,Hard,100.0,https://leetcode.com/problems/minimum-time-to-kill-all-monsters,"Array, Dynamic Programming, Bit Manipulation, Bitmask"
+5,Distinct Subsequences,49.4%,Hard,64.1,https://leetcode.com/problems/distinct-subsequences,"String, Dynamic Programming"

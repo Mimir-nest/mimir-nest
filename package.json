@@ -1,0 +1,31 @@
+{
+  "name": "mimir-nest",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm dev:web",
+    "dev:web": "pnpm --dir apps/web-next dev",
+    "dev:api": "pnpm --dir apps/api dev",
+    "build": "pnpm run build:web && pnpm run build:api",
+    "build:web": "pnpm --dir apps/web-next build",
+    "build:api": "pnpm --dir apps/api build",
+    "start": "pnpm --dir apps/web-next start",
+    "start:web": "pnpm --dir apps/web-next start",
+    "lint": "eslint .",
+    "typecheck": "pnpm --dir apps/web-next typecheck && pnpm --dir apps/api typecheck"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@types/node": "^22.5.5",
+    "eslint": "^9.9.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.9.0",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.0.1"
+  },
+  "dependencies": {
+    "i": "^0.3.7"
+  }
+}

@@ -1,0 +1,7 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Remove Duplicate Letters,100.0,0.5084022816499225,https://leetcode.com/problems/remove-duplicate-letters,"String, Stack, Greedy, Monotonic Stack"
+EASY,Roman to Integer,86.7,0.6415386534184215,https://leetcode.com/problems/roman-to-integer,"Hash Table, Math, String"
+HARD,Trapping Rain Water,76.2,0.6428748511171972,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+MEDIUM,Merge Intervals,76.2,0.4880654552998061,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+EASY,Find the Index of the First Occurrence in a String,76.2,0.44463611342615195,https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string,"Two Pointers, String, String Matching"
+EASY,Valid Parentheses,76.2,0.4184518624179717,https://leetcode.com/problems/valid-parentheses,"String, Stack"

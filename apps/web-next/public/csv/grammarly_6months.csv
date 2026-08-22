@@ -1,0 +1,18 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Merge Intervals,48.8%,Medium,100.0,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+2,Remove All Adjacent Duplicates In String,71.1%,Easy,93.6,https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string,"String, Stack"
+3,Remove All Adjacent Duplicates in String II,59.1%,Medium,84.7,https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii,"String, Stack"
+4,Backspace String Compare,49.4%,Easy,80.6,https://leetcode.com/problems/backspace-string-compare,"Two Pointers, String, Stack, Simulation"
+5,Repeated DNA Sequences,50.7%,Medium,75.7,https://leetcode.com/problems/repeated-dna-sequences,"Hash Table, String, Bit Manipulation, Sliding Window, Rolling Hash, Hash Function"
+6,Word Break II,52.9%,Hard,75.7,https://leetcode.com/problems/word-break-ii,"Array, Hash Table, String, Dynamic Programming, Backtracking, Trie, Memoization"
+7,Number of Islands,61.6%,Medium,69.3,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+8,Word Search,44.6%,Medium,69.3,https://leetcode.com/problems/word-search,"Array, String, Backtracking, Depth-First Search, Matrix"
+9,Vowel Spellchecker,51.5%,Medium,69.3,https://leetcode.com/problems/vowel-spellchecker,"Array, Hash Table, String"
+10,Generate Parentheses,76.5%,Medium,69.3,https://leetcode.com/problems/generate-parentheses,"String, Dynamic Programming, Backtracking"
+11,Word Break,47.9%,Medium,69.3,https://leetcode.com/problems/word-break,"Array, Hash Table, String, Dynamic Programming, Trie, Memoization"
+12,Insert Delete GetRandom O(1),54.9%,Medium,69.3,https://leetcode.com/problems/insert-delete-getrandom-o1,"Array, Hash Table, Math, Design, Randomized"
+13,Climbing Stairs,53.3%,Easy,60.4,https://leetcode.com/problems/climbing-stairs,"Math, Dynamic Programming, Memoization"
+14,Perfect Number,44.0%,Easy,60.4,https://leetcode.com/problems/perfect-number,Math
+15,Sleep,87.7%,Easy,60.4,https://leetcode.com/problems/sleep,
+16,Logger Rate Limiter,76.4%,Easy,60.4,https://leetcode.com/problems/logger-rate-limiter,"Hash Table, Design, Data Stream"
+17,Search in Rotated Sorted Array,42.3%,Medium,60.4,https://leetcode.com/problems/search-in-rotated-sorted-array,"Array, Binary Search"

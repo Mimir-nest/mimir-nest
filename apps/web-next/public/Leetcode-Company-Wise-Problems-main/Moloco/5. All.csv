@@ -1,0 +1,7 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Sliding Puzzle,100.0,0.7298554042706084,https://leetcode.com/problems/sliding-puzzle,"Array, Dynamic Programming, Backtracking, Breadth-First Search, Memoization, Matrix"
+MEDIUM,Design a Stack With Increment Operation,100.0,0.8046685181714401,https://leetcode.com/problems/design-a-stack-with-increment-operation,"Array, Stack, Design"
+HARD,Trapping Rain Water,100.0,0.6428758554877596,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+MEDIUM,Longest String Chain,100.0,0.6169768291331549,https://leetcode.com/problems/longest-string-chain,"Array, Hash Table, Two Pointers, String, Dynamic Programming, Sorting"
+MEDIUM,Meeting Rooms II,88.8,0.519157284640833,https://leetcode.com/problems/meeting-rooms-ii,"Array, Two Pointers, Greedy, Sorting, Heap (Priority Queue), Prefix Sum"
+MEDIUM,Single Element in a Sorted Array,88.8,0.5915604469063677,https://leetcode.com/problems/single-element-in-a-sorted-array,"Array, Binary Search"

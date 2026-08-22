@@ -1,0 +1,18 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Rank Teams by Votes,100.0,0.5895344320514955,https://leetcode.com/problems/rank-teams-by-votes,"Array, Hash Table, String, Sorting, Counting"
+MEDIUM,Design Snake Game,80.9,0.39006983608509627,https://leetcode.com/problems/design-snake-game,"Array, Hash Table, Design, Queue, Simulation"
+MEDIUM,Stock Price Fluctuation ,77.9,0.4870816430020284,https://leetcode.com/problems/stock-price-fluctuation,"Hash Table, Design, Heap (Priority Queue), Data Stream, Ordered Set"
+EASY,Find the Width of Columns of a Grid,69.6,0.6875768757687577,https://leetcode.com/problems/find-the-width-of-columns-of-a-grid,"Array, Matrix"
+HARD,All O`one Data Structure,63.3,0.4483494417749956,https://leetcode.com/problems/all-oone-data-structure,"Hash Table, Linked List, Design, Doubly-Linked List"
+MEDIUM,High-Access Employees,57.4,0.45392689487842186,https://leetcode.com/problems/high-access-employees,"Array, Hash Table, String, Sorting"
+EASY,Logger Rate Limiter,57.4,0.7635636890458137,https://leetcode.com/problems/logger-rate-limiter,"Hash Table, Design, Data Stream"
+MEDIUM,The Time When the Network Becomes Idle,57.4,0.5299695831096797,https://leetcode.com/problems/the-time-when-the-network-becomes-idle,"Array, Breadth-First Search, Graph"
+HARD,Text Justification,53.4,0.47093296579330096,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+HARD,Russian Doll Envelopes,53.4,0.3719137919994145,https://leetcode.com/problems/russian-doll-envelopes,"Array, Binary Search, Dynamic Programming, Sorting"
+MEDIUM,Word Search,48.4,0.4462620297045804,https://leetcode.com/problems/word-search,"Array, String, Backtracking, Depth-First Search, Matrix"
+MEDIUM,Jump Game II,48.4,0.41138482345553784,https://leetcode.com/problems/jump-game-ii,"Array, Dynamic Programming, Greedy"
+MEDIUM,Merge Intervals,41.3,0.48806510187579843,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+MEDIUM,Longest Increasing Subsequence,41.3,0.5717086219308659,https://leetcode.com/problems/longest-increasing-subsequence,"Array, Binary Search, Dynamic Programming"
+MEDIUM,Pairs of Songs With Total Durations Divisible by 60,41.3,0.5315074798619103,https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60,"Array, Hash Table, Counting"
+MEDIUM,Nth Highest Salary,41.3,0.3791099023163122,https://leetcode.com/problems/nth-highest-salary,Database
+MEDIUM,Find K Closest Elements,41.3,0.4834732150587973,https://leetcode.com/problems/find-k-closest-elements,"Array, Two Pointers, Binary Search, Sliding Window, Sorting, Heap (Priority Queue)"

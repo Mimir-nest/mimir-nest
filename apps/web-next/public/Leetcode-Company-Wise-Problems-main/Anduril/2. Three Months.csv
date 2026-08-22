@@ -1,0 +1,7 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Video Stitching,100.0,0.5177357456140351,https://leetcode.com/problems/video-stitching,"Array, Dynamic Programming, Greedy"
+MEDIUM,Time Based Key-Value Store,66.5,0.49362132086900123,https://leetcode.com/problems/time-based-key-value-store,"Hash Table, String, Binary Search, Design"
+MEDIUM,Search Suggestions System,66.5,0.6504522992244536,https://leetcode.com/problems/search-suggestions-system,"Array, String, Binary Search, Trie, Sorting, Heap (Priority Queue)"
+MEDIUM,Spiral Matrix,66.5,0.5293297276822649,https://leetcode.com/problems/spiral-matrix,"Array, Matrix, Simulation"
+MEDIUM,Minesweeper,66.5,0.6774598193814402,https://leetcode.com/problems/minesweeper,"Array, Depth-First Search, Breadth-First Search, Matrix"
+MEDIUM,Course Schedule II,66.5,0.5263029775283423,https://leetcode.com/problems/course-schedule-ii,"Depth-First Search, Breadth-First Search, Graph, Topological Sort"

@@ -1,0 +1,42 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Trigger Production Deployment
+    runs-on: ubuntu-latest
+
+    if: >
+      github.event_name == 'push' ||
+      (github.event_name == 'pull_request' &&
+       github.event.pull_request.merged == true)
+
+    timeout-minutes: 5
+
+    steps:
+      - name: Trigger Vercel Deploy Hook
+        env:
+          DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          echo "Triggering Vercel deployment..."
+
+          curl --fail \
+               --silent \
+               --show-error \
+               --request POST \
+               "$DEPLOY_HOOK"
+
+          echo "Deployment triggered successfully."

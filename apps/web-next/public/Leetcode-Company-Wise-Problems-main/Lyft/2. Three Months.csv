@@ -1,0 +1,6 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Convert Sorted List to Binary Search Tree,100.0,0.6386789577936919,https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree,"Linked List, Divide and Conquer, Tree, Binary Search Tree, Binary Tree"
+HARD,Max Stack,75.5,0.452812440007679,https://leetcode.com/problems/max-stack,"Linked List, Stack, Design, Doubly-Linked List, Ordered Set"
+HARD,Minimum Window Substring,75.5,0.446649014064627,https://leetcode.com/problems/minimum-window-substring,"Hash Table, String, Sliding Window"
+MEDIUM,Time Based Key-Value Store,67.3,0.4936204160978852,https://leetcode.com/problems/time-based-key-value-store,"Hash Table, String, Binary Search, Design"
+MEDIUM,Decode Ways,67.3,0.361050543696366,https://leetcode.com/problems/decode-ways,"String, Dynamic Programming"

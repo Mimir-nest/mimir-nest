@@ -1,0 +1,5 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Best Time to Buy and Sell Stock,54.8%,Easy,100.0,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+2,Minimum Insertion Steps to Make a String Palindrome,72.0%,Hard,88.6,https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome,"String, Dynamic Programming"
+3,Search Suggestions System,65.0%,Medium,88.6,https://leetcode.com/problems/search-suggestions-system,"Array, String, Binary Search, Trie, Sorting, Heap (Priority Queue)"
+4,Coin Change,45.8%,Medium,88.6,https://leetcode.com/problems/coin-change,"Array, Dynamic Programming, Breadth-First Search"

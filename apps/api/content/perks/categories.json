@@ -1,0 +1,7 @@
+[
+  { "id": "all", "label": "All Tools", "iconKey": "sparkles" },
+  { "id": "developers", "label": "Developers", "iconKey": "code" },
+  { "id": "creativity", "label": "Creativity", "iconKey": "palette" },
+  { "id": "placement-prep", "label": "Placement Prep", "iconKey": "graduation-cap" },
+  { "id": "utilities", "label": "Utilities", "iconKey": "settings" }
+]

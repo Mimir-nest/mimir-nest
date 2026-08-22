@@ -1,0 +1,14 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Maximize Greatness of an Array,58.7%,Medium,100.0,https://leetcode.com/problems/maximize-greatness-of-an-array,"Array, Two Pointers, Greedy, Sorting"
+2,Univalued Binary Tree,71.8%,Easy,93.3,https://leetcode.com/problems/univalued-binary-tree,"Tree, Depth-First Search, Breadth-First Search, Binary Tree"
+3,Reformat Date,67.2%,Easy,91.3,https://leetcode.com/problems/reformat-date,String
+4,Text Justification,47.1%,Hard,65.4,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+5,Letter Combinations of a Phone Number,63.1%,Medium,56.7,https://leetcode.com/problems/letter-combinations-of-a-phone-number,"Hash Table, String, Backtracking"
+6,First Missing Positive,40.6%,Hard,56.7,https://leetcode.com/problems/first-missing-positive,"Array, Hash Table"
+7,Minimum Number of Swaps to Make the String Balanced,78.0%,Medium,56.7,https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced,"Two Pointers, String, Stack, Greedy"
+8,Minimum Equal Sum of Two Arrays After Replacing Zeros,36.3%,Medium,56.7,https://leetcode.com/problems/minimum-equal-sum-of-two-arrays-after-replacing-zeros,"Array, Greedy"
+9,Group Anagrams,70.3%,Medium,56.7,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+10,Top K Frequent Elements,64.1%,Medium,56.7,https://leetcode.com/problems/top-k-frequent-elements,"Array, Hash Table, Divide and Conquer, Sorting, Heap (Priority Queue), Bucket Sort, Counting, Quickselect"
+11,Reconstruct Itinerary,43.4%,Hard,56.7,https://leetcode.com/problems/reconstruct-itinerary,"Depth-First Search, Graph, Eulerian Circuit"
+12,Wildcard Matching,29.4%,Hard,56.7,https://leetcode.com/problems/wildcard-matching,"String, Dynamic Programming, Greedy, Recursion"
+13,Ways to Make a Fair Array,64.3%,Medium,56.7,https://leetcode.com/problems/ways-to-make-a-fair-array,"Array, Prefix Sum"

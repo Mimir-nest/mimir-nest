@@ -1,0 +1,5 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Longest Substring Without Repeating Characters,100.0,0.363269875908814,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+MEDIUM,Find Polygon With the Largest Perimeter,100.0,0.6571306838355386,https://leetcode.com/problems/find-polygon-with-the-largest-perimeter,"Array, Greedy, Sorting, Prefix Sum"
+MEDIUM,Generate Parentheses,88.3,0.7653020640471783,https://leetcode.com/problems/generate-parentheses,"String, Dynamic Programming, Backtracking"
+MEDIUM,XOR Queries of a Subarray,88.3,0.7846998226145145,https://leetcode.com/problems/xor-queries-of-a-subarray,"Array, Bit Manipulation, Prefix Sum"

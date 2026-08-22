@@ -1,0 +1,9 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Parse Lisp Expression,100.0,0.5234774322099974,https://leetcode.com/problems/parse-lisp-expression,"Hash Table, String, Stack, Recursion"
+MEDIUM,Remove All Adjacent Duplicates in String II,94.6,0.5910249813454752,https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii,"String, Stack"
+EASY,Valid Palindrome II,87.5,0.42477377381802783,https://leetcode.com/problems/valid-palindrome-ii,"Two Pointers, String, Greedy"
+EASY,Find Pivot Index,76.6,0.5989618104220692,https://leetcode.com/problems/find-pivot-index,"Array, Prefix Sum"
+MEDIUM,Valid Sudoku,68.0,0.6165329144334646,https://leetcode.com/problems/valid-sudoku,"Array, Hash Table, Matrix"
+HARD,Integer to English Words,68.0,0.34259615984502,https://leetcode.com/problems/integer-to-english-words,"Math, String, Recursion"
+MEDIUM,Evaluate Reverse Polish Notation,68.0,0.5407133167183219,https://leetcode.com/problems/evaluate-reverse-polish-notation,"Array, Math, Stack"
+MEDIUM,Top K Frequent Words,68.0,0.5892399406972233,https://leetcode.com/problems/top-k-frequent-words,"Array, Hash Table, String, Trie, Sorting, Heap (Priority Queue), Bucket Sort, Counting"

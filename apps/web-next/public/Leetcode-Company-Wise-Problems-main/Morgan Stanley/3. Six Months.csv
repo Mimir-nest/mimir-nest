@@ -1,0 +1,7 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,Best Time to Buy and Sell Stock,100.0,0.5476983765752247,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+HARD,Count Subarrays With Fixed Bounds,75.4,0.6772227032141168,https://leetcode.com/problems/count-subarrays-with-fixed-bounds,"Array, Queue, Sliding Window, Monotonic Queue"
+MEDIUM,Kth Largest Element in an Array,66.4,0.6762037623396214,https://leetcode.com/problems/kth-largest-element-in-an-array,"Array, Divide and Conquer, Sorting, Heap (Priority Queue), Quickselect"
+MEDIUM,Copy List with Random Pointer,66.4,0.5950411609797426,https://leetcode.com/problems/copy-list-with-random-pointer,"Hash Table, Linked List"
+HARD,Subarrays with K Different Integers,66.4,0.6508083495467054,https://leetcode.com/problems/subarrays-with-k-different-integers,"Array, Hash Table, Sliding Window, Counting"
+EASY,Remove Duplicates from Sorted Array,66.4,0.5945075482142833,https://leetcode.com/problems/remove-duplicates-from-sorted-array,"Array, Two Pointers"

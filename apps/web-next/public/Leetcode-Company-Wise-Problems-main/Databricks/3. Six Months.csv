@@ -1,0 +1,14 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Design Hit Counter,100.0,0.690145319433361,https://leetcode.com/problems/design-hit-counter,"Array, Binary Search, Design, Queue, Data Stream"
+MEDIUM,House Robber,98.7,0.5198831180620619,https://leetcode.com/problems/house-robber,"Array, Dynamic Programming"
+MEDIUM,Design Tic-Tac-Toe,92.7,0.5843357470704268,https://leetcode.com/problems/design-tic-tac-toe,"Array, Hash Table, Design, Matrix, Simulation"
+MEDIUM,House Robber II,90.8,0.43120952153960396,https://leetcode.com/problems/house-robber-ii,"Array, Dynamic Programming"
+MEDIUM,IP to CIDR,88.8,0.5565850827513058,https://leetcode.com/problems/ip-to-cidr,"String, Bit Manipulation"
+MEDIUM,Time Based Key-Value Store,74.3,0.4936199637111147,https://leetcode.com/problems/time-based-key-value-store,"Hash Table, String, Binary Search, Design"
+MEDIUM,Snapshot Array,69.6,0.36766582325639147,https://leetcode.com/problems/snapshot-array,"Array, Hash Table, Binary Search, Design"
+HARD,Text Justification,55.1,0.47093296579330096,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+MEDIUM,Find the Length of the Longest Common Prefix,55.1,0.5629081231022979,https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix,"Array, Hash Table, String, Trie"
+MEDIUM,Spiral Matrix,55.1,0.5293294861000031,https://leetcode.com/problems/spiral-matrix,"Array, Matrix, Simulation"
+MEDIUM,Step-By-Step Directions From a Binary Tree Node to Another,55.1,0.5635914721630675,https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another,"String, Tree, Depth-First Search, Binary Tree"
+MEDIUM,Longest Mountain in Array,55.1,0.4078554667647091,https://leetcode.com/problems/longest-mountain-in-array,"Array, Two Pointers, Dynamic Programming, Enumeration"
+MEDIUM,String to Integer (atoi),55.1,0.1871711598186063,https://leetcode.com/problems/string-to-integer-atoi,String

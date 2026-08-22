@@ -1,0 +1,7 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Reach a Number,100.0,0.4369743082720772,https://leetcode.com/problems/reach-a-number,"Math, Binary Search"
+MEDIUM,Partition Labels,65.2,0.8020128092751628,https://leetcode.com/problems/partition-labels,"Hash Table, Two Pointers, String, Greedy"
+HARD,Maximum Number of Robots Within Budget,65.2,0.3612835291509643,https://leetcode.com/problems/maximum-number-of-robots-within-budget,"Array, Binary Search, Queue, Sliding Window, Heap (Priority Queue), Prefix Sum, Monotonic Queue"
+MEDIUM,Redundant Connection,65.2,0.66074640940542,https://leetcode.com/problems/redundant-connection,"Depth-First Search, Breadth-First Search, Union Find, Graph"
+HARD,Longest Valid Parentheses,65.2,0.3569463849830389,https://leetcode.com/problems/longest-valid-parentheses,"String, Dynamic Programming, Stack"
+HARD,Trapping Rain Water,65.2,0.6428761327487681,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"

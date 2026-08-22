@@ -1,0 +1,6 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Trapping Rain Water,64.3%,Hard,100.0,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+2,Path Sum IV,62.6%,Medium,100.0,https://leetcode.com/problems/path-sum-iv,"Array, Hash Table, Tree, Depth-First Search, Binary Tree"
+3,Split Concatenated Strings,43.3%,Medium,100.0,https://leetcode.com/problems/split-concatenated-strings,"Array, String, Greedy"
+4,Split Array with Equal Sum,50.2%,Hard,100.0,https://leetcode.com/problems/split-array-with-equal-sum,"Array, Hash Table, Prefix Sum"
+5,Valid Parenthesis String,38.6%,Medium,100.0,https://leetcode.com/problems/valid-parenthesis-string,"String, Dynamic Programming, Stack, Greedy"

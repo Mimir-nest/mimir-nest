@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,LRU Cache,44.4%,Medium,100.0,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+2,Time Based Key-Value Store,49.4%,Medium,88.7,https://leetcode.com/problems/time-based-key-value-store,"Hash Table, String, Binary Search, Design"
+3,Valid Sudoku,61.7%,Medium,85.0,https://leetcode.com/problems/valid-sudoku,"Array, Hash Table, Matrix"
+4,Minimum Time to Eat All Grains,39.2%,Hard,85.0,https://leetcode.com/problems/minimum-time-to-eat-all-grains,"Array, Two Pointers, Binary Search, Sorting"
+5,Sudoku Solver,63.7%,Hard,77.9,https://leetcode.com/problems/sudoku-solver,"Array, Hash Table, Backtracking, Matrix"
+6,Wildcard Matching,29.4%,Hard,71.1,https://leetcode.com/problems/wildcard-matching,"String, Dynamic Programming, Greedy, Recursion"
+7,Debounce,91.6%,Medium,71.1,https://leetcode.com/problems/debounce,
+8,Regular Expression Matching,29.0%,Hard,66.6,https://leetcode.com/problems/regular-expression-matching,"String, Dynamic Programming, Recursion"
+9,Count Subarrays With Median K,44.9%,Hard,52.7,https://leetcode.com/problems/count-subarrays-with-median-k,"Array, Hash Table, Prefix Sum"
+10,Number of Atoms,65.1%,Hard,52.7,https://leetcode.com/problems/number-of-atoms,"Hash Table, String, Stack, Sorting"
+11,Design Authentication Manager,58.1%,Medium,52.7,https://leetcode.com/problems/design-authentication-manager,"Hash Table, Linked List, Design, Doubly-Linked List"
+12,Combination Sum,73.9%,Medium,52.7,https://leetcode.com/problems/combination-sum,"Array, Backtracking"

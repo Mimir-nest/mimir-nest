@@ -1,0 +1,11 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,Valid Parentheses,100.0,0.41845173990002593,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+MEDIUM,Word Break,81.0,0.47875205709549057,https://leetcode.com/problems/word-break,"Array, Hash Table, String, Dynamic Programming, Trie, Memoization"
+MEDIUM,LRU Cache,81.0,0.4443104468827379,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+EASY,Plus One,81.0,0.4704636694726021,https://leetcode.com/problems/plus-one,"Array, Math"
+MEDIUM,Course Schedule II,64.7,0.5263015586396242,https://leetcode.com/problems/course-schedule-ii,"Depth-First Search, Breadth-First Search, Graph, Topological Sort"
+MEDIUM,Coin Change,64.7,0.4581322512204496,https://leetcode.com/problems/coin-change,"Array, Dynamic Programming, Breadth-First Search"
+MEDIUM,Minimum Limit of Balls in a Bag,64.7,0.6783465969830147,https://leetcode.com/problems/minimum-limit-of-balls-in-a-bag,"Array, Binary Search"
+EASY,Two Sum,64.7,0.5507381742864873,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+MEDIUM,Lowest Common Ancestor of a Binary Tree,64.7,0.6566973620097329,https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree,"Tree, Depth-First Search, Binary Tree"
+HARD,Sudoku Solver,64.7,0.636724036210914,https://leetcode.com/problems/sudoku-solver,"Array, Hash Table, Backtracking, Matrix"

@@ -1,0 +1,322 @@
+{
+  "projects": [
+    {
+      "id": "customer-segmentation",
+      "title": "Customer Segmentation",
+      "description": "Develop a model to categorize customers based on purchasing behavior using clustering algorithms and visualize the results.",
+      "category": "ai",
+      "difficulty": "Intermediate",
+      "technologies": ["Python", "K-means", "Matplotlib", "Scikit-learn"],
+      "github": "https://github.com/ageron/handson-ml2",
+      "demo": "https://www.youtube.com/watch?v=U-5oEzi8ncU",
+      "featured": false,
+      "openSource": true,
+      "stars": 0
+    },
+    {
+      "id": "chatbot-development",
+      "title": "Chatbot Development",
+      "description": "Create a cloud-based chatbot using AWS Lex or Azure Bot Services for customer service or FAQ.",
+      "category": "cloud",
+      "difficulty": "Intermediate",
+      "technologies": ["AWS Lex", "Azure Bot Services", "JavaScript", "Cloud"],
+      "github": "https://github.com/aws-samples/aws-lex-web-ui",
+      "demo": "https://www.youtube.com/watch?v=1UMFseF2k8U",
+      "featured": false,
+      "openSource": true,
+      "stars": 0
+    },
+    {
+      "id": "vulnerability-scanner",
+      "title": "Vulnerability Scanner",
+      "description": "Build a tool to scan web applications for common vulnerabilities using Python and libraries like Scapy or Nmap.",
+      "category": "cybersecurity",
+      "difficulty": "Advanced",
+      "technologies": ["Python", "Scapy", "Nmap"],
+      "github": "https://github.com/Manisso/fsociety",
+      "demo": null,
+      "featured": false,
+      "openSource": true,
+      "stars": 0
+    },
+    {
+      "id": "infrastructure-as-code",
+      "title": "Infrastructure as Code",
+      "description": "Create a project using Terraform or AWS CloudFormation to define and manage cloud resources.",
+      "category": "devops",
+      "difficulty": "Intermediate",
+      "technologies": ["Terraform", "AWS CloudFormation", "AWS"],
+      "github": "https://github.com/terraform-providers/terraform-provider-aws",
+      "demo": "https://www.youtube.com/watch?v=G-VoF0HICos",
+      "featured": false,
+      "openSource": true,
+      "stars": 0
+    },
+    {
+      "id": "smart-home-automation",
+      "title": "Smart Home Automation",
+      "description": "Build a project to control home appliances using Raspberry Pi or Arduino integrated with AWS IoT.",
+      "category": "iot",
+      "difficulty": "Intermediate",
+      "technologies": ["Raspberry Pi", "Arduino", "AWS IoT"],
+      "github": "https://github.com/adafruit/Adafruit_IO_Arduino",
+      "demo": "https://www.youtube.com/watch?v=uoMldgf-9rA",
+      "featured": false,
+      "openSource": true,
+      "stars": 0
+    },
+    {
+      "id": "cryptocurrency-wallet",
+      "title": "Cryptocurrency Wallet",
+      "description": "Create a basic cryptocurrency wallet for storing, sending, and receiving tokens on a blockchain network.",
+      "category": "blockchain",
+      "difficulty": "Intermediate",
+      "technologies": ["Blockchain", "Wallet", "JavaScript"],
+      "github": "https://github.com/blockchain/My-Wallet-V3",
+      "demo": "https://www.youtube.com/watch?v=Qxyh6xlo5Zk",
+      "featured": false,
+      "openSource": true,
+      "stars": 0
+    },
+    {
+      "id": "decentralized-application-dapp",
+      "title": "Decentralized Application (dApp)",
+      "description": "Develop a dApp for managing digital assets using blockchain technology.",
+      "category": "blockchain",
+      "difficulty": "Advanced",
+      "technologies": ["Solidity", "Ethereum", "Web3.js"],
+      "github": "https://github.com/dappuniversity/starter_kit",
+      "demo": "https://www.youtube.com/watch?v=IPukBiaMJSI",
+      "featured": false,
+      "openSource": true,
+      "stars": 0
+    },
+    {
+      "id": "facial-recognition-system",
+      "title": "Facial Recognition System",
+      "description": "Develop a system for facial recognition to enhance security or manage attendance using Python with OpenCV.",
+      "category": "ai",
+      "difficulty": "Advanced",
+      "technologies": ["Python", "OpenCV", "Face Recognition"],
+      "github": "https://github.com/shantnu/FaceDetect",
+      "demo": "https://www.youtube.com/watch?v=sz25xxF_AVE",
+      "featured": false,
+      "openSource": true,
+      "stars": 0
+    },
+    {
+      "id": "ar-educational-app",
+      "title": "AR Educational App",
+      "description": "Create an AR app for interactive learning experiences using Unity3D and ARKit or ARCore.",
+      "category": "arvr",
+      "difficulty": "Intermediate",
+      "technologies": ["Unity3D", "ARKit", "ARCore"],
+      "github": "https://github.com/Unity-Technologies/arfoundation-samples",
+      "demo": "https://www.youtube.com/watch?v=Ur9ClzAHBrw",
+      "featured": false,
+      "openSource": true,
+      "stars": 0
+    },
+    {
+      "id": "vr-gaming-app",
+      "title": "VR Gaming App",
+      "description": "Develop a VR game using Unity3D with Oculus or Google Cardboard.",
+      "category": "arvr",
+      "difficulty": "Intermediate",
+      "technologies": ["Unity3D", "Oculus", "Google Cardboard"],
+      "github": "https://github.com/googlevr/gvr-unity-sdk",
+      "demo": null,
+      "featured": false,
+      "openSource": true,
+      "stars": 0
+    },
+    {
+      "id": "cross-platform-app-framework",
+      "title": "Cross-platform app framework",
+      "description": "Cross-platform app framework using web frontends + Rust backend.",
+      "category": "appdev",
+      "difficulty": "Advanced",
+      "technologies": ["Rust", "TypeScript", "JavaScript", "NSIS", "Kotlin", "Shell"],
+      "github": "https://github.com/tauri-apps/tauri",
+      "demo": null,
+      "featured": false,
+      "openSource": true,
+      "stars": 0
+    },
+    {
+      "id": "self-hosted-photo-video-backup-app",
+      "title": "Self-hosted photo & video backup app",
+      "description": "Self-hosted photo & video backup app (Google Photos alternative). Backend (NestJS), Mobile app (Flutter), Web UI (Svelte).",
+      "category": "appdev",
+      "difficulty": "Advanced",
+      "technologies": ["TypeScript", "Dart", "Svelte", "Flutter", "NestJS"],
+      "github": "https://github.com/immich-app/immich",
+      "demo": null,
+      "featured": false,
+      "openSource": true,
+      "stars": 0
+    }
+  ],
+  "resumeProjects": [
+    {
+      "id": "tic-tac-toe-game",
+      "title": "Tic Tac Toe Game",
+      "basicVersion": "Basic Tic-Tac-Toe Game",
+      "advancedVersion": "Multiplayer Tic-Tac-Toe using WebSockets",
+      "resourceLink": "https://socket.io/",
+      "resourceLabel": "WebSockets Tutorial"
+    },
+    {
+      "id": "weather-application",
+      "title": "Weather Application",
+      "basicVersion": "Simple Weather App",
+      "advancedVersion": "Weather Bot for Discord with Alerts",
+      "resourceLink": "https://discordjs.guide/",
+      "resourceLabel": "Discord.js Guide"
+    },
+    {
+      "id": "ecommerce-website",
+      "title": "Ecommerce Website",
+      "basicVersion": "Basic Ecommerce Website",
+      "advancedVersion": "AI-Driven Chrome Extension for Price Comparisons Using Web Scraping",
+      "resourceLink": "https://pptr.dev/",
+      "resourceLabel": "Puppeteer Docs"
+    },
+    {
+      "id": "crypto-tracker",
+      "title": "Crypto Tracker",
+      "basicVersion": "Static Crypto Tracker",
+      "advancedVersion": "AI-Powered Crypto Trading Bot",
+      "resourceLink": "https://www.binance.com/en/binance-api",
+      "resourceLabel": "Binance API"
+    },
+    {
+      "id": "portfolio-website",
+      "title": "Portfolio Website",
+      "basicVersion": "Static Personal Portfolio Website",
+      "advancedVersion": "Interactive Portfolio with Real-Time Analytics & AI Bot",
+      "resourceLink": "https://reactjs.org/",
+      "resourceLabel": "ReactJS"
+    },
+    {
+      "id": "calculator",
+      "title": "Calculator",
+      "basicVersion": "Simple Calculator",
+      "advancedVersion": "Advanced Financial Calculator with Tax, Loan, and Investment Features",
+      "resourceLink": "https://developer.mozilla.org/en-US/",
+      "resourceLabel": "MDN Calculator Guide"
+    },
+    {
+      "id": "to-do-list",
+      "title": "To-Do List",
+      "basicVersion": "Basic To-Do App",
+      "advancedVersion": "Collaborative To-Do App with Task Dependencies and Deadlines",
+      "resourceLink": "https://firebase.google.com/docs",
+      "resourceLabel": "Firebase Docs"
+    },
+    {
+      "id": "blog-platform",
+      "title": "Blog Platform",
+      "basicVersion": "Simple Blog Platform",
+      "advancedVersion": "Dynamic Blog Platform with NLP-based Content Recommendations and Summaries",
+      "resourceLink": "https://www.tensorflow.org/js",
+      "resourceLabel": "TensorFlow.js"
+    },
+    {
+      "id": "social-media-app",
+      "title": "Social Media App",
+      "basicVersion": "Basic Social Media Platform",
+      "advancedVersion": "Decentralized Social Media App with User-Curated Content Streams",
+      "resourceLink": "https://web3js.readthedocs.io/",
+      "resourceLabel": "Web3.js"
+    },
+    {
+      "id": "language-translator",
+      "title": "Language Translator",
+      "basicVersion": "Basic Language Translator",
+      "advancedVersion": "AI-Powered Real-Time Voice Translator with Sentiment Analysis",
+      "resourceLink": "https://cloud.google.com/translate/docs",
+      "resourceLabel": "Google Cloud Translate"
+    },
+    {
+      "id": "task-management-tool",
+      "title": "Task Management Tool",
+      "basicVersion": "Basic Task Manager",
+      "advancedVersion": "AI-Based Task Manager with Productivity Insights and Notifications",
+      "resourceLink": "https://azure.microsoft.com/en-us/products/cognitive-services/",
+      "resourceLabel": "Microsoft AI API"
+    },
+    {
+      "id": "fitness-tracker",
+      "title": "Fitness Tracker",
+      "basicVersion": "Simple Fitness Tracker",
+      "advancedVersion": "AI-Powered Fitness Tracker with Workout Recommendations and Nutritional Analysis",
+      "resourceLink": "https://developer.nutritionix.com/",
+      "resourceLabel": "Nutritionix API"
+    },
+    {
+      "id": "chatbot",
+      "title": "Chatbot",
+      "basicVersion": "Basic Chatbot",
+      "advancedVersion": "AI Chatbot with Contextual Memory and Personalized Responses",
+      "resourceLink": "https://cloud.google.com/dialogflow",
+      "resourceLabel": "Dialogflow"
+    },
+    {
+      "id": "music-streaming-app",
+      "title": "Music Streaming App",
+      "basicVersion": "Simple Music Streaming App",
+      "advancedVersion": "AI-Based Music Recommendation Platform with Mood Detection",
+      "resourceLink": "https://developer.spotify.com/",
+      "resourceLabel": "Spotify API"
+    },
+    {
+      "id": "recipe-finder",
+      "title": "Recipe Finder",
+      "basicVersion": "Simple Recipe Search",
+      "advancedVersion": "AI-Powered Recipe Finder with Dietary Preferences and Nutritional Analysis",
+      "resourceLink": "https://spoonacular.com/food-api",
+      "resourceLabel": "Spoonacular API"
+    },
+    {
+      "id": "quiz-app",
+      "title": "Quiz App",
+      "basicVersion": "Basic Quiz Application",
+      "advancedVersion": "Gamified Quiz App with Leaderboards and Interactive Feedback",
+      "resourceLink": "https://opentdb.com/",
+      "resourceLabel": "Open Trivia Database"
+    },
+    {
+      "id": "video-streaming-app",
+      "title": "Video Streaming App",
+      "basicVersion": "Simple Video Streaming App",
+      "advancedVersion": "AI-Based Video Summarization and Interactive Viewing Experience",
+      "resourceLink": "https://docs.mux.com/docs",
+      "resourceLabel": "Mux API"
+    },
+    {
+      "id": "stock-market-tracker",
+      "title": "Stock Market Tracker",
+      "basicVersion": "Basic Stock Market Tracking App",
+      "advancedVersion": "Real-Time Stock Market Dashboard with Predictive Analytics",
+      "resourceLink": "https://www.alphavantage.co/",
+      "resourceLabel": "Alpha Vantage"
+    },
+    {
+      "id": "virtual-classroom",
+      "title": "Virtual Classroom",
+      "basicVersion": "Basic Virtual Classroom App",
+      "advancedVersion": "Interactive Classroom Platform with AI-Powered Participation Insights and Real-Time Feedback",
+      "resourceLink": "https://bigbluebutton.org/",
+      "resourceLabel": "BigBlueButton"
+    },
+    {
+      "id": "travel-planner",
+      "title": "Travel Planner",
+      "basicVersion": "Simple Travel Itinerary App",
+      "advancedVersion": "AI Travel Planner with Real-Time Location-Based Recommendations and Booking Integrations",
+      "resourceLink": "https://developers.amadeus.com/",
+      "resourceLabel": "Amadeus for Developers"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Valid Square,100.0,0.4423981768776384,https://leetcode.com/problems/valid-square,"Math, Geometry"
+HARD,Design Skiplist,84.4,0.6183864234504038,https://leetcode.com/problems/design-skiplist,"Linked List, Design"
+MEDIUM,Palindromic Substrings,80.2,0.7126868182899088,https://leetcode.com/problems/palindromic-substrings,"Two Pointers, String, Dynamic Programming"
+MEDIUM,Longest Palindromic Substring,61.9,0.35298408378813567,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"
+MEDIUM,Longest Increasing Subsequence,61.9,0.5717084608907551,https://leetcode.com/problems/longest-increasing-subsequence,"Array, Binary Search, Dynamic Programming"
+EASY,Maximum Repeating Substring,61.9,0.39257844794939223,https://leetcode.com/problems/maximum-repeating-substring,"String, Dynamic Programming, String Matching"

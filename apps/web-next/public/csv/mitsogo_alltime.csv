@@ -1,0 +1,17 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Find the Integer Added to Array I,82.1%,Easy,100.0,https://leetcode.com/problems/find-the-integer-added-to-array-i,Array
+2,Find the Integer Added to Array II,31.7%,Medium,100.0,https://leetcode.com/problems/find-the-integer-added-to-array-ii,"Array, Two Pointers, Sorting, Enumeration"
+3,Minimum Substring Partition of Equal Character Frequency,40.3%,Medium,100.0,https://leetcode.com/problems/minimum-substring-partition-of-equal-character-frequency,"Hash Table, String, Dynamic Programming, Counting"
+4,Construct String with Minimum Cost,19.7%,Hard,100.0,https://leetcode.com/problems/construct-string-with-minimum-cost,"Array, String, Dynamic Programming, Suffix Array"
+5,Maximum Total Reward Using Operations I,29.9%,Medium,100.0,https://leetcode.com/problems/maximum-total-reward-using-operations-i,"Array, Dynamic Programming"
+6,Maximum Total Reward Using Operations II,20.9%,Hard,100.0,https://leetcode.com/problems/maximum-total-reward-using-operations-ii,"Array, Dynamic Programming, Bit Manipulation"
+7,Shortest Subarray With OR at Least K II,50.5%,Medium,100.0,https://leetcode.com/problems/shortest-subarray-with-or-at-least-k-ii,"Array, Bit Manipulation, Sliding Window"
+8,Shortest Subarray With OR at Least K I,42.8%,Easy,100.0,https://leetcode.com/problems/shortest-subarray-with-or-at-least-k-i,"Array, Bit Manipulation, Sliding Window"
+9,Right Triangles,47.1%,Medium,100.0,https://leetcode.com/problems/right-triangles,"Array, Hash Table, Math, Combinatorics, Counting"
+10,Symmetric Coordinates,41.0%,Medium,100.0,https://leetcode.com/problems/symmetric-coordinates,Database
+11,Pascal's Triangle,76.4%,Easy,71.1,https://leetcode.com/problems/pascals-triangle,"Array, Dynamic Programming"
+12,Next Permutation,42.3%,Medium,71.1,https://leetcode.com/problems/next-permutation,"Array, Two Pointers"
+13,Next Greater Element III,34.4%,Medium,61.3,https://leetcode.com/problems/next-greater-element-iii,"Math, Two Pointers, String"
+14,Zigzag Conversion,50.8%,Medium,61.3,https://leetcode.com/problems/zigzag-conversion,String
+15,Jump Game II,41.1%,Medium,61.3,https://leetcode.com/problems/jump-game-ii,"Array, Dynamic Programming, Greedy"
+16,Valid Parentheses,41.8%,Easy,61.3,https://leetcode.com/problems/valid-parentheses,"String, Stack"

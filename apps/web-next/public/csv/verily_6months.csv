@@ -1,0 +1,12 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Happy Number,57.6%,Easy,100.0,https://leetcode.com/problems/happy-number,"Hash Table, Math, Two Pointers"
+2,Jump Game,39.1%,Medium,100.0,https://leetcode.com/problems/jump-game,"Array, Dynamic Programming, Greedy"
+3,Kth Largest Element in an Array,67.6%,Medium,92.6,https://leetcode.com/problems/kth-largest-element-in-an-array,"Array, Divide and Conquer, Sorting, Heap (Priority Queue), Quickselect"
+4,Guess the Word,38.0%,Hard,92.6,https://leetcode.com/problems/guess-the-word,"Array, Math, String, Interactive, Game Theory"
+5,Longest String Chain,61.7%,Medium,92.6,https://leetcode.com/problems/longest-string-chain,"Array, Hash Table, Two Pointers, String, Dynamic Programming, Sorting"
+6,Minimum Area Rectangle II,55.4%,Medium,92.6,https://leetcode.com/problems/minimum-area-rectangle-ii,"Array, Math, Geometry"
+7,Minimum Knight Moves,41.2%,Medium,92.6,https://leetcode.com/problems/minimum-knight-moves,Breadth-First Search
+8,Longest Common Subsequence,58.0%,Medium,82.2,https://leetcode.com/problems/longest-common-subsequence,"String, Dynamic Programming"
+9,Time Needed to Inform All Employees,60.2%,Medium,82.2,https://leetcode.com/problems/time-needed-to-inform-all-employees,"Tree, Depth-First Search, Breadth-First Search"
+10,Group Anagrams,70.3%,Medium,82.2,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+11,Video Stitching,51.8%,Medium,82.2,https://leetcode.com/problems/video-stitching,"Array, Dynamic Programming, Greedy"

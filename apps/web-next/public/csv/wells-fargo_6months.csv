@@ -1,0 +1,10 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Find the Safest Path in a Grid,48.6%,Medium,100.0,https://leetcode.com/problems/find-the-safest-path-in-a-grid,"Array, Binary Search, Breadth-First Search, Union Find, Heap (Priority Queue), Matrix"
+2,Minimizing Array After Replacing Pairs With Their Product,39.6%,Medium,100.0,https://leetcode.com/problems/minimizing-array-after-replacing-pairs-with-their-product,"Array, Dynamic Programming, Greedy"
+3,Count and Say,57.9%,Medium,87.5,https://leetcode.com/problems/count-and-say,String
+4,Best Time to Buy and Sell Stock II,68.9%,Medium,87.5,https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii,"Array, Dynamic Programming, Greedy"
+5,Shortest and Lexicographically Smallest Beautiful String,39.7%,Medium,87.5,https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string,"String, Sliding Window"
+6,Water and Jug Problem,42.5%,Medium,87.5,https://leetcode.com/problems/water-and-jug-problem,"Math, Depth-First Search, Breadth-First Search"
+7,Maximum Number of Weeks for Which You Can Work,41.1%,Medium,87.5,https://leetcode.com/problems/maximum-number-of-weeks-for-which-you-can-work,"Array, Greedy"
+8,Product of Array Except Self,67.4%,Medium,87.5,https://leetcode.com/problems/product-of-array-except-self,"Array, Prefix Sum"
+9,Rotate String,63.5%,Easy,87.5,https://leetcode.com/problems/rotate-string,"String, String Matching"

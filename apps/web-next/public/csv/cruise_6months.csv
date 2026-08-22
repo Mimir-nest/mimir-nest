@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Unique Paths II,42.8%,Medium,100.0,https://leetcode.com/problems/unique-paths-ii,"Array, Dynamic Programming, Matrix"
+2,LRU Cache,44.4%,Medium,94.2,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+3,Unique Paths III,82.2%,Hard,94.2,https://leetcode.com/problems/unique-paths-iii,"Array, Backtracking, Bit Manipulation, Matrix"
+4,Merge Intervals,48.8%,Medium,86.8,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+5,Number of Islands,61.6%,Medium,86.8,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+6,Two Sum,55.1%,Easy,76.3,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+7,Palindrome Permutation II,42.0%,Medium,76.3,https://leetcode.com/problems/palindrome-permutation-ii,"Hash Table, String, Backtracking"
+8,Unique Paths,65.4%,Medium,76.3,https://leetcode.com/problems/unique-paths,"Math, Dynamic Programming, Combinatorics"
+9,Robot Room Cleaner,77.2%,Hard,76.3,https://leetcode.com/problems/robot-room-cleaner,"Backtracking, Interactive"
+10,Word Ladder,41.8%,Hard,76.3,https://leetcode.com/problems/word-ladder,"Hash Table, String, Breadth-First Search"
+11,Meeting Rooms II,51.9%,Medium,76.3,https://leetcode.com/problems/meeting-rooms-ii,"Array, Two Pointers, Greedy, Sorting, Heap (Priority Queue), Prefix Sum"
+12,Synonymous Sentences,56.4%,Medium,76.3,https://leetcode.com/problems/synonymous-sentences,"Array, Hash Table, String, Backtracking, Union Find"

@@ -1,0 +1,3 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Word Search II,100.0,0.3701589702921979,https://leetcode.com/problems/word-search-ii,"Array, String, Backtracking, Trie, Matrix"
+HARD,Parallel Courses III,90.0,0.6684587149160209,https://leetcode.com/problems/parallel-courses-iii,"Array, Dynamic Programming, Graph, Topological Sort"

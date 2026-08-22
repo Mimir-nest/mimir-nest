@@ -1,0 +1,7 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Merge k Sorted Lists,55.8%,Hard,100.0,https://leetcode.com/problems/merge-k-sorted-lists,"Linked List, Divide and Conquer, Heap (Priority Queue), Merge Sort"
+2,Sum of Even Numbers After Queries,68.4%,Medium,100.0,https://leetcode.com/problems/sum-of-even-numbers-after-queries,"Array, Simulation"
+3,Binary Tree Tilt,63.6%,Easy,100.0,https://leetcode.com/problems/binary-tree-tilt,"Tree, Depth-First Search, Binary Tree"
+4,Minimum Moves to Equal Array Elements,57.5%,Medium,89.3,https://leetcode.com/problems/minimum-moves-to-equal-array-elements,"Array, Math"
+5,Minimum Cost to Split an Array,41.8%,Hard,89.3,https://leetcode.com/problems/minimum-cost-to-split-an-array,"Array, Hash Table, Dynamic Programming, Counting"
+6,Find Players With Zero or One Losses,72.8%,Medium,89.3,https://leetcode.com/problems/find-players-with-zero-or-one-losses,"Array, Hash Table, Sorting, Counting"

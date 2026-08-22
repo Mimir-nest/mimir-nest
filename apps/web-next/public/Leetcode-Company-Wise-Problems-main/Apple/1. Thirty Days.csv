@@ -1,0 +1,12 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Word Break,100.0,0.478752015775188,https://leetcode.com/problems/word-break,"Array, Hash Table, String, Dynamic Programming, Trie, Memoization"
+MEDIUM,Rotate Array,82.2,0.4246122914734268,https://leetcode.com/problems/rotate-array,"Array, Math, Two Pointers"
+EASY,First Unique Character in a String,77.2,0.6322655217965654,https://leetcode.com/problems/first-unique-character-in-a-string,"Hash Table, String, Queue, Counting"
+MEDIUM,Group Anagrams,70.7,0.7033700028669814,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+MEDIUM,Valid Sudoku,70.7,0.6165261376179263,https://leetcode.com/problems/valid-sudoku,"Array, Hash Table, Matrix"
+MEDIUM,Top K Frequent Elements,70.7,0.6408012013631335,https://leetcode.com/problems/top-k-frequent-elements,"Array, Hash Table, Divide and Conquer, Sorting, Heap (Priority Queue), Bucket Sort, Counting, Quickselect"
+MEDIUM,LRU Cache,61.6,0.44431012363701083,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+MEDIUM,Subarray Sum Equals K,61.6,0.44931294221552387,https://leetcode.com/problems/subarray-sum-equals-k,"Array, Hash Table, Prefix Sum"
+MEDIUM,Design Circular Queue,61.6,0.5236253635437477,https://leetcode.com/problems/design-circular-queue,"Array, Linked List, Design, Queue"
+HARD,Find Median from Data Stream,61.6,0.5297427065626023,https://leetcode.com/problems/find-median-from-data-stream,"Two Pointers, Design, Sorting, Heap (Priority Queue), Data Stream"
+MEDIUM,Longest Substring Without Repeating Characters,61.6,0.3632668695666276,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"

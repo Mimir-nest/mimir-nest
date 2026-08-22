@@ -1,0 +1,8 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,3Sum,100.0,0.36423182535181114,https://leetcode.com/problems/3sum,"Array, Two Pointers, Sorting"
+HARD,Reaching Points,100.0,0.33551139481289094,https://leetcode.com/problems/reaching-points,Math
+HARD,Serialize and Deserialize Binary Tree,100.0,0.5835199138542289,https://leetcode.com/problems/serialize-and-deserialize-binary-tree,"String, Tree, Depth-First Search, Breadth-First Search, Design, Binary Tree"
+MEDIUM,Merge Intervals,100.0,0.48806692911523825,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+EASY,Convert Binary Number in a Linked List to Integer,100.0,0.8121764945074768,https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer,"Linked List, Math"
+MEDIUM,LRU Cache,100.0,0.4443115657807526,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+MEDIUM,Course Schedule II,100.0,0.5263029991137033,https://leetcode.com/problems/course-schedule-ii,"Depth-First Search, Breadth-First Search, Graph, Topological Sort"

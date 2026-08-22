@@ -1,0 +1,14 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Number of Orders in the Backlog,100.0,0.5123050948455656,https://leetcode.com/problems/number-of-orders-in-the-backlog,"Array, Heap (Priority Queue), Simulation"
+MEDIUM,Restore the Array From Adjacent Pairs,90.4,0.7472472307174044,https://leetcode.com/problems/restore-the-array-from-adjacent-pairs,"Array, Hash Table, Depth-First Search"
+MEDIUM,Brightest Position on Street,86.6,0.6099132787015673,https://leetcode.com/problems/brightest-position-on-street,"Array, Sorting, Prefix Sum, Ordered Set"
+MEDIUM,Count Good Meals,86.6,0.3112674278340393,https://leetcode.com/problems/count-good-meals,"Array, Hash Table"
+MEDIUM,Ways to Split Array Into Three Subarrays,86.6,0.3327234613757975,https://leetcode.com/problems/ways-to-split-array-into-three-subarrays,"Array, Two Pointers, Binary Search, Prefix Sum"
+MEDIUM,Check if There is a Valid Path in a Grid,86.6,0.4874694558674534,https://leetcode.com/problems/check-if-there-is-a-valid-path-in-a-grid,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+MEDIUM,Capital Gain/Loss,86.6,0.8513530139283703,https://leetcode.com/problems/capital-gainloss,Database
+EASY,Count the Number of Consistent Strings,86.6,0.8820937995320836,https://leetcode.com/problems/count-the-number-of-consistent-strings,"Array, Hash Table, String, Bit Manipulation, Counting"
+EASY,Best Time to Buy and Sell Stock,67.6,0.5476983417277067,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+HARD,Text Justification,61.6,0.47093350390662947,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+MEDIUM,Course Schedule II,53.2,0.5263030205005863,https://leetcode.com/problems/course-schedule-ii,"Depth-First Search, Breadth-First Search, Graph, Topological Sort"
+MEDIUM,Top K Frequent Words,53.2,0.5892392440503562,https://leetcode.com/problems/top-k-frequent-words,"Array, Hash Table, String, Trie, Sorting, Heap (Priority Queue), Bucket Sort, Counting"
+EASY,Defanging an IP Address,53.2,0.8957059918939643,https://leetcode.com/problems/defanging-an-ip-address,String

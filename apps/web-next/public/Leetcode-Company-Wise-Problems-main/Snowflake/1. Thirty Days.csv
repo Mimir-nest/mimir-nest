@@ -1,0 +1,5 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,String Transformation,100.0,0.30690389819773134,https://leetcode.com/problems/string-transformation,"Math, String, Dynamic Programming, String Matching"
+EASY,Count Vowel Substrings of a String,100.0,0.6991177568100645,https://leetcode.com/problems/count-vowel-substrings-of-a-string,"Hash Table, String"
+MEDIUM,Most Profitable Path in a Tree,100.0,0.6807515945526633,https://leetcode.com/problems/most-profitable-path-in-a-tree,"Array, Tree, Depth-First Search, Breadth-First Search, Graph"
+EASY,Happy Number,100.0,0.5756148228328275,https://leetcode.com/problems/happy-number,"Hash Table, Math, Two Pointers"

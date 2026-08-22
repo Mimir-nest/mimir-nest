@@ -1,0 +1,17 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Minimum Factorization,33.7%,Medium,100.0,https://leetcode.com/problems/minimum-factorization,"Math, Greedy"
+2,Remove Boxes,48.2%,Hard,100.0,https://leetcode.com/problems/remove-boxes,"Array, Dynamic Programming, Memoization"
+3,Candy,44.4%,Hard,100.0,https://leetcode.com/problems/candy,"Array, Greedy"
+4,Implement Rand10() Using Rand7(),45.9%,Medium,100.0,https://leetcode.com/problems/implement-rand10-using-rand7,"Math, Rejection Sampling, Randomized, Probability and Statistics"
+5,Immediate Food Delivery II,53.8%,Medium,100.0,https://leetcode.com/problems/immediate-food-delivery-ii,Database
+6,Alien Dictionary,36.4%,Hard,100.0,https://leetcode.com/problems/alien-dictionary,"Array, String, Depth-First Search, Breadth-First Search, Graph, Topological Sort"
+7,Remove Duplicates from Sorted List II,49.3%,Medium,100.0,https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii,"Linked List, Two Pointers"
+8,LRU Cache,44.4%,Medium,100.0,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+9,Valid Parentheses,41.8%,Easy,100.0,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+10,Jump Game,39.1%,Medium,100.0,https://leetcode.com/problems/jump-game,"Array, Dynamic Programming, Greedy"
+11,Minimum Remove to Make Valid Parentheses,70.2%,Medium,100.0,https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses,"String, Stack"
+12,Circle and Rectangle Overlapping,48.6%,Medium,100.0,https://leetcode.com/problems/circle-and-rectangle-overlapping,"Math, Geometry"
+13,Department Highest Salary,53.9%,Medium,100.0,https://leetcode.com/problems/department-highest-salary,Database
+14,Next Greater Element I,73.9%,Easy,100.0,https://leetcode.com/problems/next-greater-element-i,"Array, Hash Table, Stack, Monotonic Stack"
+15,Debounce,91.6%,Medium,100.0,https://leetcode.com/problems/debounce,
+16,Merge Intervals,48.8%,Medium,100.0,https://leetcode.com/problems/merge-intervals,"Array, Sorting"

@@ -1,0 +1,12 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Cherry Pickup II,100.0,0.7187069313414197,https://leetcode.com/problems/cherry-pickup-ii,"Array, Dynamic Programming, Matrix"
+HARD,Trapping Rain Water,100.0,0.6428746778550579,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+MEDIUM,Koko Eating Bananas,100.0,0.4882386406773344,https://leetcode.com/problems/koko-eating-bananas,"Array, Binary Search"
+MEDIUM,Search in Rotated Sorted Array,87.0,0.4232400060487978,https://leetcode.com/problems/search-in-rotated-sorted-array,"Array, Binary Search"
+HARD,Create Maximum Number,87.0,0.31843842958842544,https://leetcode.com/problems/create-maximum-number,"Array, Two Pointers, Stack, Greedy, Monotonic Stack"
+MEDIUM,Rotting Oranges,87.0,0.5596871096393305,https://leetcode.com/problems/rotting-oranges,"Array, Breadth-First Search, Matrix"
+MEDIUM,Find Minimum in Rotated Sorted Array,87.0,0.5215057812147716,https://leetcode.com/problems/find-minimum-in-rotated-sorted-array,"Array, Binary Search"
+MEDIUM,Delete Node in a BST,87.0,0.5252909747807009,https://leetcode.com/problems/delete-node-in-a-bst,"Tree, Binary Search Tree, Binary Tree"
+MEDIUM,Ways to Split Array Into Good Subarrays,87.0,0.34318158833812507,https://leetcode.com/problems/ways-to-split-array-into-good-subarrays,"Array, Math, Dynamic Programming"
+MEDIUM,Edit Distance,87.0,0.5819004009146251,https://leetcode.com/problems/edit-distance,"String, Dynamic Programming"
+MEDIUM,Asteroid Collision,87.0,0.4510768278911376,https://leetcode.com/problems/asteroid-collision,"Array, Stack, Simulation"

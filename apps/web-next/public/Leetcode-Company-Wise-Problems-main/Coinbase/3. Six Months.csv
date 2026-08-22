@@ -1,0 +1,5 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Zigzag Iterator,100.0,0.6518901557732455,https://leetcode.com/problems/zigzag-iterator,"Array, Design, Queue, Iterator"
+MEDIUM,Simple Bank System,100.0,0.6338909634055265,https://leetcode.com/problems/simple-bank-system,"Array, Hash Table, Design, Simulation"
+MEDIUM,Find the Length of the Longest Common Prefix,69.6,0.5629081231022979,https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix,"Array, Hash Table, String, Trie"
+MEDIUM,Random Pick with Weight,69.6,0.4820839360347689,https://leetcode.com/problems/random-pick-with-weight,"Array, Math, Binary Search, Prefix Sum, Randomized"

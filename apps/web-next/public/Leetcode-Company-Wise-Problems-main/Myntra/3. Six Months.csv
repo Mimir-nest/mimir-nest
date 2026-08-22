@@ -1,0 +1,7 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,Repeated Substring Pattern,100.0,0.4662240636557581,https://leetcode.com/problems/repeated-substring-pattern,"String, String Matching"
+HARD,Largest Rectangle in Histogram,100.0,0.4659928431424838,https://leetcode.com/problems/largest-rectangle-in-histogram,"Array, Stack, Monotonic Stack"
+HARD,First Missing Positive,100.0,0.4063431032774664,https://leetcode.com/problems/first-missing-positive,"Array, Hash Table"
+MEDIUM,Wiggle Sort,100.0,0.6810139557244778,https://leetcode.com/problems/wiggle-sort,"Array, Greedy, Sorting"
+MEDIUM,3Sum,100.0,0.3642318335003621,https://leetcode.com/problems/3sum,"Array, Two Pointers, Sorting"
+MEDIUM,Target Sum,100.0,0.5031067797933216,https://leetcode.com/problems/target-sum,"Array, Dynamic Programming, Backtracking"

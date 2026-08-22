@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Max Area of Island,72.9%,Medium,100.0,https://leetcode.com/problems/max-area-of-island,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+2,Valid Parentheses,41.8%,Easy,100.0,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+3,Ransom Note,63.9%,Easy,100.0,https://leetcode.com/problems/ransom-note,"Hash Table, String, Counting"
+4,Merge Intervals,48.8%,Medium,100.0,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+5,LRU Cache,44.4%,Medium,100.0,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+6,Number of Islands,61.6%,Medium,87.7,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+7,Valid Anagram,66.2%,Easy,87.7,https://leetcode.com/problems/valid-anagram,"Hash Table, String, Sorting"
+8,Search in Rotated Sorted Array,42.3%,Medium,87.7,https://leetcode.com/problems/search-in-rotated-sorted-array,"Array, Binary Search"
+9,Valid Word Abbreviation,36.6%,Easy,87.7,https://leetcode.com/problems/valid-word-abbreviation,"Two Pointers, String"
+10,Egg Drop With 2 Eggs and N Floors,73.6%,Medium,87.7,https://leetcode.com/problems/egg-drop-with-2-eggs-and-n-floors,"Math, Dynamic Programming"
+11,Climbing Stairs,53.3%,Easy,87.7,https://leetcode.com/problems/climbing-stairs,"Math, Dynamic Programming, Memoization"
+12,Reverse Linked List II,49.1%,Medium,87.7,https://leetcode.com/problems/reverse-linked-list-ii,Linked List

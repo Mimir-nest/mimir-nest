@@ -1,0 +1,7 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Valid Parenthesis String,38.6%,Medium,100.0,https://leetcode.com/problems/valid-parenthesis-string,"String, Dynamic Programming, Stack, Greedy"
+2,Find Median from Data Stream,53.0%,Hard,100.0,https://leetcode.com/problems/find-median-from-data-stream,"Two Pointers, Design, Sorting, Heap (Priority Queue), Data Stream"
+3,Is Subsequence,48.2%,Easy,100.0,https://leetcode.com/problems/is-subsequence,"Two Pointers, String, Dynamic Programming"
+4,Best Time to Buy and Sell Stock,54.8%,Easy,100.0,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+5,Moving Average from Data Stream,79.6%,Easy,100.0,https://leetcode.com/problems/moving-average-from-data-stream,"Array, Design, Queue, Data Stream"
+6,Roman to Integer,64.2%,Easy,100.0,https://leetcode.com/problems/roman-to-integer,"Hash Table, Math, String"

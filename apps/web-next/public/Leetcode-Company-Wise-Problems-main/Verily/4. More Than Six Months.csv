@@ -1,0 +1,12 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,Happy Number,100.0,0.5756185187309667,https://leetcode.com/problems/happy-number,"Hash Table, Math, Two Pointers"
+MEDIUM,Jump Game,100.0,0.3911352813950838,https://leetcode.com/problems/jump-game,"Array, Dynamic Programming, Greedy"
+MEDIUM,Kth Largest Element in an Array,92.6,0.6762072205252001,https://leetcode.com/problems/kth-largest-element-in-an-array,"Array, Divide and Conquer, Sorting, Heap (Priority Queue), Quickselect"
+HARD,Guess the Word,92.6,0.3801341566562529,https://leetcode.com/problems/guess-the-word,"Array, Math, String, Interactive, Game Theory"
+MEDIUM,Longest String Chain,92.6,0.6169768291331549,https://leetcode.com/problems/longest-string-chain,"Array, Hash Table, Two Pointers, String, Dynamic Programming, Sorting"
+MEDIUM,Minimum Area Rectangle II,92.6,0.5541391249606548,https://leetcode.com/problems/minimum-area-rectangle-ii,"Array, Math, Geometry"
+MEDIUM,Minimum Knight Moves,92.6,0.411541796614879,https://leetcode.com/problems/minimum-knight-moves,Breadth-First Search
+MEDIUM,Longest Common Subsequence,82.2,0.579922580471183,https://leetcode.com/problems/longest-common-subsequence,"String, Dynamic Programming"
+MEDIUM,Time Needed to Inform All Employees,82.2,0.601723944294699,https://leetcode.com/problems/time-needed-to-inform-all-employees,"Tree, Depth-First Search, Breadth-First Search"
+MEDIUM,Group Anagrams,82.2,0.7033743103792173,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+MEDIUM,Video Stitching,82.2,0.5177350163781643,https://leetcode.com/problems/video-stitching,"Array, Dynamic Programming, Greedy"

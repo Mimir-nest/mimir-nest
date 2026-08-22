@@ -1,0 +1,5 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Cheapest Flights Within K Stops,100.0,0.4006135091063381,https://leetcode.com/problems/cheapest-flights-within-k-stops,"Dynamic Programming, Depth-First Search, Breadth-First Search, Graph, Heap (Priority Queue), Shortest Path"
+MEDIUM,Minimum Penalty for a Shop,83.3,0.675527922478015,https://leetcode.com/problems/minimum-penalty-for-a-shop,"String, Prefix Sum"
+MEDIUM,Brace Expansion,83.3,0.6664217572831386,https://leetcode.com/problems/brace-expansion,"String, Backtracking, Breadth-First Search"
+HARD,Parallel Courses III,83.3,0.6684587149160209,https://leetcode.com/problems/parallel-courses-iii,"Array, Dynamic Programming, Graph, Topological Sort"

@@ -1,0 +1,6 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Sudoku Solver,63.7%,Hard,100.0,https://leetcode.com/problems/sudoku-solver,"Array, Hash Table, Backtracking, Matrix"
+2,Island Perimeter,73.4%,Easy,100.0,https://leetcode.com/problems/island-perimeter,"Array, Depth-First Search, Breadth-First Search, Matrix"
+3,Merge Intervals,48.8%,Medium,100.0,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+4,Maximum Depth of Binary Tree,76.8%,Easy,100.0,https://leetcode.com/problems/maximum-depth-of-binary-tree,"Tree, Depth-First Search, Breadth-First Search, Binary Tree"
+5,Two Sum,55.1%,Easy,100.0,https://leetcode.com/problems/two-sum,"Array, Hash Table"

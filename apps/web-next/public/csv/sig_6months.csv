@@ -1,0 +1,6 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Validate Binary Search Tree,34.0%,Medium,100.0,https://leetcode.com/problems/validate-binary-search-tree,"Tree, Depth-First Search, Binary Search Tree, Binary Tree"
+2,Valid Sudoku,61.7%,Medium,74.9,https://leetcode.com/problems/valid-sudoku,"Array, Hash Table, Matrix"
+3,Best Time to Buy and Sell Stock,54.8%,Easy,74.9,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+4,Kth Largest Element in an Array,67.6%,Medium,74.9,https://leetcode.com/problems/kth-largest-element-in-an-array,"Array, Divide and Conquer, Sorting, Heap (Priority Queue), Quickselect"
+5,Text Justification,47.1%,Hard,74.9,https://leetcode.com/problems/text-justification,"Array, String, Simulation"

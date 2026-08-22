@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Rotate Image,77.2%,Medium,100.0,https://leetcode.com/problems/rotate-image,"Array, Math, Matrix"
+2,Spiral Matrix,52.9%,Medium,100.0,https://leetcode.com/problems/spiral-matrix,"Array, Matrix, Simulation"
+3,Longest Substring Without Repeating Characters,36.3%,Medium,87.7,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+4,Valid Parentheses,41.8%,Easy,87.7,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+5,Number of 1 Bits,73.8%,Easy,87.7,https://leetcode.com/problems/number-of-1-bits,"Divide and Conquer, Bit Manipulation"
+6,Climbing Stairs,53.3%,Easy,87.7,https://leetcode.com/problems/climbing-stairs,"Math, Dynamic Programming, Memoization"
+7,Number of Islands,61.6%,Medium,87.7,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+8,Kth Largest Element in an Array,67.6%,Medium,87.7,https://leetcode.com/problems/kth-largest-element-in-an-array,"Array, Divide and Conquer, Sorting, Heap (Priority Queue), Quickselect"
+9,Two Sum,55.1%,Easy,87.7,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+10,Subarray Sum Equals K,44.9%,Medium,87.7,https://leetcode.com/problems/subarray-sum-equals-k,"Array, Hash Table, Prefix Sum"

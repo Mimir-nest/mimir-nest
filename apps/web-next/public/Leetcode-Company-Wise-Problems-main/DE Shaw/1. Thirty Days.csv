@@ -1,0 +1,4 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Binary Tree Cameras,100.0,0.47022319456423417,https://leetcode.com/problems/binary-tree-cameras,"Dynamic Programming, Tree, Depth-First Search, Binary Tree"
+MEDIUM,Find Minimum Cost to Remove Array Elements,84.0,0.15503387059098342,https://leetcode.com/problems/find-minimum-cost-to-remove-array-elements,"Array, Dynamic Programming"
+EASY,Majority Element,84.0,0.6549763159654806,https://leetcode.com/problems/majority-element,"Array, Hash Table, Divide and Conquer, Sorting, Counting"

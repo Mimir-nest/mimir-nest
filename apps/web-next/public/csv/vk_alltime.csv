@@ -1,0 +1,7 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Move Zeroes,62.5%,Easy,100.0,https://leetcode.com/problems/move-zeroes,"Array, Two Pointers"
+2,Maximize Distance to Closest Person,48.7%,Medium,100.0,https://leetcode.com/problems/maximize-distance-to-closest-person,Array
+3,Valid Parentheses,41.8%,Easy,100.0,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+4,Merge Sorted Array,52.3%,Easy,92.5,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+5,Merge Two Sorted Lists,66.3%,Easy,81.8,https://leetcode.com/problems/merge-two-sorted-lists,"Linked List, Recursion"
+6,Valid Palindrome,50.2%,Easy,81.8,https://leetcode.com/problems/valid-palindrome,"Two Pointers, String"

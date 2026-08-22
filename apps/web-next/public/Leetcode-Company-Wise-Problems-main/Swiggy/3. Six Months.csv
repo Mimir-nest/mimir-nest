@@ -1,0 +1,10 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Integer to Roman,100.0,0.6785827090202021,https://leetcode.com/problems/integer-to-roman,"Hash Table, Math, String"
+EASY,Next Greater Element I,100.0,0.7392602608090377,https://leetcode.com/problems/next-greater-element-i,"Array, Hash Table, Stack, Monotonic Stack"
+EASY,Happy Number,100.0,0.575614715314993,https://leetcode.com/problems/happy-number,"Hash Table, Math, Two Pointers"
+EASY,Fair Candy Swap,100.0,0.6285245272750792,https://leetcode.com/problems/fair-candy-swap,"Array, Hash Table, Binary Search, Sorting"
+MEDIUM,Subarray Sum Equals K,87.5,0.44931315290020263,https://leetcode.com/problems/subarray-sum-equals-k,"Array, Hash Table, Prefix Sum"
+MEDIUM,Count Good Meals,87.5,0.3112674278340393,https://leetcode.com/problems/count-good-meals,"Array, Hash Table"
+MEDIUM,Immediate Food Delivery II,87.5,0.5375028661604241,https://leetcode.com/problems/immediate-food-delivery-ii,Database
+MEDIUM,Daily Temperatures,87.5,0.6696886118136957,https://leetcode.com/problems/daily-temperatures,"Array, Stack, Monotonic Stack"
+MEDIUM,Maximum Score From Removing Substrings,87.5,0.6280191055772756,https://leetcode.com/problems/maximum-score-from-removing-substrings,"String, Stack, Greedy"

@@ -1,0 +1,18 @@
+{
+  "companies": [
+    "Amazon",
+    "Microsoft",
+    "Google",
+    "Meta",
+    "Adobe",
+    "Samsung",
+    "Salesforce",
+    "ServiceNow"
+  ],
+  "featuredTracks": [
+    "DSA Question Bank",
+    "Company-wise Interview Prep",
+    "System Design Basics"
+  ],
+  "updatedAt": "2026-08-02"
+}

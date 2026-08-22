@@ -1,0 +1,15 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Insert Interval,42.9%,Medium,100.0,https://leetcode.com/problems/insert-interval,Array
+2,Merge Two Binary Trees,79.3%,Easy,94.0,https://leetcode.com/problems/merge-two-binary-trees,"Tree, Depth-First Search, Breadth-First Search, Binary Tree"
+3,Text Justification,47.1%,Hard,94.0,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+4,Web Crawler Multithreaded,49.6%,Medium,86.2,https://leetcode.com/problems/web-crawler-multithreaded,"Depth-First Search, Breadth-First Search, Concurrency"
+5,LRU Cache,44.4%,Medium,86.2,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+6,Word Break,47.9%,Medium,86.2,https://leetcode.com/problems/word-break,"Array, Hash Table, String, Dynamic Programming, Trie, Memoization"
+7,Stock Price Fluctuation ,48.7%,Medium,86.2,https://leetcode.com/problems/stock-price-fluctuation,"Hash Table, Design, Heap (Priority Queue), Data Stream, Ordered Set"
+8,Two Sum,55.1%,Easy,75.3,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+9,Valid Sudoku,61.7%,Medium,75.3,https://leetcode.com/problems/valid-sudoku,"Array, Hash Table, Matrix"
+10,Search in Rotated Sorted Array,42.3%,Medium,75.3,https://leetcode.com/problems/search-in-rotated-sorted-array,"Array, Binary Search"
+11,Design Hit Counter,69.0%,Medium,75.3,https://leetcode.com/problems/design-hit-counter,"Array, Binary Search, Design, Queue, Data Stream"
+12,Merge k Sorted Lists,55.8%,Hard,75.3,https://leetcode.com/problems/merge-k-sorted-lists,"Linked List, Divide and Conquer, Heap (Priority Queue), Merge Sort"
+13,Sliding Window Maximum,47.2%,Hard,75.3,https://leetcode.com/problems/sliding-window-maximum,"Array, Queue, Sliding Window, Heap (Priority Queue), Monotonic Queue"
+14,Intersection of Two Arrays,76.0%,Easy,75.3,https://leetcode.com/problems/intersection-of-two-arrays,"Array, Hash Table, Two Pointers, Binary Search, Sorting"

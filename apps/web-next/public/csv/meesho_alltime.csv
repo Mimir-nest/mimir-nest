@@ -1,0 +1,22 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Number of Strings Which Can Be Rearranged to Contain Substring,55.9%,Medium,100.0,https://leetcode.com/problems/number-of-strings-which-can-be-rearranged-to-contain-substring,"Math, Dynamic Programming, Combinatorics"
+2,Number of Possible Sets of Closing Branches,51.0%,Hard,95.7,https://leetcode.com/problems/number-of-possible-sets-of-closing-branches,"Bit Manipulation, Graph, Heap (Priority Queue), Enumeration, Shortest Path"
+3,Count Complete Substrings,27.6%,Hard,95.7,https://leetcode.com/problems/count-complete-substrings,"Hash Table, String, Sliding Window"
+4,Minimum Edge Reversals So Every Node Is Reachable,57.5%,Hard,95.7,https://leetcode.com/problems/minimum-edge-reversals-so-every-node-is-reachable,"Dynamic Programming, Depth-First Search, Breadth-First Search, Graph"
+5,Making A Large Island,54.3%,Hard,79.3,https://leetcode.com/problems/making-a-large-island,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+6,Minimum Number of Taps to Open to Water a Garden,50.7%,Hard,74.1,https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden,"Array, Dynamic Programming, Greedy"
+7,Delete and Earn,56.6%,Medium,74.1,https://leetcode.com/problems/delete-and-earn,"Array, Hash Table, Dynamic Programming"
+8,Painting the Walls,50.3%,Hard,67.3,https://leetcode.com/problems/painting-the-walls,"Array, Dynamic Programming"
+9,Subsequence With the Minimum Score,32.4%,Hard,67.3,https://leetcode.com/problems/subsequence-with-the-minimum-score,"Two Pointers, String, Binary Search"
+10,Two Sum,55.1%,Easy,67.3,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+11,Count Subarrays With Fixed Bounds,67.7%,Hard,67.3,https://leetcode.com/problems/count-subarrays-with-fixed-bounds,"Array, Queue, Sliding Window, Monotonic Queue"
+12,Consecutive Numbers,45.4%,Medium,57.7,https://leetcode.com/problems/consecutive-numbers,Database
+13,Number of Ways to Form a Target String Given a Dictionary,57.3%,Hard,57.7,https://leetcode.com/problems/number-of-ways-to-form-a-target-string-given-a-dictionary,"Array, String, Dynamic Programming"
+14,Minimum Time to Complete Trips,38.9%,Medium,57.7,https://leetcode.com/problems/minimum-time-to-complete-trips,"Array, Binary Search"
+15,Second Highest Salary,43.0%,Medium,57.7,https://leetcode.com/problems/second-highest-salary,Database
+16,Find the Longest Equal Subarray,36.5%,Medium,57.7,https://leetcode.com/problems/find-the-longest-equal-subarray,"Array, Hash Table, Binary Search, Sliding Window"
+17,Search Suggestions System,65.0%,Medium,57.7,https://leetcode.com/problems/search-suggestions-system,"Array, String, Binary Search, Trie, Sorting, Heap (Priority Queue)"
+18,Jump Game,39.1%,Medium,57.7,https://leetcode.com/problems/jump-game,"Array, Dynamic Programming, Greedy"
+19,Longest Non-decreasing Subarray From Two Arrays,29.9%,Medium,57.7,https://leetcode.com/problems/longest-non-decreasing-subarray-from-two-arrays,"Array, Dynamic Programming"
+20,Minimum Degree of a Connected Trio in a Graph,43.3%,Hard,57.7,https://leetcode.com/problems/minimum-degree-of-a-connected-trio-in-a-graph,Graph
+21,Asteroid Collision,45.1%,Medium,57.7,https://leetcode.com/problems/asteroid-collision,"Array, Stack, Simulation"

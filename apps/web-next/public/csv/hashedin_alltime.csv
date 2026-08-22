@@ -1,0 +1,16 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Maximum Points Inside the Square,39.0%,Medium,100.0,https://leetcode.com/problems/maximum-points-inside-the-square,"Array, Hash Table, String, Binary Search, Sorting"
+2,Find Candidates for Data Scientist Position,75.6%,Easy,100.0,https://leetcode.com/problems/find-candidates-for-data-scientist-position,Database
+3,Maximize Items,74.3%,Hard,100.0,https://leetcode.com/problems/maximize-items,Database
+4,Count the Number of Powerful Integers,26.8%,Hard,83.4,https://leetcode.com/problems/count-the-number-of-powerful-integers,"Math, String, Dynamic Programming"
+5,Minimize Length of Array Using Operations,34.8%,Medium,83.4,https://leetcode.com/problems/minimize-length-of-array-using-operations,"Array, Math, Greedy, Number Theory"
+6,Maximum Subarray,51.7%,Medium,71.1,https://leetcode.com/problems/maximum-subarray,"Array, Divide and Conquer, Dynamic Programming"
+7,3Sum,36.4%,Medium,61.5,https://leetcode.com/problems/3sum,"Array, Two Pointers, Sorting"
+8,Best Time to Buy and Sell Stock,54.8%,Easy,61.5,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+9,Trapping Rain Water,64.3%,Hard,61.5,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+10,Minimum Cost to Make Array Equal,46.1%,Hard,61.5,https://leetcode.com/problems/minimum-cost-to-make-array-equal,"Array, Binary Search, Greedy, Sorting, Prefix Sum"
+11,Next Permutation,42.3%,Medium,61.5,https://leetcode.com/problems/next-permutation,"Array, Two Pointers"
+12,Chalkboard XOR Game,62.5%,Hard,61.5,https://leetcode.com/problems/chalkboard-xor-game,"Array, Math, Bit Manipulation, Brainteaser, Game Theory"
+13,Jump Game II,41.1%,Medium,61.5,https://leetcode.com/problems/jump-game-ii,"Array, Dynamic Programming, Greedy"
+14,Jump Game,39.1%,Medium,61.5,https://leetcode.com/problems/jump-game,"Array, Dynamic Programming, Greedy"
+15,Beautiful Arrangement,64.5%,Medium,61.5,https://leetcode.com/problems/beautiful-arrangement,"Array, Dynamic Programming, Backtracking, Bit Manipulation, Bitmask"

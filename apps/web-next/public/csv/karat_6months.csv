@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Text Justification,47.1%,Hard,100.0,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+2,Find Words That Can Be Formed by Characters,70.9%,Easy,90.2,https://leetcode.com/problems/find-words-that-can-be-formed-by-characters,"Array, Hash Table, String, Counting"
+3,Check if Every Row and Column Contains All Numbers,52.5%,Easy,83.0,https://leetcode.com/problems/check-if-every-row-and-column-contains-all-numbers,"Array, Hash Table, Matrix"
+4,Course Schedule,48.5%,Medium,83.0,https://leetcode.com/problems/course-schedule,"Depth-First Search, Breadth-First Search, Graph, Topological Sort"
+5,Word Search,44.6%,Medium,72.0,https://leetcode.com/problems/word-search,"Array, String, Backtracking, Depth-First Search, Matrix"
+6,Number of Islands,61.6%,Medium,72.0,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+7,Alert Using Same Key-Card Three or More Times in a One Hour Period,46.2%,Medium,72.0,https://leetcode.com/problems/alert-using-same-key-card-three-or-more-times-in-a-one-hour-period,"Array, Hash Table, String, Sorting"
+8,Subdomain Visit Count,76.7%,Medium,63.2,https://leetcode.com/problems/subdomain-visit-count,"Array, Hash Table, String, Counting"
+9,Word Search II,37.0%,Hard,63.2,https://leetcode.com/problems/word-search-ii,"Array, String, Backtracking, Trie, Matrix"
+10,Two Sum,55.1%,Easy,63.2,https://leetcode.com/problems/two-sum,"Array, Hash Table"

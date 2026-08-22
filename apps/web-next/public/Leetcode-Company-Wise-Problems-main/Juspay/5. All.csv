@@ -1,0 +1,9 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Longest Cycle in a Graph,100.0,0.49796287648844273,https://leetcode.com/problems/longest-cycle-in-a-graph,"Depth-First Search, Breadth-First Search, Graph, Topological Sort"
+MEDIUM,Find Closest Node to Given Two Nodes,93.2,0.4577291337041447,https://leetcode.com/problems/find-closest-node-to-given-two-nodes,"Depth-First Search, Graph"
+MEDIUM,Operations on Tree,93.2,0.4689046021671453,https://leetcode.com/problems/operations-on-tree,"Array, Hash Table, Tree, Depth-First Search, Breadth-First Search, Design"
+MEDIUM,Node With Highest Edge Score,88.6,0.48190193314538865,https://leetcode.com/problems/node-with-highest-edge-score,"Hash Table, Graph"
+MEDIUM,Longest Subsequence With Decreasing Adjacent Difference,84.9,0.13703624276217027,https://leetcode.com/problems/longest-subsequence-with-decreasing-adjacent-difference,"Array, Dynamic Programming"
+MEDIUM,Set Matrix Zeroes,60.5,0.5893245701347445,https://leetcode.com/problems/set-matrix-zeroes,"Array, Hash Table, Matrix"
+MEDIUM,Longest Substring Without Repeating Characters,60.5,0.36326953823137004,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+HARD,Word Ladder,52.3,0.4184738320448396,https://leetcode.com/problems/word-ladder,"Hash Table, String, Breadth-First Search"

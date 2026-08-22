@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Two Sum,55.1%,Easy,100.0,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+2,LRU Cache,44.4%,Medium,86.7,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+3,Next Permutation,42.3%,Medium,76.1,https://leetcode.com/problems/next-permutation,"Array, Two Pointers"
+4,Search a 2D Matrix,51.8%,Medium,76.1,https://leetcode.com/problems/search-a-2d-matrix,"Array, Binary Search, Matrix"
+5,Longest Substring Without Repeating Characters,36.3%,Medium,76.1,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+6,Longest Palindromic Substring,35.3%,Medium,76.1,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"
+7,Minimum Cost For Tickets,67.4%,Medium,76.1,https://leetcode.com/problems/minimum-cost-for-tickets,"Array, Dynamic Programming"
+8,Reconstruct a 2-Row Binary Matrix,47.4%,Medium,76.1,https://leetcode.com/problems/reconstruct-a-2-row-binary-matrix,"Array, Greedy, Matrix"
+9,Adding Two Negabinary Numbers,37.0%,Medium,76.1,https://leetcode.com/problems/adding-two-negabinary-numbers,"Array, Math"
+10,Minimum Number of Food Buckets to Feed the Hamsters,47.0%,Medium,76.1,https://leetcode.com/problems/minimum-number-of-food-buckets-to-feed-the-hamsters,"String, Dynamic Programming, Greedy"

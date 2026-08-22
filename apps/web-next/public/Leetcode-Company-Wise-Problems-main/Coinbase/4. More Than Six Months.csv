@@ -1,0 +1,12 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Zigzag Iterator,100.0,0.6518901557732455,https://leetcode.com/problems/zigzag-iterator,"Array, Design, Queue, Iterator"
+HARD,Design In-Memory File System,100.0,0.480304335343095,https://leetcode.com/problems/design-in-memory-file-system,"Hash Table, String, Design, Trie, Sorting"
+MEDIUM,Design File System,89.8,0.63793291221956,https://leetcode.com/problems/design-file-system,"Hash Table, String, Design, Trie"
+MEDIUM,Simple Bank System,89.8,0.6338909634055265,https://leetcode.com/problems/simple-bank-system,"Array, Hash Table, Design, Simulation"
+MEDIUM,Number of Orders in the Backlog,82.6,0.5123050948455656,https://leetcode.com/problems/number-of-orders-in-the-backlog,"Array, Heap (Priority Queue), Simulation"
+MEDIUM,Check if There is a Valid Partition For The Array,82.6,0.5191910671076875,https://leetcode.com/problems/check-if-there-is-a-valid-partition-for-the-array,"Array, Dynamic Programming"
+HARD,Text Justification,82.6,0.4709330190676316,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+MEDIUM,Time Based Key-Value Store,82.6,0.4936204160978852,https://leetcode.com/problems/time-based-key-value-store,"Hash Table, String, Binary Search, Design"
+MEDIUM,Simplify Path,72.5,0.4659600798106264,https://leetcode.com/problems/simplify-path,"String, Stack"
+EASY,Decode the Message,72.5,0.8518832791212936,https://leetcode.com/problems/decode-the-message,"Hash Table, String"
+MEDIUM,Evaluate Division,72.5,0.6274978884855024,https://leetcode.com/problems/evaluate-division,"Array, String, Depth-First Search, Breadth-First Search, Union Find, Graph, Shortest Path"

@@ -1,0 +1,11 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Count Pairs in Two Arrays,100.0,0.600650042625746,https://leetcode.com/problems/count-pairs-in-two-arrays,"Array, Two Pointers, Binary Search, Sorting"
+MEDIUM,Jump Game,84.2,0.39113610620616535,https://leetcode.com/problems/jump-game,"Array, Dynamic Programming, Greedy"
+MEDIUM,LRU Cache,84.2,0.4443116153250814,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+EASY,Valid Parentheses,72.6,0.4184524993881009,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+EASY,Merge Two Sorted Lists,72.6,0.6628960524910158,https://leetcode.com/problems/merge-two-sorted-lists,"Linked List, Recursion"
+MEDIUM,Random Pick with Weight,72.6,0.48208285041281895,https://leetcode.com/problems/random-pick-with-weight,"Array, Math, Binary Search, Prefix Sum, Randomized"
+EASY,Merge Sorted Array,63.4,0.522569552237065,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+EASY,Best Time to Buy and Sell Stock,63.4,0.5476985240680702,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+EASY,Valid Palindrome,63.4,0.501550819867871,https://leetcode.com/problems/valid-palindrome,"Two Pointers, String"
+MEDIUM,Memoize,63.4,0.6315876538784962,https://leetcode.com/problems/memoize,

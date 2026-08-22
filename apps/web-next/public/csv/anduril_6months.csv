@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Maximum Number of Visible Points,37.5%,Hard,100.0,https://leetcode.com/problems/maximum-number-of-visible-points,"Array, Math, Geometry, Sliding Window, Sorting"
+2,Heaters,39.4%,Medium,86.7,https://leetcode.com/problems/heaters,"Array, Two Pointers, Binary Search, Sorting"
+3,Shortest Word Distance,65.8%,Easy,86.7,https://leetcode.com/problems/shortest-word-distance,"Array, String"
+4,Daily Temperatures,67.0%,Medium,79.8,https://leetcode.com/problems/daily-temperatures,"Array, Stack, Monotonic Stack"
+5,Group Anagrams,70.3%,Medium,79.8,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+6,Flip Equivalent Binary Trees,69.8%,Medium,79.8,https://leetcode.com/problems/flip-equivalent-binary-trees,"Tree, Depth-First Search, Binary Tree"
+7,Search Suggestions System,65.0%,Medium,79.8,https://leetcode.com/problems/search-suggestions-system,"Array, String, Binary Search, Trie, Sorting, Heap (Priority Queue)"
+8,Basic Calculator,44.9%,Hard,70.2,https://leetcode.com/problems/basic-calculator,"Math, String, Stack, Recursion"
+9,Basic Calculator II,45.3%,Medium,70.2,https://leetcode.com/problems/basic-calculator-ii,"Math, String, Stack"
+10,Game of Life,70.9%,Medium,70.2,https://leetcode.com/problems/game-of-life,"Array, Matrix, Simulation"
+11,Flatten Binary Tree to Linked List,67.7%,Medium,70.2,https://leetcode.com/problems/flatten-binary-tree-to-linked-list,"Linked List, Stack, Tree, Depth-First Search, Binary Tree"
+12,Number of Islands,61.6%,Medium,70.2,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"

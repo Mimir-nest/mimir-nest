@@ -1,0 +1,12 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Insert Delete GetRandom O(1),54.9%,Medium,100.0,https://leetcode.com/problems/insert-delete-getrandom-o1,"Array, Hash Table, Math, Design, Randomized"
+2,Shortest Uncommon Substring in an Array,47.3%,Medium,78.3,https://leetcode.com/problems/shortest-uncommon-substring-in-an-array,"Array, Hash Table, String, Trie"
+3,Group Anagrams,70.3%,Medium,78.3,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+4,Parse Lisp Expression,52.3%,Hard,76.6,https://leetcode.com/problems/parse-lisp-expression,"Hash Table, String, Stack, Recursion"
+5,Design Hit Counter,69.0%,Medium,72.5,https://leetcode.com/problems/design-hit-counter,"Array, Binary Search, Design, Queue, Data Stream"
+6,Insert Delete GetRandom O(1) - Duplicates allowed,35.8%,Hard,70.0,https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed,"Array, Hash Table, Math, Design, Randomized"
+7,String Compression,57.3%,Medium,67.2,https://leetcode.com/problems/string-compression,"Two Pointers, String"
+8,Valid Anagram,66.2%,Easy,67.2,https://leetcode.com/problems/valid-anagram,"Hash Table, String, Sorting"
+9,Coin Change,45.8%,Medium,59.8,https://leetcode.com/problems/coin-change,"Array, Dynamic Programming, Breadth-First Search"
+10,String Compression III,68.1%,Medium,47.2,https://leetcode.com/problems/string-compression-iii,String
+11,Number of Recent Calls,77.1%,Easy,47.2,https://leetcode.com/problems/number-of-recent-calls,"Design, Queue, Data Stream"

@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Valid Parentheses,41.8%,Easy,100.0,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+2,Merge Sorted Array,52.3%,Easy,91.7,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+3,Sort Colors,66.4%,Medium,91.7,https://leetcode.com/problems/sort-colors,"Array, Two Pointers, Sorting"
+4,Maximize Area of Square Hole in Grid,37.5%,Medium,91.7,https://leetcode.com/problems/maximize-area-of-square-hole-in-grid,"Array, Sorting"
+5,Trapping Rain Water,64.3%,Hard,80.1,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+6,Climbing Stairs,53.3%,Easy,80.1,https://leetcode.com/problems/climbing-stairs,"Math, Dynamic Programming, Memoization"
+7,Subsets II,58.9%,Medium,80.1,https://leetcode.com/problems/subsets-ii,"Array, Backtracking, Bit Manipulation"
+8,Maximum Profit in Job Scheduling,54.3%,Hard,80.1,https://leetcode.com/problems/maximum-profit-in-job-scheduling,"Array, Binary Search, Dynamic Programming, Sorting"
+9,Maximum Length of Pair Chain,60.6%,Medium,80.1,https://leetcode.com/problems/maximum-length-of-pair-chain,"Array, Dynamic Programming, Greedy, Sorting"
+10,Majority Element,65.5%,Easy,80.1,https://leetcode.com/problems/majority-element,"Array, Hash Table, Divide and Conquer, Sorting, Counting"
+11,Merge Two Sorted Lists,66.3%,Easy,80.1,https://leetcode.com/problems/merge-two-sorted-lists,"Linked List, Recursion"
+12,Minimum Value to Get Positive Step by Step Sum,64.9%,Easy,80.1,https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum,"Array, Prefix Sum"

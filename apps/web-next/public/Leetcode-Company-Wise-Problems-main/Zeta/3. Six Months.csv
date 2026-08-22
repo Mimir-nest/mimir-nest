@@ -1,0 +1,6 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Reverse Nodes in k-Group,100.0,0.6204654720865883,https://leetcode.com/problems/reverse-nodes-in-k-group,"Linked List, Recursion"
+MEDIUM,Longest Substring Without Repeating Characters,100.0,0.36326939765328237,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+MEDIUM,Capacity To Ship Packages Within D Days,100.0,0.7138850494877583,https://leetcode.com/problems/capacity-to-ship-packages-within-d-days,"Array, Binary Search"
+HARD,Trapping Rain Water,100.0,0.6428758555513079,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+MEDIUM,Count Univalue Subtrees,100.0,0.5696930562759565,https://leetcode.com/problems/count-univalue-subtrees,"Tree, Depth-First Search, Binary Tree"

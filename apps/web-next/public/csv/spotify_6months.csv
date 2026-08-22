@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Longest Substring Without Repeating Characters,36.3%,Medium,100.0,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+2,Two Sum,55.1%,Easy,94.9,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+3,Moving Average from Data Stream,79.6%,Easy,91.8,https://leetcode.com/problems/moving-average-from-data-stream,"Array, Design, Queue, Data Stream"
+4,Valid Parentheses,41.8%,Easy,84.1,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+5,Analyze User Website Visit Pattern,43.2%,Medium,84.1,https://leetcode.com/problems/analyze-user-website-visit-pattern,"Array, Hash Table, Sorting"
+6,Valid Palindrome,50.2%,Easy,79.0,https://leetcode.com/problems/valid-palindrome,"Two Pointers, String"
+7,Kth Largest Element in an Array,67.6%,Medium,72.4,https://leetcode.com/problems/kth-largest-element-in-an-array,"Array, Divide and Conquer, Sorting, Heap (Priority Queue), Quickselect"
+8,Step-By-Step Directions From a Binary Tree Node to Another,56.4%,Medium,63.2,https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another,"String, Tree, Depth-First Search, Binary Tree"
+9,Find Median from Data Stream,53.0%,Hard,63.2,https://leetcode.com/problems/find-median-from-data-stream,"Two Pointers, Design, Sorting, Heap (Priority Queue), Data Stream"
+10,Valid Anagram,66.2%,Easy,63.2,https://leetcode.com/problems/valid-anagram,"Hash Table, String, Sorting"
+11,Leetcodify Similar Friends,42.5%,Hard,63.2,https://leetcode.com/problems/leetcodify-similar-friends,Database
+12,Leetcodify Friends Recommendations,27.7%,Hard,63.2,https://leetcode.com/problems/leetcodify-friends-recommendations,Database

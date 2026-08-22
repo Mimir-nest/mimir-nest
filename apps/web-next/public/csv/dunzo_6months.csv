@@ -1,0 +1,8 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Arithmetic Slices II - Subsequence,54.6%,Hard,100.0,https://leetcode.com/problems/arithmetic-slices-ii-subsequence,"Array, Dynamic Programming"
+2,Find All Good Strings,43.3%,Hard,100.0,https://leetcode.com/problems/find-all-good-strings,"String, Dynamic Programming, String Matching"
+3,Number of Distinct Substrings in a String,64.4%,Medium,100.0,https://leetcode.com/problems/number-of-distinct-substrings-in-a-string,"String, Trie, Rolling Hash, Suffix Array, Hash Function"
+4,Number of Ways to Form a Target String Given a Dictionary,57.3%,Hard,100.0,https://leetcode.com/problems/number-of-ways-to-form-a-target-string-given-a-dictionary,"Array, String, Dynamic Programming"
+5,Stone Game VII,58.3%,Medium,100.0,https://leetcode.com/problems/stone-game-vii,"Array, Math, Dynamic Programming, Game Theory"
+6,Ways to Make a Fair Array,64.3%,Medium,100.0,https://leetcode.com/problems/ways-to-make-a-fair-array,"Array, Prefix Sum"
+7,Build Array Where You Can Find The Maximum Exactly K Comparisons,67.5%,Hard,100.0,https://leetcode.com/problems/build-array-where-you-can-find-the-maximum-exactly-k-comparisons,"Dynamic Programming, Prefix Sum"

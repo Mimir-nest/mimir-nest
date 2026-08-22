@@ -1,0 +1,3 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Palindromic Substrings,100.0,0.7126868182899088,https://leetcode.com/problems/palindromic-substrings,"Two Pointers, String, Dynamic Programming"
+MEDIUM,Valid Square,82.4,0.4423981768776384,https://leetcode.com/problems/valid-square,"Math, Geometry"

@@ -1,0 +1,9 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Maximize Distance to Closest Person,100.0,0.4870415197084244,https://leetcode.com/problems/maximize-distance-to-closest-person,Array
+MEDIUM,Task Scheduler,95.7,0.610292664115186,https://leetcode.com/problems/task-scheduler,"Array, Hash Table, Greedy, Sorting, Heap (Priority Queue), Counting"
+MEDIUM,Reorganize String,90.4,0.5578367808394188,https://leetcode.com/problems/reorganize-string,"Hash Table, String, Greedy, Sorting, Heap (Priority Queue), Counting"
+EASY,Valid Parentheses,83.6,0.41845167888058926,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+MEDIUM,Design Hit Counter,74.0,0.690145319433361,https://leetcode.com/problems/design-hit-counter,"Array, Binary Search, Design, Queue, Data Stream"
+HARD,Block Placement Queries,74.0,0.1609268707482993,https://leetcode.com/problems/block-placement-queries,"Array, Binary Search, Binary Indexed Tree, Segment Tree"
+MEDIUM,Spiral Matrix,74.0,0.5293294861000031,https://leetcode.com/problems/spiral-matrix,"Array, Matrix, Simulation"
+MEDIUM,Number of Adjacent Elements With the Same Color,74.0,0.5417296548248929,https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color,Array

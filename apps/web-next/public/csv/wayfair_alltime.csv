@@ -1,0 +1,25 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Maximum Product Subarray,34.5%,Medium,100.0,https://leetcode.com/problems/maximum-product-subarray,"Array, Dynamic Programming"
+2,Add Strings,51.7%,Easy,98.2,https://leetcode.com/problems/add-strings,"Math, String, Simulation"
+3,Largest Magic Square,53.2%,Medium,94.3,https://leetcode.com/problems/largest-magic-square,"Array, Matrix, Prefix Sum"
+4,Team Scores in Football Tournament,55.8%,Medium,94.3,https://leetcode.com/problems/team-scores-in-football-tournament,Database
+5,Minimum Moves to Reach Target Score,51.3%,Medium,94.3,https://leetcode.com/problems/minimum-moves-to-reach-target-score,"Math, Greedy"
+6,Longest Happy String,65.5%,Medium,92.0,https://leetcode.com/problems/longest-happy-string,"String, Greedy, Heap (Priority Queue)"
+7,Best Sightseeing Pair,62.6%,Medium,92.0,https://leetcode.com/problems/best-sightseeing-pair,"Array, Dynamic Programming"
+8,Design A Leaderboard,67.9%,Medium,92.0,https://leetcode.com/problems/design-a-leaderboard,"Hash Table, Design, Sorting"
+9,Alert Using Same Key-Card Three or More Times in a One Hour Period,46.2%,Medium,92.0,https://leetcode.com/problems/alert-using-same-key-card-three-or-more-times-in-a-one-hour-period,"Array, Hash Table, String, Sorting"
+10,Maximum Number of Balloons,59.7%,Easy,92.0,https://leetcode.com/problems/maximum-number-of-balloons,"Hash Table, String, Counting"
+11,Delete Characters to Make Fancy String,71.8%,Easy,92.0,https://leetcode.com/problems/delete-characters-to-make-fancy-string,String
+12,Tournament Winners,49.6%,Hard,92.0,https://leetcode.com/problems/tournament-winners,Database
+13,Number of Divisible Substrings,73.5%,Medium,86.7,https://leetcode.com/problems/number-of-divisible-substrings,"Hash Table, String, Counting, Prefix Sum"
+14,Longest Palindromic Substring,35.3%,Medium,75.5,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"
+15,Group Anagrams,70.3%,Medium,70.2,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+16,Reaching Points,33.6%,Hard,63.3,https://leetcode.com/problems/reaching-points,Math
+17,Maximum Number of Vowels in a Substring of Given Length,59.8%,Medium,53.8,https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length,"String, Sliding Window"
+18,Longest Increasing Subsequence,57.2%,Medium,53.8,https://leetcode.com/problems/longest-increasing-subsequence,"Array, Binary Search, Dynamic Programming"
+19,Lowest Common Ancestor of a Binary Tree,65.7%,Medium,53.8,https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree,"Tree, Depth-First Search, Binary Tree"
+20,Palindromic Substrings,71.3%,Medium,53.8,https://leetcode.com/problems/palindromic-substrings,"Two Pointers, String, Dynamic Programming"
+21,Valid Palindrome,50.2%,Easy,53.8,https://leetcode.com/problems/valid-palindrome,"Two Pointers, String"
+22,Backspace String Compare,49.4%,Easy,53.8,https://leetcode.com/problems/backspace-string-compare,"Two Pointers, String, Stack, Simulation"
+23,Reverse Words in a String,50.1%,Medium,53.8,https://leetcode.com/problems/reverse-words-in-a-string,"Two Pointers, String"
+24,Last Person to Fit in the Bus,68.2%,Medium,53.8,https://leetcode.com/problems/last-person-to-fit-in-the-bus,Database

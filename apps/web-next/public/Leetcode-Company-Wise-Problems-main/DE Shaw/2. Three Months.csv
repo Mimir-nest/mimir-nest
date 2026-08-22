@@ -1,0 +1,6 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Binary Tree Cameras,100.0,0.47022319456423417,https://leetcode.com/problems/binary-tree-cameras,"Dynamic Programming, Tree, Depth-First Search, Binary Tree"
+MEDIUM,Maximum Product Subarray,73.8,0.3452959907544604,https://leetcode.com/problems/maximum-product-subarray,"Array, Dynamic Programming"
+MEDIUM,Find First and Last Position of Element in Sorted Array,73.8,0.4614974488017989,https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array,"Array, Binary Search"
+MEDIUM,Find Minimum Cost to Remove Array Elements,73.8,0.15503387059098342,https://leetcode.com/problems/find-minimum-cost-to-remove-array-elements,"Array, Dynamic Programming"
+EASY,Majority Element,73.8,0.6549763159654806,https://leetcode.com/problems/majority-element,"Array, Hash Table, Divide and Conquer, Sorting, Counting"

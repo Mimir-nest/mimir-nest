@@ -1,0 +1,8 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Median of Two Sorted Arrays,42.9%,Hard,100.0,https://leetcode.com/problems/median-of-two-sorted-arrays,"Array, Binary Search, Divide and Conquer"
+2,Two Sum,55.1%,Easy,79.8,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+3,Longest Common Prefix,44.9%,Easy,79.8,https://leetcode.com/problems/longest-common-prefix,"String, Trie"
+4,Extra Characters in a String,57.4%,Medium,79.8,https://leetcode.com/problems/extra-characters-in-a-string,"Array, Hash Table, String, Dynamic Programming, Trie"
+5,Maximum Subarray,51.7%,Medium,79.8,https://leetcode.com/problems/maximum-subarray,"Array, Divide and Conquer, Dynamic Programming"
+6,Reverse Nodes in k-Group,62.0%,Hard,79.8,https://leetcode.com/problems/reverse-nodes-in-k-group,"Linked List, Recursion"
+7,Check if Number Has Equal Digit Count and Digit Value,72.6%,Easy,79.8,https://leetcode.com/problems/check-if-number-has-equal-digit-count-and-digit-value,"Hash Table, String, Counting"

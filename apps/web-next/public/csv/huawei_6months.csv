@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Two Sum,55.1%,Easy,100.0,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+2,Valid Parentheses,41.8%,Easy,100.0,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+3,Decode String,60.7%,Medium,93.9,https://leetcode.com/problems/decode-string,"String, Stack, Recursion"
+4,Number of Islands,61.6%,Medium,75.2,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+5,24 Game,49.8%,Hard,75.2,https://leetcode.com/problems/24-game,"Array, Math, Backtracking"
+6,Combination Sum,73.9%,Medium,75.2,https://leetcode.com/problems/combination-sum,"Array, Backtracking"
+7,Daily Temperatures,67.0%,Medium,75.2,https://leetcode.com/problems/daily-temperatures,"Array, Stack, Monotonic Stack"
+8,Minimum Number of Visited Cells in a Grid,23.3%,Hard,75.2,https://leetcode.com/problems/minimum-number-of-visited-cells-in-a-grid,"Array, Dynamic Programming, Stack, Breadth-First Search, Union Find, Heap (Priority Queue), Matrix, Monotonic Stack"
+9,Maximum Binary String After Change,47.0%,Medium,75.2,https://leetcode.com/problems/maximum-binary-string-after-change,"String, Greedy"
+10,Generate Parentheses,76.5%,Medium,75.2,https://leetcode.com/problems/generate-parentheses,"String, Dynamic Programming, Backtracking"

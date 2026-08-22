@@ -1,0 +1,7 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Find All Groups of Farmland,75.6%,Medium,100.0,https://leetcode.com/problems/find-all-groups-of-farmland,"Array, Depth-First Search, Breadth-First Search, Matrix"
+2,Check if Strings Can be Made Equal With Operations II,56.1%,Medium,100.0,https://leetcode.com/problems/check-if-strings-can-be-made-equal-with-operations-ii,"Hash Table, String, Sorting"
+3,Check if Strings Can be Made Equal With Operations I,47.6%,Easy,100.0,https://leetcode.com/problems/check-if-strings-can-be-made-equal-with-operations-i,String
+4,Maximum Performance of a Team,47.6%,Hard,100.0,https://leetcode.com/problems/maximum-performance-of-a-team,"Array, Greedy, Sorting, Heap (Priority Queue)"
+5,Remove Nth Node From End of List,48.1%,Medium,63.9,https://leetcode.com/problems/remove-nth-node-from-end-of-list,"Linked List, Two Pointers"
+6,Pairs of Songs With Total Durations Divisible by 60,53.2%,Medium,63.9,https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60,"Array, Hash Table, Counting"

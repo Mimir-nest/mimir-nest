@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Design Circular Queue,52.4%,Medium,100.0,https://leetcode.com/problems/design-circular-queue,"Array, Linked List, Design, Queue"
+2,4Sum,37.6%,Medium,95.7,https://leetcode.com/problems/4sum,"Array, Two Pointers, Sorting"
+3,3Sum,36.4%,Medium,94.0,https://leetcode.com/problems/3sum,"Array, Two Pointers, Sorting"
+4,Design a Stack With Increment Operation,80.5%,Medium,85.6,https://leetcode.com/problems/design-a-stack-with-increment-operation,"Array, Stack, Design"
+5,Number of Islands,61.6%,Medium,71.3,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+6,Game of Life,70.9%,Medium,65.3,https://leetcode.com/problems/game-of-life,"Array, Matrix, Simulation"
+7,Design Hit Counter,69.0%,Medium,65.3,https://leetcode.com/problems/design-hit-counter,"Array, Binary Search, Design, Queue, Data Stream"
+8,Fizz Buzz,73.9%,Easy,56.9,https://leetcode.com/problems/fizz-buzz,"Math, String, Simulation"
+9,Reaching Points,33.6%,Hard,56.9,https://leetcode.com/problems/reaching-points,Math
+10,LRU Cache,44.4%,Medium,56.9,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"

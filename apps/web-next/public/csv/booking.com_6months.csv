@@ -1,0 +1,16 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Reward Top K Students,45.6%,Medium,100.0,https://leetcode.com/problems/reward-top-k-students,"Array, Hash Table, String, Sorting, Heap (Priority Queue)"
+2,Sliding Window Maximum,47.2%,Hard,94.0,https://leetcode.com/problems/sliding-window-maximum,"Array, Queue, Sliding Window, Heap (Priority Queue), Monotonic Queue"
+3,Maximal Square,48.2%,Medium,75.9,https://leetcode.com/problems/maximal-square,"Array, Dynamic Programming, Matrix"
+4,Binary Tree Maximum Path Sum,40.9%,Hard,65.3,https://leetcode.com/problems/binary-tree-maximum-path-sum,"Dynamic Programming, Tree, Depth-First Search, Binary Tree"
+5,Longest Increasing Subsequence,57.2%,Medium,65.3,https://leetcode.com/problems/longest-increasing-subsequence,"Array, Binary Search, Dynamic Programming"
+6,Backspace String Compare,49.4%,Easy,65.3,https://leetcode.com/problems/backspace-string-compare,"Two Pointers, String, Stack, Simulation"
+7,Delete Duplicate Folders in System,54.9%,Hard,65.3,https://leetcode.com/problems/delete-duplicate-folders-in-system,"Array, Hash Table, String, Trie, Hash Function"
+8,Least Number of Unique Integers after K Removals,63.3%,Medium,57.0,https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals,"Array, Hash Table, Greedy, Sorting, Counting"
+9,Number of Islands,61.6%,Medium,57.0,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+10,Reconstruct Itinerary,43.4%,Hard,57.0,https://leetcode.com/problems/reconstruct-itinerary,"Depth-First Search, Graph, Eulerian Circuit"
+11,K Highest Ranked Items Within a Price Range,44.1%,Medium,57.0,https://leetcode.com/problems/k-highest-ranked-items-within-a-price-range,"Array, Breadth-First Search, Sorting, Heap (Priority Queue), Matrix"
+12,Two Out of Three,76.2%,Easy,57.0,https://leetcode.com/problems/two-out-of-three,"Array, Hash Table, Bit Manipulation"
+13,Coloring A Border,49.6%,Medium,57.0,https://leetcode.com/problems/coloring-a-border,"Array, Depth-First Search, Breadth-First Search, Matrix"
+14,Order Two Columns Independently,60.7%,Medium,57.0,https://leetcode.com/problems/order-two-columns-independently,Database
+15,Count Number of Nice Subarrays,72.4%,Medium,57.0,https://leetcode.com/problems/count-number-of-nice-subarrays,"Array, Hash Table, Math, Sliding Window, Prefix Sum"

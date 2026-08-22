@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Zigzag Conversion,50.8%,Medium,100.0,https://leetcode.com/problems/zigzag-conversion,String
+2,Reverse Nodes in Even Length Groups,60.3%,Medium,84.5,https://leetcode.com/problems/reverse-nodes-in-even-length-groups,Linked List
+3,Minimum Window Substring,44.7%,Hard,74.5,https://leetcode.com/problems/minimum-window-substring,"Hash Table, String, Sliding Window"
+4,Fraction Addition and Subtraction,66.2%,Medium,70.9,https://leetcode.com/problems/fraction-addition-and-subtraction,"Math, String, Simulation"
+5,Trapping Rain Water,64.3%,Hard,66.5,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+6,Remove K Digits,34.4%,Medium,66.5,https://leetcode.com/problems/remove-k-digits,"String, Stack, Greedy, Monotonic Stack"
+7,Bulls and Cows,51.1%,Medium,66.5,https://leetcode.com/problems/bulls-and-cows,"Hash Table, String, Counting"
+8,Group Anagrams,70.3%,Medium,53.0,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+9,Best Time to Buy and Sell Stock,54.8%,Easy,53.0,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+10,3Sum,36.4%,Medium,53.0,https://leetcode.com/problems/3sum,"Array, Two Pointers, Sorting"
+11,Container With Most Water,57.2%,Medium,53.0,https://leetcode.com/problems/container-with-most-water,"Array, Two Pointers, Greedy"
+12,Add Two Numbers,45.4%,Medium,53.0,https://leetcode.com/problems/add-two-numbers,"Linked List, Math, Recursion"

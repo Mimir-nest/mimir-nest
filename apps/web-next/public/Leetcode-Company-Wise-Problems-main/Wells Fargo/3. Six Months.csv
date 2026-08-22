@@ -1,0 +1,3 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Verbal Arithmetic Puzzle,100.0,0.34689080897166136,https://leetcode.com/problems/verbal-arithmetic-puzzle,"Array, Math, String, Backtracking"
+EASY,Merge Strings Alternately,84.1,0.8181651448992133,https://leetcode.com/problems/merge-strings-alternately,"Two Pointers, String"

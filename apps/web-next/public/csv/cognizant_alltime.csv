@@ -1,0 +1,25 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Count Subarrays of Length Three With a Condition,53.0%,Easy,100.0,https://leetcode.com/problems/count-subarrays-of-length-three-with-a-condition,Array
+2,Smallest Value of the Rearranged Number,52.7%,Medium,100.0,https://leetcode.com/problems/smallest-value-of-the-rearranged-number,"Math, Sorting"
+3,Palindrome Number,58.7%,Easy,97.4,https://leetcode.com/problems/palindrome-number,Math
+4,Fibonacci Number,72.5%,Easy,87.3,https://leetcode.com/problems/fibonacci-number,"Math, Dynamic Programming, Recursion, Memoization"
+5,Managers with at Least 5 Direct Reports,49.1%,Medium,77.2,https://leetcode.com/problems/managers-with-at-least-5-direct-reports,Database
+6,Two Sum,55.1%,Easy,77.2,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+7,Valid Anagram,66.2%,Easy,70.1,https://leetcode.com/problems/valid-anagram,"Hash Table, String, Sorting"
+8,Valid Parentheses,41.8%,Easy,70.1,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+9,Binary Search,59.1%,Easy,70.1,https://leetcode.com/problems/binary-search,"Array, Binary Search"
+10,Reverse Integer,29.9%,Medium,70.1,https://leetcode.com/problems/reverse-integer,Math
+11,Longest Common Prefix,44.9%,Easy,70.1,https://leetcode.com/problems/longest-common-prefix,"String, Trie"
+12,Maximum Subarray,51.7%,Medium,70.1,https://leetcode.com/problems/maximum-subarray,"Array, Divide and Conquer, Dynamic Programming"
+13,Product Sales Analysis I,84.3%,Easy,60.0,https://leetcode.com/problems/product-sales-analysis-i,Database
+14,Students and Examinations,60.3%,Easy,60.0,https://leetcode.com/problems/students-and-examinations,Database
+15,Longest Palindromic Substring,35.3%,Medium,60.0,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"
+16,Remove Duplicates from Sorted Array,59.5%,Easy,60.0,https://leetcode.com/problems/remove-duplicates-from-sorted-array,"Array, Two Pointers"
+17,Merge Two Sorted Lists,66.3%,Easy,60.0,https://leetcode.com/problems/merge-two-sorted-lists,"Linked List, Recursion"
+18,Count Primes,34.4%,Medium,60.0,https://leetcode.com/problems/count-primes,"Array, Math, Enumeration, Number Theory"
+19,Consecutive Numbers,45.4%,Medium,60.0,https://leetcode.com/problems/consecutive-numbers,Database
+20,Counter,82.0%,Easy,60.0,https://leetcode.com/problems/counter,
+21,3Sum,36.4%,Medium,60.0,https://leetcode.com/problems/3sum,"Array, Two Pointers, Sorting"
+22,Move Zeroes,62.5%,Easy,60.0,https://leetcode.com/problems/move-zeroes,"Array, Two Pointers"
+23,Happy Number,57.6%,Easy,60.0,https://leetcode.com/problems/happy-number,"Hash Table, Math, Two Pointers"
+24,Fizz Buzz,73.9%,Easy,60.0,https://leetcode.com/problems/fizz-buzz,"Math, String, Simulation"

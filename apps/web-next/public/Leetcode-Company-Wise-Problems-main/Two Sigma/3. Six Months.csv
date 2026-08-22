@@ -1,0 +1,5 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Word Search II,100.0,0.3701589702921979,https://leetcode.com/problems/word-search-ii,"Array, String, Backtracking, Trie, Matrix"
+HARD,Merge k Sorted Lists,82.6,0.5579533250082452,https://leetcode.com/problems/merge-k-sorted-lists,"Linked List, Divide and Conquer, Heap (Priority Queue), Merge Sort"
+MEDIUM,Design Memory Allocator,82.6,0.5348305788939156,https://leetcode.com/problems/design-memory-allocator,"Array, Hash Table, Design, Simulation"
+HARD,Parallel Courses III,82.6,0.6684587149160209,https://leetcode.com/problems/parallel-courses-iii,"Array, Dynamic Programming, Graph, Topological Sort"

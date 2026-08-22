@@ -1,0 +1,11 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Design Excel Sum Formula,100.0,0.44054976303317533,https://leetcode.com/problems/design-excel-sum-formula,"Array, Graph, Design, Topological Sort, Matrix"
+HARD,Median of Two Sorted Arrays,83.8,0.42939384769847777,https://leetcode.com/problems/median-of-two-sorted-arrays,"Array, Binary Search, Divide and Conquer"
+MEDIUM,Evaluate Division,75.3,0.6274983002879837,https://leetcode.com/problems/evaluate-division,"Array, String, Depth-First Search, Breadth-First Search, Union Find, Graph, Shortest Path"
+MEDIUM,Synonymous Sentences,69.3,0.5637781213929481,https://leetcode.com/problems/synonymous-sentences,"Array, Hash Table, String, Backtracking, Union Find"
+MEDIUM,Employee Importance,69.3,0.6805438539561,https://leetcode.com/problems/employee-importance,"Array, Hash Table, Tree, Depth-First Search, Breadth-First Search"
+MEDIUM,Maximum Subarray,60.8,0.5173373641286623,https://leetcode.com/problems/maximum-subarray,"Array, Divide and Conquer, Dynamic Programming"
+HARD,Text Justification,60.8,0.47093350390662947,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+HARD,Longest Duplicate Substring,60.8,0.3064265240854658,https://leetcode.com/problems/longest-duplicate-substring,"String, Binary Search, Sliding Window, Rolling Hash, Suffix Array, Hash Function"
+EASY,Last Stone Weight,60.8,0.657979324667718,https://leetcode.com/problems/last-stone-weight,"Array, Heap (Priority Queue)"
+HARD,Optimal Account Balancing,60.8,0.49706284623483454,https://leetcode.com/problems/optimal-account-balancing,"Array, Dynamic Programming, Backtracking, Bit Manipulation, Bitmask"

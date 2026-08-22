@@ -1,0 +1,11 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Longest Subarray of 1's After Deleting One Element,100.0,0.6878805919524289,https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element,"Array, Dynamic Programming, Sliding Window"
+MEDIUM,Line Reflection,92.4,0.3587024122461503,https://leetcode.com/problems/line-reflection,"Array, Hash Table, Math"
+MEDIUM,Find K Closest Elements,92.4,0.4834732150587973,https://leetcode.com/problems/find-k-closest-elements,"Array, Two Pointers, Binary Search, Sliding Window, Sorting, Heap (Priority Queue)"
+EASY,Summary Ranges,81.8,0.525608088788803,https://leetcode.com/problems/summary-ranges,Array
+MEDIUM,String Compression,81.8,0.5727262854853801,https://leetcode.com/problems/string-compression,"Two Pointers, String"
+EASY,Merge Sorted Array,81.8,0.5225684483517402,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+MEDIUM,Longest Substring Without Repeating Characters,81.8,0.3632672259610971,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+HARD,Binary Tree Maximum Path Sum,81.8,0.40904577335466075,https://leetcode.com/problems/binary-tree-maximum-path-sum,"Dynamic Programming, Tree, Depth-First Search, Binary Tree"
+MEDIUM,Maximize Distance to Closest Person,81.8,0.4870415197084244,https://leetcode.com/problems/maximize-distance-to-closest-person,Array
+MEDIUM,Lowest Common Ancestor of a Binary Tree,81.8,0.6566973620097329,https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree,"Tree, Depth-First Search, Binary Tree"

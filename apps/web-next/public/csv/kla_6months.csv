@@ -1,0 +1,4 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Roman to Integer,64.2%,Easy,100.0,https://leetcode.com/problems/roman-to-integer,"Hash Table, Math, String"
+2,Valid Anagram,66.2%,Easy,100.0,https://leetcode.com/problems/valid-anagram,"Hash Table, String, Sorting"
+3,LFU Cache,45.8%,Hard,100.0,https://leetcode.com/problems/lfu-cache,"Hash Table, Linked List, Design, Doubly-Linked List"

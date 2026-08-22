@@ -1,0 +1,18 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Range Addition II,57.0%,Easy,100.0,https://leetcode.com/problems/range-addition-ii,"Array, Math"
+2,Fraction Addition and Subtraction,66.2%,Medium,90.0,https://leetcode.com/problems/fraction-addition-and-subtraction,"Math, String, Simulation"
+3,Palindrome Linked List,55.2%,Easy,88.4,https://leetcode.com/problems/palindrome-linked-list,"Linked List, Two Pointers, Stack, Recursion"
+4,Merge k Sorted Lists,55.8%,Hard,86.6,https://leetcode.com/problems/merge-k-sorted-lists,"Linked List, Divide and Conquer, Heap (Priority Queue), Merge Sort"
+5,Find Median from Data Stream,53.0%,Hard,86.6,https://leetcode.com/problems/find-median-from-data-stream,"Two Pointers, Design, Sorting, Heap (Priority Queue), Data Stream"
+6,Fraction to Recurring Decimal,25.9%,Medium,84.6,https://leetcode.com/problems/fraction-to-recurring-decimal,"Hash Table, Math, String"
+7,Stickers to Spell Word,49.9%,Hard,84.6,https://leetcode.com/problems/stickers-to-spell-word,"Array, Hash Table, String, Dynamic Programming, Backtracking, Bit Manipulation, Memoization, Bitmask"
+8,Find the Derangement of An Array,41.8%,Medium,84.6,https://leetcode.com/problems/find-the-derangement-of-an-array,"Math, Dynamic Programming, Combinatorics"
+9,Design Snake Game,39.0%,Medium,84.6,https://leetcode.com/problems/design-snake-game,"Array, Hash Table, Design, Queue, Simulation"
+10,Merge Intervals,48.8%,Medium,79.9,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+11,Minimum Number of Steps to Make Two Strings Anagram,82.2%,Medium,74.0,https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram,"Hash Table, String, Counting"
+12,Find Peak Element,46.3%,Medium,70.2,https://leetcode.com/problems/find-peak-element,"Array, Binary Search"
+13,Insert Delete GetRandom O(1),54.9%,Medium,65.5,https://leetcode.com/problems/insert-delete-getrandom-o1,"Array, Hash Table, Math, Design, Randomized"
+14,Basic Calculator II,45.3%,Medium,59.6,https://leetcode.com/problems/basic-calculator-ii,"Math, String, Stack"
+15,Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts,41.2%,Medium,59.6,https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts,"Array, Greedy, Sorting"
+16,1-bit and 2-bit Characters,45.2%,Easy,59.6,https://leetcode.com/problems/1-bit-and-2-bit-characters,Array
+17,Search in Rotated Sorted Array,42.3%,Medium,51.2,https://leetcode.com/problems/search-in-rotated-sorted-array,"Array, Binary Search"

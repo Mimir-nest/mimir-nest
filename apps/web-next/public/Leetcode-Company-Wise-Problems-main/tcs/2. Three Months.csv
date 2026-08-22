@@ -1,0 +1,17 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,Zigzag Grid Traversal With Skip,100.0,0.6389201115690437,https://leetcode.com/problems/zigzag-grid-traversal-with-skip,"Array, Matrix, Simulation"
+EASY,Palindrome Number,83.7,0.5865359983575332,https://leetcode.com/problems/palindrome-number,Math
+EASY,Two Sum,78.4,0.5507379771348289,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+EASY,Majority Element,71.7,0.6549766281047557,https://leetcode.com/problems/majority-element,"Array, Hash Table, Divide and Conquer, Sorting, Counting"
+MEDIUM,Remove Nth Node From End of List,71.7,0.4810542231663091,https://leetcode.com/problems/remove-nth-node-from-end-of-list,"Linked List, Two Pointers"
+EASY,Single Number,71.7,0.753312475822824,https://leetcode.com/problems/single-number,"Array, Bit Manipulation"
+EASY,Find the Index of the First Occurrence in a String,62.2,0.4446359243488162,https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string,"Two Pointers, String, String Matching"
+MEDIUM,Subarray Sum Equals K,62.2,0.4493133959130834,https://leetcode.com/problems/subarray-sum-equals-k,"Array, Hash Table, Prefix Sum"
+EASY,Running Sum of 1d Array,62.2,0.8693976887055892,https://leetcode.com/problems/running-sum-of-1d-array,"Array, Prefix Sum"
+EASY,Contains Duplicate II,62.2,0.4812775643652191,https://leetcode.com/problems/contains-duplicate-ii,"Array, Hash Table, Sliding Window"
+HARD,Tallest Billboard,62.2,0.5200513103039971,https://leetcode.com/problems/tallest-billboard,"Array, Dynamic Programming"
+MEDIUM,Rotate Array,62.2,0.42461250245325166,https://leetcode.com/problems/rotate-array,"Array, Math, Two Pointers"
+MEDIUM,House Robber,62.2,0.5198828515139704,https://leetcode.com/problems/house-robber,"Array, Dynamic Programming"
+EASY,Longest Common Prefix,62.2,0.44887909992484765,https://leetcode.com/problems/longest-common-prefix,"String, Trie"
+MEDIUM,Reverse Integer,62.2,0.29864317763528553,https://leetcode.com/problems/reverse-integer,Math
+MEDIUM,Maximum Subarray,62.2,0.5173371676806704,https://leetcode.com/problems/maximum-subarray,"Array, Divide and Conquer, Dynamic Programming"

@@ -1,0 +1,10 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Detect Pattern of Length M Repeated K or More Times,43.4%,Easy,100.0,https://leetcode.com/problems/detect-pattern-of-length-m-repeated-k-or-more-times,"Array, Enumeration"
+2,Can I Win,30.1%,Medium,88.7,https://leetcode.com/problems/can-i-win,"Math, Dynamic Programming, Bit Manipulation, Memoization, Game Theory, Bitmask"
+3,Convert Integer to the Sum of Two No-Zero Integers,54.0%,Easy,88.7,https://leetcode.com/problems/convert-integer-to-the-sum-of-two-no-zero-integers,Math
+4,Number of Steps to Reduce a Number to Zero,85.5%,Easy,88.7,https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero,"Math, Bit Manipulation"
+5,Add Edges to Make Degrees of All Nodes Even,33.4%,Hard,88.7,https://leetcode.com/problems/add-edges-to-make-degrees-of-all-nodes-even,"Hash Table, Graph"
+6,Maximum 69 Number,82.6%,Easy,88.7,https://leetcode.com/problems/maximum-69-number,"Math, Greedy"
+7,Maximum Total Importance of Roads,69.2%,Medium,88.7,https://leetcode.com/problems/maximum-total-importance-of-roads,"Greedy, Graph, Sorting, Heap (Priority Queue)"
+8,Maximum Score From Grid Operations,24.8%,Hard,88.7,https://leetcode.com/problems/maximum-score-from-grid-operations,"Array, Dynamic Programming, Matrix, Prefix Sum"
+9,Longest Path With Different Adjacent Characters,54.0%,Hard,88.7,https://leetcode.com/problems/longest-path-with-different-adjacent-characters,"Array, String, Tree, Depth-First Search, Graph, Topological Sort"

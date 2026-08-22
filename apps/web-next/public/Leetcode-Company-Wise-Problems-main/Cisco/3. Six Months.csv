@@ -1,0 +1,23 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Longest Palindromic Substring,100.0,0.3529833925453122,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"
+MEDIUM,House Robber,99.1,0.5198830342580593,https://leetcode.com/problems/house-robber,"Array, Dynamic Programming"
+EASY,Lucky Numbers in a Matrix,88.1,0.7989664979051845,https://leetcode.com/problems/lucky-numbers-in-a-matrix,"Array, Matrix"
+MEDIUM,Rotate Image,88.1,0.7717077385834604,https://leetcode.com/problems/rotate-image,"Array, Math, Matrix"
+MEDIUM,Spiral Matrix,84.6,0.5293294861000031,https://leetcode.com/problems/spiral-matrix,"Array, Matrix, Simulation"
+MEDIUM,Find Third Transaction,84.6,0.5336314514626421,https://leetcode.com/problems/find-third-transaction,Database
+MEDIUM,Maximum Subarray,78.0,0.5173371638793948,https://leetcode.com/problems/maximum-subarray,"Array, Divide and Conquer, Dynamic Programming"
+EASY,Fizz Buzz,72.0,0.7390294851065652,https://leetcode.com/problems/fizz-buzz,"Math, String, Simulation"
+EASY,Maximum Difference Between Increasing Elements,63.5,0.586268788254956,https://leetcode.com/problems/maximum-difference-between-increasing-elements,Array
+HARD,Word Search II,57.5,0.37015774080691183,https://leetcode.com/problems/word-search-ii,"Array, String, Backtracking, Trie, Matrix"
+MEDIUM,Longest Substring Without Repeating Characters,49.1,0.36326722133772227,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+MEDIUM,Meeting Rooms II,49.1,0.5191552987461305,https://leetcode.com/problems/meeting-rooms-ii,"Array, Two Pointers, Greedy, Sorting, Heap (Priority Queue), Prefix Sum"
+MEDIUM,Edit Distance,49.1,0.581900176129411,https://leetcode.com/problems/edit-distance,"String, Dynamic Programming"
+EASY,Best Time to Buy and Sell Stock,49.1,0.5476981571321189,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+EASY,Merge Sorted Array,49.1,0.5225685588885063,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+MEDIUM,Palindromic Substrings,49.1,0.712685847266114,https://leetcode.com/problems/palindromic-substrings,"Two Pointers, String, Dynamic Programming"
+EASY,Valid Palindrome,49.1,0.501548740715336,https://leetcode.com/problems/valid-palindrome,"Two Pointers, String"
+EASY,Remove Duplicates from Sorted Array,49.1,0.5945072299441445,https://leetcode.com/problems/remove-duplicates-from-sorted-array,"Array, Two Pointers"
+EASY,Move Zeroes,49.1,0.625444552746465,https://leetcode.com/problems/move-zeroes,"Array, Two Pointers"
+MEDIUM,Longest Consecutive Sequence,49.1,0.47190684638507174,https://leetcode.com/problems/longest-consecutive-sequence,"Array, Hash Table, Union Find"
+MEDIUM,LRU Cache,49.1,0.4443103226198868,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+HARD,Max Points on a Line,49.1,0.2842575111223519,https://leetcode.com/problems/max-points-on-a-line,"Array, Hash Table, Math, Geometry"

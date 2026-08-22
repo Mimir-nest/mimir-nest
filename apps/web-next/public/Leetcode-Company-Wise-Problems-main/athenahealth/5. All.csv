@@ -1,0 +1,11 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,The Number of Rich Customers,100.0,0.7753969659406175,https://leetcode.com/problems/the-number-of-rich-customers,Database
+EASY,Best Time to Buy and Sell Stock,88.7,0.5477004803292748,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+MEDIUM,Group Anagrams,79.7,0.7033741351615199,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+MEDIUM,Maximum Subarray,73.3,0.5173398082795865,https://leetcode.com/problems/maximum-subarray,"Array, Divide and Conquer, Dynamic Programming"
+EASY,Two Sum,64.3,0.5507399659191724,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+MEDIUM,Unique Paths II,64.3,0.42759183954451463,https://leetcode.com/problems/unique-paths-ii,"Array, Dynamic Programming, Matrix"
+EASY,Merge Sorted Array,64.3,0.5225725226649844,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+HARD,First Missing Positive,64.3,0.4063457550985866,https://leetcode.com/problems/first-missing-positive,"Array, Hash Table"
+MEDIUM,Longest Substring Without Repeating Characters,64.3,0.3632697773591418,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+MEDIUM,Longest Palindromic Substring,64.3,0.3529865936823672,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"

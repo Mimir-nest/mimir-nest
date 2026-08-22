@@ -1,0 +1,22 @@
+[
+  {
+    "id": "frontend-engineer",
+    "title": "Frontend Engineer",
+    "summary": "A practical path for building production-ready web interfaces.",
+    "steps": [
+      "HTML, CSS, and JavaScript fundamentals",
+      "React, TypeScript, and component architecture",
+      "State management, routing, and API integration"
+    ]
+  },
+  {
+    "id": "backend-engineer",
+    "title": "Backend Engineer",
+    "summary": "A path for building scalable APIs and services.",
+    "steps": [
+      "Node.js, TypeScript, and API design",
+      "Databases, repositories, and service layers",
+      "Deployment, observability, and reliability"
+    ]
+  }
+]

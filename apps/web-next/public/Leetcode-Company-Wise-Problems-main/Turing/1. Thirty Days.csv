@@ -1,0 +1,5 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Race Car,100.0,0.4397104140967535,https://leetcode.com/problems/race-car,Dynamic Programming
+MEDIUM,Jump Game,100.0,0.3911360991634624,https://leetcode.com/problems/jump-game,"Array, Dynamic Programming, Greedy"
+MEDIUM,Minimum Cost For Tickets,100.0,0.6740559574546877,https://leetcode.com/problems/minimum-cost-for-tickets,"Array, Dynamic Programming"
+MEDIUM,Longest Substring Without Repeating Characters,100.0,0.36326751383863054,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"

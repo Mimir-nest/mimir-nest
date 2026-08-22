@@ -1,0 +1,12 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Minimum Cost For Tickets,67.4%,Medium,100.0,https://leetcode.com/problems/minimum-cost-for-tickets,"Array, Dynamic Programming"
+2,Adding Two Negabinary Numbers,37.0%,Medium,100.0,https://leetcode.com/problems/adding-two-negabinary-numbers,"Array, Math"
+3,Minimum Number of Food Buckets to Feed the Hamsters,47.0%,Medium,100.0,https://leetcode.com/problems/minimum-number-of-food-buckets-to-feed-the-hamsters,"String, Dynamic Programming, Greedy"
+4,Reconstruct a 2-Row Binary Matrix,47.4%,Medium,100.0,https://leetcode.com/problems/reconstruct-a-2-row-binary-matrix,"Array, Greedy, Matrix"
+5,Two Sum,55.1%,Easy,83.7,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+6,Longest Substring Without Repeating Characters,36.3%,Medium,71.7,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+7,LRU Cache,44.4%,Medium,71.7,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+8,Longest Palindromic Substring,35.3%,Medium,62.2,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"
+9,Next Permutation,42.3%,Medium,62.2,https://leetcode.com/problems/next-permutation,"Array, Two Pointers"
+10,Search a 2D Matrix,51.8%,Medium,62.2,https://leetcode.com/problems/search-a-2d-matrix,"Array, Binary Search, Matrix"
+11,Kth Largest Element in an Array,67.6%,Medium,62.2,https://leetcode.com/problems/kth-largest-element-in-an-array,"Array, Divide and Conquer, Sorting, Heap (Priority Queue), Quickselect"

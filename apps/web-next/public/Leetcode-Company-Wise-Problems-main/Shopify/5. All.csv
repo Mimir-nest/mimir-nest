@@ -1,0 +1,10 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Walking Robot Simulation,100.0,0.581276902047464,https://leetcode.com/problems/walking-robot-simulation,"Array, Hash Table, Simulation"
+MEDIUM,LRU Cache,96.2,0.4443110186522549,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+HARD,Design In-Memory File System,71.2,0.480304335343095,https://leetcode.com/problems/design-in-memory-file-system,"Hash Table, String, Design, Trie, Sorting"
+MEDIUM,Encode and Decode TinyURL,71.2,0.8662635471417275,https://leetcode.com/problems/encode-and-decode-tinyurl,"Hash Table, String, Design, Hash Function"
+HARD,Design a Text Editor,62.8,0.4735937768474984,https://leetcode.com/problems/design-a-text-editor,"Linked List, String, Stack, Design, Simulation, Doubly-Linked List"
+EASY,Find Users With Valid E-Mails,62.8,0.4414319847010581,https://leetcode.com/problems/find-users-with-valid-e-mails,Database
+MEDIUM,Design Tic-Tac-Toe,62.8,0.5843353881574888,https://leetcode.com/problems/design-tic-tac-toe,"Array, Hash Table, Design, Matrix, Simulation"
+MEDIUM,Walls and Gates,62.8,0.6257012111402388,https://leetcode.com/problems/walls-and-gates,"Array, Breadth-First Search, Matrix"
+EASY,Best Time to Buy and Sell Stock,62.8,0.5476984633896386,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"

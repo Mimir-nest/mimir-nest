@@ -1,0 +1,8 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Reaching Points,100.0,0.3355144032921811,https://leetcode.com/problems/reaching-points,Math
+MEDIUM,LRU Cache,100.0,0.4443136808553982,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+EASY,Roman to Integer,88.7,0.6415430702163044,https://leetcode.com/problems/roman-to-integer,"Hash Table, Math, String"
+EASY,Valid Anagram,88.7,0.6615074138433557,https://leetcode.com/problems/valid-anagram,"Hash Table, String, Sorting"
+HARD,LFU Cache,88.7,0.45847487648580765,https://leetcode.com/problems/lfu-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+MEDIUM,Maximum Swap,88.7,0.5172326634829956,https://leetcode.com/problems/maximum-swap,"Math, Greedy"
+EASY,Two Sum,88.7,0.5507399961014207,https://leetcode.com/problems/two-sum,"Array, Hash Table"

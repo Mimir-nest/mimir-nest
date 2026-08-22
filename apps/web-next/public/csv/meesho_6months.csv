@@ -1,0 +1,16 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Minimum Edge Reversals So Every Node Is Reachable,57.5%,Hard,100.0,https://leetcode.com/problems/minimum-edge-reversals-so-every-node-is-reachable,"Dynamic Programming, Depth-First Search, Breadth-First Search, Graph"
+2,Making A Large Island,54.3%,Hard,88.4,https://leetcode.com/problems/making-a-large-island,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+3,Number of Strings Which Can Be Rearranged to Contain Substring,55.9%,Medium,82.9,https://leetcode.com/problems/number-of-strings-which-can-be-rearranged-to-contain-substring,"Math, Dynamic Programming, Combinatorics"
+4,Delete and Earn,56.6%,Medium,82.9,https://leetcode.com/problems/delete-and-earn,"Array, Hash Table, Dynamic Programming"
+5,Subsequence With the Minimum Score,32.4%,Hard,75.7,https://leetcode.com/problems/subsequence-with-the-minimum-score,"Two Pointers, String, Binary Search"
+6,Minimum Number of Taps to Open to Water a Garden,50.7%,Hard,75.7,https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden,"Array, Dynamic Programming, Greedy"
+7,Two Sum,55.1%,Easy,75.7,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+8,Painting the Walls,50.3%,Hard,75.7,https://leetcode.com/problems/painting-the-walls,"Array, Dynamic Programming"
+9,Find the Longest Equal Subarray,36.5%,Medium,65.7,https://leetcode.com/problems/find-the-longest-equal-subarray,"Array, Hash Table, Binary Search, Sliding Window"
+10,Minimum Degree of a Connected Trio in a Graph,43.3%,Hard,65.7,https://leetcode.com/problems/minimum-degree-of-a-connected-trio-in-a-graph,Graph
+11,Number of Possible Sets of Closing Branches,51.0%,Hard,65.7,https://leetcode.com/problems/number-of-possible-sets-of-closing-branches,"Bit Manipulation, Graph, Heap (Priority Queue), Enumeration, Shortest Path"
+12,Count Complete Substrings,27.6%,Hard,65.7,https://leetcode.com/problems/count-complete-substrings,"Hash Table, String, Sliding Window"
+13,Longest Non-decreasing Subarray From Two Arrays,29.9%,Medium,65.7,https://leetcode.com/problems/longest-non-decreasing-subarray-from-two-arrays,"Array, Dynamic Programming"
+14,Jump Game,39.1%,Medium,65.7,https://leetcode.com/problems/jump-game,"Array, Dynamic Programming, Greedy"
+15,Search Suggestions System,65.0%,Medium,65.7,https://leetcode.com/problems/search-suggestions-system,"Array, String, Binary Search, Trie, Sorting, Heap (Priority Queue)"

@@ -1,0 +1,3 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Group Anagrams,100.0,0.7033739015376013,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+MEDIUM,Car Fleet,100.0,0.5294806567649989,https://leetcode.com/problems/car-fleet,"Array, Stack, Sorting, Monotonic Stack"

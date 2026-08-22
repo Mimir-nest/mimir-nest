@@ -1,0 +1,7 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Longest Cycle in a Graph,49.8%,Hard,100.0,https://leetcode.com/problems/longest-cycle-in-a-graph,"Depth-First Search, Breadth-First Search, Graph, Topological Sort"
+2,Operations on Tree,46.9%,Medium,96.5,https://leetcode.com/problems/operations-on-tree,"Array, Hash Table, Tree, Depth-First Search, Breadth-First Search, Design"
+3,Find Closest Node to Given Two Nodes,45.8%,Medium,87.0,https://leetcode.com/problems/find-closest-node-to-given-two-nodes,"Depth-First Search, Graph"
+4,Node With Highest Edge Score,48.2%,Medium,75.3,https://leetcode.com/problems/node-with-highest-edge-score,"Hash Table, Graph"
+5,Set Matrix Zeroes,58.9%,Medium,69.3,https://leetcode.com/problems/set-matrix-zeroes,"Array, Hash Table, Matrix"
+6,Longest Substring Without Repeating Characters,36.3%,Medium,60.8,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"

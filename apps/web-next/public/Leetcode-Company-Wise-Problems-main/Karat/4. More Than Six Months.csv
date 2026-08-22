@@ -1,0 +1,11 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Text Justification,100.0,0.47093350390662947,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+EASY,Find Words That Can Be Formed by Characters,90.2,0.7090272206023366,https://leetcode.com/problems/find-words-that-can-be-formed-by-characters,"Array, Hash Table, String, Counting"
+EASY,Check if Every Row and Column Contains All Numbers,83.0,0.5252827334914578,https://leetcode.com/problems/check-if-every-row-and-column-contains-all-numbers,"Array, Hash Table, Matrix"
+MEDIUM,Course Schedule,83.0,0.48476944400747646,https://leetcode.com/problems/course-schedule,"Depth-First Search, Breadth-First Search, Graph, Topological Sort"
+MEDIUM,Word Search,72.0,0.4462623986513085,https://leetcode.com/problems/word-search,"Array, String, Backtracking, Depth-First Search, Matrix"
+MEDIUM,Number of Islands,72.0,0.6158107282039925,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+MEDIUM,Alert Using Same Key-Card Three or More Times in a One Hour Period,72.0,0.4618695359784802,https://leetcode.com/problems/alert-using-same-key-card-three-or-more-times-in-a-one-hour-period,"Array, Hash Table, String, Sorting"
+MEDIUM,Subdomain Visit Count,63.2,0.7674168269819203,https://leetcode.com/problems/subdomain-visit-count,"Array, Hash Table, String, Counting"
+HARD,Word Search II,63.2,0.3701605260358258,https://leetcode.com/problems/word-search-ii,"Array, String, Backtracking, Trie, Matrix"
+EASY,Two Sum,63.2,0.5507386552323487,https://leetcode.com/problems/two-sum,"Array, Hash Table"

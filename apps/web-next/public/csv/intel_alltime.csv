@@ -1,0 +1,23 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Find Consecutive Integers from a Data Stream,50.4%,Medium,100.0,https://leetcode.com/problems/find-consecutive-integers-from-a-data-stream,"Hash Table, Design, Queue, Counting, Data Stream"
+2,Maximum Nesting Depth of the Parentheses,84.2%,Easy,100.0,https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses,"String, Stack"
+3,Trapping Rain Water,64.3%,Hard,100.0,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+4,Copy List with Random Pointer,59.5%,Medium,94.4,https://leetcode.com/problems/copy-list-with-random-pointer,"Hash Table, Linked List"
+5,Number of Islands,61.6%,Medium,91.1,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+6,Valid Parentheses,41.8%,Easy,87.2,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+7,Longest Substring Without Repeating Characters,36.3%,Medium,69.8,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+8,Count Primes,34.4%,Medium,69.8,https://leetcode.com/problems/count-primes,"Array, Math, Enumeration, Number Theory"
+9,Two Sum,55.1%,Easy,69.8,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+10,Best Time to Buy and Sell Stock II,68.9%,Medium,69.8,https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii,"Array, Dynamic Programming, Greedy"
+11,Best Time to Buy and Sell Stock,54.8%,Easy,69.8,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+12,Reverse Words in a String,50.1%,Medium,59.7,https://leetcode.com/problems/reverse-words-in-a-string,"Two Pointers, String"
+13,Reverse Integer,29.9%,Medium,59.7,https://leetcode.com/problems/reverse-integer,Math
+14,Add Two Numbers,45.4%,Medium,59.7,https://leetcode.com/problems/add-two-numbers,"Linked List, Math, Recursion"
+15,Climbing Stairs,53.3%,Easy,59.7,https://leetcode.com/problems/climbing-stairs,"Math, Dynamic Programming, Memoization"
+16,Merge Two Sorted Lists,66.3%,Easy,59.7,https://leetcode.com/problems/merge-two-sorted-lists,"Linked List, Recursion"
+17,LRU Cache,44.4%,Medium,59.7,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+18,Palindrome Number,58.7%,Easy,59.7,https://leetcode.com/problems/palindrome-number,Math
+19,Remove Duplicates from Sorted Array,59.5%,Easy,59.7,https://leetcode.com/problems/remove-duplicates-from-sorted-array,"Array, Two Pointers"
+20,Container With Most Water,57.2%,Medium,59.7,https://leetcode.com/problems/container-with-most-water,"Array, Two Pointers, Greedy"
+21,Merge Sorted Array,52.3%,Easy,59.7,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+22,Rotate Image,77.2%,Medium,59.7,https://leetcode.com/problems/rotate-image,"Array, Math, Matrix"

@@ -1,0 +1,6 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Word Ladder,41.8%,Hard,100.0,https://leetcode.com/problems/word-ladder,"Hash Table, String, Breadth-First Search"
+2,LRU Cache,44.4%,Medium,76.5,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+3,Design Hit Counter,69.0%,Medium,70.8,https://leetcode.com/problems/design-hit-counter,"Array, Binary Search, Design, Queue, Data Stream"
+4,Number of Islands,61.6%,Medium,62.7,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+5,Number of Ways to Buy Pens and Pencils,57.2%,Medium,62.7,https://leetcode.com/problems/number-of-ways-to-buy-pens-and-pencils,"Math, Enumeration"

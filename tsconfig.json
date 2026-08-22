@@ -1,0 +1,7 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./apps/web-next/tsconfig.json" },
+    { "path": "./apps/api/tsconfig.json" }
+  ]
+}

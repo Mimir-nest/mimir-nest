@@ -1,0 +1,10 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Find First and Last Position of Element in Sorted Array,46.1%,Medium,100.0,https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array,"Array, Binary Search"
+2,LRU Cache,44.4%,Medium,100.0,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+3,Move Zeroes,62.5%,Easy,100.0,https://leetcode.com/problems/move-zeroes,"Array, Two Pointers"
+4,Two Sum,55.1%,Easy,87.7,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+5,Reverse Linked List,78.7%,Easy,87.7,https://leetcode.com/problems/reverse-linked-list,"Linked List, Recursion"
+6,Basic Calculator II,45.3%,Medium,87.7,https://leetcode.com/problems/basic-calculator-ii,"Math, String, Stack"
+7,Alien Dictionary,36.4%,Hard,87.7,https://leetcode.com/problems/alien-dictionary,"Array, String, Depth-First Search, Breadth-First Search, Graph, Topological Sort"
+8,Path Sum III,46.0%,Medium,87.7,https://leetcode.com/problems/path-sum-iii,"Tree, Depth-First Search, Binary Tree"
+9,Reconstruct Original Digits from English,51.5%,Medium,87.7,https://leetcode.com/problems/reconstruct-original-digits-from-english,"Hash Table, Math, String"

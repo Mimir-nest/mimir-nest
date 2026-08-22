@@ -1,0 +1,16 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Clone Graph,61.2%,Medium,100.0,https://leetcode.com/problems/clone-graph,"Hash Table, Depth-First Search, Breadth-First Search, Graph"
+2,Longest Repeating Character Replacement,56.4%,Medium,100.0,https://leetcode.com/problems/longest-repeating-character-replacement,"Hash Table, String, Sliding Window"
+3,Word Break,47.9%,Medium,100.0,https://leetcode.com/problems/word-break,"Array, Hash Table, String, Dynamic Programming, Trie, Memoization"
+4,Sort Colors,66.4%,Medium,100.0,https://leetcode.com/problems/sort-colors,"Array, Two Pointers, Sorting"
+5,Alien Dictionary,36.4%,Hard,100.0,https://leetcode.com/problems/alien-dictionary,"Array, String, Depth-First Search, Breadth-First Search, Graph, Topological Sort"
+6,Non-negative Integers without Consecutive Ones,40.2%,Hard,100.0,https://leetcode.com/problems/non-negative-integers-without-consecutive-ones,Dynamic Programming
+7,Basic Calculator III,51.9%,Hard,100.0,https://leetcode.com/problems/basic-calculator-iii,"Math, String, Stack, Recursion"
+8,Top K Frequent Words,58.9%,Medium,100.0,https://leetcode.com/problems/top-k-frequent-words,"Array, Hash Table, String, Trie, Sorting, Heap (Priority Queue), Bucket Sort, Counting"
+9,Shortest Palindrome,40.3%,Hard,100.0,https://leetcode.com/problems/shortest-palindrome,"String, Rolling Hash, String Matching, Hash Function"
+10,Kth Largest Element in an Array,67.6%,Medium,100.0,https://leetcode.com/problems/kth-largest-element-in-an-array,"Array, Divide and Conquer, Sorting, Heap (Priority Queue), Quickselect"
+11,Insert Delete GetRandom O(1),54.9%,Medium,100.0,https://leetcode.com/problems/insert-delete-getrandom-o1,"Array, Hash Table, Math, Design, Randomized"
+12,Find All Duplicates in an Array,76.2%,Medium,100.0,https://leetcode.com/problems/find-all-duplicates-in-an-array,"Array, Hash Table"
+13,Top K Frequent Elements,64.1%,Medium,100.0,https://leetcode.com/problems/top-k-frequent-elements,"Array, Hash Table, Divide and Conquer, Sorting, Heap (Priority Queue), Bucket Sort, Counting, Quickselect"
+14,Find the Index of the First Occurrence in a String,44.5%,Easy,100.0,https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string,"Two Pointers, String, String Matching"
+15,Inorder Successor in BST,50.5%,Medium,100.0,https://leetcode.com/problems/inorder-successor-in-bst,"Tree, Depth-First Search, Binary Search Tree, Binary Tree"

@@ -1,0 +1,8 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+HARD,Design Excel Sum Formula,100.0,0.44054976303317533,https://leetcode.com/problems/design-excel-sum-formula,"Array, Graph, Design, Topological Sort, Matrix"
+MEDIUM,Web Crawler Multithreaded,94.6,0.49623430352824643,https://leetcode.com/problems/web-crawler-multithreaded,"Depth-First Search, Breadth-First Search, Concurrency"
+MEDIUM,Design SQL,87.7,0.7410198116271516,https://leetcode.com/problems/design-sql,"Array, Hash Table, String, Design"
+MEDIUM,Simplify Path,77.9,0.4659600798106264,https://leetcode.com/problems/simplify-path,"String, Stack"
+MEDIUM,Time Based Key-Value Store,77.9,0.4936204160978852,https://leetcode.com/problems/time-based-key-value-store,"Hash Table, String, Binary Search, Design"
+EASY,Flood Fill,77.9,0.6582866190767689,https://leetcode.com/problems/flood-fill,"Array, Depth-First Search, Breadth-First Search, Matrix"
+MEDIUM,Flatten Nested List Iterator,77.9,0.6515950546651197,https://leetcode.com/problems/flatten-nested-list-iterator,"Stack, Tree, Depth-First Search, Design, Queue, Iterator"

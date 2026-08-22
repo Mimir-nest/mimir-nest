@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Climbing Stairs,53.3%,Easy,100.0,https://leetcode.com/problems/climbing-stairs,"Math, Dynamic Programming, Memoization"
+2,Replace the Substring for Balanced String,39.2%,Medium,100.0,https://leetcode.com/problems/replace-the-substring-for-balanced-string,"String, Sliding Window"
+3,Two Sum,55.1%,Easy,85.9,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+4,Longest Substring Without Repeating Characters,36.3%,Medium,85.9,https://leetcode.com/problems/longest-substring-without-repeating-characters,"Hash Table, String, Sliding Window"
+5,Longest Common Prefix,44.9%,Easy,85.9,https://leetcode.com/problems/longest-common-prefix,"String, Trie"
+6,Valid Parentheses,41.8%,Easy,85.9,https://leetcode.com/problems/valid-parentheses,"String, Stack"
+7,Trapping Rain Water,64.3%,Hard,74.8,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+8,Binary Tree Right Side View,65.6%,Medium,74.8,https://leetcode.com/problems/binary-tree-right-side-view,"Tree, Depth-First Search, Breadth-First Search, Binary Tree"
+9,Reverse Vowels of a String,57.0%,Easy,74.8,https://leetcode.com/problems/reverse-vowels-of-a-string,"Two Pointers, String"
+10,Largest Color Value in a Directed Graph,49.5%,Hard,74.8,https://leetcode.com/problems/largest-color-value-in-a-directed-graph,"Hash Table, Dynamic Programming, Graph, Topological Sort, Memoization, Counting"
+11,Longest Palindromic Substring,35.3%,Medium,74.8,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"
+12,Merge Operations to Turn Array Into a Palindrome,69.1%,Medium,74.8,https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palindrome,"Array, Two Pointers, Greedy"

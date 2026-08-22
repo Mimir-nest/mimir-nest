@@ -1,0 +1,7 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,Alternating Groups I,100.0,0.6737531672949756,https://leetcode.com/problems/alternating-groups-i,"Array, Sliding Window"
+MEDIUM,Alternating Groups II,100.0,0.4187746652002329,https://leetcode.com/problems/alternating-groups-ii,"Array, Sliding Window"
+MEDIUM,Find Beautiful Indices in the Given Array I,85.2,0.3778412094301723,https://leetcode.com/problems/find-beautiful-indices-in-the-given-array-i,"Two Pointers, String, Binary Search, Rolling Hash, String Matching, Hash Function"
+HARD,Text Justification,80.4,0.4709379152348225,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+MEDIUM,Valid Sudoku,74.2,0.6165326462695703,https://leetcode.com/problems/valid-sudoku,"Array, Hash Table, Matrix"
+HARD,Number of Flowers in Full Bloom,65.6,0.5705492453710908,https://leetcode.com/problems/number-of-flowers-in-full-bloom,"Array, Hash Table, Binary Search, Sorting, Prefix Sum, Ordered Set"

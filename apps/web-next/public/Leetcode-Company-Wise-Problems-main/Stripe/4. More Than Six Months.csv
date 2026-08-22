@@ -1,0 +1,4 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Minimum Penalty for a Shop,100.0,0.675527922478015,https://leetcode.com/problems/minimum-penalty-for-a-shop,"String, Prefix Sum"
+MEDIUM,Evaluate Division,69.4,0.6274978884855024,https://leetcode.com/problems/evaluate-division,"Array, String, Depth-First Search, Breadth-First Search, Union Find, Graph, Shortest Path"
+HARD,Optimal Account Balancing,52.9,0.49706284623483454,https://leetcode.com/problems/optimal-account-balancing,"Array, Dynamic Programming, Backtracking, Bit Manipulation, Bitmask"

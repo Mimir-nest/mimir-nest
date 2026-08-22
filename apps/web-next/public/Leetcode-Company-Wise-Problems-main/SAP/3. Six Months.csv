@@ -1,0 +1,11 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Number of Islands,100.0,0.6158098025257719,https://leetcode.com/problems/number-of-islands,"Array, Depth-First Search, Breadth-First Search, Union Find, Matrix"
+MEDIUM,Container With Most Water,92.1,0.5717352087514853,https://leetcode.com/problems/container-with-most-water,"Array, Two Pointers, Greedy"
+EASY,Reverse Linked List,92.1,0.7865004136819703,https://leetcode.com/problems/reverse-linked-list,"Linked List, Recursion"
+EASY,Two Sum,80.9,0.5507384400778568,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+HARD,Trapping Rain Water,80.9,0.6428748511171972,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+MEDIUM,Maximum Subarray,80.9,0.5173373188180186,https://leetcode.com/problems/maximum-subarray,"Array, Divide and Conquer, Dynamic Programming"
+MEDIUM,Leftmost Column with at Least a One,80.9,0.5487115076194363,https://leetcode.com/problems/leftmost-column-with-at-least-a-one,"Array, Binary Search, Matrix, Interactive"
+MEDIUM,Kth Largest Element in an Array,80.9,0.6762038462060189,https://leetcode.com/problems/kth-largest-element-in-an-array,"Array, Divide and Conquer, Sorting, Heap (Priority Queue), Quickselect"
+MEDIUM,Binary Search Tree to Greater Sum Tree,80.9,0.8833075778552676,https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree,"Tree, Depth-First Search, Binary Search Tree, Binary Tree"
+MEDIUM,Longest Palindromic Substring,80.9,0.3529835738759373,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"

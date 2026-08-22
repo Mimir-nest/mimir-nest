@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Shortest and Lexicographically Smallest Beautiful String,39.7%,Medium,100.0,https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string,"String, Sliding Window"
+2,Verbal Arithmetic Puzzle,34.7%,Hard,83.9,https://leetcode.com/problems/verbal-arithmetic-puzzle,"Array, Math, String, Backtracking"
+3,Find the Safest Path in a Grid,48.6%,Medium,72.1,https://leetcode.com/problems/find-the-safest-path-in-a-grid,"Array, Binary Search, Breadth-First Search, Union Find, Heap (Priority Queue), Matrix"
+4,Minimizing Array After Replacing Pairs With Their Product,39.6%,Medium,72.1,https://leetcode.com/problems/minimizing-array-after-replacing-pairs-with-their-product,"Array, Dynamic Programming, Greedy"
+5,Count and Say,57.9%,Medium,62.8,https://leetcode.com/problems/count-and-say,String
+6,Best Time to Buy and Sell Stock II,68.9%,Medium,62.8,https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii,"Array, Dynamic Programming, Greedy"
+7,Maximum Number of Weeks for Which You Can Work,41.1%,Medium,62.8,https://leetcode.com/problems/maximum-number-of-weeks-for-which-you-can-work,"Array, Greedy"
+8,Water and Jug Problem,42.5%,Medium,62.8,https://leetcode.com/problems/water-and-jug-problem,"Math, Depth-First Search, Breadth-First Search"
+9,Product of Array Except Self,67.4%,Medium,62.8,https://leetcode.com/problems/product-of-array-except-self,"Array, Prefix Sum"
+10,Rotate String,63.5%,Easy,62.8,https://leetcode.com/problems/rotate-string,"String, String Matching"
+11,Merge Strings Alternately,81.8%,Easy,62.8,https://leetcode.com/problems/merge-strings-alternately,"Two Pointers, String"
+12,Kth Largest Element in a Stream,59.7%,Easy,62.8,https://leetcode.com/problems/kth-largest-element-in-a-stream,"Tree, Design, Binary Search Tree, Heap (Priority Queue), Binary Tree, Data Stream"

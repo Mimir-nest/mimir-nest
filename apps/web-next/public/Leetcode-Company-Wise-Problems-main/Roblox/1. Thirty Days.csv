@@ -1,0 +1,4 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Maximize Distance to Closest Person,100.0,0.4870415197084244,https://leetcode.com/problems/maximize-distance-to-closest-person,Array
+MEDIUM,Reorganize String,80.2,0.5578367808394188,https://leetcode.com/problems/reorganize-string,"Hash Table, String, Greedy, Sorting, Heap (Priority Queue), Counting"
+MEDIUM,Number of Adjacent Elements With the Same Color,80.2,0.5417296548248929,https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color,Array

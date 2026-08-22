@@ -1,0 +1,6 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Find Beautiful Indices in the Given Array I,100.0,0.37783546935754814,https://leetcode.com/problems/find-beautiful-indices-in-the-given-array-i,"Two Pointers, String, Binary Search, Rolling Hash, String Matching, Hash Function"
+HARD,Find Beautiful Indices in the Given Array II,90.6,0.25904018070790025,https://leetcode.com/problems/find-beautiful-indices-in-the-given-array-ii,"Two Pointers, String, Binary Search, Rolling Hash, String Matching, Hash Function"
+MEDIUM,Number of Divisible Triplet Sums,64.6,0.6597595292913787,https://leetcode.com/problems/number-of-divisible-triplet-sums,"Array, Hash Table"
+MEDIUM,Construct Quad Tree,64.6,0.7667385211257088,https://leetcode.com/problems/construct-quad-tree,"Array, Divide and Conquer, Tree, Matrix"
+MEDIUM,Count the Number of Good Subsequences,64.6,0.5202691047093324,https://leetcode.com/problems/count-the-number-of-good-subsequences,"Hash Table, Math, String, Combinatorics, Counting"

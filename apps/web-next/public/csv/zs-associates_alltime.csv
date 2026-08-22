@@ -1,0 +1,8 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Distribute Candies Among Children II,35.5%,Medium,100.0,https://leetcode.com/problems/distribute-candies-among-children-ii,"Math, Combinatorics, Enumeration"
+2,Longest Unequal Adjacent Groups Subsequence I,60.2%,Easy,100.0,https://leetcode.com/problems/longest-unequal-adjacent-groups-subsequence-i,"Array, String, Dynamic Programming, Greedy"
+3,Longest Harmonious Subsequence,56.5%,Easy,100.0,https://leetcode.com/problems/longest-harmonious-subsequence,"Array, Hash Table, Sliding Window, Sorting, Counting"
+4,Largest 1-Bordered Square,50.7%,Medium,100.0,https://leetcode.com/problems/largest-1-bordered-square,"Array, Dynamic Programming, Matrix"
+5,Crawler Log Folder,71.6%,Easy,100.0,https://leetcode.com/problems/crawler-log-folder,"Array, String, Stack"
+6,Managers with at Least 5 Direct Reports,49.1%,Medium,100.0,https://leetcode.com/problems/managers-with-at-least-5-direct-reports,Database
+7,The Number of Employees Which Report to Each Employee,51.5%,Easy,100.0,https://leetcode.com/problems/the-number-of-employees-which-report-to-each-employee,Database

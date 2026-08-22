@@ -1,0 +1,6 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Convert an Array Into a 2D Array With Conditions,86.6%,Medium,100.0,https://leetcode.com/problems/convert-an-array-into-a-2d-array-with-conditions,"Array, Hash Table"
+2,Binary Tree Level Order Traversal,69.8%,Medium,100.0,https://leetcode.com/problems/binary-tree-level-order-traversal,"Tree, Breadth-First Search, Binary Tree"
+3,Simplify Path,46.6%,Medium,100.0,https://leetcode.com/problems/simplify-path,"String, Stack"
+4,3Sum,36.4%,Medium,100.0,https://leetcode.com/problems/3sum,"Array, Two Pointers, Sorting"
+5,Sliding Window Maximum,47.2%,Hard,100.0,https://leetcode.com/problems/sliding-window-maximum,"Array, Queue, Sliding Window, Heap (Priority Queue), Monotonic Queue"

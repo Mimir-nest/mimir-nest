@@ -1,0 +1,15 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Insert Interval,100.0,0.4294416577121058,https://leetcode.com/problems/insert-interval,Array
+EASY,Merge Two Binary Trees,94.0,0.7928513356896978,https://leetcode.com/problems/merge-two-binary-trees,"Tree, Depth-First Search, Breadth-First Search, Binary Tree"
+HARD,Text Justification,94.0,0.47093350390662947,https://leetcode.com/problems/text-justification,"Array, String, Simulation"
+MEDIUM,Web Crawler Multithreaded,86.2,0.4962379728026921,https://leetcode.com/problems/web-crawler-multithreaded,"Depth-First Search, Breadth-First Search, Concurrency"
+MEDIUM,LRU Cache,86.2,0.44431126717697905,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+MEDIUM,Word Break,86.2,0.4787517596162985,https://leetcode.com/problems/word-break,"Array, Hash Table, String, Dynamic Programming, Trie, Memoization"
+MEDIUM,Stock Price Fluctuation ,86.2,0.4870816430020284,https://leetcode.com/problems/stock-price-fluctuation,"Hash Table, Design, Heap (Priority Queue), Data Stream, Ordered Set"
+EASY,Two Sum,75.3,0.5507387336025138,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+MEDIUM,Valid Sudoku,75.3,0.6165266026719951,https://leetcode.com/problems/valid-sudoku,"Array, Hash Table, Matrix"
+MEDIUM,Search in Rotated Sorted Array,75.3,0.42324063039266074,https://leetcode.com/problems/search-in-rotated-sorted-array,"Array, Binary Search"
+MEDIUM,Design Hit Counter,75.3,0.6901461069078656,https://leetcode.com/problems/design-hit-counter,"Array, Binary Search, Design, Queue, Data Stream"
+HARD,Merge k Sorted Lists,75.3,0.5579543634023972,https://leetcode.com/problems/merge-k-sorted-lists,"Linked List, Divide and Conquer, Heap (Priority Queue), Merge Sort"
+HARD,Sliding Window Maximum,75.3,0.4724674874758977,https://leetcode.com/problems/sliding-window-maximum,"Array, Queue, Sliding Window, Heap (Priority Queue), Monotonic Queue"
+EASY,Intersection of Two Arrays,75.3,0.7600202966678761,https://leetcode.com/problems/intersection-of-two-arrays,"Array, Hash Table, Two Pointers, Binary Search, Sorting"

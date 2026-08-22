@@ -1,0 +1,10 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Find the Safest Path in a Grid,100.0,0.48560008839311875,https://leetcode.com/problems/find-the-safest-path-in-a-grid,"Array, Binary Search, Breadth-First Search, Union Find, Heap (Priority Queue), Matrix"
+MEDIUM,Minimizing Array After Replacing Pairs With Their Product,100.0,0.39572827054286563,https://leetcode.com/problems/minimizing-array-after-replacing-pairs-with-their-product,"Array, Dynamic Programming, Greedy"
+MEDIUM,Count and Say,87.5,0.5789705327464322,https://leetcode.com/problems/count-and-say,String
+MEDIUM,Best Time to Buy and Sell Stock II,87.5,0.6885644979666361,https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii,"Array, Dynamic Programming, Greedy"
+MEDIUM,Shortest and Lexicographically Smallest Beautiful String,87.5,0.3973141311087312,https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string,"String, Sliding Window"
+MEDIUM,Water and Jug Problem,87.5,0.425049728768405,https://leetcode.com/problems/water-and-jug-problem,"Math, Depth-First Search, Breadth-First Search"
+MEDIUM,Maximum Number of Weeks for Which You Can Work,87.5,0.4111846211459243,https://leetcode.com/problems/maximum-number-of-weeks-for-which-you-can-work,"Array, Greedy"
+MEDIUM,Product of Array Except Self,87.5,0.6738343644574922,https://leetcode.com/problems/product-of-array-except-self,"Array, Prefix Sum"
+EASY,Rotate String,87.5,0.6353778989723138,https://leetcode.com/problems/rotate-string,"String, String Matching"

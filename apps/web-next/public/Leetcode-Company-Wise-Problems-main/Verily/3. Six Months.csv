@@ -1,0 +1,4 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Find Original Array From Doubled Array,100.0,0.40511674895772565,https://leetcode.com/problems/find-original-array-from-doubled-array,"Array, Hash Table, Greedy, Sorting"
+MEDIUM,Find All Possible Recipes from Given Supplies,100.0,0.5066389688067837,https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies,"Array, Hash Table, String, Graph, Topological Sort"
+MEDIUM,Minimum Area Rectangle,100.0,0.5480746889364067,https://leetcode.com/problems/minimum-area-rectangle,"Array, Hash Table, Math, Geometry, Sorting"

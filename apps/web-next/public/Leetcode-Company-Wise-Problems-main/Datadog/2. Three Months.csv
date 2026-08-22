@@ -1,0 +1,4 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,Most Common Word,100.0,0.4448633280451142,https://leetcode.com/problems/most-common-word,"Array, Hash Table, String, Counting"
+EASY,Maximum Depth of N-ary Tree,95.9,0.727825242176896,https://leetcode.com/problems/maximum-depth-of-n-ary-tree,"Tree, Depth-First Search, Breadth-First Search"
+EASY,Valid Word Abbreviation,90.8,0.3661181400638188,https://leetcode.com/problems/valid-word-abbreviation,"Two Pointers, String"

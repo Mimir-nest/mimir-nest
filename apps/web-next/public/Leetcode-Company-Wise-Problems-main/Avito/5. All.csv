@@ -1,0 +1,10 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Top K Frequent Elements,100.0,0.6408057140500784,https://leetcode.com/problems/top-k-frequent-elements,"Array, Hash Table, Divide and Conquer, Sorting, Heap (Priority Queue), Bucket Sort, Counting, Quickselect"
+MEDIUM,Add Two Numbers,84.1,0.4544018895636871,https://leetcode.com/problems/add-two-numbers,"Linked List, Math, Recursion"
+EASY,Add Strings,74.3,0.5173876537801628,https://leetcode.com/problems/add-strings,"Math, String, Simulation"
+MEDIUM,Generate Parentheses,61.0,0.7653019031076618,https://leetcode.com/problems/generate-parentheses,"String, Dynamic Programming, Backtracking"
+EASY,Merge Sorted Array,61.0,0.5225723486420627,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+EASY,Add to Array-Form of Integer,53.3,0.45003456640762435,https://leetcode.com/problems/add-to-array-form-of-integer,"Array, Math"
+EASY,Merge Two Sorted Lists,53.3,0.6628976502697664,https://leetcode.com/problems/merge-two-sorted-lists,"Linked List, Recursion"
+MEDIUM,Group Anagrams,53.3,0.7033739599436154,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+MEDIUM,Kth Largest Element in an Array,53.3,0.6762072341476671,https://leetcode.com/problems/kth-largest-element-in-an-array,"Array, Divide and Conquer, Sorting, Heap (Priority Queue), Quickselect"

@@ -1,0 +1,10 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+EASY,Count Common Words With One Occurrence,100.0,0.7196291146608033,https://leetcode.com/problems/count-common-words-with-one-occurrence,"Array, Hash Table, String, Counting"
+MEDIUM,Walking Robot Simulation,94.8,0.581276902047464,https://leetcode.com/problems/walking-robot-simulation,"Array, Hash Table, Simulation"
+HARD,Minimum Time to Make Array Sum At Most x,92.8,0.273828125,https://leetcode.com/problems/minimum-time-to-make-array-sum-at-most-x,"Array, Dynamic Programming, Sorting"
+EASY,Add Two Integers,77.9,0.8811609626640982,https://leetcode.com/problems/add-two-integers,Math
+HARD,Stream of Characters,73.1,0.5230639296702333,https://leetcode.com/problems/stream-of-characters,"Array, String, Design, Trie, Data Stream"
+EASY,Longest Common Prefix,66.9,0.44887909808146,https://leetcode.com/problems/longest-common-prefix,"String, Trie"
+MEDIUM,Evaluate Division,58.2,0.6274970648778083,https://leetcode.com/problems/evaluate-division,"Array, String, Depth-First Search, Breadth-First Search, Union Find, Graph, Shortest Path"
+EASY,Add Strings,58.2,0.5173800607213548,https://leetcode.com/problems/add-strings,"Math, String, Simulation"
+HARD,Design a Text Editor,58.2,0.4735937768474984,https://leetcode.com/problems/design-a-text-editor,"Linked List, String, Stack, Design, Simulation, Doubly-Linked List"

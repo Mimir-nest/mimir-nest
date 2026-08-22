@@ -1,0 +1,11 @@
+Difficulty,Title,Frequency,Acceptance Rate,Link,Topics
+MEDIUM,Design SQL,100.0,0.7410198116271516,https://leetcode.com/problems/design-sql,"Array, Hash Table, String, Design"
+HARD,Design Excel Sum Formula,88.7,0.44054976303317533,https://leetcode.com/problems/design-excel-sum-formula,"Array, Graph, Design, Topological Sort, Matrix"
+MEDIUM,Flatten Nested List Iterator,88.7,0.6515950546651197,https://leetcode.com/problems/flatten-nested-list-iterator,"Stack, Tree, Depth-First Search, Design, Queue, Iterator"
+MEDIUM,Web Crawler Multithreaded,79.7,0.49623430352824643,https://leetcode.com/problems/web-crawler-multithreaded,"Depth-First Search, Breadth-First Search, Concurrency"
+MEDIUM,Time Based Key-Value Store,79.7,0.4936204160978852,https://leetcode.com/problems/time-based-key-value-store,"Hash Table, String, Binary Search, Design"
+MEDIUM,Simplify Path,64.4,0.4659600798106264,https://leetcode.com/problems/simplify-path,"String, Stack"
+EASY,Flood Fill,64.4,0.6582866190767689,https://leetcode.com/problems/flood-fill,"Array, Depth-First Search, Breadth-First Search, Matrix"
+MEDIUM,Encode and Decode Strings,64.4,0.4895192062577655,https://leetcode.com/problems/encode-and-decode-strings,"Array, String, Design"
+MEDIUM,Design Memory Allocator,64.4,0.5348305788939156,https://leetcode.com/problems/design-memory-allocator,"Array, Hash Table, Design, Simulation"
+EASY,Largest Local Values in a Matrix,64.4,0.8776965274108893,https://leetcode.com/problems/largest-local-values-in-a-matrix,"Array, Matrix"

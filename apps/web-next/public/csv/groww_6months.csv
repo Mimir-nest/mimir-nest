@@ -1,0 +1,6 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Minimum Cost For Tickets,67.4%,Medium,100.0,https://leetcode.com/problems/minimum-cost-for-tickets,"Array, Dynamic Programming"
+2,Best Time to Buy and Sell Stock,54.8%,Easy,100.0,https://leetcode.com/problems/best-time-to-buy-and-sell-stock,"Array, Dynamic Programming"
+3,Trapping Rain Water,64.3%,Hard,100.0,https://leetcode.com/problems/trapping-rain-water,"Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack"
+4,LRU Cache,44.4%,Medium,100.0,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+5,Minimum Number of Operations to Make X and Y Equal,47.7%,Medium,100.0,https://leetcode.com/problems/minimum-number-of-operations-to-make-x-and-y-equal,"Dynamic Programming, Breadth-First Search, Memoization"

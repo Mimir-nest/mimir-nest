@@ -1,0 +1,7 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,String Without AAA or BBB,44.5%,Medium,100.0,https://leetcode.com/problems/string-without-aaa-or-bbb,"String, Greedy"
+2,Lemonade Change,58.3%,Easy,71.6,https://leetcode.com/problems/lemonade-change,"Array, Greedy"
+3,Construct the Longest New String,54.1%,Medium,63.3,https://leetcode.com/problems/construct-the-longest-new-string,"Math, Dynamic Programming, Greedy, Brainteaser"
+4,LRU Cache,44.4%,Medium,63.3,https://leetcode.com/problems/lru-cache,"Hash Table, Linked List, Design, Doubly-Linked List"
+5,Merge Intervals,48.8%,Medium,63.3,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+6,Largest Number,40.9%,Medium,63.3,https://leetcode.com/problems/largest-number,"Array, String, Greedy, Sorting"

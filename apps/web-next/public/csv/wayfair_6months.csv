@@ -1,0 +1,20 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Maximum Product Subarray,34.5%,Medium,100.0,https://leetcode.com/problems/maximum-product-subarray,"Array, Dynamic Programming"
+2,Add Strings,51.7%,Easy,94.7,https://leetcode.com/problems/add-strings,"Math, String, Simulation"
+3,Longest Palindromic Substring,35.3%,Medium,77.6,https://leetcode.com/problems/longest-palindromic-substring,"Two Pointers, String, Dynamic Programming"
+4,Team Scores in Football Tournament,55.8%,Medium,66.4,https://leetcode.com/problems/team-scores-in-football-tournament,Database
+5,Group Anagrams,70.3%,Medium,66.4,https://leetcode.com/problems/group-anagrams,"Array, Hash Table, String, Sorting"
+6,Palindromic Substrings,71.3%,Medium,57.6,https://leetcode.com/problems/palindromic-substrings,"Two Pointers, String, Dynamic Programming"
+7,Longest Increasing Subsequence,57.2%,Medium,57.6,https://leetcode.com/problems/longest-increasing-subsequence,"Array, Binary Search, Dynamic Programming"
+8,Maximum Number of Vowels in a Substring of Given Length,59.8%,Medium,57.6,https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length,"String, Sliding Window"
+9,Tournament Winners,49.6%,Hard,57.6,https://leetcode.com/problems/tournament-winners,Database
+10,Valid Palindrome,50.2%,Easy,57.6,https://leetcode.com/problems/valid-palindrome,"Two Pointers, String"
+11,Alert Using Same Key-Card Three or More Times in a One Hour Period,46.2%,Medium,57.6,https://leetcode.com/problems/alert-using-same-key-card-three-or-more-times-in-a-one-hour-period,"Array, Hash Table, String, Sorting"
+12,Maximum Number of Balloons,59.7%,Easy,57.6,https://leetcode.com/problems/maximum-number-of-balloons,"Hash Table, String, Counting"
+13,Delete Characters to Make Fancy String,71.8%,Easy,57.6,https://leetcode.com/problems/delete-characters-to-make-fancy-string,String
+14,Minimum Moves to Reach Target Score,51.3%,Medium,57.6,https://leetcode.com/problems/minimum-moves-to-reach-target-score,"Math, Greedy"
+15,Longest Happy String,65.5%,Medium,57.6,https://leetcode.com/problems/longest-happy-string,"String, Greedy, Heap (Priority Queue)"
+16,Lowest Common Ancestor of a Binary Tree,65.7%,Medium,57.6,https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree,"Tree, Depth-First Search, Binary Tree"
+17,Design A Leaderboard,67.9%,Medium,57.6,https://leetcode.com/problems/design-a-leaderboard,"Hash Table, Design, Sorting"
+18,Largest Magic Square,53.2%,Medium,57.6,https://leetcode.com/problems/largest-magic-square,"Array, Matrix, Prefix Sum"
+19,Best Sightseeing Pair,62.6%,Medium,57.6,https://leetcode.com/problems/best-sightseeing-pair,"Array, Dynamic Programming"

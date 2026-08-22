@@ -1,0 +1,10 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link,Topics
+1,Merge Sorted Array,52.3%,Easy,100.0,https://leetcode.com/problems/merge-sorted-array,"Array, Two Pointers, Sorting"
+2,Merge Two Sorted Lists,66.3%,Easy,93.7,https://leetcode.com/problems/merge-two-sorted-lists,"Linked List, Recursion"
+3,Maximum Number of Occurrences of a Substring,53.0%,Medium,87.2,https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring,"Hash Table, String, Sliding Window"
+4,Merge Intervals,48.8%,Medium,84.4,https://leetcode.com/problems/merge-intervals,"Array, Sorting"
+5,Two Sum,55.1%,Easy,81.3,https://leetcode.com/problems/two-sum,"Array, Hash Table"
+6,Meeting Rooms II,51.9%,Medium,67.1,https://leetcode.com/problems/meeting-rooms-ii,"Array, Two Pointers, Greedy, Sorting, Heap (Priority Queue), Prefix Sum"
+7,Top K Frequent Elements,64.1%,Medium,58.9,https://leetcode.com/problems/top-k-frequent-elements,"Array, Hash Table, Divide and Conquer, Sorting, Heap (Priority Queue), Bucket Sort, Counting, Quickselect"
+8,Merge k Sorted Lists,55.8%,Hard,58.9,https://leetcode.com/problems/merge-k-sorted-lists,"Linked List, Divide and Conquer, Heap (Priority Queue), Merge Sort"
+9,Find the K-Sum of an Array,39.6%,Hard,58.9,https://leetcode.com/problems/find-the-k-sum-of-an-array,"Array, Sorting, Heap (Priority Queue)"
