@@ -21,8 +21,8 @@ const NotFound = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-surface-tint/10 pointer-events-none"/>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-surface-tint/15 pointer-events-none"/>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="w-full max-w-lg mx-auto text-center bg-surface-container-lowest rounded-[40px] shadow-[0_24px_64px_rgba(0,19,8,0.08)] p-10 md:p-14 border border-outline-variant/40 relative z-10 space-y-6">
-          <div className="w-16 h-16 rounded-2xl bg-surface-container flex items-center justify-center mx-auto text-surface-tint border border-surface-tint/20 shadow-inner">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="w-full max-w-lg mx-auto text-center bg-surface-container-lowest rounded-2xl p-10 md:p-14 border border-border/50 relative z-10 space-y-6">
+          <div className="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center mx-auto text-surface-tint border border-surface-tint/20 shadow-inner">
             <Compass className="w-8 h-8"/>
           </div>
 
@@ -31,17 +31,17 @@ const NotFound = () => {
             <span>404 · Uncharted Route</span>
           </div>
 
-          <h1 className="font-display-lg text-5xl md:text-6xl font-bold text-mn-primary leading-tight">
+          <h1 className="font-display-lg text-5xl md:text-6xl font-bold text-foreground leading-tight">
             Page Not <span className="text-surface-tint">Found.</span>
           </h1>
 
           <p className="text-on-surface-variant font-body-md text-sm leading-relaxed max-w-sm mx-auto">
-            The page <code className="px-2 py-0.5 rounded bg-surface-container text-mn-primary text-xs font-mono">{pathname}</code> does not exist or has been relocated within the sanctuary.
+            The page <code className="px-2 py-0.5 rounded bg-surface-container text-foreground text-xs font-mono">{pathname}</code> does not exist or has been relocated within the sanctuary.
           </p>
 
           <div className="pt-2">
             <Link href="/">
-              <Button className="bg-mn-primary hover:opacity-90 text-on-primary px-8 py-6 rounded-full font-label-caps text-xs tracking-widest uppercase shadow-md hover:scale-105 transition-all">
+              <Button className="bg-primary text-primary-foreground px-8 py-6 rounded-lg font-label-caps text-xs tracking-widest uppercase hover:opacity-90 transition-all font-semibold border-none">
                 <span>Return to Sanctuary</span>
                 <ArrowRight className="w-4 h-4 ml-2"/>
               </Button>

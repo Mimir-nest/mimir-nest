@@ -58,17 +58,17 @@ const Projects = () => {
             <span>Open Source Portfolio</span>
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary leading-tight">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display-lg text-display-lg-mobile md:text-display-lg text-foreground leading-tight">
             Explore Modern <br />
             <span className="text-surface-tint">Project Vault.</span>
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body-lg text-body-lg text-on-primary/80 max-w-2xl mx-auto leading-relaxed">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body-lg text-body-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Discover innovative, production-grade applications built with modern stacks. 
             From web platforms to machine learning and cloud infrastructures.
           </motion.p>
 
-          <div className="flex items-center justify-center gap-6 pt-2 text-xs font-label-caps tracking-widest text-on-primary/70 uppercase">
+          <div className="flex items-center justify-center gap-6 pt-2 text-xs font-label-caps tracking-widest text-muted-foreground uppercase">
             <span className="flex items-center gap-2">
               <Star className="w-4 h-4 text-surface-tint"/>
               <span>Production Tested</span>
@@ -90,8 +90,8 @@ const Projects = () => {
             return (<button key={cat.id} onClick={() => setSelectedCategory(cat.id)} className={`
                     px-5 py-2.5 rounded-full text-xs font-medium transition-all duration-300
                     ${isSelected
-                    ? "bg-mn-primary text-on-primary shadow-sm scale-105"
-                    : "bg-surface-container text-on-surface-variant hover:text-mn-primary hover:bg-surface-container-high"}
+                    ? "bg-primary text-primary-foreground shadow-sm scale-105"
+                    : "bg-surface-container text-on-surface-variant hover:text-foreground hover:bg-surface-container-high"}
                   `}>
                   <span>{cat.label}</span>
                 </button>);
@@ -102,7 +102,7 @@ const Projects = () => {
 
       <main className="max-w-7xl mx-auto px-6 md:px-16 pb-24 space-y-12">
         {/* ── Prominent Resume Projects Trigger Banner ── */}
-        <div className="bg-primary-container text-on-primary rounded-[32px] p-8 md:p-10 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+        <div className="bg-surface-container text-foreground rounded-2xl p-8 md:p-10 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-border/50 shadow-xl">
           <div className="absolute top-0 right-0 w-96 h-96 rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
           
           <div className="relative z-10 space-y-2 text-center md:text-left">
@@ -110,17 +110,17 @@ const Projects = () => {
               <Sparkles className="w-3.5 h-3.5"/>
               Resume Ready
             </span>
-            <h2 className="font-headline-lg text-headline-lg text-on-primary">
+            <h2 className="font-headline-lg text-headline-lg text-foreground">
               Most Common Resume Projects Explorer
             </h2>
-            <p className="text-on-primary/80 font-body-md text-sm max-w-xl">
+            <p className="text-muted-foreground font-body-md text-sm max-w-xl">
               Compare basic implementations vs production-grade advanced architectures to highlight on your resume.
             </p>
           </div>
 
           <Dialog>
             <DialogTrigger asChild>
-              <Button className="relative z-10 bg-surface-container-lowest text-mn-primary hover:bg-white rounded-full px-8 py-6 font-label-caps text-xs tracking-widest uppercase shadow-lg shrink-0 hover:scale-105 transition-all">
+              <Button className="relative z-10 bg-primary text-primary-foreground hover:opacity-90 rounded-lg px-8 py-6 font-label-caps text-xs tracking-widest uppercase shadow-lg shrink-0 hover:scale-105 transition-all font-semibold border-none">
                 <span>View Comparison Table</span>
                 <ArrowRight className="w-4 h-4 ml-2"/>
               </Button>

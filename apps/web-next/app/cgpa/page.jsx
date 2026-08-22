@@ -342,7 +342,7 @@ const CGPA = () => {
       <Navbar />
       
       {/* ── Deep Green Sanctuary Hero ── */}
-      <section className="relative bg-mn-primary pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-[40px] md:rounded-b-[80px]">
+      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl">
         {/* Decorative Rings */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
         <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
@@ -354,12 +354,12 @@ const CGPA = () => {
             <span>Academic Performance Engine</span>
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary leading-tight">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display-lg text-display-lg-mobile md:text-display-lg text-foreground leading-tight">
             Precision CGPA <br />
             <span className="text-surface-tint">Eligibility Scan.</span>
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body-lg text-body-lg text-on-primary/80 max-w-2xl mx-auto leading-relaxed">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body-lg text-body-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Calculate target semester requirements and discover verified company eligibility tiers across S+, A+, A, B, and C CTC bands.
           </motion.p>
         </div>
@@ -419,7 +419,7 @@ const CGPA = () => {
                       </div>
                     </div>
                     <DialogFooter>
-                      <Button className="bg-mn-primary text-on-primary rounded-full text-xs font-label-caps tracking-wider px-6" onClick={() => setShowSemesterSettings(false)}>
+                      <Button className="bg-primary text-primary-foreground rounded-lg text-xs font-label-caps tracking-wider px-6 font-semibold border-none" onClick={() => setShowSemesterSettings(false)}>
                         Done
                       </Button>
                     </DialogFooter>
@@ -466,10 +466,10 @@ const CGPA = () => {
                 </div>
                 
                 <div className="flex gap-2.5 pt-2">
-                  <Button className="flex-1 bg-mn-primary hover:opacity-90 text-on-primary rounded-full h-12 font-label-caps text-xs tracking-wider shadow-sm" onClick={calculateRequiredCGPA}>
+                  <Button className="flex-1 bg-primary text-primary-foreground hover:opacity-90 rounded-lg h-12 font-label-caps text-xs tracking-wider font-semibold border-none" onClick={calculateRequiredCGPA}>
                     Calculate Target
                   </Button>
-                  <Button variant="outline" className="border-outline-variant/40 rounded-full h-12 w-12 p-0 text-on-surface-variant hover:bg-surface-container" onClick={resetInputs} title="Reset fields">
+                  <Button variant="outline" className="border-outline-variant/40 rounded-lg h-12 w-12 p-0 text-on-surface-variant hover:bg-surface-container" onClick={resetInputs} title="Reset fields">
                     <RefreshCw className="h-4 w-4"/>
                   </Button>
                 </div>
@@ -578,7 +578,7 @@ const CGPA = () => {
                   </div>
                 </div>
 
-                {selectedTier && (<Button variant="outline" size="sm" onClick={() => handleTierClick(selectedTier)} className="border-outline-variant/40 text-mn-primary hover:bg-surface-container rounded-full text-xs font-label-caps tracking-wider">
+                {selectedTier && (<Button variant="outline" size="sm" onClick={() => handleTierClick(selectedTier)} className="border-outline-variant/40 text-foreground hover:bg-surface-container rounded-lg text-xs font-label-caps tracking-wider">
                     Show All Tiers
                   </Button>)}
               </div>
@@ -593,18 +593,18 @@ const CGPA = () => {
                 return (tierOrder[b] || 0) - (tierOrder[a] || 0);
             })
                 .map(tier => (<div key={tier} className={`p-4 rounded-2xl border transition-all duration-200 cursor-pointer ${selectedTier === tier
-                    ? 'bg-primary-container text-on-primary border-surface-tint shadow-md scale-[1.02]'
+                    ? 'bg-primary/20 text-foreground border-surface-tint shadow-md scale-[1.02]'
                     : 'bg-surface-container border-outline-variant/30 hover:bg-surface-container-high'}`} onClick={() => handleTierClick(tier)}>
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-3">
-                          <Badge variant="outline" className={selectedTier === tier ? 'bg-white/20 text-white border-white/40' : getTierBadgeStyle(tier)}>
+                           <Badge variant="outline" className={selectedTier === tier ? 'bg-white/20 text-white border-white/40' : getTierBadgeStyle(tier)}>
                             {tier}
                           </Badge>
-                          <span className={selectedTier === tier ? 'text-white font-bold' : 'text-mn-primary font-bold'}>
+                          <span className={selectedTier === tier ? 'text-white font-bold' : 'text-foreground font-bold'}>
                             {eligibleCompanies[tier].length} Companies
                           </span>
                         </div>
-                        <span className={`text-xs ${selectedTier === tier ? 'text-on-primary/80' : 'text-on-surface-variant'}`}>
+                        <span className={`text-xs ${selectedTier === tier ? 'text-muted-foreground' : 'text-on-surface-variant'}`}>
                           {processedCompanyTiers[tier].ctc}
                         </span>
                       </div>

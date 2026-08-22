@@ -55,7 +55,7 @@ const FAQ = () => {
       <Navbar />
 
       {/* ── Deep Green Sanctuary Hero ── */}
-      <section className="relative bg-mn-primary pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-[40px] md:rounded-b-[80px]">
+      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl">
         {/* Decorative Rings */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
         <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
@@ -67,12 +67,12 @@ const FAQ = () => {
             <span>Knowledge Base & Support</span>
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary leading-tight">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display-lg text-display-lg-mobile md:text-display-lg text-foreground leading-tight">
             Frequently Asked <br />
             <span className="text-surface-tint">Questions.</span>
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body-lg text-body-lg text-on-primary/80 max-w-2xl mx-auto leading-relaxed">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body-lg text-body-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Find comprehensive answers about Mimir Nest's tools, calculations, interview archives, and student benefits.
           </motion.p>
         </div>
@@ -92,24 +92,24 @@ const FAQ = () => {
         </Accordion>
 
         {/* ── Support Card ── */}
-        <div className="mt-16 bg-primary-container text-on-primary rounded-[32px] p-8 md:p-12 text-center relative overflow-hidden shadow-xl space-y-4">
-          <div className="w-12 h-12 rounded-2xl bg-surface-container flex items-center justify-center mx-auto text-surface-tint mb-2 shadow-inner">
+        <div className="mt-16 bg-surface-container text-foreground rounded-2xl p-8 md:p-12 text-center relative overflow-hidden border border-border/50 shadow-xl space-y-4">
+          <div className="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mx-auto text-surface-tint mb-2 border border-border/40">
             <Mail className="w-6 h-6"/>
           </div>
-          <h2 className="font-headline-lg text-2xl md:text-3xl font-bold text-on-primary">
+          <h2 className="font-headline-lg text-2xl md:text-3xl font-bold text-foreground">
             Still Have Questions?
           </h2>
-          <p className="text-on-primary/70 font-body-md text-sm max-w-md mx-auto">
+          <p className="text-muted-foreground font-body-md text-sm max-w-md mx-auto">
             Our student support team is always available to help answer your queries or assist with tool feedback.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
             <a href="mailto:support@mimirnest.tech">
-              <Button className="bg-surface-container-lowest text-mn-primary hover:bg-white rounded-full px-8 py-6 font-label-caps text-xs tracking-widest uppercase shadow-md hover:scale-105 transition-all">
+              <Button className="bg-primary text-primary-foreground hover:opacity-90 rounded-lg px-8 py-6 font-label-caps text-xs tracking-widest uppercase border-none font-semibold">
                 <span>Contact Support</span>
               </Button>
             </a>
             <Link href="/">
-              <Button variant="outline" className="border-white/30 text-on-primary hover:bg-white/10 rounded-full px-8 py-6 font-label-caps text-xs tracking-widest uppercase">
+              <Button variant="outline" className="border-border text-foreground hover:bg-surface-container rounded-lg px-8 py-6 font-label-caps text-xs tracking-widest uppercase">
                 <span>Back to Home</span>
               </Button>
             </Link>

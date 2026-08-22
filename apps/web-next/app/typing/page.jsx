@@ -54,7 +54,7 @@ const Typing = () => {
       <Navbar />
 
       {/* ── Deep Green Sanctuary Hero ── */}
-      <section className="relative bg-mn-primary pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-[40px] md:rounded-b-[80px]">
+      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl">
         {/* Decorative Rings */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
         <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
@@ -66,12 +66,12 @@ const Typing = () => {
             <span>Developer Velocity Arena</span>
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary leading-tight">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display-lg text-display-lg-mobile md:text-display-lg text-foreground leading-tight">
             Master Your <br />
             <span className="text-surface-tint">Coding Keystrokes.</span>
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body-lg text-body-lg text-on-primary/80 max-w-2xl mx-auto leading-relaxed">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body-lg text-body-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Enhance real-world coding speed, syntax fluency, and muscle memory 
             across multiple programming languages with real algorithmic snippets.
           </motion.p>
@@ -82,9 +82,9 @@ const Typing = () => {
       <main className="max-w-5xl mx-auto px-6 md:px-16 py-12 w-full flex-grow">
         {!showResults ? (<motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="space-y-6">
             {/* Control Bar */}
-            <div className="bg-surface-container-lowest p-4 rounded-[28px] border border-outline-variant/40 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/40 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
-                <div className="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-surface-container border border-outline-variant/30 text-mn-primary text-sm font-medium">
+                <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-container border border-outline-variant/30 text-foreground text-sm font-medium">
                   <Languages className="w-4 h-4 text-surface-tint shrink-0"/>
                   <LanguageSelector currentLanguage={currentSnippet.language} onLanguageChange={handleLanguageChange} disabled={isStarted}/>
                 </div>
@@ -101,11 +101,11 @@ const Typing = () => {
               </div>
 
               <div className="flex items-center gap-3 w-full md:w-auto justify-end">
-                <Button onClick={handleReset} variant="ghost" className="text-on-surface-variant hover:text-mn-primary hover:bg-surface-container rounded-full text-xs font-label-caps tracking-wider px-5" disabled={isStarted && timeLeft > 0}>
+                <Button onClick={handleReset} variant="ghost" className="text-on-surface-variant hover:text-foreground hover:bg-surface-container rounded-lg text-xs font-label-caps tracking-wider px-5" disabled={isStarted && timeLeft > 0}>
                   <RotateCcw className="w-3.5 h-3.5 mr-1.5"/>
                   Reset
                 </Button>
-                <Button onClick={handleStart} className="bg-mn-primary hover:opacity-90 text-on-primary rounded-full min-w-[130px] text-xs font-label-caps tracking-wider px-6 py-2.5 shadow-sm" disabled={isStarted}>
+                <Button onClick={handleStart} className="bg-primary text-primary-foreground rounded-lg hover:scale-[1.02] border-none font-semibold min-w-[130px] text-xs font-label-caps tracking-wider px-6 py-2.5" disabled={isStarted}>
                   <Play className="w-3.5 h-3.5 mr-1.5 fill-current"/>
                   {isStarted ? 'Running...' : 'Start Test'}
                 </Button>

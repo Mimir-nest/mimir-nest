@@ -26,7 +26,7 @@ const Roadmaps = () => {
             <span>Interactive Roadmaps</span>
           </div>
 
-          <h1 className="font-display-lg text-display-lg-mobile text-mn-primary leading-tight font-bold">
+          <h1 className="font-display-lg text-display-lg-mobile text-foreground leading-tight font-bold">
             Structured Pathways <br />
             <span className="text-surface-tint">Coming Soon.</span>
           </h1>
@@ -37,7 +37,7 @@ const Roadmaps = () => {
 
           <div className="pt-2">
             <Link href="/">
-              <Button className="bg-mn-primary hover:opacity-90 text-on-primary px-8 py-6 rounded-full font-label-caps text-xs tracking-widest uppercase shadow-md hover:scale-105 transition-all">
+              <Button className="bg-primary text-primary-foreground px-8 py-6 rounded-lg font-label-caps text-xs tracking-widest uppercase hover:opacity-90 transition-all font-semibold border-none">
                 <span>Back to Academic Sanctuary</span>
                 <ArrowRight className="w-4 h-4 ml-2"/>
               </Button>

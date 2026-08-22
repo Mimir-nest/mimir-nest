@@ -82,7 +82,7 @@ const EmailPerks = () => {
       <Navbar />
 
       {/* ── Deep Green Sanctuary Hero ── */}
-      <section className="relative bg-mn-primary pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-[40px] md:rounded-b-[80px]">
+      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl">
         {/* Decorative Rings */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
         <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
@@ -94,22 +94,22 @@ const EmailPerks = () => {
             <span>Student Exclusive Perks</span>
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary leading-tight">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display-lg text-display-lg-mobile md:text-display-lg text-foreground leading-tight">
             Unlock $15,000+ in <br />
             <span className="text-surface-tint">Academic Benefits.</span>
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body-lg text-body-lg text-on-primary/80 max-w-2xl mx-auto leading-relaxed">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body-lg text-body-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Access top developer packs, cloud credits, design suites, and productivity tools 
             completely free using your university student email.
           </motion.p>
 
           {/* Search bar inside Hero */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="relative max-w-xl mx-auto pt-2">
-            <div className="relative flex items-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-full shadow-2xl transition-all focus-within:border-surface-tint">
-              <Search className="h-5 w-5 text-on-primary/60 ml-5"/>
-              <input type="text" placeholder="Search tools (e.g. GitHub, AWS, JetBrains, Figma)..." className="w-full bg-transparent border-none text-base px-4 py-4 focus:outline-none text-white placeholder:text-on-primary/50 font-body-md" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
-              {searchQuery && (<button onClick={() => setSearchQuery("")} className="mr-4 p-1 rounded-full text-on-primary/60 hover:text-white hover:bg-white/10">
+            <div className="relative flex items-center bg-surface-container border border-border rounded-full shadow-2xl transition-all focus-within:border-surface-tint">
+              <Search className="h-5 w-5 text-muted-foreground ml-5"/>
+              <input type="text" placeholder="Search tools (e.g. GitHub, AWS, JetBrains, Figma)..." className="w-full bg-transparent border-none text-base px-4 py-4 focus:outline-none text-white placeholder:text-muted-foreground/60 font-body-md" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
+              {searchQuery && (<button onClick={() => setSearchQuery("")} className="mr-4 p-1 rounded-full text-muted-foreground hover:text-white hover:bg-white/10">
                   <X className="w-4 h-4"/>
                 </button>)}
             </div>
@@ -127,8 +127,8 @@ const EmailPerks = () => {
             return (<button key={cat.id} onClick={() => setSelectedCategory(cat.id)} className={`
                     flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium transition-all duration-300
                     ${isSelected
-                    ? "bg-mn-primary text-on-primary shadow-sm scale-105"
-                    : "bg-surface-container text-on-surface-variant hover:text-mn-primary hover:bg-surface-container-high"}
+                    ? "bg-primary text-primary-foreground shadow-sm scale-105"
+                    : "bg-surface-container text-on-surface-variant hover:text-foreground hover:bg-surface-container-high"}
                   `}>
                   <Icon className="w-3.5 h-3.5"/>
                   <span>{cat.label}</span>

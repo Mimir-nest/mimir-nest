@@ -110,7 +110,7 @@ const Courses = () => {
       <Navbar />
 
       {/* ── Deep Green Sanctuary Hero ── */}
-      <section className="relative bg-mn-primary pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-[40px] md:rounded-b-[80px]">
+      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl">
         {/* Decorative Rings */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
         <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
@@ -122,22 +122,22 @@ const Courses = () => {
             <span>Curated Academic Pathways</span>
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary leading-tight">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display-lg text-display-lg-mobile md:text-display-lg text-foreground leading-tight">
             Master In-Demand <br />
             <span className="text-surface-tint">Engineering Disciplines.</span>
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body-lg text-body-lg text-on-primary/80 max-w-2xl mx-auto leading-relaxed">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body-lg text-body-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Discover top verified courses from MIT, Stanford, Harvard, and premier tech educators. 
             Completely free curriculums with hands-on project assignments.
           </motion.p>
 
           {/* Search bar inside Hero */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="relative max-w-xl mx-auto pt-2">
-            <div className="relative flex items-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-full shadow-2xl transition-all focus-within:border-surface-tint">
-              <Search className="h-5 w-5 text-on-primary/60 ml-5"/>
-              <input type="text" placeholder="Search courses, universities, or technologies..." className="w-full bg-transparent border-none text-base px-4 py-4 focus:outline-none text-white placeholder:text-on-primary/50 font-body-md" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
-              {searchQuery && (<button onClick={() => setSearchQuery("")} className="mr-4 p-1 rounded-full text-on-primary/60 hover:text-white hover:bg-white/10">
+            <div className="relative flex items-center bg-surface-container border border-border rounded-full shadow-2xl transition-all focus-within:border-surface-tint">
+              <Search className="h-5 w-5 text-muted-foreground ml-5"/>
+              <input type="text" placeholder="Search courses, universities, or technologies..." className="w-full bg-transparent border-none text-base px-4 py-4 focus:outline-none text-white placeholder:text-muted-foreground/60 font-body-md" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
+              {searchQuery && (<button onClick={() => setSearchQuery("")} className="mr-4 p-1 rounded-full text-muted-foreground hover:text-white hover:bg-white/10">
                   <X className="w-4 h-4"/>
                 </button>)}
             </div>
@@ -155,8 +155,8 @@ const Courses = () => {
             return (<button key={cat.id} onClick={() => setSelectedCategory(cat.id)} className={`
                     flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium transition-all duration-300
                     ${isSelected
-                    ? "bg-mn-primary text-on-primary shadow-sm scale-105"
-                    : "bg-surface-container text-on-surface-variant hover:text-mn-primary hover:bg-surface-container-high"}
+                    ? "bg-primary text-primary-foreground shadow-sm scale-105"
+                    : "bg-surface-container text-on-surface-variant hover:text-foreground hover:bg-surface-container-high"}
                   `}>
                   <Icon className="w-3.5 h-3.5"/>
                   <span>{cat.label}</span>
@@ -174,20 +174,20 @@ const Courses = () => {
           </div>) : filteredCourses.length > 0 ? (<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence>
               {filteredCourses.map((course, index) => (<motion.div key={course.id || index} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: index * 0.04 }} layout>
-                  <div className="group relative h-full bg-surface-container-lowest border border-outline-variant/40 rounded-[32px] overflow-hidden hover:border-surface-tint/60 transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,19,8,0.08)] flex flex-col justify-between p-7">
+                  <div className="group relative h-full bg-surface-container-lowest border border-border/50 rounded-2xl overflow-hidden hover:border-surface-tint/60 transition-all duration-300 flex flex-col justify-between p-7">
                     <div>
                       {/* Top Row: Icon + Level Badge */}
                       <div className="flex justify-between items-start mb-5">
-                        <div className="p-3 bg-surface-container rounded-2xl border border-outline-variant/30 group-hover:scale-105 transition-transform">
+                        <div className="p-3 bg-surface-container rounded-xl border border-outline-variant/30 group-hover:scale-105 transition-transform">
                           {courseIcons[course.iconKey] || <BookOpen className="h-5 w-5 text-surface-tint"/>}
                         </div>
-                        <span className={`text-xs font-semibold px-3 py-1 rounded-full border ${levelBadgeStyles[course.level] || levelBadgeStyles["All Levels"]}`}>
+                        <span className={`text-xs font-semibold px-3 py-1 rounded-md border ${levelBadgeStyles[course.level] || levelBadgeStyles["All Levels"]}`}>
                           {course.level}
                         </span>
                       </div>
 
                       {/* Course Title */}
-                      <h3 className="font-headline-md text-lg text-mn-primary mb-2.5 line-clamp-1 group-hover:text-surface-tint transition-colors">
+                      <h3 className="font-headline-md text-lg text-foreground mb-2.5 line-clamp-1 group-hover:text-surface-tint transition-colors">
                         {course.title}
                       </h3>
 
@@ -227,11 +227,11 @@ const Courses = () => {
                     <div className="flex items-center justify-between pt-4 border-t border-outline-variant/20">
                       <div className="text-xs">
                         <span className="text-on-surface-variant/70">Provider:</span>
-                        <span className="text-mn-primary font-bold ml-1.5">
+                        <span className="text-foreground font-bold ml-1.5">
                           {course.provider}
                         </span>
                       </div>
-                      <Button className="bg-mn-primary hover:opacity-90 text-on-primary rounded-full text-xs font-label-caps tracking-wider px-5 py-2 shadow-sm" onClick={() => window.open(course.url, "_blank")}>
+                      <Button className="bg-primary text-primary-foreground rounded-lg text-xs font-label-caps tracking-wider px-5 py-2 hover:scale-[1.02] border-none font-semibold" onClick={() => window.open(course.url, "_blank")}>
                         Explore
                         <ExternalLink className="w-3.5 h-3.5 ml-1.5"/>
                       </Button>
@@ -239,7 +239,7 @@ const Courses = () => {
                   </div>
                 </motion.div>))}
             </AnimatePresence>
-          </div>) : (<div className="text-center py-32 bg-surface-container-lowest rounded-[32px] border border-outline-variant/30">
+          </div>) : (<div className="text-center py-32 bg-surface-container-lowest rounded-2xl border border-outline-variant/30">
             <div className="inline-flex p-4 rounded-full bg-surface-container text-surface-tint mb-4">
               <Search className="w-8 h-8"/>
             </div>
