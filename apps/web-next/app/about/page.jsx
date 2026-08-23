@@ -7,6 +7,13 @@ import { ArrowRight, Github } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
+import dynamic from "next/dynamic";
+
+const ParticleWave = dynamic(
+  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
+  { ssr: false }
+);
+
 const About = () => {
   const router = useRouter();
 
@@ -53,6 +60,11 @@ const About = () => {
 
         {/* ── 1. HERO ── */}
         <section className="relative bg-surface-container pt-[140px] md:pt-[180px] pb-20 md:pb-28 px-6 md:px-16 overflow-hidden rounded-b-3xl">
+          {/* Background Particle Wave */}
+          <div className="absolute inset-0 z-0 pointer-events-none opacity-25">
+            <ParticleWave />
+          </div>
+
           {/* Subtle Background Rings */}
           <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full border border-surface-tint/10 translate-x-1/4 -translate-y-1/4 pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full border border-primary-container/30 -translate-x-1/2 translate-y-1/2 pointer-events-none" />
