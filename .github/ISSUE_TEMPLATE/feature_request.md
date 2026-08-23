@@ -1,6 +1,6 @@
 ---
 name: "Feature Request"
-about: Suggest a new feature or enhancement for Mimir
+about: Suggest a new feature or enhancement for Mimir Nest
 title: "[Feature]: "
 labels: ["enhancement"]
 assignees: ""
@@ -16,20 +16,23 @@ Provide a short and clear description of the feature.
 
 What problem does this solve?
 
-Why is this feature valuable for students or contributors?
-
 ---
 
 ## Proposed Solution
 
 Describe how you envision this feature working.
 
-Include:
+---
 
-- User flow
-- UI/UX ideas
-- Expected behavior
-- Any edge cases if applicable
+## Why it would benefit Mimir Nest
+
+Why is this feature valuable for Mimir Nest, its students, or contributors?
+
+---
+
+## Alternatives Considered
+
+Describe any alternative solutions or features you considered and why they were rejected.
 
 ---
 
@@ -42,6 +45,4 @@ Add mockups, screenshots, links, examples, or references if they help explain th
 ## Checklist
 
 - [ ] I searched existing issues before creating this request.
-- [ ] This feature aligns with Mimir's goal of helping students learn, build, and prepare for their careers.
-- [ ] I have clearly described the problem and proposed solution.
-- [ ] I am willing to contribute to implementing this feature (optional).
+- [ ] I have clearly described the problem, proposed solution, and benefits.

@@ -10,11 +10,13 @@ export default tseslint.config(
       "**/dist/**",
       "**/node_modules/**",
       "**/*.tsbuildinfo",
+      "**/.next/**",
+      "**/next-env.d.ts",
     ],
   },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ["**/*.{ts,tsx}"],
+    files: ["**/*.{js,jsx,ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
