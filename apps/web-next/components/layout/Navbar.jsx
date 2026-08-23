@@ -1,131 +1,303 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Calculator, Clock, Map, Code, BookMarked, Mail, Keyboard, FolderOpen, BookOpen, Search, } from "lucide-react";
+import {
+  Menu,
+  X,
+  Calculator,
+  Clock,
+  Code,
+  FolderOpen,
+  Keyboard,
+  BookMarked,
+  Mail,
+  Map,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
+
+const categories = [
+  {
+    key: "study",
+    label: "Study",
+    items: [
+      { name: "CGPA Calculator", path: "/cgpa", icon: Calculator, description: "Calculate grades and predict GPA" },
+      { name: "Focus Timer", path: "/pomodoro", icon: Clock, description: "Pomodoro sessions for deep work" },
+      { name: "Typing Practice", path: "/typing", icon: Keyboard, description: "Improve typing speed and accuracy" }
+    ]
+  },
+  {
+    key: "prepare",
+    label: "Prepare",
+    items: [
+      { name: "Placement DSA", path: "/placement-dsa", icon: Code, description: "Technical interview coding prep" }
+    ]
+  },
+  {
+    key: "build",
+    label: "Build",
+    items: [
+      { name: "Projects", path: "/projects", icon: FolderOpen, description: "Inspirational project templates" },
+      { name: "Roadmaps", path: "/roadmaps", icon: Map, description: "Structured visual learning paths" }
+    ]
+  },
+  {
+    key: "learn",
+    label: "Learn",
+    items: [
+      { name: "Courses", path: "/courses", icon: BookMarked, description: "Free, curated high-quality courses" }
+    ]
+  },
+  {
+    key: "resources",
+    label: "Resources",
+    items: [
+      { name: "Student Perks", path: "/email-perks", icon: Mail, description: "Academic benefits and discounts" }
+    ]
+  }
+];
+
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
-    const pathname = usePathname();
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 10);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-    useEffect(() => {
-        setIsOpen(false);
-    }, [pathname]);
-    const navLinks = [
-        { name: "Home", path: "/" },
-        { name: "CGPA Scan", path: "/cgpa", icon: Calculator },
-        { name: "Pomodoro", path: "/pomodoro", icon: Clock },
-        { name: "Placement DSA", path: "/placement-dsa", icon: Code },
-        { name: "Projects", path: "/projects", icon: FolderOpen },
-        { name: "Typing", path: "/typing", icon: Keyboard },
-        { name: "Courses", path: "/courses", icon: BookMarked },
-        { name: "Email Perks", path: "/email-perks", icon: Mail },
-        { name: "Roadmaps", path: "/roadmaps", icon: Map },
-    ];
-    return (<nav className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out hidden md:block", scrolled
-            ? "bg-mn-surface/85 backdrop-blur-xl border-b border-outline-variant/40 shadow-sm py-3"
-            : "bg-mn-surface/80 backdrop-blur-md border-b border-white/5 shadow-sm py-4")}>
+  const [activeCategory, setActiveCategory] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close dropdown on click outside or escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setActiveCategory(null);
+      }
+    };
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setActiveCategory(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  return (
+    <nav
+      ref={dropdownRef}
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out hidden md:block",
+        scrolled
+          ? "bg-mn-surface/90 backdrop-blur-md border-b border-outline-variant/40 shadow-sm py-3"
+          : "bg-mn-surface/80 backdrop-blur-sm border-b border-white/5 shadow-sm py-4"
+      )}
+    >
       <div className="flex justify-between items-center px-16 max-w-full">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
-          <img src="/logo/logo.png" alt="Mimir Nest" className="h-8 w-auto"/>
-          <span className="font-headline-md text-xl font-bold text-foreground">Mimir <span className="text-surface-tint">Nest</span></span>
+          <img src="/logo/logo.png" alt="Mimir Nest" className="h-8 w-auto" />
+          <span className="font-headline-md text-xl font-bold text-foreground">
+            Mimir <span className="text-surface-tint">Nest</span>
+          </span>
         </Link>
 
-        {/* Navigation Links */}
-        <div className="flex items-center gap-6">
-          {navLinks.slice(1).map((link) => (<Link key={link.name} href={link.path} className={cn("font-body-md text-body-md transition-all duration-300 ease-in-out pb-1", pathname === link.path
-                ? "text-surface-tint font-semibold border-b-2 border-surface-tint"
-                : "text-on-surface-variant hover:text-surface-tint")}>
-              {link.name}
-            </Link>))}
+        {/* Navigation Categories */}
+        <div className="flex items-center gap-8">
+          {categories.map((cat) => {
+            const isCategoryActive = cat.items.some((item) => pathname === item.path);
+            return (
+              <div
+                key={cat.key}
+                className="relative py-2"
+                onMouseEnter={() => setActiveCategory(cat.key)}
+              >
+                <button
+                  onClick={() => setActiveCategory(activeCategory === cat.key ? null : cat.key)}
+                  className={cn(
+                    "font-body-md text-body-md transition-all duration-200 flex items-center gap-1 hover:text-surface-tint border-none bg-transparent cursor-pointer text-on-surface-variant",
+                    isCategoryActive || activeCategory === cat.key ? "text-surface-tint font-semibold" : ""
+                  )}
+                  aria-expanded={activeCategory === cat.key}
+                  aria-haspopup="true"
+                >
+                  {cat.label}
+                </button>
+
+                {activeCategory === cat.key && (
+                  <div
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 rounded-xl bg-mn-surface border border-outline-variant/40 p-2 shadow-lg z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+                    onMouseLeave={() => setActiveCategory(null)}
+                  >
+                    <div className="flex flex-col gap-1">
+                      {cat.items.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.path}
+                          className={cn(
+                            "flex items-start gap-3 p-3 rounded-lg hover:bg-surface-container transition-colors text-left",
+                            pathname === item.path ? "bg-surface-container-low" : ""
+                          )}
+                          onClick={() => setActiveCategory(null)}
+                        >
+                          {item.icon && <item.icon className="w-5 h-5 mt-0.5 text-surface-tint flex-shrink-0" />}
+                          <div>
+                            <div className="text-sm font-semibold text-foreground">{item.name}</div>
+                            <div className="text-xs text-on-surface-variant/80 mt-0.5 leading-normal">
+                              {item.description}
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+
+          {/* GitHub link */}
+          <a
+            href="https://github.com/Mimir-nest/mimir-nest"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-body-md text-body-md text-on-surface-variant hover:text-surface-tint transition-colors"
+          >
+            GitHub
+          </a>
         </div>
 
-        {/* Trailing actions */}
+        {/* Explore Tools CTA */}
         <div className="flex items-center gap-4">
-          <button className="text-on-surface-variant hover:text-surface-tint transition-colors p-2 rounded-lg hover:bg-surface-container">
-            <Search className="w-5 h-5"/>
-          </button>
-          <Link href="/placement-dsa" className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-label-caps text-label-caps hover:opacity-90 transition-opacity tracking-widest font-semibold border-none">
-            Get Started
+          <Link
+            href="/#features"
+            className="bg-primary text-primary-foreground px-5 py-2 rounded-lg font-label-caps text-label-caps hover:opacity-90 transition-opacity tracking-widest font-semibold border-none"
+          >
+            Explore Tools
           </Link>
         </div>
       </div>
-    </nav>);
+    </nav>
+  );
 };
-/* Mobile nav — separate component rendered below */
+
+/* Mobile nav — separate component */
 const MobileNav = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const pathname = usePathname();
-    useEffect(() => {
-        setIsOpen(false);
-    }, [pathname]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [expandedSection, setExpandedSection] = useState(null);
+  const pathname = usePathname();
 
-    // Prevent background page scrolling when menu is open
-    useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "";
-        }
-        return () => {
-            document.body.style.overflow = "";
-        };
-    }, [isOpen]);
+  useEffect(() => {
+    setIsOpen(false);
+    setExpandedSection(null);
+  }, [pathname]);
 
-    const navLinks = [
-        { name: "Home", path: "/", icon: BookOpen },
-        { name: "CGPA Scan", path: "/cgpa", icon: Calculator },
-        { name: "Pomodoro", path: "/pomodoro", icon: Clock },
-        { name: "Placement DSA", path: "/placement-dsa", icon: Code },
-        { name: "Projects", path: "/projects", icon: FolderOpen },
-        { name: "Typing", path: "/typing", icon: Keyboard },
-        { name: "Courses", path: "/courses", icon: BookMarked },
-        { name: "Email Perks", path: "/email-perks", icon: Mail },
-        { name: "Roadmaps", path: "/roadmaps", icon: Map },
-    ];
-    return (<nav className="md:hidden fixed top-0 w-full z-50 bg-mn-surface px-6 h-16 flex justify-between items-center border-b border-outline-variant shadow-md">
+  // Prevent background page scrolling when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  return (
+    <nav className="md:hidden fixed top-0 w-full z-50 bg-mn-surface px-6 h-16 flex justify-between items-center border-b border-outline-variant shadow-md">
       <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
-        <img src="/logo/logo.png" alt="Mimir Nest" className="h-8 w-auto"/>
-        <span className="font-bold text-foreground text-xl">Mimir <span className="text-surface-tint">Nest</span></span>
+        <img src="/logo/logo.png" alt="Mimir Nest" className="h-8 w-auto" />
+        <span className="font-bold text-foreground text-xl">
+          Mimir <span className="text-surface-tint">Nest</span>
+        </span>
       </Link>
-      <button 
-        onClick={() => setIsOpen(!isOpen)} 
+      <button
+        onClick={() => setIsOpen(!isOpen)}
         className="text-on-background p-1.5 rounded-lg hover:bg-surface-container transition-colors"
         aria-label="Toggle menu"
         aria-expanded={isOpen}
       >
-        {isOpen ? <X className="w-6 h-6"/> : <Menu className="w-6 h-6"/>}
+        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>
 
       {/* Mobile Dropdown */}
-      {isOpen && (<div className="absolute top-full left-0 right-0 bg-mn-surface border-b border-outline-variant shadow-xl animate-in slide-in-from-top-4 duration-300 z-50">
-          <div className="px-4 py-6 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.path;
+      {isOpen && (
+        <div className="absolute top-full left-0 right-0 bg-mn-surface border-b border-outline-variant shadow-xl animate-in slide-in-from-top-4 duration-300 z-50">
+          <div className="px-4 py-6 space-y-2 max-h-[calc(100vh-4rem)] overflow-y-auto">
+            {categories.map((cat) => {
+              const isExpanded = expandedSection === cat.key;
               return (
-                <Link key={link.name} href={link.path} className={cn("flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200", isActive
-                    ? "bg-surface-container-high text-surface-tint border border-surface-tint/20 font-semibold"
-                    : "text-on-surface-variant hover:text-surface-tint hover:bg-surface-container border border-transparent")}>
-                  {link.icon && <link.icon className="h-5 w-5 flex-shrink-0"/>}
-                  {link.name}
-                </Link>
+                <div key={cat.key} className="space-y-1">
+                  <button
+                    onClick={() => setExpandedSection(isExpanded ? null : cat.key)}
+                    className="flex justify-between items-center w-full px-4 py-3 rounded-lg text-sm font-semibold text-on-surface-variant hover:text-surface-tint hover:bg-surface-container transition-colors border-none bg-transparent text-left"
+                  >
+                    <span>{cat.label}</span>
+                    <span
+                      className="text-[10px] transition-transform duration-200"
+                      style={{ transform: isExpanded ? "rotate(90deg)" : "rotate(0deg)" }}
+                    >
+                      ▶
+                    </span>
+                  </button>
+                  {isExpanded && (
+                    <div className="pl-6 space-y-1">
+                      {cat.items.map((item) => {
+                        const isActive = pathname === item.path;
+                        return (
+                          <Link
+                            key={item.name}
+                            href={item.path}
+                            className={cn(
+                              "flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200",
+                              isActive
+                                ? "bg-surface-container-high text-surface-tint font-semibold"
+                                : "text-on-surface-variant/80 hover:text-surface-tint hover:bg-surface-container"
+                            )}
+                          >
+                            {item.icon && <item.icon className="h-4.5 w-4.5 flex-shrink-0" />}
+                            {item.name}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
               );
             })}
+
+            {/* GitHub Link */}
+            <a
+              href="https://github.com/Mimir-nest/mimir-nest"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-on-surface-variant hover:text-surface-tint hover:bg-surface-container transition-colors"
+            >
+              <Code className="h-5 w-5 flex-shrink-0" />
+              GitHub
+            </a>
           </div>
-        </div>)}
-    </nav>);
+        </div>
+      )}
+    </nav>
+  );
 };
-const NavbarWrapper = () => (<>
+
+const NavbarWrapper = () => (
+  <>
     <Navbar />
     <MobileNav />
-  </>);
+  </>
+);
+
 export default NavbarWrapper;

@@ -1,121 +1,146 @@
 import React from "react";
-import { BookMarked, Map, ArrowRight } from "lucide-react";
+import {
+  Calculator,
+  Clock,
+  Code,
+  FolderOpen,
+  Keyboard,
+  BookMarked,
+  Mail,
+  Map,
+  ArrowRight,
+} from "lucide-react";
 import Link from "next/link";
+
+const productCategories = [
+  {
+    title: "Study",
+    subtitle: "Tools for everyday college life.",
+    description: "CGPA calculation, focused study sessions, and typing practice.",
+    icon: Calculator,
+    items: [
+      { name: "CGPA Calculator", path: "/cgpa", icon: Calculator },
+      { name: "Focus Timer", path: "/pomodoro", icon: Clock },
+      { name: "Typing Practice", path: "/typing", icon: Keyboard }
+    ]
+  },
+  {
+    title: "Prepare",
+    subtitle: "Get ready for placements.",
+    description: "DSA practice and technical interview preparation.",
+    icon: Code,
+    items: [
+      { name: "Placement DSA", path: "/placement-dsa", icon: Code }
+    ]
+  },
+  {
+    title: "Build",
+    subtitle: "Turn ideas into projects.",
+    description: "Project ideas and structured roadmaps for building practical skills.",
+    icon: FolderOpen,
+    items: [
+      { name: "Projects", path: "/projects", icon: FolderOpen },
+      { name: "Roadmaps", path: "/roadmaps", icon: Map }
+    ]
+  },
+  {
+    title: "Learn",
+    subtitle: "Learn without the paywall.",
+    description: "Curated courses and learning resources.",
+    icon: BookMarked,
+    items: [
+      { name: "Courses", path: "/courses", icon: BookMarked }
+    ]
+  },
+  {
+    title: "Resources",
+    subtitle: "Make your student status count.",
+    description: "Student discounts, developer programs, credits, software licenses, and academic benefits.",
+    icon: Mail,
+    items: [
+      { name: "Student Perks", path: "/email-perks", icon: Mail }
+    ]
+  }
+];
+
 const Features = () => {
-    return (<section id="features" className="py-16 md:py-[120px] px-6 md:px-16 bg-mn-background max-w-full">
+  return (
+    <section id="features" className="py-16 md:py-[100px] px-6 md:px-16 bg-mn-background max-w-full">
       <div className="max-w-7xl mx-auto">
-        {/* Section header */}
+        {/* Section Header */}
         <div className="mb-16 max-w-2xl">
-          <span className="font-label-caps text-label-caps text-surface-tint tracking-widest block mb-3">
-            PREMIUM FEATURES
+          <span className="font-label-caps text-xs text-surface-tint tracking-widest block mb-3 font-semibold uppercase">
+            Platform Structure
           </span>
-          <h2 className="font-headline-lg text-headline-lg text-mn-primary mb-4">
-            Everything You Need To Excel.
+          <h2 className="font-display-md text-3xl md:text-4xl text-foreground mb-4">
+            Everything you need, organized.
           </h2>
-          <p className="font-body-lg text-body-lg text-on-surface-variant">
-            Unlock your academic potential with our comprehensive suite of premium tools
-            and resources designed to accelerate your learning journey.
+          <p className="font-body-md text-base text-on-surface-variant">
+            Navigate the platform by what you are trying to accomplish. Clean, single-purpose tools with zero paywalls.
           </p>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:auto-rows-[280px]">
-          {/* Large Feature Card — Dark (primary-container) */}
-          <Link href="/projects" className="md:col-span-8 h-72 md:h-auto rounded-2xl bg-primary-container relative overflow-hidden group flex flex-col justify-end p-6 md:p-10 cursor-pointer border border-border/30">
-            <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent z-10 opacity-90"/>
-            {/* Background abstract bars */}
-            <div className="absolute inset-0 flex items-end justify-center gap-3 p-6 opacity-20">
-              {[55, 75, 90, 60, 45, 80, 70, 50].map((h, i) => (<div key={i} className="flex-1 rounded-t-md" style={{
-                height: `${h}%`,
-                background: i % 2 === 0 ? "#FF5A36" : "#242525",
-            }}/>))}
-            </div>
-            <div className="relative z-20 text-foreground">
-              <span className="inline-block px-3 py-1 rounded-md border border-surface-tint/50 text-surface-tint font-label-caps text-label-caps mb-4 backdrop-blur-sm tracking-widest">
-                Deep Focus Mode
-              </span>
-              <h3 className="font-headline-lg text-headline-lg mb-2">
-                Resume Project Explorer
-              </h3>
-              <p className="font-body-md text-body-md text-foreground/80 max-w-md">
-                Browse the most common and advanced resume projects with one click. Get inspiration and resources instantly.
-              </p>
-            </div>
-          </Link>
+        {/* Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {productCategories.map((category) => {
+            const Icon = category.icon;
+            return (
+              <div
+                key={category.title}
+                className="rounded-2xl bg-surface-container-lowest border border-border/40 p-8 flex flex-col justify-between hover:border-surface-tint/30 transition-all duration-200 shadow-sm"
+              >
+                <div>
+                  {/* Category Header */}
+                  <div className="flex items-center gap-3.5 mb-5">
+                    <div className="w-11 h-11 rounded-xl bg-surface-tint/10 flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-surface-tint" strokeWidth={2} />
+                    </div>
+                    <div>
+                      <h3 className="font-headline-md text-lg font-bold text-foreground">
+                        {category.title}
+                      </h3>
+                      <div className="text-xs text-surface-tint font-medium mt-0.5">
+                        {category.subtitle}
+                      </div>
+                    </div>
+                  </div>
 
-          {/* Small Feature Card — Ivory (surface-container) */}
-          <Link href="/courses" className="md:col-span-4 rounded-2xl bg-surface-container p-6 md:p-8 flex flex-col items-start border border-border/40 group transition-colors hover:border-surface-tint/30">
-            <div className="w-12 h-12 rounded-xl bg-surface-tint/10 flex items-center justify-center mb-auto group-hover:bg-surface-tint/20 transition-colors">
-              <BookMarked className="w-6 h-6 text-surface-tint" strokeWidth={1.5}/>
-            </div>
-            <div className="mt-8">
-              <h3 className="font-headline-md text-headline-md text-mn-primary mb-2">
-                Structured Pathways
-              </h3>
-              <p className="font-body-md text-body-md text-on-surface-variant">
-                Carefully designed curricula that build foundational knowledge sequentially.
-              </p>
-            </div>
-          </Link>
+                  {/* Description */}
+                  <p className="font-body-md text-sm text-on-surface-variant mb-6 leading-relaxed">
+                    {category.description}
+                  </p>
+                </div>
 
-          {/* Small Feature Card — Tint (surface-tint) */}
-          <Link href="/roadmaps" className="md:col-span-4 rounded-2xl bg-surface-tint p-6 md:p-8 flex flex-col items-start relative overflow-hidden group">
-            <div className="absolute -right-8 -bottom-8 w-40 h-40 border border-white/20 rounded-full pointer-events-none"/>
-            <div className="absolute -right-16 -bottom-16 w-56 h-56 border border-white/10 rounded-full pointer-events-none"/>
-            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-auto group-hover:bg-white/20 transition-colors">
-              <Map className="w-6 h-6 text-white" strokeWidth={1.5}/>
-            </div>
-            <div className="mt-8 relative z-10">
-              <h3 className="font-headline-md text-headline-md text-white mb-2">
-                Peer Seminars
-              </h3>
-              <p className="font-body-md text-body-md text-white/80">
-                Engage in high-level discourse with dedicated study groups.
-              </p>
-            </div>
-          </Link>
-
-          {/* Medium Feature Card — White (surface-container-lowest) */}
-          <Link href="/placement-dsa" className="md:col-span-8 rounded-2xl bg-surface-container-lowest border border-border p-6 md:p-10 flex flex-col sm:flex-row items-center gap-6 md:gap-8 group hover:border-surface-tint/30 transition-colors">
-            <div className="flex-1">
-              <span className="font-label-caps text-label-caps text-surface-tint tracking-widest block mb-4">
-                ANALYTICS
-              </span>
-              <h3 className="font-headline-lg text-headline-lg text-mn-primary mb-4">
-                Real-Time Placement DSA.
-              </h3>
-              <p className="font-body-md text-body-md text-on-surface-variant mb-6">
-                Master technical interviews with up-to-date DSA questions, company-wise stats, and practice tools.
-              </p>
-              <span className="text-mn-primary font-label-caps text-label-caps flex items-center gap-2 hover:text-surface-tint transition-colors tracking-widest">
-                View Dashboard{" "}
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform"/>
-              </span>
-            </div>
-            {/* Abstract Data Viz */}
-            <div className="w-full sm:w-1/3 h-32 sm:h-full bg-surface-container rounded-xl border border-border/40 relative overflow-hidden flex items-end p-4 gap-2 shrink-0">
-              {[40, 70, 90, 60].map((h, i) => (<div key={i} className="flex-1 rounded-t-sm" style={{
-                height: `${h}%`,
-                background: i === 0
-                    ? "#9B9992"
-                    : i === 1
-                        ? "#5D5B56"
-                        : i === 2
-                            ? "#FF5A36"
-                            : "rgba(255, 90, 54, 0.4)",
-            }}/>))}
-            </div>
-          </Link>
+                {/* Sub-item Links */}
+                <div className="flex flex-col gap-2 mt-4">
+                  {category.items.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.path}
+                      className="flex items-center justify-between p-3.5 rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors group cursor-pointer border border-transparent hover:border-border/30"
+                    >
+                      <span className="text-sm font-semibold text-foreground group-hover:text-surface-tint transition-colors">
+                        {item.name}
+                      </span>
+                      <ArrowRight className="w-4 h-4 text-on-surface-variant/70 group-hover:text-surface-tint group-hover:translate-x-0.5 transition-all" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Bottom CTA */}
+        {/* Bottom indicator */}
         <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-2 text-on-surface-variant text-sm font-body-md">
-            <div className="w-2 h-2 bg-surface-tint rounded-full animate-pulse"/>
-            <span>All tools are free and ready to use</span>
+          <div className="inline-flex items-center gap-2.5 text-on-surface-variant/70 text-sm font-body-md">
+            <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+            <span>Open source. Free for all students.</span>
           </div>
         </div>
       </div>
-    </section>);
+    </section>
+  );
 };
+
 export default Features;
