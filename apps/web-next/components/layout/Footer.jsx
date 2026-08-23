@@ -18,18 +18,18 @@ const Footer = () => {
       title: "Project",
       links: [
         { name: "About", path: "/about" },
+        { name: "Contributing", path: "/contributing" },
         { name: "GitHub", path: "https://github.com/Mimir-nest/mimir-nest", isExternal: true },
-        { name: "Contributing", path: "https://github.com/Mimir-nest/mimir-nest/blob/main/docs/contributing.md", isExternal: true },
         { name: "Changelog", path: "https://github.com/Mimir-nest/mimir-nest/releases", isExternal: true },
-        { name: "License", path: "https://github.com/Mimir-nest/mimir-nest/blob/main/LICENSE", isExternal: true }
+        { name: "License", path: "/license" }
       ]
     },
     {
       title: "Legal",
       links: [
         { name: "Privacy", path: "/privacy" },
-        { name: "Security", path: "https://github.com/Mimir-nest/mimir-nest/security/policy", isExternal: true },
-        { name: "Contact", path: "mailto:support@mimirnest.tech", isExternal: true }
+        { name: "Security", path: "/security" },
+        { name: "Contact", path: "/contact" }
       ]
     }
   ];
