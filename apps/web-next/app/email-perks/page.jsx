@@ -67,9 +67,25 @@ const EmailPerks = () => {
         };
     }, []);
     const filteredPerks = useMemo(() => {
-        let filtered = selectedCategory === "all"
-            ? perks
-            : perks.filter((perk) => perk.category === selectedCategory);
+        let filtered = perks;
+        if (selectedCategory !== "all") {
+            filtered = perks.filter((perk) => {
+                const perkCat = (perk.category || "").toLowerCase().trim();
+                if (selectedCategory === "developers") {
+                    return perkCat === "developers";
+                }
+                if (selectedCategory === "creativity") {
+                    return perkCat === "creativity & design" || perkCat === "creativity";
+                }
+                if (selectedCategory === "placement-prep") {
+                    return perkCat === "learning" || perkCat === "career" || perkCat === "placement-prep" || perkCat === "education";
+                }
+                if (selectedCategory === "utilities") {
+                    return perkCat === "cloud" || perkCat === "productivity" || perkCat === "settings" || perkCat === "utilities" || perkCat === "hardware" || perkCat === "entertainment";
+                }
+                return perkCat === selectedCategory.toLowerCase();
+            });
+        }
         if (searchQuery.trim()) {
             filtered = filtered.filter((perk) => perk.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 perk.description.toLowerCase().includes(searchQuery.toLowerCase()));

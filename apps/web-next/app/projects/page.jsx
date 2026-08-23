@@ -2,10 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Star, Code, Sparkles, ArrowRight } from "lucide-react";
+import { Github, Star, Code, Sparkles } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { Dialog, DialogTrigger, DialogContent, } from "@/components/ui/dialog";
+
 import { motion } from "framer-motion";
 import { contentApi } from "@/services/contentApi";
 const categories = [
@@ -101,69 +101,6 @@ const Projects = () => {
       </div>
 
       <main className="max-w-7xl mx-auto px-6 md:px-16 pb-24 space-y-12">
-        {/* ── Prominent Resume Projects Trigger Banner ── */}
-        <div className="bg-surface-container text-foreground rounded-2xl p-6 sm:p-8 md:p-10 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-border/50 shadow-xl">
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
-          
-          <div className="relative z-10 space-y-2 text-center md:text-left">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-surface-tint/50 text-surface-tint text-xs font-label-caps tracking-widest uppercase">
-              <Sparkles className="w-3.5 h-3.5"/>
-              Resume Ready
-            </span>
-            <h2 className="font-headline-lg text-headline-lg text-foreground">
-              Most Common Resume Projects Explorer
-            </h2>
-            <p className="text-muted-foreground font-body-md text-sm max-w-xl">
-              Compare basic implementations vs production-grade advanced architectures to highlight on your resume.
-            </p>
-          </div>
-
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button className="relative z-10 bg-primary text-primary-foreground hover:opacity-90 rounded-lg px-8 py-6 font-label-caps text-xs tracking-widest uppercase shadow-lg shrink-0 hover:scale-105 transition-all font-semibold border-none">
-                <span>View Comparison Table</span>
-                <ArrowRight className="w-4 h-4 ml-2"/>
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-5xl w-full bg-surface-container-lowest text-mn-primary border-outline-variant/40 rounded-[32px] p-4 sm:p-8 shadow-2xl">
-              <div className="mb-6">
-                <h2 className="text-2xl font-bold font-headline-md text-mn-primary">
-                  Common Resume Projects vs Advanced Architectures
-                </h2>
-                <p className="text-on-surface-variant font-body-md text-sm mt-1">
-                  Curated guidance on transforming standard academic projects into standout resume highlights.
-                </p>
-              </div>
-              <div className="overflow-x-auto max-h-[70vh] border border-outline-variant/30 rounded-2xl">
-                <table className="min-w-[700px] text-sm text-left">
-                  <thead className="bg-surface-container text-mn-primary font-bold text-xs uppercase tracking-wider">
-                    <tr>
-                      <th className="py-3.5 px-4">#</th>
-                      <th className="py-3.5 px-4">Project</th>
-                      <th className="py-3.5 px-4">Basic Version</th>
-                      <th className="py-3.5 px-4">Advanced Version</th>
-                      <th className="py-3.5 px-4">Resource</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-outline-variant/20 font-body-md">
-                    {resumeProjects.map((project, index) => (<tr key={project.id || index} className="hover:bg-surface-container-low transition-colors">
-                        <td className="py-3.5 px-4 font-semibold text-on-surface-variant">{index + 1}</td>
-                        <td className="py-3.5 px-4 font-bold text-mn-primary">{project.title}</td>
-                        <td className="py-3.5 px-4 text-on-surface-variant text-xs">{project.basicVersion}</td>
-                        <td className="py-3.5 px-4 text-surface-tint font-medium text-xs">{project.advancedVersion}</td>
-                        <td className="py-3.5 px-4">
-                          <a href={project.resourceLink} className="inline-flex items-center gap-1 text-mn-primary font-semibold hover:text-surface-tint underline text-xs" target="_blank" rel="noreferrer">
-                            <span>{project.resourceLabel || "Link"}</span>
-                            <ExternalLink className="w-3 h-3"/>
-                          </a>
-                        </td>
-                      </tr>))}
-                  </tbody>
-                </table>
-              </div>
-            </DialogContent>
-          </Dialog>
-        </div>
 
         {/* ── Featured Projects Section ── */}
         {featuredProjects.length > 0 && selectedCategory === "all" && (<div className="space-y-6">
@@ -198,15 +135,11 @@ const Projects = () => {
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-outline-variant/20 flex gap-3">
-                    <Button variant="outline" className="flex-1 bg-surface-container border-outline-variant/40 text-mn-primary hover:bg-surface-container-high rounded-lg text-xs font-label-caps tracking-wider" onClick={() => window.open(project.github, "_blank")}>
+                  <div className="pt-4 border-t border-outline-variant/20">
+                    <Button className="w-full bg-orange-600 text-white hover:bg-orange-700 rounded-lg text-xs font-label-caps tracking-wider font-semibold border-none" onClick={() => window.open(project.github, "_blank")}>
                       <Github className="mr-1.5 h-3.5 w-3.5"/>
                       Code
                     </Button>
-                    {project.demo && (<Button className="flex-1 bg-primary text-primary-foreground rounded-lg text-xs font-label-caps tracking-wider shadow-sm font-semibold border-none" onClick={() => project.demo && window.open(project.demo, "_blank")}>
-                        <ExternalLink className="mr-1.5 h-3.5 w-3.5"/>
-                        Live Demo
-                      </Button>)}
                   </div>
                 </div>))}
             </div>
@@ -250,15 +183,11 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-outline-variant/20 flex gap-2.5">
-                  <Button variant="outline" className="flex-1 bg-surface-container border-outline-variant/40 text-mn-primary hover:bg-surface-container-high rounded-lg text-xs font-label-caps tracking-wider" onClick={() => window.open(project.github, "_blank")}>
+                <div className="pt-4 border-t border-outline-variant/20">
+                  <Button className="w-full bg-orange-600 text-white hover:bg-orange-700 rounded-lg text-xs font-label-caps tracking-wider font-semibold border-none" onClick={() => window.open(project.github, "_blank")}>
                     <Github className="mr-1.5 h-3.5 w-3.5"/>
                     Code
                   </Button>
-                  {project.demo && (<Button className="flex-1 bg-primary text-primary-foreground rounded-lg text-xs font-label-caps tracking-wider shadow-sm font-semibold border-none" onClick={() => project.demo && window.open(project.demo, "_blank")}>
-                        <ExternalLink className="mr-1.5 h-3.5 w-3.5"/>
-                        Demo
-                      </Button>)}
                 </div>
               </div>))}
           </div>
