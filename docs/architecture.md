@@ -1,12 +1,12 @@
-# 🌿 Mimir Nest 2.0 | Workspace Architecture
+# Mimir Nest Workspace Architecture
 
-This document provides a detailed overview of the system architecture, file structure, and technical components that power **Mimir Nest 2.0**.
+This document provides a detailed overview of the system architecture, file structure, and technical components that power **Mimir Nest**.
 
 ---
 
-## 📌 Architectural Overview
+## Architectural Overview
 
-Mimir Nest 2.0 is structured as a **pnpm monorepo**, separating concerns across a single frontend client, a content delivery API, and shared schemas/packages.
+Mimir Nest is structured as a **pnpm monorepo**, separating concerns across a single frontend client, a content delivery API, and shared schemas/packages.
 
 ```mermaid
 graph TD
@@ -32,18 +32,18 @@ graph TD
     API ==>|Reads| JSONStore
 ```
 
-*   **[`apps/web-next`](file:///c:/Users/Sachi/Documents/GITHUB/mugenkyou/frontend/apps/web-next)**: The primary and only active frontend client, powered by Next.js 15 with App Router, styling courtesy of Tailwind CSS, and components from Radix/shadcn.
-*   **[`apps/api`](file:///c:/Users/Sachi/Documents/GITHUB/mugenkyou/frontend/apps/api)**: An Express.js backend that serves static JSON content repositories for courses, roadmaps, placement DSA, and student perks.
-*   **[`packages/shared`](file:///c:/Users/Sachi/Documents/GITHUB/mugenkyou/frontend/packages/shared)**: Shared TypeScript contracts, interfaces, and content schemas shared between the client and the API backend.
+*   **[apps/web-next/](../apps/web-next/)**: The primary frontend client, powered by Next.js 15, styled with Tailwind CSS, and using components from Radix UI and shadcn.
+*   **[apps/api/](../apps/api/)**: An Express.js backend that serves static JSON content repositories for courses, roadmaps, placement DSA, and student perks.
+*   **[packages/shared/](../packages/shared/)**: Shared TypeScript types, schemas, and contracts shared between the client and the API backend.
 
 ---
 
-## 📂 File Structure Summary
+## File Structure Summary
 
 The primary directory layout and key files:
 
 ```
-frontend/
+mimir-nest/
 ├── apps/
 │   ├── web-next/                   # Next.js 15 Client
 │   │   ├── app/                    # Next.js Page Routes
@@ -55,7 +55,7 @@ frontend/
 │   │   ├── components/             # Components (Home, UI, Pomodoro)
 │   │   │   ├── ui/                 # shadcn UI components
 │   │   │   └── LanguageSelector.jsx
-│   │   ├── tailwind.config.js      # Green-themed Tailwind Tokens
+│   │   ├── tailwind.config.js      # Custom theme configurations
 │   │   └── package.json
 │   │
 │   └── api/                        # Express API Backend
@@ -72,27 +72,27 @@ frontend/
 │           ├── index.js
 │           └── content.js
 │
-├── pnpm-workspace.yaml             # Monorepo configuration
+├── pnpm-workspace.yaml             # Monorepo workspace configuration
 ├── package.json                    # Root scripts & configurations
 └── README.md                       # Project landing manual
 ```
 
 ---
 
-## ⚙️ Key Technical Layers
+## Key Technical Layers
 
 ### 1. Monorepo Setup
-The monorepo leverages `pnpm workspaces` (managed in [pnpm-workspace.yaml](file:///c:/Users/Sachi/Documents/GITHUB/mugenkyou/frontend/pnpm-workspace.yaml)).
+The monorepo leverages `pnpm workspaces` (managed in [pnpm-workspace.yaml](../pnpm-workspace.yaml)).
 It orchestrates dependencies efficiently, allowing `apps/web-next` and `apps/api` to reference the common module `packages/shared` locally without publishing packages.
 
 ### 2. Next.js 15 Web Client (`web-next`)
-*   **Routing**: Implemented inside the folder [apps/web-next/app/](file:///c:/Users/Sachi/Documents/GITHUB/mugenkyou/frontend/apps/web-next/app).
-*   **State Management**: Handled via `Zustand` with `localStorage` persistence under [apps/web-next/store/](file:///c:/Users/Sachi/Documents/GITHUB/mugenkyou/frontend/apps/web-next/store).
+*   **Routing**: Implemented inside the folder [apps/web-next/app/](../apps/web-next/app).
+*   **State Management**: Handled via `Zustand` with `localStorage` persistence under [apps/web-next/store/](../apps/web-next/store).
 *   **Design System & Styling**:
-    *   Unified base variables mapped to custom properties in [globals.css](file:///c:/Users/Sachi/Documents/GITHUB/mugenkyou/frontend/apps/web-next/app/globals.css).
-    *   Design tokens managed inside [tailwind.config.js](file:///c:/Users/Sachi/Documents/GITHUB/mugenkyou/frontend/apps/web-next/tailwind.config.js) under a curated green theme.
-*   **UI Components**: Divided into feature component blocks under [apps/web-next/components/](file:///c:/Users/Sachi/Documents/GITHUB/mugenkyou/frontend/apps/web-next/components) and generic primitive building blocks under [apps/web-next/components/ui/](file:///c:/Users/Sachi/Documents/GITHUB/mugenkyou/frontend/apps/web-next/components/ui).
+    *   Unified base variables mapped to custom CSS properties in [globals.css](../apps/web-next/app/globals.css).
+    *   Design tokens managed inside [tailwind.config.js](../apps/web-next/tailwind.config.js) under a curated brand color theme.
+*   **UI Components**: Divided into feature component blocks under [apps/web-next/components/](../apps/web-next/components) and generic primitive building blocks under [apps/web-next/components/ui/](../apps/web-next/components/ui).
 
 ### 3. Content API Backend (`api`)
-*   **Data Controller-Repository Pattern**: Separates routing from the JSON data ingestion to prepare for an easy swap with PostgreSQL or other databases in the future.
-*   **Content Storage**: Files under [apps/api/content/](file:///c:/Users/Sachi/Documents/GITHUB/mugenkyou/frontend/apps/api/content) serve as a lightweight file-system database layer.
+*   **Data Controller-Repository Pattern**: Separates routing from the JSON data ingestion to prepare for an easy swap with databases in the future.
+*   **Content Storage**: Files under [apps/api/content/](../apps/api/content) serve as a lightweight file-system database layer.
