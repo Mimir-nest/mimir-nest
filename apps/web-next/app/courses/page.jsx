@@ -5,6 +5,7 @@ import { ExternalLink, Clock, Users, Star, BookOpen, Zap, Trophy, Code, Search, 
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogClose } from "@/components/ui/dialog";
 import { motion, AnimatePresence } from "framer-motion";
 import { contentApi } from "@/services/contentApi";
 const categories = [
@@ -68,6 +69,11 @@ const Courses = () => {
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [visibleCount, setVisibleCount] = useState(10);
+    const [selectedCourse, setSelectedCourse] = useState(null);
+    useEffect(() => {
+        setVisibleCount(10);
+    }, [selectedCategory, searchQuery]);
     useEffect(() => {
         let isMounted = true;
         contentApi
@@ -106,6 +112,9 @@ const Courses = () => {
         }
         return filtered;
     }, [selectedCategory, searchQuery, courses]);
+    const displayedCourses = useMemo(() => {
+        return filteredCourses.slice(0, visibleCount);
+    }, [filteredCourses, visibleCount]);
     return (<div className="min-h-screen bg-mn-background text-on-background selection:bg-surface-tint/30">
       <Navbar />
 
@@ -171,75 +180,172 @@ const Courses = () => {
         {loading ? (<div className="flex flex-col items-center justify-center py-32">
             <div className="w-12 h-12 rounded-full border-4 border-surface-tint border-t-transparent animate-spin mb-4"/>
             <p className="text-on-surface-variant text-sm font-body-md">Loading curated courses...</p>
-          </div>) : filteredCourses.length > 0 ? (<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <AnimatePresence>
-              {filteredCourses.map((course, index) => (<motion.div key={course.id || index} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: index * 0.04 }} layout>
-                  <div className="group relative h-full bg-surface-container-lowest border border-border/50 rounded-2xl overflow-hidden hover:border-surface-tint/60 transition-all duration-300 flex flex-col justify-between p-7">
-                    <div>
-                      {/* Top Row: Icon + Level Badge */}
-                      <div className="flex justify-between items-start mb-5">
-                        <div className="p-3 bg-surface-container rounded-xl border border-outline-variant/30 group-hover:scale-105 transition-transform">
-                          {courseIcons[course.iconKey] || <BookOpen className="h-5 w-5 text-surface-tint"/>}
+          </div>) : filteredCourses.length > 0 ? (
+            <div className="space-y-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <AnimatePresence>
+                  {displayedCourses.map((course, index) => (<motion.div key={course.id || index} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: (index % 10) * 0.04 }} layout>
+                    <div className="group relative bg-surface-container-lowest border border-border/50 rounded-2xl p-6 hover:border-surface-tint/60 transition-all duration-300 flex flex-col justify-between gap-5 h-full">
+                      <div className="space-y-4">
+                        {/* Badges Row */}
+                        <div className="flex justify-between items-center text-[10px] font-label-caps tracking-widest uppercase">
+                          <span className="text-surface-tint font-bold">
+                            {course.subcategory || course.category}
+                          </span>
+                          <span className={`px-2.5 py-0.5 rounded border text-[10px] font-semibold ${levelBadgeStyles[course.level] || levelBadgeStyles["All Levels"]}`}>
+                            {course.level}
+                          </span>
                         </div>
-                        <span className={`text-xs font-semibold px-3 py-1 rounded-md border ${levelBadgeStyles[course.level] || levelBadgeStyles["All Levels"]}`}>
-                          {course.level}
-                        </span>
+
+                        {/* Title and Provider */}
+                        <div>
+                          <h3 className="font-headline-md text-base text-foreground mb-1 line-clamp-1 group-hover:text-surface-tint transition-colors">
+                            {course.title}
+                          </h3>
+                          <p className="text-[11px] text-on-surface-variant/70 font-medium font-body-md">
+                            by <span className="text-foreground font-semibold">{course.provider}</span>
+                          </p>
+                        </div>
+
+                        {/* 1-Line Description */}
+                        <p className="text-on-surface-variant/80 text-[11px] font-body-md leading-relaxed line-clamp-1">
+                          {course.description}
+                        </p>
                       </div>
 
-                      {/* Course Title */}
-                      <h3 className="font-headline-md text-lg text-foreground mb-2.5 line-clamp-1 group-hover:text-surface-tint transition-colors">
-                        {course.title}
-                      </h3>
-
-                      {/* Meta Statistics */}
-                      <div className="flex items-center gap-4 text-xs text-on-surface-variant font-body-md mb-4">
-                        <span className="flex items-center gap-1.5">
-                          <Users className="w-3.5 h-3.5 text-surface-tint"/>
-                          {course.students}
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <Clock className="w-3.5 h-3.5 text-surface-tint"/>
-                          {course.duration}
-                        </span>
-                        <span className="flex items-center gap-1.5 text-amber-600 font-bold">
-                          <Star className="w-3.5 h-3.5 fill-current"/>
-                          {course.rating}
-                        </span>
-                      </div>
-
-                      {/* Description */}
-                      <p className="text-on-surface-variant text-xs font-body-md leading-relaxed mb-6 line-clamp-2">
-                        {course.description}
-                      </p>
-
-                      {/* Topics Tags */}
-                      <div className="flex flex-wrap gap-1.5 mb-6">
-                        {course.topics.slice(0, 3).map((topic, i) => (<span key={i} className="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface-variant text-[11px] font-body-md border border-outline-variant/20">
-                            {topic}
-                          </span>))}
-                        {course.topics.length > 3 && (<span className="px-2 py-1 rounded-lg bg-surface-container text-on-surface-variant/60 text-[11px]">
-                            +{course.topics.length - 3}
-                          </span>)}
-                      </div>
-                    </div>
-
-                    {/* Bottom Action Strip */}
-                    <div className="flex items-center justify-between pt-4 border-t border-outline-variant/20">
-                      <div className="text-xs">
-                        <span className="text-on-surface-variant/70">Provider:</span>
-                        <span className="text-foreground font-bold ml-1.5">
-                          {course.provider}
-                        </span>
-                      </div>
-                      <Button className="bg-primary text-primary-foreground rounded-lg text-xs font-label-caps tracking-wider px-5 py-2 hover:scale-[1.02] border-none font-semibold" onClick={() => window.open(course.url, "_blank")}>
+                      {/* Explore Button */}
+                      <Button onClick={() => setSelectedCourse(course)} className="w-full bg-primary text-primary-foreground hover:opacity-95 rounded-lg text-xs font-label-caps tracking-widest px-4 py-2 border-none font-semibold h-9 mt-1">
                         Explore
-                        <ExternalLink className="w-3.5 h-3.5 ml-1.5"/>
                       </Button>
                     </div>
-                  </div>
-                </motion.div>))}
-            </AnimatePresence>
-          </div>) : (<div className="text-center py-32 bg-surface-container-lowest rounded-2xl border border-outline-variant/30">
+                  </motion.div>))}
+                </AnimatePresence>
+              </div>
+              {filteredCourses.length > visibleCount && (
+                <div className="flex justify-center pt-8">
+                  <Button 
+                    onClick={() => setVisibleCount((prev) => prev + 10)} 
+                    className="bg-surface-container hover:bg-surface-container-high text-surface-tint border border-outline-variant/30 rounded-full px-8 py-5 font-label-caps text-label-caps tracking-widest font-semibold hover:scale-105 transition-all shadow-md h-auto"
+                  >
+                    Load More Courses
+                  </Button>
+                </div>
+              )}
+
+              {/* Course Details Dialog */}
+              <Dialog open={!!selectedCourse} onOpenChange={(open) => { if (!open) setSelectedCourse(null); }}>
+                <DialogContent className="max-w-2xl w-full bg-surface-container-lowest text-mn-primary border-outline-variant/40 rounded-3xl p-6 md:p-8 shadow-2xl overflow-y-auto max-h-[90vh]">
+                  {selectedCourse && (
+                    <div className="space-y-6">
+                      {/* Header */}
+                      <div>
+                        <span className="text-xs text-surface-tint font-bold font-label-caps tracking-widest uppercase block mb-1">
+                          {selectedCourse.provider}
+                        </span>
+                        <DialogTitle className="text-xl md:text-2xl font-bold font-headline-lg text-mn-primary leading-tight">
+                          {selectedCourse.title}
+                        </DialogTitle>
+                      </div>
+
+                      {/* Badges */}
+                      <div className="flex flex-wrap gap-2">
+                        <span className="px-3 py-1 bg-surface-container text-surface-tint border border-outline-variant/30 rounded-md text-xs font-semibold uppercase font-label-caps tracking-wider">
+                          {selectedCourse.category}
+                        </span>
+                        {selectedCourse.subcategory && (
+                          <span className="px-3 py-1 bg-surface-container text-on-surface-variant border border-outline-variant/30 rounded-md text-xs font-semibold uppercase font-label-caps tracking-wider">
+                            {selectedCourse.subcategory}
+                          </span>
+                        )}
+                        <span className={`px-3 py-1 rounded-md border text-xs font-semibold ${levelBadgeStyles[selectedCourse.level] || levelBadgeStyles["All Levels"]}`}>
+                          {selectedCourse.level}
+                        </span>
+                      </div>
+
+                      {/* Full Description */}
+                      <div className="space-y-2">
+                        <h4 className="text-xs font-label-caps tracking-widest text-mn-primary uppercase font-bold">About the Course</h4>
+                        <p className="text-sm text-on-surface-variant leading-relaxed font-body-md">
+                          {selectedCourse.description}
+                        </p>
+                      </div>
+
+                      {/* Details Grid */}
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-outline-variant/20">
+                        <div>
+                          <span className="text-[10px] text-on-surface-variant/60 font-label-caps uppercase block">Duration</span>
+                          <span className="text-sm text-mn-primary font-semibold">{selectedCourse.duration || "Self-paced"}</span>
+                        </div>
+                        <div>
+                          <span className="text-[10px] text-on-surface-variant/60 font-label-caps uppercase block">Students</span>
+                          <span className="text-sm text-mn-primary font-semibold">{selectedCourse.students || "Unlimited"}</span>
+                        </div>
+                        <div>
+                          <span className="text-[10px] text-on-surface-variant/60 font-label-caps uppercase block">Rating</span>
+                          <span className="text-sm text-mn-primary font-semibold">{selectedCourse.rating || "Not specified"}</span>
+                        </div>
+                        <div>
+                          <span className="text-[10px] text-on-surface-variant/60 font-label-caps uppercase block">Price</span>
+                          <span className="text-sm text-mn-primary font-semibold">{selectedCourse.price || "Free"}</span>
+                        </div>
+                        <div>
+                          <span className="text-[10px] text-on-surface-variant/60 font-label-caps uppercase block">Access</span>
+                          <span className="text-sm text-mn-primary font-semibold">{selectedCourse.access_type || "Free audit"}</span>
+                        </div>
+                        <div>
+                          <span className="text-[10px] text-on-surface-variant/60 font-label-caps uppercase block">Certificate</span>
+                          <span className="text-sm text-mn-primary font-semibold">{selectedCourse.certificate || "No"}</span>
+                        </div>
+                        <div>
+                          <span className="text-[10px] text-on-surface-variant/60 font-label-caps uppercase block">Project-Based</span>
+                          <span className="text-sm text-mn-primary font-semibold">{selectedCourse.project_based ? "Yes" : "No"}</span>
+                        </div>
+                        {selectedCourse.language && (
+                          <div>
+                            <span className="text-[10px] text-on-surface-variant/60 font-label-caps uppercase block">Language</span>
+                            <span className="text-sm text-mn-primary font-semibold">{selectedCourse.language}</span>
+                          </div>
+                        )}
+                        {selectedCourse.source_type && (
+                          <div>
+                            <span className="text-[10px] text-on-surface-variant/60 font-label-caps uppercase block">Source</span>
+                            <span className="text-sm text-mn-primary font-semibold">{selectedCourse.source_type}</span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Topics */}
+                      {selectedCourse.topics && selectedCourse.topics.length > 0 && (
+                        <div className="pt-4 border-t border-outline-variant/20">
+                          <h4 className="text-xs font-label-caps tracking-widest text-mn-primary uppercase font-bold mb-3">Topics Covered</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {selectedCourse.topics.map((topic, i) => (
+                              <span key={i} className="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface-variant text-xs font-body-md border border-outline-variant/20">
+                                {topic}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Footer Actions */}
+                      <div className="flex items-center justify-end gap-3 pt-6 border-t border-outline-variant/20">
+                        <DialogClose asChild>
+                          <Button variant="ghost" className="text-on-surface-variant hover:text-foreground hover:bg-surface-container rounded-lg px-6 py-2.5 text-xs font-semibold h-auto font-label-caps tracking-wider">
+                            Close
+                          </Button>
+                        </DialogClose>
+                        <Button onClick={() => window.open(selectedCourse.url, "_blank")} className="bg-primary text-primary-foreground hover:opacity-95 rounded-lg px-6 py-2.5 text-xs font-semibold h-auto font-label-caps tracking-wider border-none">
+                          Open Course
+                          <ExternalLink className="w-3.5 h-3.5 ml-2"/>
+                        </Button>
+                      </div>
+                    </div>
+                  )}
+                </DialogContent>
+              </Dialog>
+            </div>
+          ) : (<div className="text-center py-32 bg-surface-container-lowest rounded-2xl border border-outline-variant/30">
             <div className="inline-flex p-4 rounded-full bg-surface-container text-surface-tint mb-4">
               <Search className="w-8 h-8"/>
             </div>

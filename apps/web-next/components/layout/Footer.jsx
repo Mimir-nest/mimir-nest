@@ -21,7 +21,7 @@ const Footer = () => {
           {/* Brand column */}
           <div className="col-span-1 sm:col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-4 hover:opacity-80 transition-opacity">
-              <img src="/logo/logo.png" alt="Mimir Nest" className="h-8 w-auto brightness-0 invert"/>
+              <img src="/logo/logo.png" alt="Mimir Nest" className="h-8 w-auto"/>
               <span className="text-xl font-bold text-foreground font-headline-md">Mimir Nest</span>
             </Link>
             <p className="text-muted-foreground leading-relaxed font-body-md text-sm mb-4">
