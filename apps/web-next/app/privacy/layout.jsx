@@ -1,17 +1,17 @@
 export const metadata = {
-  title: "Privacy Policy & Local-First Data | Mimir Nest",
-  description: "Read our privacy policy. Mimir Nest processes all calculation formulas and timer configurations locally in your browser.",
+  title: "Mimir Nest Privacy Policy",
+  description: "Understand how Mimir Nest handles your information. Our tools run locally in your browser with zero data collection, except standard usage analytics.",
   alternates: {
     canonical: "https://mimirnest.vercel.app/privacy",
   },
   openGraph: {
-    title: "Privacy Policy & Local-First Data | Mimir Nest",
-    description: "Read our privacy policy. Mimir Nest processes all calculation formulas and timer configurations locally in your browser.",
+    title: "Mimir Nest Privacy Policy",
+    description: "Understand how Mimir Nest handles your information. Our tools run locally in your browser with zero data collection, except standard usage analytics.",
     url: "https://mimirnest.vercel.app/privacy",
   },
   twitter: {
-    title: "Privacy Policy & Local-First Data | Mimir Nest",
-    description: "Read our privacy policy. Mimir Nest processes all calculation formulas and timer configurations locally in your browser.",
+    title: "Mimir Nest Privacy Policy",
+    description: "Understand how Mimir Nest handles your information. Our tools run locally in your browser with zero data collection, except standard usage analytics.",
   },
 };
 
@@ -19,8 +19,8 @@ export default function PrivacyLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Privacy Policy & Local-First Data | Mimir Nest",
-    "description": "Read our privacy policy. Mimir Nest processes all calculation formulas and timer configurations locally in your browser.",
+    "name": "Mimir Nest Privacy Policy",
+    "description": "Understand how Mimir Nest handles your information. Our tools run locally in your browser with zero data collection, except standard usage analytics.",
     "url": "https://mimirnest.vercel.app/privacy",
     "breadcrumb": {
       "@context": "https://schema.org",
