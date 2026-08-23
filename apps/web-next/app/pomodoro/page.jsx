@@ -10,6 +10,12 @@ import PomodoroSettings from '@/components/pomodoro/PomodoroSettings';
 import YouTubePlayer from '@/components/pomodoro/YouTubePlayer';
 import PomodoroStats from '@/components/pomodoro/PomodoroStats';
 import FullscreenPomodoro from '@/components/pomodoro/FullscreenPomodoro';
+import dynamic from 'next/dynamic';
+
+const ParticleWave = dynamic(
+  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
+  { ssr: false }
+);
 const Pomodoro = () => {
     // Timer durations (customizable now)
     const [pomodoroTime, setPomodoroTime] = useState(25 * 60);
@@ -283,6 +289,11 @@ const Pomodoro = () => {
     // Progress ring accent color per mode
     const ringColor = mode === 'pomodoro' ? '#FF5A36' : mode === 'shortBreak' ? '#D6D2C9' : '#9B9992';
     return (<div className="min-h-screen bg-mn-background text-on-background relative overflow-hidden">
+      {/* Background Particle Wave */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
+        <ParticleWave />
+      </div>
+
       {/* Decorative rings */}
       <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full border border-surface-tint/5 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full border border-surface-tint/10 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>

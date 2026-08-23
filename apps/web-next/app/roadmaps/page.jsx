@@ -7,11 +7,23 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Sparkles, ArrowRight, Compass } from "lucide-react";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const ParticleWave = dynamic(
+  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
+  { ssr: false }
+);
+
 const Roadmaps = () => {
-    return (<div className="min-h-screen bg-mn-background text-on-background flex flex-col justify-between selection:bg-surface-tint/30">
+    return (<div className="min-h-screen bg-mn-background text-on-background flex flex-col justify-between selection:bg-surface-tint/30 relative">
       <Navbar />
 
       <main className="flex-1 flex flex-col items-center justify-center px-6 pt-32 pb-24 relative overflow-hidden">
+        {/* Background Particle Wave */}
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
+          <ParticleWave />
+        </div>
+
         {/* Background ambient elements */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-surface-tint/10 pointer-events-none"/>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-surface-tint/15 pointer-events-none"/>

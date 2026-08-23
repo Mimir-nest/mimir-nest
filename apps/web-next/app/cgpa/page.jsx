@@ -13,6 +13,12 @@ import { Calculator, Building2, RefreshCw, ChevronUp, ChevronDown, BarChart as C
 import { ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, } from "recharts";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogTrigger } from "@/components/ui/dialog";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const ParticleWave = dynamic(
+  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
+  { ssr: false }
+);
 // Company data with tier categorization
 const companyTiers = {
     'S+': { minCGPA: 8.0, companies: [], ctc: '₹30+ LPA', color: '#FF5A36' },
@@ -343,6 +349,11 @@ const CGPA = () => {
       
       {/* ── Deep Green Sanctuary Hero ── */}
       <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl">
+        {/* Background Particle Wave */}
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-25">
+          <ParticleWave />
+        </div>
+
         {/* Decorative Rings */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
         <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>

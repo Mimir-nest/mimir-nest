@@ -30,7 +30,7 @@ const ParticleWave: React.FC<ParticleWaveProps> = ({ className = '' }) => {
   const getParticleColor = (theme: string) => {
     return theme === 'light' 
       ? new THREE.Vector3(0.08, 0.09, 0.09) // #151616 (dark) for light background
-      : new THREE.Vector3(0.96, 0.95, 0.92); // #F4F1EA (off-white) to integrate with Mimir Nest dark background
+      : new THREE.Vector3(1.0, 0.353, 0.212); // #FF5A36 (Mimir Nest brand orange)
   };
 
   const particleVertex = `

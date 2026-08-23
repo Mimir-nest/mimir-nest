@@ -11,6 +11,12 @@ import Footer from "@/components/layout/Footer";
 import { RotateCcw, Play, Keyboard, Languages, Timer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const ParticleWave = dynamic(
+  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
+  { ssr: false }
+);
 const Typing = () => {
     const [timeLeft, setTimeLeft] = useState(30);
     const [currentText, setCurrentText] = useState('');
@@ -55,6 +61,11 @@ const Typing = () => {
 
       {/* ── Deep Green Sanctuary Hero ── */}
       <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-4 sm:px-6 md:px-16 overflow-hidden rounded-b-3xl">
+        {/* Background Particle Wave */}
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-25">
+          <ParticleWave />
+        </div>
+
         {/* Decorative Rings */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
         <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
