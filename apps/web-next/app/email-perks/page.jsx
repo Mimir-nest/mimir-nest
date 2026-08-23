@@ -32,6 +32,10 @@ const perkIcons = {
     "shopping-bag": <ShoppingBag className="h-5 w-5 text-surface-tint"/>,
     sparkles: <Sparkles className="h-5 w-5 text-surface-tint"/>,
 };
+const isInformational = (link) => {
+    const lower = (link || "").toLowerCase();
+    return lower.includes("education.github.com/pack") || lower.includes("github.com/pack") || lower.endsWith("/pack") || lower.includes("about") || lower.includes("info");
+};
 const EmailPerks = () => {
     const [selectedCategory, setSelectedCategory] = useState("all");
     const [searchQuery, setSearchQuery] = useState("");
@@ -82,7 +86,7 @@ const EmailPerks = () => {
       <Navbar />
 
       {/* ── Deep Green Sanctuary Hero ── */}
-      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl">
+      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-4 sm:px-6 md:px-16 overflow-hidden rounded-b-3xl">
         {/* Decorative Rings */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
         <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
@@ -119,7 +123,7 @@ const EmailPerks = () => {
 
       {/* ── Category Filter Bar ── */}
       <div className="sticky top-20 z-30 bg-mn-background/90 backdrop-blur-xl border-b border-outline-variant/30 py-4 mb-10 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 md:px-16 overflow-x-auto scrollbar-hide">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-16 overflow-x-auto scrollbar-hide">
           <div className="flex gap-2 min-w-max justify-center">
             {categories.map((cat) => {
             const Icon = cat.icon;
@@ -139,30 +143,35 @@ const EmailPerks = () => {
       </div>
 
       {/* ── Perks Grid ── */}
-      <main className="max-w-7xl mx-auto px-6 md:px-16 pb-24">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-16 pb-24">
         {loading ? (<div className="flex flex-col items-center justify-center py-32">
             <div className="w-12 h-12 rounded-full border-4 border-surface-tint border-t-transparent animate-spin mb-4"/>
             <p className="text-on-surface-variant text-sm font-body-md">Loading student perks...</p>
-          </div>) : filteredPerks.length > 0 ? (<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <AnimatePresence>
-              {filteredPerks.map((perk, index) => (<motion.div key={perk.id || index} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: index * 0.04 }} layout>
-                  <div className="group relative h-full bg-surface-container-lowest border border-border/50 rounded-2xl overflow-hidden hover:border-surface-tint/60 transition-all duration-300 flex flex-col justify-between p-7">
-                    
+          </div>) : filteredPerks.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <AnimatePresence>
+                {filteredPerks.map((perk, index) => (<motion.div key={perk.id || index} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: index * 0.04 }} layout>
+                  <div className="group relative h-full bg-surface-container-lowest border border-border/50 rounded-2xl overflow-hidden hover:border-surface-tint/60 transition-all duration-300 flex flex-col justify-between p-7 text-left">
                     <div>
                       {/* Top Row: Icon + Value Badge */}
                       <div className="flex justify-between items-start mb-5">
                         <div className="p-3 bg-surface-container rounded-xl border border-outline-variant/30 group-hover:scale-105 transition-transform">
                           {perkIcons[perk.iconKey] || <Gift className="h-5 w-5 text-surface-tint"/>}
                         </div>
-                        <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-md">
-                          {perk.value} Value
-                        </span>
+                        {perk.value && perk.value !== "Not specified" && (
+                          <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-md">
+                            {perk.value} Value
+                          </span>
+                        )}
                       </div>
 
                       {/* Title & Description */}
                       <h3 className="font-headline-md text-lg text-mn-primary mb-2 line-clamp-1 group-hover:text-surface-tint transition-colors">
                         {perk.title}
                       </h3>
+                      <p className="text-[11px] text-on-surface-variant/70 font-medium font-body-md mb-2">
+                        by <span className="text-foreground font-semibold">{perk.provider || perk.company}</span>
+                      </p>
 
                       <p className="text-on-surface-variant text-xs font-body-md leading-relaxed mb-5 line-clamp-2">
                         {perk.description}
@@ -185,20 +194,21 @@ const EmailPerks = () => {
                             Details
                           </Button>
                         </DialogTrigger>
-                        <DialogContent className="bg-surface-container border-border rounded-2xl max-w-2xl p-4 sm:p-8">
+                        <DialogContent className="bg-surface-container-lowest border-border rounded-3xl max-w-2xl p-6 md:p-8 overflow-y-auto max-h-[90vh]">
                           <PerkDetails {...perk} icon={perkIcons[perk.iconKey] || <Gift className="h-5 w-5 text-surface-tint"/>}/>
                         </DialogContent>
                       </Dialog>
 
                       <Button className="flex-1 bg-primary text-primary-foreground hover:opacity-90 rounded-lg text-xs font-label-caps tracking-wider shadow-sm font-semibold border-none" onClick={() => handleAccessClick(perk.link, perk.title)}>
-                        Claim
+                        {isInformational(perk.link) ? "View Offer" : "Claim"}
                         <ExternalLink className="w-3.5 h-3.5 ml-1.5"/>
                       </Button>
                     </div>
                   </div>
                 </motion.div>))}
-            </AnimatePresence>
-          </div>) : (<div className="text-center py-32 bg-surface-container-lowest rounded-2xl border border-outline-variant/30">
+              </AnimatePresence>
+            </div>
+          ) : (<div className="text-center py-32 bg-surface-container-lowest rounded-2xl border border-outline-variant/30">
             <div className="inline-flex p-4 rounded-full bg-surface-container text-surface-tint mb-4">
               <Search className="w-8 h-8"/>
             </div>
