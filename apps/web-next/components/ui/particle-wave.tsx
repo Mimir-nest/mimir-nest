@@ -17,17 +17,20 @@ const ParticleWave: React.FC<ParticleWaveProps> = ({ className = '' }) => {
     mouse: THREE.Vector2;
   } | null>(null);
 
-  // Function to detect current theme (safe for server rendering)
+  // Function to detect current theme (defaults to dark since Mimir Nest runs dark charcoal as default theme)
   const getCurrentTheme = () => {
     if (typeof document === 'undefined') return 'dark';
-    return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    if (document.documentElement.classList.contains('light')) {
+      return 'light';
+    }
+    return 'dark'; // Mimir Nest uses dark theme variables by default
   };
 
   // Function to get particle color based on theme
   const getParticleColor = (theme: string) => {
-    return theme === 'dark' 
-      ? new THREE.Vector3(0.96, 0.95, 0.92) // #F4F1EA (off-white) to integrate with background
-      : new THREE.Vector3(0.08, 0.09, 0.09); // #151616 (dark)
+    return theme === 'light' 
+      ? new THREE.Vector3(0.08, 0.09, 0.09) // #151616 (dark) for light background
+      : new THREE.Vector3(0.96, 0.95, 0.92); // #F4F1EA (off-white) to integrate with Mimir Nest dark background
   };
 
   const particleVertex = `
