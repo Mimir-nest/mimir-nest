@@ -1,17 +1,17 @@
 export const metadata = {
-  title: "About Mimir Nest | Mission & Core Values",
-  description: "Learn about the mission, values, and origin of Mimir Nest. Empowering college students with free, open-source academic tools.",
+  title: "Mimir Nest — About the Open-Source Student Platform",
+  description: "Learn about Mimir Nest, a free and open-source platform providing academic, career prep, and learning tools built directly for students.",
   alternates: {
     canonical: "https://mimirnest.vercel.app/about",
   },
   openGraph: {
-    title: "About Mimir Nest | Mission & Core Values",
-    description: "Learn about the mission, values, and origin of Mimir Nest. Empowering college students with free, open-source academic tools.",
+    title: "Mimir Nest — About the Open-Source Student Platform",
+    description: "Learn about Mimir Nest, a free and open-source platform providing academic, career prep, and learning tools built directly for students.",
     url: "https://mimirnest.vercel.app/about",
   },
   twitter: {
-    title: "About Mimir Nest | Mission & Core Values",
-    description: "Learn about the mission, values, and origin of Mimir Nest. Empowering college students with free, open-source academic tools.",
+    title: "Mimir Nest — About the Open-Source Student Platform",
+    description: "Learn about Mimir Nest, a free and open-source platform providing academic, career prep, and learning tools built directly for students.",
   },
 };
 
@@ -19,8 +19,8 @@ export default function AboutLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "About Mimir Nest | Mission & Core Values",
-    "description": "Learn about the mission, values, and origin of Mimir Nest. Empowering college students with free, open-source academic tools.",
+    "name": "Mimir Nest — About the Open-Source Student Platform",
+    "description": "Learn about Mimir Nest, a free and open-source platform providing academic, career prep, and learning tools built directly for students.",
     "url": "https://mimirnest.vercel.app/about",
     "breadcrumb": {
       "@context": "https://schema.org",
