@@ -71,4 +71,6 @@ export const contentApi = {
     request("/api/placement", "/content/placement/placement.json"),
   getRoadmaps: () =>
     request("/api/roadmaps", "/content/roadmaps/roadmaps.json"),
+  getBlogArticles: () =>
+    request("/api/blog", "/content/blog/articles.json"),
 };

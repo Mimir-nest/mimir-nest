@@ -18,6 +18,7 @@ const Footer = () => {
       title: "Project",
       links: [
         { name: "About", path: "/about" },
+        { name: "Blog", path: "/blog" },
         { name: "Contributing", path: "/contributing" },
         { name: "GitHub", path: "https://github.com/Mimir-nest/mimir-nest", isExternal: true },
         { name: "Changelog", path: "https://github.com/Mimir-nest/mimir-nest/releases", isExternal: true },
