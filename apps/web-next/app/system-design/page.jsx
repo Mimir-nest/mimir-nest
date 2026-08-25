@@ -1,193 +1,221 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
 import {
   BookOpen,
   Search,
   Bookmark,
-  CheckCircle,
+  CheckCircle2,
   Shuffle,
   Eye,
-  EyeOff,
-  Video,
+  ChevronLeft,
+  ChevronRight,
   ChevronDown,
-  ChevronUp,
-  RotateCcw,
-  Sparkles,
-  Award,
-  Terminal,
-  Layers,
-  FileCode,
-  Layout,
   ExternalLink,
+  X,
+  RotateCcw,
+  Video,
+  Layers,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { sections, questions } from "./data/questions";
 
-// Inline markdown formatter helper
-const FormattedText = ({ text }) => {
+// ─── Inline markdown renderer ─────────────────────────────────────────────────
+const InlineText = ({ text }) => {
+  const regex = /(\*\*.*?\*\*|`[^`]+`|\[.*?\]\(.*?\))/g;
+  const parts = text.split(regex);
+  return (
+    <>
+      {parts.map((part, i) => {
+        if (part.startsWith("**") && part.endsWith("**"))
+          return <strong key={i} className="font-semibold text-foreground">{part.slice(2, -2)}</strong>;
+        if (part.startsWith("`") && part.endsWith("`"))
+          return (
+            <code key={i} className="bg-[#121313] px-1.5 py-0.5 rounded font-mono text-xs text-[#ff7a5c] border border-outline-variant/20">
+              {part.slice(1, -1)}
+            </code>
+          );
+        if (part.startsWith("[") && part.includes("](")) {
+          const m = part.match(/\[(.*?)\]\((.*?)\)/);
+          if (m) return (
+            <a key={i} href={m[2]} target="_blank" rel="noopener noreferrer"
+              className="text-surface-tint hover:underline inline-flex items-center gap-0.5 font-medium">
+              {m[1]}<ExternalLink className="w-2.5 h-2.5" />
+            </a>
+          );
+        }
+        return <span key={i}>{part}</span>;
+      })}
+    </>
+  );
+};
+
+const AnswerText = ({ text }) => {
   if (!text) return null;
   const blocks = text.split(/\n\n+/);
   return (
-    <div className="space-y-3 font-body-md text-sm md:text-base leading-relaxed text-on-surface-variant/90">
+    <div className="space-y-3 text-[15px] leading-[1.75] text-on-surface-variant/90">
       {blocks.map((block, idx) => {
         const trimmed = block.trim();
-        if (trimmed.startsWith("```")) {
-          const lines = trimmed.split("\n");
-          const codeLines = lines.slice(1, lines[lines.length - 1] === "```" ? -1 : undefined);
-          return (
-            <pre
-              key={idx}
-              className="bg-[#0b0c0c] p-4 rounded-xl border border-outline-variant/30 overflow-x-auto my-3 font-mono text-xs text-orange-400"
-            >
-              <code>{codeLines.join("\n")}</code>
-            </pre>
-          );
-        }
+        if (!trimmed) return null;
         if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
-          const items = trimmed.split("\n").map((line) => line.replace(/^[-*]\s+/, ""));
           return (
-            <ul key={idx} className="list-disc pl-5 space-y-1.5 my-2">
-              {items.map((item, itemIdx) => (
-                <li key={itemIdx}>{parseInlineFormatting(item)}</li>
+            <ul key={idx} className="list-disc pl-5 space-y-1.5">
+              {trimmed.split("\n").map((line, li) => (
+                <li key={li}><InlineText text={line.replace(/^[-*]\s+/, "")} /></li>
               ))}
             </ul>
           );
         }
-        return <p key={idx}>{parseInlineFormatting(trimmed)}</p>;
+        return <p key={idx}><InlineText text={trimmed} /></p>;
       })}
     </div>
   );
 };
 
-const parseInlineFormatting = (text) => {
-  const regex = /(\*\*.*?\*\*|`.*?`|\[.*?\]\(.*?\))/g;
-  const parts = text.split(regex);
-  return parts.map((part, i) => {
-    if (part.startsWith("**") && part.endsWith("**")) {
-      return (
-        <strong key={i} className="font-bold text-foreground">
-          {part.slice(2, -2)}
-        </strong>
-      );
-    }
-    if (part.startsWith("`") && part.endsWith("`")) {
-      return (
-        <code
-          key={i}
-          className="bg-[#121313] px-1.5 py-0.5 rounded font-mono text-xs text-orange-400 border border-outline-variant/20"
-        >
-          {part.slice(1, -1)}
-        </code>
-      );
-    }
-    if (part.startsWith("[") && part.includes("](")) {
-      const match = part.match(/\[(.*?)\]\((.*?)\)/);
-      if (match) {
-        return (
-          <a
-            key={i}
-            href={match[2]}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-surface-tint hover:underline font-semibold inline-flex items-center gap-0.5"
-          >
-            {match[1]}
-            <ExternalLink className="w-3 h-3 inline-block" />
-          </a>
-        );
-      }
-    }
-    return part;
-  });
-};
-
-const getSectionIdFromHash = (hash) => {
-  if (!hash) return null;
-  const cleanHash = decodeURIComponent(hash.replace("#", "").toLowerCase());
-  const numMatch = cleanHash.match(/^(\d+)/);
-  if (numMatch) {
-    const id = parseInt(numMatch[1], 10);
-    if (id >= 1 && id <= 24) return id;
-  }
-  const found = sections.find(
-    (s) =>
-      s.name.toLowerCase().replace(/[^a-z0-9]/g, "-").includes(cleanHash) ||
-      cleanHash.includes(s.name.toLowerCase().replace(/[^a-z0-9]/g, "-"))
-  );
-  return found ? found.id : null;
-};
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+const FILTER_LABELS = ["All", "Unreviewed", "Reviewed", "Bookmarked"];
 
 export default function SystemDesignPage() {
-  const [searchQuery, setSearchQuery] = useState("");
+  // ── Topic / filter state
   const [activeSectionId, setActiveSectionId] = useState(null);
-  const [showBookmarksOnly, setShowBookmarksOnly] = useState(false);
-  const [interviewMode, setInterviewMode] = useState(false);
-  
-  const [reviewed, setReviewed] = useState(new Set());
-  const [bookmarks, setBookmarks] = useState(new Set());
-  const [expanded, setExpanded] = useState(new Set());
-  const [revealedAnswers, setRevealedAnswers] = useState(new Set());
-  const [visibleCount, setVisibleCount] = useState(25);
+  const [filter, setFilter] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [topicMenuOpen, setTopicMenuOpen] = useState(false);
 
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const mainContentRef = useRef(null);
+  // ── Question navigation state (index within the filtered list)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [answerVisible, setAnswerVisible] = useState(false);
+  const [interviewMode, setInterviewMode] = useState(true);
 
-  // Sync state from localStorage on mount
+  // ── Persistent user state (localStorage)
+  const [reviewed, setReviewed] = useState(() => new Set());
+  const [bookmarks, setBookmarks] = useState(() => new Set());
+
+  // ── Refs
+  const searchRef = useRef(null);
+  const topicRef = useRef(null);
+
+  // ── Load from localStorage on mount
   useEffect(() => {
-    const savedReviewed = localStorage.getItem("system-design-reviewed");
-    const savedBookmarks = localStorage.getItem("system-design-bookmarks");
-    const savedInterviewMode = localStorage.getItem("system-design-interview-mode");
-    if (savedReviewed) {
-      try {
-        setReviewed(new Set(JSON.parse(savedReviewed)));
-      } catch (e) {
-        console.error(e);
-      }
-    }
-    if (savedBookmarks) {
-      try {
-        setBookmarks(new Set(JSON.parse(savedBookmarks)));
-      } catch (e) {
-        console.error(e);
-      }
-    }
-    if (savedInterviewMode) {
-      setInterviewMode(savedInterviewMode === "true");
-    }
+    try {
+      const r = localStorage.getItem("sd-reviewed");
+      const b = localStorage.getItem("sd-bookmarks");
+      const im = localStorage.getItem("sd-interview-mode");
+      if (r) setReviewed(new Set(JSON.parse(r)));
+      if (b) setBookmarks(new Set(JSON.parse(b)));
+      if (im !== null) setInterviewMode(im !== "false");
+    } catch (_) {}
   }, []);
 
-  // Listen for hash changes
+  // ── Persist reviewed
+  const persistReviewed = useCallback((next) => {
+    localStorage.setItem("sd-reviewed", JSON.stringify(Array.from(next)));
+  }, []);
+
+  // ── Persist bookmarks
+  const persistBookmarks = useCallback((next) => {
+    localStorage.setItem("sd-bookmarks", JSON.stringify(Array.from(next)));
+  }, []);
+
+  // ── Persist interview mode
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      const sectionId = getSectionIdFromHash(hash);
-      setActiveSectionId(sectionId);
-      setVisibleCount(25);
+    localStorage.setItem("sd-interview-mode", String(interviewMode));
+  }, [interviewMode]);
+
+  // ── Close topic menu on outside click
+  useEffect(() => {
+    const handler = (e) => {
+      if (topicRef.current && !topicRef.current.contains(e.target)) setTopicMenuOpen(false);
     };
-
-    handleHashChange();
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
   }, []);
+
+  // ── Keyboard shortcut: Ctrl+K / Cmd+K → focus search
+  useEffect(() => {
+    const handler = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+        e.preventDefault();
+        searchRef.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, []);
+
+  // ── Derive the working question list from all filters
+  const workingQuestions = questions.filter((q) => {
+    if (activeSectionId !== null && q.sectionId !== activeSectionId) return false;
+    if (filter === "Reviewed" && !reviewed.has(q.id)) return false;
+    if (filter === "Unreviewed" && reviewed.has(q.id)) return false;
+    if (filter === "Bookmarked" && !bookmarks.has(q.id)) return false;
+    if (searchQuery.trim()) {
+      const qry = searchQuery.toLowerCase();
+      const sec = sections.find((s) => s.id === q.sectionId)?.name.toLowerCase() ?? "";
+      if (
+        !q.question.toLowerCase().includes(qry) &&
+        !q.answer.toLowerCase().includes(qry) &&
+        !sec.includes(qry)
+      )
+        return false;
+    }
+    return true;
+  });
+
+  // ── Clamp current index whenever the list changes
+  useEffect(() => {
+    setCurrentIndex(0);
+    setAnswerVisible(false);
+  }, [activeSectionId, filter, searchQuery]);
+
+  const currentQuestion = workingQuestions[currentIndex] ?? null;
+
+  // ── Navigation helpers
+  const goNext = useCallback(() => {
+    if (currentIndex < workingQuestions.length - 1) {
+      setCurrentIndex((i) => i + 1);
+      setAnswerVisible(false);
+    }
+  }, [currentIndex, workingQuestions.length]);
+
+  const goPrev = useCallback(() => {
+    if (currentIndex > 0) {
+      setCurrentIndex((i) => i - 1);
+      setAnswerVisible(false);
+    }
+  }, [currentIndex]);
+
+  // Keyboard arrow navigation
+  useEffect(() => {
+    const handler = (e) => {
+      if (document.activeElement === searchRef.current) return;
+      if (e.key === "ArrowRight") goNext();
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === " ") { e.preventDefault(); setAnswerVisible((v) => !v); }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [goNext, goPrev]);
+
+  const randomQuestion = () => {
+    if (!workingQuestions.length) return;
+    const idx = Math.floor(Math.random() * workingQuestions.length);
+    setCurrentIndex(idx);
+    setAnswerVisible(false);
+    toast.success(`Jumped to question #${workingQuestions[idx].number}`);
+  };
 
   const toggleReviewed = (id) => {
     setReviewed((prev) => {
       const next = new Set(prev);
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-      localStorage.setItem("system-design-reviewed", JSON.stringify(Array.from(next)));
+      next.has(id) ? next.delete(id) : next.add(id);
+      persistReviewed(next);
       return next;
     });
   };
@@ -195,802 +223,502 @@ export default function SystemDesignPage() {
   const toggleBookmark = (id) => {
     setBookmarks((prev) => {
       const next = new Set(prev);
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-      localStorage.setItem("system-design-bookmarks", JSON.stringify(Array.from(next)));
+      next.has(id) ? next.delete(id) : next.add(id);
+      persistBookmarks(next);
       return next;
     });
   };
 
-  const toggleCard = (id) => {
-    setExpanded((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-      return next;
-    });
-  };
+  // ── Global progress (never affected by filters)
+  const globalReviewed = reviewed.size;
+  const globalTotal = questions.length;
+  const globalPct =
+    globalReviewed === 0 ? 0 : Math.max(1, Math.ceil((globalReviewed / globalTotal) * 100));
 
-  const toggleRevealAnswer = (id) => {
-    setRevealedAnswers((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-      return next;
-    });
-  };
+  // ── Active section meta
+  const activeSection = sections.find((s) => s.id === activeSectionId) ?? null;
+  const sectionQuestions = activeSectionId
+    ? questions.filter((q) => q.sectionId === activeSectionId)
+    : questions;
+  const sectionReviewed = sectionQuestions.filter((q) => reviewed.has(q.id)).length;
 
+  const isReviewed = currentQuestion ? reviewed.has(currentQuestion.id) : false;
+  const isBookmarked = currentQuestion ? bookmarks.has(currentQuestion.id) : false;
+
+  // ── Topic select helper
   const selectSection = (id) => {
-    if (id === null) {
-      window.location.hash = "";
-      setActiveSectionId(null);
-    } else {
-      const section = sections.find((s) => s.id === id);
-      if (section) {
-        const slug = section.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-        window.location.hash = `${id}-${slug}`;
-      }
-    }
-    setVisibleCount(25);
-    setMobileMenuOpen(false);
+    setActiveSectionId(id);
+    setFilter("All");
+    setTopicMenuOpen(false);
   };
 
-  const resetProgress = () => {
-    if (window.confirm("Are you sure you want to reset all your progress and bookmarks?")) {
-      setReviewed(new Set());
-      setBookmarks(new Set());
-      setRevealedAnswers(new Set());
-      localStorage.removeItem("system-design-reviewed");
-      localStorage.removeItem("system-design-bookmarks");
-      toast.success("Progress reset successfully!");
-    }
-  };
-
-  const handleRandomQuestion = () => {
-    if (filteredQuestions.length === 0) {
-      toast.error("No questions in the active filter list to select from.");
-      return;
-    }
-    const randomIndex = Math.floor(Math.random() * filteredQuestions.length);
-    const randomQuestion = filteredQuestions[randomIndex];
-
-    setExpanded((prev) => {
-      const next = new Set(prev);
-      next.add(randomQuestion.id);
-      return next;
-    });
-
-    if (interviewMode) {
-      setRevealedAnswers((prev) => {
-        const next = new Set(prev);
-        next.delete(randomQuestion.id); // hide answer initially for the random pick
-        return next;
-      });
-    }
-
-    setTimeout(() => {
-      const element = document.getElementById(`question-${randomQuestion.id}`);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "center" });
-        element.classList.add("ring-2", "ring-surface-tint");
-        setTimeout(() => {
-          element.classList.remove("ring-2", "ring-surface-tint");
-        }, 2000);
-      }
-    }, 150);
-
-    toast.success(`Shuffle picked Question #${randomQuestion.number}`);
-  };
-
-  // Filtered dataset mapping
-  const filteredQuestions = questions.filter((q) => {
-    if (activeSectionId !== null && q.sectionId !== activeSectionId) {
-      return false;
-    }
-    if (showBookmarksOnly && !bookmarks.has(q.id)) {
-      return false;
-    }
-    if (searchQuery.trim() !== "") {
-      const query = searchQuery.toLowerCase();
-      const qText = q.question.toLowerCase();
-      const aText = q.answer.toLowerCase();
-      const sName = sections.find((s) => s.id === q.sectionId)?.name.toLowerCase() || "";
-
-      if (!qText.includes(query) && !aText.includes(query) && !sName.includes(query)) {
-        return false;
-      }
-    }
-    return true;
-  });
-
-  const activeSection = sections.find((s) => s.id === activeSectionId);
-  const visibleQuestions = filteredQuestions.slice(0, visibleCount);
-
-  // Progress metrics calculation
-  const overallReviewed = reviewed.size;
-  const overallTotal = questions.length;
-  const overallPercent = overallTotal > 0 ? Math.round((overallReviewed / overallTotal) * 100) : 0;
-
-  const getSectionProgress = (sectionId) => {
-    const sectionQuestions = questions.filter((q) => q.sectionId === sectionId);
-    const sectionReviewed = sectionQuestions.filter((q) => reviewed.has(q.id)).length;
-    return {
-      reviewed: sectionReviewed,
-      total: sectionQuestions.length,
-      percent:
-        sectionQuestions.length > 0
-          ? Math.round((sectionReviewed / sectionQuestions.length) * 100)
-          : 0,
-    };
-  };
-
-  const handleStartLearning = () => {
-    mainContentRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  // ── Compact section label
+  const activeSectionLabel = activeSection
+    ? `${activeSection.id}. ${activeSection.name}`
+    : "All Topics";
 
   return (
-    <div className="min-h-screen bg-mn-background text-on-background selection:bg-surface-tint/30">
+    <div className="min-h-screen bg-mn-background text-on-background">
       <Navbar />
 
-      {/* ── HERO SECTION ── */}
-      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl border-b border-outline-variant/40">
-        {/* Decorative Circles */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full border border-surface-tint/5 translate-x-1/4 -translate-y-1/4 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full border border-surface-tint/5 -translate-x-1/3 translate-y-1/3 pointer-events-none" />
+      {/* ════════════════════════════════════════════════
+          HERO — compact
+      ════════════════════════════════════════════════ */}
+      <section className="pt-[100px] md:pt-[130px] pb-10 md:pb-14 px-4 sm:px-8 bg-[#0f1010] border-b border-outline-variant/30">
+        <div className="max-w-3xl mx-auto text-center space-y-5">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-outline-variant/50 bg-surface-container text-[11px] font-semibold text-on-surface-variant uppercase tracking-widest">
+            <BookOpen className="w-3.5 h-3.5 text-surface-tint" />
+            Mimir Nest · Interview Prep
+          </div>
 
-        <div className="max-w-5xl mx-auto text-center relative z-10 space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant/60 text-xs font-semibold text-surface-tint tracking-wider uppercase mx-auto"
-          >
-            <Sparkles className="w-4.5 h-4.5 text-surface-tint" />
-            <span>Mimir Nest Learning Suite</span>
-          </motion.div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight tracking-tight">
+            500+ System Design<br />
+            <span className="text-surface-tint">Interview Questions &amp; Answers</span>
+          </h1>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="font-display-lg text-display-lg-mobile md:text-headline-lg lg:text-display-lg text-foreground font-bold tracking-tight leading-tight"
-          >
-            500+ System Design <br className="hidden sm:inline" />
-            <span className="text-surface-tint">Interview Questions & Answers</span>
-          </motion.h1>
+          <p className="text-sm sm:text-base text-on-surface-variant leading-relaxed max-w-2xl mx-auto">
+            Prepare for system design interviews with 502+ questions covering scalability, databases,
+            caching, distributed systems, networking, APIs, HLD, LLD, and advanced architecture.
+          </p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="font-body-lg text-body-md md:text-body-lg text-on-surface-variant max-w-3xl mx-auto leading-relaxed"
-          >
-            A structured system design preparation guide covering fundamentals, distributed systems,
-            databases, scalability, networking, architecture, HLD, LLD, and advanced interview topics.
-          </motion.p>
+          {/* Compact metadata row */}
+          <div className="flex items-center justify-center gap-5 text-sm text-on-surface-variant/80 pt-1">
+            <span><span className="text-foreground font-bold">502</span> Questions</span>
+            <span className="opacity-30">·</span>
+            <span><span className="text-foreground font-bold">24</span> Topics</span>
+            <span className="opacity-30">·</span>
+            <span>Basic → Advanced</span>
+          </div>
 
-          {/* Stat Badges */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto pt-6"
-          >
-            <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-4 flex flex-col items-center">
-              <span className="text-2xl font-bold text-surface-tint">502+</span>
-              <span className="text-xs text-on-surface-variant/80 mt-1">Questions</span>
-            </div>
-            <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-4 flex flex-col items-center">
-              <span className="text-2xl font-bold text-surface-tint">24</span>
-              <span className="text-xs text-on-surface-variant/80 mt-1">Sections</span>
-            </div>
-            <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-4 flex flex-col items-center">
-              <span className="text-xl font-bold text-foreground">Basic → Adv</span>
-              <span className="text-xs text-on-surface-variant/80 mt-1">Difficulty</span>
-            </div>
-            <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-4 flex flex-col items-center">
-              <span className="text-xl font-bold text-foreground">100% Ready</span>
-              <span className="text-xs text-on-surface-variant/80 mt-1">Interview Prep</span>
-            </div>
-          </motion.div>
-
-          {/* Action CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-wrap items-center justify-center gap-4 pt-4"
-          >
+          {/* CTAs */}
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <Button
-              className="bg-primary text-primary-foreground hover:opacity-90 rounded-xl px-8 h-12 font-bold transition-all shadow-md"
-              onClick={handleStartLearning}
+              className="bg-primary text-primary-foreground hover:opacity-90 rounded-xl px-7 h-11 font-semibold shadow"
+              onClick={() => searchRef.current?.focus()}
             >
-              Start Learning
+              Start Practicing
             </Button>
             <Button
               variant="outline"
-              className="border-outline border-outline-variant/60 hover:bg-surface-container-high rounded-xl px-8 h-12 font-semibold text-foreground"
-              onClick={() => {
-                setActiveSectionId(null);
-                window.location.hash = "all-topics";
-                handleStartLearning();
-              }}
+              className="border-outline-variant/60 hover:bg-surface-container-high rounded-xl px-7 h-11 font-semibold text-foreground"
+              onClick={() => setTopicMenuOpen(true)}
             >
               Browse Topics
             </Button>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* ── WORKSPACE CONTENT ── */}
-      <main ref={mainContentRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        
-        {/* Progress Callout */}
-        <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-3xl p-6 mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
-          <div className="space-y-1.5 flex-1">
-            <h3 className="font-headline-md text-base md:text-lg font-bold text-foreground flex items-center gap-2">
-              <Award className="w-5 h-5 text-surface-tint" />
-              Your Interview Prep Progress
-            </h3>
-            <p className="text-xs text-on-surface-variant">
-              Complete sections to test your design fundamentals. Progress persists locally.
-            </p>
-            <div className="flex items-center gap-3 pt-2">
-              <Progress value={overallPercent} className="h-2 bg-surface-container flex-1 rounded-full [&>div]:bg-surface-tint" />
-              <span className="text-sm font-bold text-surface-tint shrink-0">{overallPercent}%</span>
+      {/* ════════════════════════════════════════════════
+          PROGRESS STRIP — always global, always visible
+      ════════════════════════════════════════════════ */}
+      <div className="bg-[#111213] border-b border-outline-variant/30 px-4 sm:px-8 py-3">
+        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5">
+          <div className="flex items-center gap-3 flex-1 min-w-0">
+            <span className="text-xs text-on-surface-variant font-medium shrink-0">Your progress</span>
+            {/* Bar */}
+            <div className="flex-1 h-1.5 bg-surface-container rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-surface-tint rounded-full"
+                animate={{ width: `${globalPct}%` }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              />
+            </div>
+            <span className="text-xs font-bold text-foreground shrink-0">
+              {globalReviewed} <span className="text-on-surface-variant font-normal">/ {globalTotal}</span>
+            </span>
+          </div>
+
+          {/* Quick filters */}
+          <div className="flex items-center gap-1.5 shrink-0">
+            {FILTER_LABELS.map((label) => (
+              <button
+                key={label}
+                onClick={() => { setFilter(label); setCurrentIndex(0); setAnswerVisible(false); }}
+                className={`text-[11px] px-2.5 py-1 rounded-full font-semibold transition-colors border ${
+                  filter === label
+                    ? "bg-surface-tint/10 text-surface-tint border-surface-tint/30"
+                    : "text-on-surface-variant border-outline-variant/30 hover:text-foreground hover:border-outline-variant/60 bg-transparent"
+                }`}
+              >
+                {label}
+                {label === "Bookmarked" && bookmarks.size > 0 && (
+                  <span className="ml-1 text-[10px]">({bookmarks.size})</span>
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ════════════════════════════════════════════════
+          SEARCH + TOPIC NAV
+      ════════════════════════════════════════════════ */}
+      <div className="bg-[#0f1010] px-4 sm:px-8 py-4 border-b border-outline-variant/20">
+        <div className="max-w-4xl mx-auto space-y-3">
+          {/* Search */}
+          <div className="relative">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-on-surface-variant/60 pointer-events-none" />
+            <input
+              ref={searchRef}
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search system design questions, topics or answers…"
+              className="w-full h-11 pl-10 pr-24 bg-surface-container border border-outline-variant/40 rounded-2xl text-sm text-foreground placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-surface-tint/40 focus:border-surface-tint/60 transition-all"
+            />
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
+              {searchQuery && (
+                <button onClick={() => setSearchQuery("")} className="text-on-surface-variant/60 hover:text-foreground transition-colors p-0.5">
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+              <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono border border-outline-variant/40 text-on-surface-variant/60 bg-surface-container-lowest">
+                ⌘K
+              </kbd>
             </div>
           </div>
-          
-          <div className="flex flex-wrap gap-3 shrink-0 items-center justify-end">
-            <div className="px-4 py-2 bg-surface-container rounded-2xl border border-outline-variant/30 text-xs font-semibold text-foreground">
-              Reviewed: <span className="text-surface-tint text-sm font-bold">{overallReviewed}</span> / {overallTotal}
-            </div>
-            <div className="px-4 py-2 bg-surface-container rounded-2xl border border-outline-variant/30 text-xs font-semibold text-foreground">
-              Bookmarked: <span className="text-surface-tint text-sm font-bold">{bookmarks.size}</span> questions
-            </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-on-surface-variant hover:text-rose-500 hover:bg-rose-500/10 rounded-xl h-9 w-9"
-              title="Reset progress"
-              onClick={resetProgress}
+
+          {/* Compact topic nav */}
+          <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide pb-0.5" ref={topicRef}>
+            {/* All topics pill */}
+            <button
+              onClick={() => selectSection(null)}
+              className={`shrink-0 text-xs px-3 py-1.5 rounded-full font-semibold border transition-all whitespace-nowrap ${
+                activeSectionId === null
+                  ? "bg-surface-tint text-[#0f1010] border-surface-tint shadow"
+                  : "text-on-surface-variant border-outline-variant/40 hover:text-foreground hover:border-outline-variant/70 bg-transparent"
+              }`}
             >
-              <RotateCcw className="w-4 h-4" />
-            </Button>
+              All · {questions.length}
+            </button>
+
+            {sections.map((sec) => {
+              const isActive = activeSectionId === sec.id;
+              const shortName = sec.name
+                .replace(" (Basic)", "")
+                .replace(" & ", " & ")
+                .split(" ")[0];
+              return (
+                <button
+                  key={sec.id}
+                  onClick={() => selectSection(sec.id)}
+                  className={`shrink-0 text-xs px-3 py-1.5 rounded-full font-semibold border transition-all whitespace-nowrap ${
+                    isActive
+                      ? "bg-surface-tint text-[#0f1010] border-surface-tint shadow"
+                      : "text-on-surface-variant border-outline-variant/40 hover:text-foreground hover:border-outline-variant/70 bg-transparent"
+                  }`}
+                >
+                  {shortName} · {sec.questionsCount}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* ════════════════════════════════════════════════
+          QUESTION WORKSPACE — primary content area
+      ════════════════════════════════════════════════ */}
+      <main className="max-w-3xl mx-auto px-4 sm:px-6 py-10 space-y-6">
+
+        {/* Section header */}
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <h2 className="text-[11px] font-bold text-surface-tint uppercase tracking-widest mb-1">
+              {activeSection ? activeSection.name : "All Topics"}
+            </h2>
+            <p className="text-xs text-on-surface-variant">
+              {workingQuestions.length} question{workingQuestions.length !== 1 ? "s" : ""}
+              {activeSectionId && (
+                <> &nbsp;·&nbsp; <span className="text-foreground font-semibold">{sectionReviewed}/{sectionQuestions.length}</span> reviewed</>
+              )}
+            </p>
+          </div>
+
+          {/* Interview Mode toggle + random */}
+          <div className="flex items-center gap-3 shrink-0">
+            <button
+              onClick={() => setInterviewMode((v) => !v)}
+              className={`text-[11px] px-3 py-1.5 rounded-full font-semibold border transition-all ${
+                interviewMode
+                  ? "bg-surface-tint/10 text-surface-tint border-surface-tint/30"
+                  : "text-on-surface-variant border-outline-variant/30 hover:text-foreground"
+              }`}
+            >
+              {interviewMode ? "Interview mode ON" : "Interview mode OFF"}
+            </button>
+
+            <button
+              onClick={randomQuestion}
+              title="Random question"
+              className="p-1.5 rounded-full text-on-surface-variant hover:text-surface-tint border border-outline-variant/30 hover:border-surface-tint/30 hover:bg-surface-tint/5 transition-all"
+            >
+              <Shuffle className="w-3.5 h-3.5" />
+            </button>
           </div>
         </div>
 
-        {/* Dynamic Workspace Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          {/* ── TOPIC SIDEBAR (Desktop) ── */}
-          <aside className="hidden lg:block lg:col-span-4 sticky top-[80px] h-[calc(100vh-120px)] overflow-y-auto pr-2 space-y-4">
-            <div className="flex items-center justify-between pb-2 border-b border-outline-variant/30">
-              <h4 className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
-                Topics ({sections.length})
-              </h4>
-              <button
-                className={`text-xs font-semibold hover:text-surface-tint transition-colors ${
-                  activeSectionId === null ? "text-surface-tint" : "text-on-surface-variant"
-                }`}
-                onClick={() => selectSection(null)}
-              >
-                Clear Filters
-              </button>
-            </div>
-
-            <div className="space-y-1.5">
-              {/* All questions button */}
-              <button
-                className={`w-full text-left p-3.5 rounded-2xl border transition-all flex justify-between items-center ${
-                  activeSectionId === null
-                    ? "bg-[#1f1a18] border-surface-tint text-surface-tint font-bold shadow-sm"
-                    : "bg-surface-container border-outline-variant/20 text-foreground hover:bg-surface-container-high hover:border-outline-variant/40"
-                }`}
-                onClick={() => selectSection(null)}
-              >
-                <div className="flex items-center gap-2">
-                  <Layers className="w-4 h-4 shrink-0" />
-                  <span className="text-sm truncate max-w-[200px]">All Topics</span>
+        {/* ── The question card ── */}
+        {currentQuestion ? (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentQuestion.id}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.2 }}
+              className="bg-surface-container-lowest border border-outline-variant/40 rounded-3xl overflow-hidden shadow-sm"
+            >
+              {/* Card top strip */}
+              <div className="bg-[#121313] border-b border-outline-variant/20 px-6 py-3 flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <span className="font-mono text-[11px] text-on-surface-variant/60">
+                    #{String(currentQuestion.number).padStart(3, "0")}
+                  </span>
+                  <span className="opacity-20 text-xs">·</span>
+                  <span className="text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider">
+                    {sections.find((s) => s.id === currentQuestion.sectionId)?.name ?? ""}
+                  </span>
                 </div>
-                <Badge variant="outline" className="text-xs border-outline-variant/60 font-semibold bg-surface-container-lowest">
-                  {questions.length}
-                </Badge>
-              </button>
 
-              {/* Individual Section Buttons */}
-              {sections.map((sec) => {
-                const isActive = activeSectionId === sec.id;
-                const prog = getSectionProgress(sec.id);
-                return (
+                <div className="flex items-center gap-1.5">
+                  {/* Bookmark */}
                   <button
-                    key={sec.id}
-                    className={`w-full text-left p-3.5 rounded-2xl border transition-all ${
-                      isActive
-                        ? "bg-[#1f1a18] border-surface-tint text-surface-tint font-bold shadow-sm"
-                        : "bg-surface-container border-outline-variant/20 text-foreground hover:bg-surface-container-high hover:border-outline-variant/40"
+                    onClick={() => toggleBookmark(currentQuestion.id)}
+                    title={isBookmarked ? "Remove bookmark" : "Bookmark"}
+                    aria-label={isBookmarked ? "Remove bookmark" : "Bookmark question"}
+                    className={`p-1.5 rounded-lg transition-all border ${
+                      isBookmarked
+                        ? "bg-surface-tint/10 text-surface-tint border-surface-tint/30"
+                        : "text-on-surface-variant/50 border-outline-variant/20 hover:text-surface-tint hover:border-surface-tint/30"
                     }`}
-                    onClick={() => selectSection(sec.id)}
                   >
-                    <div className="flex justify-between items-start gap-2 mb-1.5">
-                      <span className="text-sm line-clamp-2 leading-tight">
-                        {sec.id}. {sec.name}
-                      </span>
-                      <Badge variant="outline" className="text-xs shrink-0 border-outline-variant/60 bg-surface-container-lowest font-medium">
-                        {sec.questionsCount}
-                      </Badge>
-                    </div>
-
-                    {/* Progress bar per topic */}
-                    <div className="flex items-center gap-2 mt-2">
-                      <div className="h-1 bg-surface-container-lowest rounded-full flex-1 overflow-hidden">
-                        <div
-                          className="h-full bg-surface-tint transition-all duration-300"
-                          style={{ width: `${prog.percent}%` }}
-                        />
-                      </div>
-                      <span className="text-[10px] text-on-surface-variant font-medium shrink-0">
-                        {prog.reviewed}/{prog.total}
-                      </span>
-                    </div>
+                    <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? "fill-current" : ""}`} />
                   </button>
-                );
-              })}
-            </div>
-          </aside>
 
-          {/* ── MAIN WORKSPACE CONTENT ── */}
-          <div className="lg:col-span-8 space-y-6">
-            
-            {/* Top Toolbar: Search + Controls */}
-            <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-3xl p-5 md:p-6 space-y-4">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <div className="relative flex-1">
-                  <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant w-4.5 h-4.5" />
-                  <Input
-                    placeholder="Search system design questions, topics, or answers..."
-                    className="pl-10 h-11 border-outline-variant/40 bg-surface-container rounded-2xl text-foreground text-sm font-medium focus-visible:ring-2 focus-visible:ring-surface-tint"
-                    value={searchQuery}
-                    onChange={(e) => {
-                      setSearchQuery(e.target.value);
-                      setVisibleCount(25);
-                    }}
-                  />
-                </div>
-                
-                <div className="flex gap-2">
-                  {/* Shuffle Question */}
-                  <Button
-                    variant="outline"
-                    className="border-outline-variant/40 hover:bg-surface-container-high rounded-2xl h-11 px-4 text-sm font-semibold flex items-center gap-2 text-foreground w-full sm:w-auto"
-                    onClick={handleRandomQuestion}
+                  {/* Reviewed */}
+                  <button
+                    onClick={() => toggleReviewed(currentQuestion.id)}
+                    title={isReviewed ? "Mark as unreviewed" : "Mark as reviewed"}
+                    aria-label={isReviewed ? "Mark as unreviewed" : "Mark as reviewed"}
+                    className={`p-1.5 rounded-lg transition-all border ${
+                      isReviewed
+                        ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/30"
+                        : "text-on-surface-variant/50 border-outline-variant/20 hover:text-emerald-400 hover:border-emerald-500/20"
+                    }`}
                   >
-                    <Shuffle className="w-4 h-4 text-surface-tint" />
-                    <span>Shuffle</span>
-                  </Button>
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                  </button>
                 </div>
               </div>
 
-              {/* Toggles & Options */}
-              <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-outline-variant/20 text-sm">
-                <div className="flex flex-wrap items-center gap-6">
-                  {/* Bookmarks only Toggle */}
-                  <label className="flex items-center gap-2.5 cursor-pointer font-medium text-foreground select-none">
-                    <input
-                      type="checkbox"
-                      className="sr-only peer"
-                      checked={showBookmarksOnly}
-                      onChange={(e) => {
-                        setShowBookmarksOnly(e.target.checked);
-                        setVisibleCount(25);
-                      }}
-                    />
-                    <div className="w-9 h-5 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-surface-tint/90 peer-checked:after:bg-on-primary relative transition-colors"></div>
-                    <span className="flex items-center gap-1">
-                      <Bookmark className="w-3.5 h-3.5 text-surface-tint" />
-                      Bookmarks only
-                    </span>
-                  </label>
-
-                  {/* Interview Mode Toggle */}
-                  <label className="flex items-center gap-2.5 cursor-pointer font-medium text-foreground select-none">
-                    <input
-                      type="checkbox"
-                      className="sr-only peer"
-                      checked={interviewMode}
-                      onChange={(e) => {
-                        setInterviewMode(e.target.checked);
-                        localStorage.setItem("system-design-interview-mode", e.target.checked.toString());
-                      }}
-                    />
-                    <div className="w-9 h-5 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-surface-tint/90 peer-checked:after:bg-on-primary relative transition-colors"></div>
-                    <span className="flex items-center gap-1">
-                      <Terminal className="w-3.5 h-3.5 text-surface-tint" />
-                      Interview Mode
-                    </span>
-                  </label>
-                </div>
-
-                <div className="text-xs text-on-surface-variant font-medium">
-                  Showing <span className="text-foreground font-semibold">{filteredQuestions.length}</span> questions
-                </div>
-              </div>
-            </div>
-
-            {/* Mobile Topic Navigation (Horizontal Swiper/Dropdown) */}
-            <div className="lg:hidden bg-surface-container-lowest border border-outline-variant/40 rounded-3xl p-4 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
-                  Filter by Topic
-                </span>
-                <Button
-                  variant="ghost"
-                  className="text-xs font-bold text-surface-tint h-7 p-0"
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                >
-                  {mobileMenuOpen ? "Hide Topics" : "Change Topic"}
-                </Button>
-              </div>
-
-              {/* Selected Topic Badge */}
-              <div
-                className="p-3 bg-surface-container rounded-2xl border border-outline-variant/30 text-sm font-semibold flex items-center justify-between cursor-pointer"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              >
-                <span className="truncate">
-                  {activeSectionId ? `${activeSectionId}. ${activeSection.name}` : "All Topics"}
-                </span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileMenuOpen ? "rotate-180" : ""}`} />
-              </div>
-
-              {/* Collapsible Mobile Topics List */}
-              <AnimatePresence>
-                {mobileMenuOpen && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    className="overflow-hidden space-y-1.5 pt-2"
-                  >
-                    <button
-                      className={`w-full text-left p-3 rounded-xl border text-sm flex justify-between items-center ${
-                        activeSectionId === null
-                          ? "bg-[#1f1a18] border-surface-tint text-surface-tint font-bold"
-                          : "bg-surface-container border-outline-variant/20 text-foreground"
-                      }`}
-                      onClick={() => selectSection(null)}
-                    >
-                      <span>All Topics</span>
-                      <Badge variant="outline" className="text-xs border-outline-variant/60 font-semibold bg-surface-container-lowest">
-                        {questions.length}
-                      </Badge>
-                    </button>
-
-                    <div className="max-h-[300px] overflow-y-auto space-y-1">
-                      {sections.map((sec) => {
-                        const isActive = activeSectionId === sec.id;
-                        return (
-                          <button
-                            key={sec.id}
-                            className={`w-full text-left p-3 rounded-xl border text-sm flex justify-between items-center ${
-                              isActive
-                                ? "bg-[#1f1a18] border-surface-tint text-surface-tint font-bold"
-                                : "bg-surface-container border-outline-variant/20 text-foreground"
-                            }`}
-                            onClick={() => selectSection(sec.id)}
-                          >
-                            <span className="truncate pr-4">
-                              {sec.id}. {sec.name}
-                            </span>
-                            <Badge variant="outline" className="text-xs border-outline-variant/60 font-semibold bg-surface-container-lowest">
-                              {sec.questionsCount}
-                            </Badge>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </motion.div>
+              {/* Question body */}
+              <div className="px-6 md:px-8 pt-8 pb-6 space-y-6">
+                {/* HLD / LLD badges */}
+                {(currentQuestion.sectionId === 20 || currentQuestion.sectionId === 21) && (
+                  <div className={`inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-lg border ${
+                    currentQuestion.sectionId === 20
+                      ? "text-[#d88732] bg-[#d88732]/5 border-[#d88732]/20"
+                      : "text-[#4b9fd5] bg-[#4b9fd5]/5 border-[#4b9fd5]/20"
+                  }`}>
+                    {currentQuestion.sectionId === 20 ? "System Design Case Study" : "Low-Level Design"}
+                  </div>
                 )}
-              </AnimatePresence>
-            </div>
 
-            {/* ── RECOMMENDED RESOURCES CARD ── */}
-            {activeSection && activeSection.videos.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-gradient-to-r from-[#191513] to-surface-container-lowest border border-[#ff5a36]/20 rounded-3xl p-5 md:p-6"
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <Video className="w-5 h-5 text-surface-tint" />
-                  <h4 className="font-bold text-foreground text-base">
-                    Recommended Resources ({activeSection.name})
-                  </h4>
-                </div>
-                <p className="text-xs text-on-surface-variant mb-4 leading-relaxed">
-                  These verified channels/playlists provide excellent video walk-throughs for topics in this section:
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {activeSection.videos.map((vid, vIdx) => (
-                    <a
-                      key={vIdx}
-                      href={vid.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between p-3 rounded-xl bg-surface-container/60 hover:bg-surface-container border border-outline-variant/20 hover:border-[#ff5a36]/30 transition-all text-xs font-semibold text-foreground group"
-                    >
-                      <span className="truncate group-hover:text-surface-tint transition-colors">{vid.name}</span>
-                      <ExternalLink className="w-3.5 h-3.5 text-on-surface-variant group-hover:text-surface-tint transition-colors shrink-0" />
-                    </a>
-                  ))}
-                </div>
-              </motion.div>
-            )}
+                {/* Question text */}
+                <h3 className="text-xl md:text-2xl font-bold text-foreground leading-snug">
+                  {currentQuestion.question}
+                </h3>
 
-            {/* ── QUESTIONS LIST ── */}
-            <div className="space-y-4">
-              <AnimatePresence mode="popLayout">
-                {visibleQuestions.map((q) => {
-                  const isExpanded = expanded.has(q.id);
-                  const isBookmarked = bookmarks.has(q.id);
-                  const isReviewed = reviewed.has(q.id);
-                  const isAnswerRevealed = revealedAnswers.has(q.id);
-
-                  // Formatting question indices
-                  const numStr = q.number < 10 ? `0${q.number}` : `${q.number}`;
-                  const secName = sections.find((s) => s.id === q.sectionId)?.name || "";
-
-                  // Custom Styling for specific sections (HLD case studies or LLD OOP design)
-                  const isHLD = q.sectionId === 20;
-                  const isLLD = q.sectionId === 21;
-
-                  let cardBorderClass = "border-outline-variant/30";
-                  let cardHeaderBg = "";
-                  
-                  if (isHLD) {
-                    cardBorderClass = "border-[#d88732]/30 hover:border-[#d88732]/50";
-                    cardHeaderBg = "bg-[#181410]/40";
-                  } else if (isLLD) {
-                    cardBorderClass = "border-[#4b7a9f]/30 hover:border-[#4b7a9f]/50";
-                    cardHeaderBg = "bg-[#11161a]/40";
-                  }
-
-                  return (
+                {/* Answer area */}
+                <AnimatePresence>
+                  {!interviewMode || answerVisible ? (
                     <motion.div
-                      key={q.id}
-                      id={`question-${q.id}`}
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -15 }}
-                      className={`bg-surface-container-lowest rounded-3xl border ${cardBorderClass} overflow-hidden shadow-sm hover:shadow-[0_4px_20px_rgba(0,0,0,0.2)] transition-shadow duration-300`}
+                      key="answer"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden"
                     >
-                      {/* Card Header Area */}
-                      <div
-                        className={`p-5 md:p-6 cursor-pointer select-none transition-colors ${cardHeaderBg} hover:bg-surface-container/30`}
-                        onClick={() => toggleCard(q.id)}
-                      >
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="space-y-2 flex-1">
-                            
-                            {/* Meta row */}
-                            <div className="flex flex-wrap items-center gap-2">
-                              <span className="font-mono text-xs font-bold text-surface-tint">
-                                #{numStr}
-                              </span>
-                              
-                              <Badge
-                                variant="outline"
-                                className={`text-[10px] py-0.5 px-2 font-medium bg-surface-container-lowest ${
-                                  isHLD
-                                    ? "text-[#d88732] border-[#d88732]/30"
-                                    : isLLD
-                                    ? "text-[#4b7a9f] border-[#4b7a9f]/30"
-                                    : "text-on-surface-variant/80 border-outline-variant/60"
-                                }`}
-                              >
-                                {isHLD ? "High-Level Design" : isLLD ? "Low-Level Design" : secName}
-                              </Badge>
+                      <div className="pt-2 space-y-4">
+                        {/* HLD / LLD notice */}
+                        {currentQuestion.sectionId === 20 && (
+                          <p className="text-[11px] text-[#d88732]/80 italic border-l-2 border-[#d88732]/30 pl-3">
+                            Brief conceptual outline — expand in your own practice session with capacity estimation, diagrams, and trade-off discussion.
+                          </p>
+                        )}
 
-                              {isReviewed && (
-                                <Badge className="bg-emerald-500/10 hover:bg-emerald-500/15 text-emerald-500 border border-emerald-500/20 text-[10px] py-0.5 px-2 flex items-center gap-0.5">
-                                  <CheckCircle className="w-2.5 h-2.5" />
-                                  Reviewed
-                                </Badge>
-                              )}
-                            </div>
+                        <AnswerText text={currentQuestion.answer} />
 
-                            {/* Question Title */}
-                            <h3 className="font-headline-md text-base md:text-lg font-bold text-foreground leading-snug">
-                              {q.question}
-                            </h3>
-                          </div>
+                        {/* In-answer action row */}
+                        <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-outline-variant/20">
+                          <button
+                            onClick={() => toggleReviewed(currentQuestion.id)}
+                            className={`flex items-center gap-2 text-xs px-4 py-2 rounded-xl font-semibold border transition-all ${
+                              isReviewed
+                                ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/30"
+                                : "text-on-surface-variant border-outline-variant/30 hover:text-emerald-400 hover:border-emerald-500/20"
+                            }`}
+                          >
+                            <CheckCircle2 className="w-3.5 h-3.5" />
+                            {isReviewed ? "Reviewed ✓" : "Mark as reviewed"}
+                          </button>
 
-                          <div className="flex items-center gap-1.5 shrink-0 pt-0.5" onClick={(e) => e.stopPropagation()}>
-                            {/* Bookmark Toggle */}
+                          {interviewMode && (
                             <button
-                              className={`p-2 rounded-xl transition-all border ${
-                                isBookmarked
-                                  ? "bg-[#ff5a36]/10 text-surface-tint border-[#ff5a36]/30"
-                                  : "text-on-surface-variant hover:text-foreground border-outline-variant/20 hover:bg-surface-container"
-                              }`}
-                              onClick={() => toggleBookmark(q.id)}
-                              aria-label="Bookmark question"
+                              onClick={() => setAnswerVisible(false)}
+                              className="flex items-center gap-2 text-xs text-on-surface-variant/60 hover:text-foreground transition-colors"
                             >
-                              <Bookmark className={`w-4 h-4 ${isBookmarked ? "fill-current" : ""}`} />
+                              <Eye className="w-3.5 h-3.5" />
+                              Hide answer
                             </button>
-
-                            {/* Mark reviewed toggle */}
-                            <button
-                              className={`p-2 rounded-xl transition-all border ${
-                                isReviewed
-                                  ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/30"
-                                  : "text-on-surface-variant hover:text-foreground border-outline-variant/20 hover:bg-surface-container"
-                              }`}
-                              onClick={() => toggleReviewed(q.id)}
-                              aria-label="Mark as reviewed"
-                            >
-                              <CheckCircle className="w-4 h-4" />
-                            </button>
-
-                            {/* Expand toggle icon */}
-                            <button
-                              className="p-2 rounded-xl border border-outline-variant/20 text-on-surface-variant hover:text-foreground hover:bg-surface-container"
-                              onClick={() => toggleCard(q.id)}
-                              aria-label="Toggle answer details"
-                            >
-                              {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                            </button>
-                          </div>
+                          )}
                         </div>
                       </div>
-
-                      {/* Card Expandable Content */}
-                      <AnimatePresence initial={false}>
-                        {isExpanded && (
-                          <motion.div
-                            initial={{ height: 0 }}
-                            animate={{ height: "auto" }}
-                            exit={{ height: 0 }}
-                            className="overflow-hidden border-t border-outline-variant/20"
-                          >
-                            <div className="p-6 md:p-8 bg-surface-container/20 space-y-4">
-                              
-                              {/* Custom practice alert style for Section 20 HLD */}
-                              {isHLD && (
-                                <div className="p-4 rounded-2xl bg-[#1c1813] border border-[#d88732]/25 text-xs text-[#d88732] flex items-start gap-2.5 leading-relaxed mb-4">
-                                  <Layout className="w-4.5 h-4.5 shrink-0 mt-0.5" />
-                                  <div>
-                                    <strong className="font-bold block mb-0.5">📐 System Design Practice Outline</strong>
-                                    These answers are intentionally brief conceptual frameworks. In a real interview, construct your own diagram, estimate capacities, and dive deep into bottlenecks.
-                                  </div>
-                                </div>
-                              )}
-
-                              {/* Custom developer-themed style for Section 21 LLD */}
-                              {isLLD && (
-                                <div className="p-4 rounded-2xl bg-[#11161a] border border-[#4b7a9f]/25 text-xs text-[#4b7a9f] flex items-start gap-2.5 leading-relaxed mb-4">
-                                  <FileCode className="w-4.5 h-4.5 shrink-0 mt-0.5" />
-                                  <div>
-                                    <strong className="font-bold block mb-0.5">💻 Low-Level Class Design</strong>
-                                    Apply class structure, interfaces, SOLID patterns, and design patterns. Translate the outline below into concrete entity schemas in your programming language.
-                                  </div>
-                                </div>
-                              )}
-
-                              {/* Interview Mode: Hide Answer initially */}
-                              {interviewMode && !isAnswerRevealed ? (
-                                <div className="flex flex-col items-center justify-center p-8 rounded-2xl border border-dashed border-outline-variant/40 bg-surface-container-low text-center space-y-4">
-                                  <Eye className="w-8 h-8 text-surface-tint/60 animate-pulse" />
-                                  <div className="space-y-1">
-                                    <p className="text-sm font-semibold text-foreground">Answer Hidden in Interview Mode</p>
-                                    <p className="text-xs text-on-surface-variant max-w-[280px]">
-                                      Try to formulate the design steps or core tradeoffs in your mind before checking.
-                                    </p>
-                                  </div>
-                                  <Button
-                                    className="bg-surface-tint/20 text-surface-tint border border-surface-tint/30 hover:bg-surface-tint/30 rounded-xl px-5 h-9 text-xs font-semibold"
-                                    onClick={() => toggleRevealAnswer(q.id)}
-                                  >
-                                    Reveal Answer
-                                  </Button>
-                                </div>
-                              ) : (
-                                <div className="space-y-4">
-                                  {/* Answer Body */}
-                                  <div className={isLLD ? "font-mono" : ""}>
-                                    <FormattedText text={q.answer} />
-                                  </div>
-
-                                  {/* Action block inside expanded card */}
-                                  <div className="flex justify-between items-center pt-4 border-t border-outline-variant/20">
-                                    {interviewMode && (
-                                      <Button
-                                        variant="ghost"
-                                        size="sm"
-                                        className="text-xs text-on-surface-variant hover:text-foreground h-8 flex items-center gap-1.5"
-                                        onClick={() => toggleRevealAnswer(q.id)}
-                                      >
-                                        <EyeOff className="w-3.5 h-3.5" />
-                                        Hide Answer
-                                      </Button>
-                                    )}
-                                    
-                                    <div className="flex items-center gap-3 ml-auto">
-                                      <label className="flex items-center gap-2 cursor-pointer text-xs font-semibold text-on-surface-variant select-none">
-                                        <input
-                                          type="checkbox"
-                                          checked={isReviewed}
-                                          onChange={() => toggleReviewed(q.id)}
-                                          className="rounded border-outline-variant/40 text-surface-tint focus:ring-surface-tint h-3.5 w-3.5 bg-surface-container"
-                                        />
-                                        <span>Mark as reviewed</span>
-                                      </label>
-                                    </div>
-                                  </div>
-                                </div>
-                              )}
-
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
                     </motion.div>
-                  );
-                })}
-              </AnimatePresence>
+                  ) : (
+                    /* Interview mode — answer hidden */
+                    <motion.div
+                      key="hidden"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="flex flex-col items-center justify-center py-10 space-y-5 border border-dashed border-outline-variant/30 rounded-2xl"
+                    >
+                      <p className="text-xs text-on-surface-variant/60 font-medium">
+                        Interview mode · Think before you reveal
+                      </p>
+                      <Button
+                        onClick={() => setAnswerVisible(true)}
+                        className="bg-surface-tint/10 text-surface-tint border border-surface-tint/30 hover:bg-surface-tint/20 rounded-xl px-6 h-10 text-sm font-semibold"
+                      >
+                        Reveal Answer
+                      </Button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Card bottom reveal strip (when NOT in interview mode and answer is implicitly visible) */}
+              {!interviewMode && (
+                <div className="px-6 md:px-8 pb-6" />
+              )}
+            </motion.div>
+          </AnimatePresence>
+        ) : (
+          /* Empty state */
+          <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-3xl p-12 text-center space-y-4">
+            <BookOpen className="w-10 h-10 text-surface-tint/30 mx-auto" />
+            <h4 className="font-bold text-foreground">No questions found</h4>
+            <p className="text-sm text-on-surface-variant max-w-xs mx-auto leading-relaxed">
+              {searchQuery
+                ? `No results for "${searchQuery}". Try a different keyword.`
+                : "No questions match the current filter. Try switching to All."}
+            </p>
+            <div className="flex gap-3 justify-center pt-2">
+              <button
+                onClick={() => { setSearchQuery(""); setFilter("All"); setActiveSectionId(null); }}
+                className="text-xs font-semibold text-surface-tint hover:underline"
+              >
+                Reset filters
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* ── Navigation row ── */}
+        {currentQuestion && (
+          <div className="flex items-center justify-between gap-4">
+            <Button
+              variant="outline"
+              onClick={goPrev}
+              disabled={currentIndex === 0}
+              className="border-outline-variant/40 hover:bg-surface-container-high rounded-xl h-10 px-4 text-sm font-semibold disabled:opacity-30 text-foreground flex items-center gap-1.5"
+            >
+              <ChevronLeft className="w-4 h-4" />
+              Previous
+            </Button>
+
+            {/* Position counter */}
+            <div className="text-center space-y-1">
+              <p className="text-xs font-mono font-semibold text-foreground">
+                {currentIndex + 1}{" "}
+                <span className="text-on-surface-variant font-normal">/ {workingQuestions.length}</span>
+              </p>
+              {/* Dot progress strip */}
+              {workingQuestions.length <= 30 && (
+                <div className="flex items-center justify-center gap-1 flex-wrap max-w-[180px]">
+                  {workingQuestions.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => { setCurrentIndex(i); setAnswerVisible(false); }}
+                      className={`rounded-full transition-all ${
+                        i === currentIndex
+                          ? "w-4 h-1.5 bg-surface-tint"
+                          : reviewed.has(workingQuestions[i].id)
+                          ? "w-1.5 h-1.5 bg-emerald-500/60"
+                          : "w-1.5 h-1.5 bg-outline-variant/50 hover:bg-outline"
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
 
-            {/* Empty state when filters return nothing */}
-            {filteredQuestions.length === 0 && (
-              <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-3xl p-12 text-center space-y-4 max-w-lg mx-auto my-6">
-                <BookOpen className="w-12 h-12 text-surface-tint/40 mx-auto" />
-                <h4 className="font-headline-md text-base font-bold text-foreground">
-                  No Questions Found
-                </h4>
-                <p className="text-sm text-on-surface-variant leading-relaxed">
-                  No questions match your current search query "{searchQuery}" or selected filters. Try
-                  adjusting keywords or selecting another topic.
-                </p>
-                <div className="pt-2">
-                  <Button
-                    variant="outline"
-                    className="border-outline-variant/40 hover:bg-surface-container-high rounded-xl text-xs font-semibold"
-                    onClick={() => {
-                      setSearchQuery("");
-                      setShowBookmarksOnly(false);
-                      setActiveSectionId(null);
-                      window.location.hash = "";
-                    }}
-                  >
-                    Reset All Filters
-                  </Button>
-                </div>
-              </div>
-            )}
-
-            {/* Load More Button */}
-            {filteredQuestions.length > visibleQuestions.length && (
-              <div className="flex justify-center pt-4">
-                <Button
-                  className="bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/40 text-foreground font-semibold rounded-2xl px-8 h-12 text-sm shadow-sm"
-                  onClick={() => setVisibleCount((prev) => prev + 25)}
+            {currentIndex < workingQuestions.length - 1 ? (
+              <Button
+                variant="outline"
+                onClick={goNext}
+                className="border-outline-variant/40 hover:bg-surface-container-high rounded-xl h-10 px-4 text-sm font-semibold text-foreground flex items-center gap-1.5"
+              >
+                Next
+                <ChevronRight className="w-4 h-4" />
+              </Button>
+            ) : (
+              <div className="flex flex-col items-end gap-1">
+                <span className="text-[10px] text-on-surface-variant font-medium">End of section</span>
+                <button
+                  onClick={() => { setCurrentIndex(0); setAnswerVisible(false); }}
+                  className="flex items-center gap-1 text-xs font-semibold text-surface-tint hover:underline"
                 >
-                  Load More Questions
-                </Button>
+                  <RotateCcw className="w-3 h-3" />
+                  Review again
+                </button>
               </div>
             )}
-
           </div>
+        )}
 
-        </div>
+        {/* ════════════════════════════════════════════════
+            RESOURCES — below workspace, compact
+        ════════════════════════════════════════════════ */}
+        {activeSection && activeSection.videos.length > 0 && (
+          <div className="pt-4 border-t border-outline-variant/20 space-y-3">
+            <h4 className="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest flex items-center gap-1.5">
+              <Video className="w-3.5 h-3.5" />
+              Learn more
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {activeSection.videos.map((vid, i) => (
+                <a
+                  key={i}
+                  href={vid.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between px-4 py-3 rounded-2xl bg-surface-container/60 border border-outline-variant/20 hover:border-surface-tint/30 hover:bg-surface-container text-xs font-semibold text-foreground group transition-all"
+                >
+                  <span className="group-hover:text-surface-tint transition-colors truncate">{vid.name}</span>
+                  <ExternalLink className="w-3 h-3 text-on-surface-variant group-hover:text-surface-tint transition-colors shrink-0 ml-2" />
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+
+
       </main>
 
       <Footer />
