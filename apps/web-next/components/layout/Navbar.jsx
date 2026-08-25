@@ -32,7 +32,8 @@ const categories = [
     key: "prepare",
     label: "Prepare",
     items: [
-      { name: "Placement DSA", path: "/placement-dsa", icon: Code, description: "Technical interview coding prep" }
+      { name: "Placement DSA", path: "/placement-dsa", icon: Code, description: "Technical interview coding prep" },
+      { name: "System Design", path: "/system-design", icon: BookOpen, description: "System design interview prep" }
     ]
   },
   {
