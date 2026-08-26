@@ -25,6 +25,12 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { sections, questions } from "./data/questions";
+import dynamic from "next/dynamic";
+
+const ParticleWave = dynamic(
+  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
+  { ssr: false }
+);
 
 // Grouping of 24 canonical topics for left sidebar navigation
 const topicGroups = [
