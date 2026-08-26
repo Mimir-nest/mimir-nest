@@ -17,8 +17,16 @@ import {
   Circle,
   ArrowRight,
   Clock,
+  Sparkles,
 } from "lucide-react";
+import dynamic from "next/dynamic";
 import { chapters, topics } from "./data/topics";
+
+// Dynamic import of the Mimir Nest ParticleWave background waves
+const ParticleWave = dynamic(
+  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
+  { ssr: false }
+);
 
 // ── Inline content block renderer ────────────────────────────────────────────
 const InlineText = ({ text }) => {
@@ -175,7 +183,7 @@ const ChapterOverview = ({
       </div>
 
       <div className="space-y-3">
-        <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-2">CONCEPTS</h3>
+        <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-2 font-sans">CONCEPTS</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {chapterTopics.map((topic, index) => {
             const isRead = readTopics.has(topic.id);
@@ -187,17 +195,17 @@ const ChapterOverview = ({
                 className="p-4 rounded-xl border border-white/[0.05] hover:border-white/[0.1] bg-white/[0.01] hover:bg-white/[0.02] cursor-pointer transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-1.5">
+                  <div className="flex items-center justify-between gap-2 mb-1.5 font-sans">
                     <span className="text-[10px] font-mono text-white/30">Concept {String(index + 1).padStart(2, "0")}</span>
                     <div className="flex items-center gap-1.5">
                       {isSaved && <Bookmark className="w-3 h-3 text-amber-500 fill-amber-500" />}
                       {isRead && <Check className="w-3.5 h-3.5 text-[#FF5A36] stroke-[3]" />}
                     </div>
                   </div>
-                  <h4 className="text-sm font-semibold text-white/95 group-hover:text-white transition-colors">{topic.title}</h4>
-                  <p className="text-xs text-white/45 mt-1 line-clamp-2 leading-relaxed">{topic.summary}</p>
+                  <h4 className="text-sm font-semibold text-white/95 group-hover:text-white transition-colors font-sans">{topic.title}</h4>
+                  <p className="text-xs text-white/45 mt-1 line-clamp-2 leading-relaxed font-sans">{topic.summary}</p>
                 </div>
-                <div className="mt-3 pt-2.5 border-t border-white/[0.03] flex items-center justify-end text-[10px] font-semibold text-white/40 group-hover:text-[#FF5A36] transition-colors gap-1">
+                <div className="mt-3 pt-2.5 border-t border-white/[0.03] flex items-center justify-end text-[10px] font-semibold text-white/40 group-hover:text-[#FF5A36] transition-colors gap-1 font-sans">
                   <span>Read Concept</span>
                   <ChevronRight className="w-3 h-3" />
                 </div>
@@ -237,7 +245,7 @@ const ConceptReader = ({
       {/* Reader Header */}
       <div className="space-y-4 pb-5 border-b border-white/[0.06]">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-2 flex-wrap">
+          <div className="flex items-center gap-2 flex-wrap font-sans">
             <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-white/[0.04] text-white/60 uppercase tracking-wider border border-white/[0.08]">
               {topic.chapter.replace("-", " ")}
             </span>
@@ -248,7 +256,7 @@ const ConceptReader = ({
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 font-sans">
             {/* Share link */}
             <button
               onClick={copyTopicLink}
@@ -295,7 +303,7 @@ const ConceptReader = ({
           </div>
         </div>
 
-        <h2 className="text-xl md:text-2xl font-bold tracking-tight text-white">
+        <h2 className="text-xl md:text-2xl font-bold tracking-tight text-white font-sans">
           {topic.title}
         </h2>
       </div>
@@ -345,7 +353,7 @@ const ConceptReader = ({
       </div>
 
       {/* Bottom Nav Strip */}
-      <div className="pt-6 mt-8 border-t border-white/[0.06] flex items-center justify-between gap-4">
+      <div className="pt-6 mt-8 border-t border-white/[0.06] flex items-center justify-between gap-4 font-sans">
         {hasPrev ? (
           <button
             onClick={onPrev}
@@ -574,33 +582,73 @@ export default function SystemDesignGuidePage() {
     <div className="min-h-screen bg-[#0F1010] text-[#F4F1EA] selection:bg-[#FF5A36] selection:text-[#0F1010] flex flex-col font-sans">
       <Navbar />
 
-      {/* ── HERO SECTION ────────────────────────────────────────────────────── */}
-      <section className="pt-[110px] md:pt-[130px] pb-8 border-b border-white/[0.06] bg-[#0F1010]">
-        <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <span className="text-[10px] font-bold tracking-widest text-[#FF5A36] uppercase block mb-1">
-            SYSTEM DESIGN
-          </span>
-          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-white mb-2 font-sans font-semibold">
-            System Design Guide
-          </h1>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-white/40 mb-3 font-mono">
-            <span>56 concepts</span>
-            <span className="text-white/20">·</span>
-            <span>6 chapters</span>
-            <span className="text-white/20">·</span>
-            <span>5.5h estimated</span>
+      {/* ── RESTORED SIGNATURE HERO SECTION (Matching DSA Hero Styling) ── */}
+      <section className="relative bg-[#151616] pt-[130px] md:pt-[160px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl border-b border-white/[0.06] bg-cover bg-center" style={{ backgroundImage: "url('/images/hero-bg.png')" }}>
+        {/* Dark overlay for contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#151616]/95 via-[#151616]/85 to-[#151616]/95 z-0 pointer-events-none" />
+
+        {/* Background Particle Wave waves */}
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+          <ParticleWave />
+        </div>
+
+        {/* Decorative Rings */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-[#FF5A36]/10 translate-x-1/4 -translate-y-1/4 pointer-events-none z-0" />
+        <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-[#FF5A36]/15 translate-x-1/3 -translate-y-1/3 pointer-events-none z-0" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-white/[0.03] -translate-x-1/2 translate-y-1/2 pointer-events-none z-0" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+            {/* Top pill badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-6 w-fit border border-white/[0.08] shadow-inner bg-white/[0.02] backdrop-blur-md">
+              <Sparkles className="w-4 h-4 text-[#FF5A36] animate-pulse" />
+              <span className="font-mono text-xs text-[#FF5A36] tracking-widest uppercase font-semibold">
+                System Design Guide
+              </span>
+            </div>
+
+            {/* Headline */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-6 font-sans">
+              System Design <br />
+              <span className="text-[#FF5A36]">Guide.</span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-sm sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed mb-8 font-normal font-sans">
+              A structured reference for understanding the principles behind scalable, distributed systems — from networking and storage to databases, architecture, and system design interviews.
+            </p>
+
+            {/* Quick Stats Strip */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full max-w-2xl pt-2 mb-8 z-10 font-sans">
+              {[
+                { label: "Concepts", val: "56 Core" },
+                { label: "Chapters", val: "6 Unique" },
+                { label: "Study Material", val: "5.5 Hours" },
+              ].map((stat, i) => (
+                <div key={i} className="p-4 rounded-xl glass-panel text-center border border-white/[0.08] bg-[#141517]/55 backdrop-blur-md">
+                  <div className="text-xl text-white font-bold">{stat.val}</div>
+                  <div className="text-[10px] text-white/50 uppercase tracking-widest font-mono mt-0.5">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Start / Continue Button */}
+            <button
+              onClick={continueLearning}
+              className="px-8 py-3.5 rounded-full bg-[#FF5A36] text-black font-semibold text-xs uppercase tracking-widest hover:bg-[#ff7a5a] transition-all shadow-[0_0_20px_rgba(255,90,54,0.35)] flex items-center gap-2 group border border-[#FF5A36] font-sans"
+            >
+              <span>Continue learning</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
-          <p className="text-xs md:text-sm text-white/60 leading-relaxed max-w-3xl font-normal font-sans">
-            A structured reference for understanding the principles behind scalable, distributed systems — from networking and storage to databases, architecture, and system design interviews.
-          </p>
         </div>
       </section>
 
       {/* ── PROGRESS SECTION ────────────────────────────────────────────────── */}
       <section className="py-4 border-b border-white/[0.06] bg-[#121314]">
-        <div className="max-w-6xl mx-auto px-4 md:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 font-sans">
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5">
-            <span className="text-[10px] font-bold text-white/60 uppercase tracking-wider font-sans">YOUR PROGRESS</span>
+            <span className="text-[10px] font-bold text-white/60 uppercase tracking-wider">YOUR PROGRESS</span>
             <div className="flex items-center gap-3">
               <span className="text-xs font-mono text-white/60 bg-white/[0.03] px-2 py-0.5 border border-white/[0.06] rounded">
                 {readCount} / {totalCount} completed
@@ -620,7 +668,7 @@ export default function SystemDesignGuidePage() {
             </div>
             <button
               onClick={continueLearning}
-              className="text-xs font-semibold text-[#FF5A36] hover:text-[#ff7a5a] transition-colors shrink-0 flex items-center gap-1 group font-sans"
+              className="text-xs font-semibold text-[#FF5A36] hover:text-[#ff7a5a] transition-colors shrink-0 flex items-center gap-1 group"
             >
               Continue where you left off
               <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
@@ -630,7 +678,7 @@ export default function SystemDesignGuidePage() {
       </section>
 
       {/* ── MAIN WORKSPACE ──────────────────────────────────────────────────── */}
-      <div className="max-w-6xl w-full mx-auto px-4 md:px-8 py-8 flex-1">
+      <div className="max-w-7xl w-full mx-auto px-4 md:px-8 py-8 flex-1">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: CURRICULUM */}
           <aside className="lg:col-span-4 space-y-4">
@@ -721,7 +769,7 @@ export default function SystemDesignGuidePage() {
                     <div key={ch.id} className="pt-2 first:pt-0">
                       <button
                         onClick={() => toggleChapterExpand(ch.id)}
-                        className="w-full text-left py-1.5 flex items-center justify-between text-xs font-semibold text-white/80 hover:text-white transition-colors group"
+                        className="w-full text-left py-1.5 flex items-center justify-between text-xs font-semibold text-white/80 hover:text-white transition-colors group font-sans"
                       >
                         <div className="flex items-center gap-2 min-w-0">
                           <span className="font-mono text-[9px] text-white/20 shrink-0">{chNum}</span>
@@ -752,7 +800,7 @@ export default function SystemDesignGuidePage() {
                               <button
                                 key={t.id}
                                 onClick={() => selectTopic(t.id)}
-                                className={`w-full text-left text-[11px] py-1 px-1.5 rounded transition-all flex items-center justify-between gap-2 group/item ${
+                                className={`w-full text-left text-[11px] py-1 px-1.5 rounded transition-all flex items-center justify-between gap-2 group/item font-sans ${
                                   isAct
                                     ? "text-[#FF5A36] bg-[#FF5A36]/10 font-bold"
                                     : "text-white/60 hover:text-white hover:bg-white/[0.02]"
@@ -762,7 +810,7 @@ export default function SystemDesignGuidePage() {
                                   <span className="font-mono text-[8px] text-white/20 shrink-0">{tNum}</span>
                                   <span className="truncate leading-snug">{t.title}</span>
                                 </div>
-                                <div className="flex items-center gap-1.5 shrink-0 font-sans">
+                                <div className="flex items-center gap-1.5 shrink-0">
                                   {isBookmarked && (
                                     <Bookmark className="w-2.5 h-2.5 text-amber-500 fill-amber-500 animate-in zoom-in-50" />
                                   )}
@@ -788,7 +836,7 @@ export default function SystemDesignGuidePage() {
               </div>
 
               {filteredTopics.length === 0 && (
-                <div className="text-center py-6 text-xs text-white/40 font-medium">
+                <div className="text-center py-6 text-xs text-white/40 font-medium font-sans">
                   No matching topics found.
                   {hasActiveFilters && (
                     <button
@@ -828,7 +876,7 @@ export default function SystemDesignGuidePage() {
             ) : (
               <div className="h-full flex flex-col items-center justify-center text-center py-20 my-auto">
                 <BookOpen className="w-8 h-8 text-white/20 mb-3" />
-                <p className="text-xs text-white/40">Select a topic from the curriculum sidebar to start reading.</p>
+                <p className="text-xs text-white/40 font-sans">Select a topic from the curriculum sidebar to start reading.</p>
               </div>
             )}
           </main>

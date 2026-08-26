@@ -20,6 +20,8 @@ import {
   X,
   RotateCcw,
   Video,
+  ArrowRight,
+  Sparkles,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { sections, questions } from "./data/questions";
@@ -393,20 +395,67 @@ export default function SystemDesignPage() {
     <div className="min-h-screen bg-mn-background text-on-background">
       <Navbar />
 
-      {/* ════════════════════════════════════════════════
-          1. COMPACT HERO
-      ════════════════════════════════════════════════ */}
-      <section className="pt-[100px] md:pt-[125px] pb-6 md:pb-8 px-6 sm:px-16 text-center bg-[#0f1010] border-b border-outline-variant/20">
-        <div className="max-w-3xl mx-auto space-y-2">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-foreground tracking-tight">
-            500+ System Design <span className="text-surface-tint">Interview Questions &amp; Answers</span>
-          </h1>
-          <p className="text-xs sm:text-sm text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
-            Practice system design from fundamentals to advanced architecture with 502+ interview questions
-            covering scalability, databases, caching, distributed systems, APIs, HLD, LLD, and more.
-          </p>
-          <div className="text-[11px] font-medium text-on-surface-variant/75 pt-1">
-            502 Questions &nbsp;·&nbsp; 24 Topics &nbsp;·&nbsp; Basic → Advanced
+      {/* ── FLAGSHIP HERO SECTION (DSA & Guide Style) ── */}
+      <section className="relative bg-[#151616] pt-[130px] md:pt-[160px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl border-b border-white/[0.06] bg-cover bg-center" style={{ backgroundImage: "url('/images/hero-bg.png')" }}>
+        {/* Dark overlay for contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#151616]/95 via-[#151616]/85 to-[#151616]/95 z-0 pointer-events-none" />
+
+        {/* Background Particle Wave waves */}
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+          <ParticleWave />
+        </div>
+
+        {/* Decorative Rings */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-[#FF5A36]/10 translate-x-1/4 -translate-y-1/4 pointer-events-none z-0" />
+        <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-[#FF5A36]/15 translate-x-1/3 -translate-y-1/3 pointer-events-none z-0" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-white/[0.03] -translate-x-1/2 translate-y-1/2 pointer-events-none z-0" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+            {/* Top pill badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-6 w-fit border border-white/[0.08] shadow-inner bg-white/[0.02] backdrop-blur-md">
+              <Sparkles className="w-4 h-4 text-[#FF5A36] animate-pulse" />
+              <span className="font-mono text-xs text-[#FF5A36] tracking-widest uppercase font-semibold">
+                Technical Interview Vault
+              </span>
+            </div>
+
+            {/* Headline */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-6 font-sans">
+              System Design <br />
+              <span className="text-[#FF5A36]">Interview Vault.</span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-sm sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed mb-8 font-normal font-sans">
+              Practice system design from fundamentals to advanced architecture with 500+ interview questions covering scalability, databases, caching, distributed systems, APIs, HLD, LLD, and more.
+            </p>
+
+            {/* Quick Stats Strip */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full max-w-2xl pt-2 mb-8 z-10 font-sans">
+              {[
+                { label: "Questions", val: "500+ Total" },
+                { label: "Topics covered", val: "24 Core" },
+                { label: "Level Depth", val: "Basic → Adv" },
+              ].map((stat, i) => (
+                <div key={i} className="p-4 rounded-xl glass-panel text-center border border-white/[0.08] bg-[#141517]/55 backdrop-blur-md">
+                  <div className="text-xl text-white font-bold">{stat.val}</div>
+                  <div className="text-[10px] text-white/50 uppercase tracking-widest font-mono mt-0.5">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Explore Button */}
+            <button
+              onClick={() => {
+                const el = document.getElementById("questions-workspace");
+                if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className="px-8 py-3.5 rounded-full bg-[#FF5A36] text-black font-semibold text-xs uppercase tracking-widest hover:bg-[#ff7a5a] transition-all shadow-[0_0_20px_rgba(255,90,54,0.35)] flex items-center gap-2 group border border-[#FF5A36] font-sans"
+            >
+              <span>Explore questions</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
         </div>
       </section>
@@ -415,7 +464,7 @@ export default function SystemDesignPage() {
           2 & 3. GLOBAL PROGRESS & MODE CONTROLS
       ════════════════════════════════════════════════ */}
       <div className="bg-[#111213] border-b border-outline-variant/20 px-6 sm:px-12 py-3">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3">
           
           {/* Global Progress Area */}
           <div className="flex items-center gap-3.5 flex-1 max-w-md">
@@ -465,7 +514,7 @@ export default function SystemDesignPage() {
       {/* ════════════════════════════════════════════════
           TWO COLUMN WORKSPACE
       ════════════════════════════════════════════════ */}
-      <div className="max-w-6xl mx-auto px-6 py-8">
+      <div id="questions-workspace" className="max-w-7xl mx-auto px-6 py-8">
         
         {/* Mobile Topic navigation dropdown */}
         <div className="md:hidden mb-4" ref={mobileDropdownRef}>
