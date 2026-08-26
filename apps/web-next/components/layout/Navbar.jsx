@@ -15,6 +15,7 @@ import {
   Mail,
   Map,
   BookOpen,
+  GraduationCap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -33,7 +34,8 @@ const categories = [
     label: "Prepare",
     items: [
       { name: "Placement DSA", path: "/placement-dsa", icon: Code, description: "Technical interview coding prep" },
-      { name: "System Design", path: "/system-design", icon: BookOpen, description: "System design interview prep" }
+      { name: "System Design", path: "/system-design", icon: BookOpen, description: "500+ system design interview Q&A" },
+      { name: "System Design Guide", path: "/system-design-guide", icon: GraduationCap, description: "Chapter-by-chapter concepts & theory" }
     ]
   },
   {

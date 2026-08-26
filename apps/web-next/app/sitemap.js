@@ -18,6 +18,8 @@ export default async function sitemap() {
     "/roadmaps",
     "/typing",
     "/blog",
+    "/system-design",
+    "/system-design-guide",
   ];
 
   try {
