@@ -1,0 +1,209 @@
+# Mimir Nest Frontend API Requirements
+
+This document presents a comprehensive analysis of the API requirements for the Mimir Nest frontend. The frontend is built with Next.js, and currently stores user progress, bookmarks, and solved logs locally using the browser's `localStorage` API, while querying static `.json` or `.csv` files locally or via direct file reads.
+
+---
+
+## Feature-by-Feature API Endpoints
+
+### 1. Authentication
+* **Current Implementation**: No authentication layer currently exists in the frontend. All preferences and states are anonymous and localized to the browser.
+* **API Requirements (Required Now if user login/sync is added)**:
+  * **POST `/api/auth/register`**
+    * **Purpose**: Register a new developer account.
+    * **Auth Required?**: No
+    * **Request Data**: `{ name: string, email: string, password: string }`
+    * **Response Data**: `{ user: { id: string, email: string, name: string }, token: string }`
+    * **Why needed**: Establish user identity for syncing progress across devices.
+  * **POST `/api/auth/login`**
+    * **Purpose**: Authenticate user and issue tokens.
+    * **Auth Required?**: No
+    * **Request Data**: `{ email: string, password: string }`
+    * **Response Data**: `{ user: { id: string, email: string }, token: string }`
+  * **POST `/api/auth/logout`**
+    * **Purpose**: Revoke active session tokens.
+    * **Auth Required?**: Yes
+    * **Request Data**: None
+    * **Response Data**: `{ success: boolean }`
+  * **GET `/api/auth/me`**
+    * **Purpose**: Retrieve the current authenticated user's session profile.
+    * **Auth Required?**: Yes
+    * **Response Data**: `{ id: string, name: string, email: string, createdAt: string }`
+
+### 2. Projects
+* **Current Implementation**: Reads from `/content/projects/projects.json` via `/api/projects` Next.js proxy fallback.
+* **API Requirements (Useful Later)**:
+  * **GET `/api/projects`**
+    * **Purpose**: Fetch inspirational project templates.
+    * **Auth Required?**: No
+    * **Query Params**: `tag` (string), `search` (string), `limit` (number), `page` (number)
+    * **Response Data**:
+      ```json
+      {
+        "data": [
+          { "id": "proj-1", "name": "Mimir Nest", "tags": ["Next.js", "Tailwind"], "description": "..." }
+        ],
+        "meta": { "count": 1, "page": 1, "totalPages": 1 }
+      }
+      ```
+    * **Current Source**: Static JSON file `/content/projects/projects.json`.
+    * **Why needed**: Allows server-side database storage and dynamic filtering/sorting on large project counts.
+
+### 3. Courses
+* **Current Implementation**: Reads from `/content/courses/courses.json` via `/api/courses`.
+* **API Requirements (Useful Later)**:
+  * **GET `/api/courses`**
+    * **Purpose**: Fetch curated educational courses.
+    * **Auth Required?**: No
+    * **Query Params**: `category` (string), `search` (string), `limit` (number)
+    * **Response Data**:
+      ```json
+      {
+        "data": [
+          { "id": "course-1", "title": "Advanced System Design", "url": "..." }
+        ]
+      }
+      ```
+    * **Current Source**: Static JSON file `/content/courses/courses.json`.
+    * **Why needed**: Move course directories to the database.
+
+### 4. DSA / Placement
+* **Current Implementation**: Fetches raw CSV files (e.g. `/csv/${companyName}_alltime.csv`) and parses them client-side in `hooks/use-csv-questions.js`. Solved progress is saved locally using `localStorage` key `mimir_dsa_solved`.
+* **API Requirements**:
+  * **GET `/api/placement/questions` (Required Now)**
+    * **Purpose**: Fetch placement coding questions.
+    * **Auth Required?**: No
+    * **Query Params**: `company` (string, required), `timeFrame` (string), `page` (number), `limit` (number), `difficulty` (string)
+    * **Response Data**: Paginated lists of questions containing: question title, frequency count, difficulty, and LeetCode link.
+    * **Why needed**: Prevents the client from downloading and parsing large raw CSV files over HTTP. Allows pagination and search on the database.
+  * **GET `/api/placement/progress` (Required Now)**
+    * **Purpose**: Fetch solved question IDs for the user.
+    * **Auth Required?**: Yes
+    * **Response Data**: `{ solvedQuestionIds: string[] }`
+    * **Why needed**: Back up solved progress to DB.
+  * **POST `/api/placement/progress/toggle` (Required Now)**
+    * **Purpose**: Toggle solved status for a question.
+    * **Auth Required?**: Yes
+    * **Request Data**: `{ questionId: string, solved: boolean }`
+    * **Response Data**: `{ success: boolean }`
+
+### 5. System Design
+* **Current Implementation**: Bundles and imports a 502-question dataset directly from `data/questions.ts`. Bookmarks and reviewed states are kept in `localStorage` under `sd-bookmarks` and `sd-reviewed`.
+* **API Requirements**:
+  * **GET `/api/system-design/questions` (Required Now)**
+    * **Purpose**: Fetch paginated system design questions.
+    * **Auth Required?**: No
+    * **Query Params**: `sectionId` (number), `difficulty` (string), `search` (string), `page` (number), `limit` (number)
+    * **Response Data**: List of question cards including question number, topic name, difficulty, question, and answer.
+    * **Why needed**: Reduces first-page loading bundle size by offloading the 502-question array (~200KB of rich markdown content) to the database and serving it paginated.
+  * **GET `/api/system-design/progress` (Required Now)**
+    * **Purpose**: Fetch bookmarks and reviewed list.
+    * **Auth Required?**: Yes
+    * **Response Data**: `{ reviewedQuestionIds: number[], bookmarkedQuestionIds: number[] }`
+  * **POST `/api/system-design/progress/toggle` (Required Now)**
+    * **Purpose**: Mark system design questions as reviewed or bookmarked.
+    * **Auth Required?**: Yes
+    * **Request Data**: `{ questionId: number, type: "reviewed" | "bookmarked", status: boolean }`
+    * **Response Data**: `{ success: boolean }`
+
+### 6. Resources (Student Perks, Roadmaps, Blog)
+* **Current Implementation**: Fetches perks, roadmaps, and blog lists from static JSONs via contentApi service calls (`/api/perks`, `/api/roadmaps`, `/api/blog`).
+* **API Requirements (Useful Later)**:
+  * **GET `/api/perks`**, **GET `/api/roadmaps`**, **GET `/api/blog`**
+    * **Purpose**: Retrieve resource collections.
+    * **Auth Required?**: No
+    * **Current Source**: Static JSON templates in public folders.
+
+### 7. Study Utilities (Pomodoro, CGPA, Typing)
+* **Current Implementation**:
+  * CGPA / Typing: Entirely client-side state.
+  * Pomodoro: Persists stats (`pomodoroStats`), settings (`pomodoroSettings`), and streak updates (`lastActiveDate`) locally in browser `localStorage`.
+* **API Requirements (Useful Later)**:
+  * **GET / POST `/api/pomodoro/stats`**
+    * **Purpose**: Get and update Pomodoro focus sessions and streak metrics.
+    * **Auth Required?**: Yes
+    * **Response Data**: `{ stats: { totalWorkMinutes: number, streakDays: number } }`
+    * **Why needed**: Track and visualize focus productivity statistics across desktop and mobile devices.
+  * **GET / POST `/api/typing/stats`**
+    * **Purpose**: Sync typing test history (average speed, accuracy over time).
+    * **Auth Required?**: Yes
+    * **Why needed**: Provide long-term typing performance charts.
+
+---
+
+## Categorized Endpoint Architectures
+
+### A. REQUIRED NOW (High-priority endpoints for performance and persistence)
+1. **GET `/api/placement/questions`** — Offloads parsing of large CSV documents from browser script execution.
+2. **GET `/api/system-design/questions`** — Offloads 502 detailed system design question cards from the client bundle.
+3. **GET/POST `/api/placement/progress`** — Backs up and secures DSA solved trackers.
+4. **GET/POST `/api/system-design/progress`** — Backs up and secures bookmarks and reviewed lists.
+
+### B. USEFUL LATER (Optional database integrations)
+1. **GET `/api/projects`** — Allows dynamic backend sorting and project template tag indexing.
+2. **GET `/api/courses`** — Allows course lists to scale beyond simple static templates.
+3. **GET/POST `/api/pomodoro/stats`** — Syncs streak statistics across devices.
+4. **GET/POST `/api/typing/stats`** — Syncs typing progress charts.
+
+### C. KEEP CLIENT-SIDE / STATIC (Do not need APIs)
+1. **CGPA Calculator (`/cgpa`)** — Pure calculation function utility. Inputting state takes seconds; keeping it transient and local is lighter and avoids unnecessary network requests.
+2. **FAQ & About Pages** — Static informational content that is best served pre-rendered (prerendered HTML) for SEO and low latency.
+3. **Privacy and License Policies** — Static visual policies text.
+
+---
+
+## Recommended API Architecture
+
+```
++--------------------------------------------------------------+
+|                        Client Browser                        |
+|                                                              |
+|   +-------------------+              +-------------------+   |
+|   |   Next.js App     |              |   LocalStorage    |   |
+|   |  (React Pages)    |              |  (Local fallback) |   |
+|   +---------+---------+              +---------+---------+   |
+|             |                                  ^             |
+|             | HTTP Request                     | Read/Write  |
++-------------+----------------------------------+-------------+
+              | (Auth JWT token in header)       
+              v                                  
++-------------+----------------------------------+-------------+
+|                      Node.js API Gateway                     |
+|                   (Express / contentRoutes)                  |
+|                                                              |
+|   +---------v---------+              +---------v---------+   |
+|   |  JWT Middleware   |              |  Query Validator  |   |
+|   |  (Verify User)    |              |   (Zod Validation)|   |
+|   +---------+---------+              +---------+---------+   |
++-------------+----------------------------------+-------------+
+              |                                  
+              v Route handler                    
++-------------+----------------------------------+-------------+
+|                        Database Layer                        |
+|                         (PostgreSQL)                         |
+|                                                              |
+|   +---------v---------+              +---------v---------+   |
+|   |    Users Table    |              |  Progress Table   |   |
+|   | (Auth details)    |              | (Bookmarks, Solved|   |
+|   +-------------------+              +-------------------+   |
++--------------------------------------------------------------+
+```
+
+---
+
+## Suggested API Priority
+
+### P0 — Required for Core Functionality and Performance
+- `GET /api/placement/questions` (Stop loading raw local CSV files)
+- `GET /api/system-design/questions` (Offload 502-question bundle)
+- `POST /api/auth/login` & `POST /api/auth/register` (Core identity)
+- `POST /api/placement/progress/toggle` & `POST /api/system-design/progress/toggle` (Save state updates)
+
+### P1 — Useful Soon (Device Sync & Content Indexing)
+- `GET /api/projects` (Search and project tag queries)
+- `GET /api/courses` (Curated education index)
+- `GET /api/pomodoro/stats` (Pomodoro streaks sync)
+
+### P2 — Future Scale
+- `GET /api/typing/stats` (Typing tests timeline tracking)
+- `GET /api/roadmaps` & `GET /api/perks` (Move resources categories to database)
