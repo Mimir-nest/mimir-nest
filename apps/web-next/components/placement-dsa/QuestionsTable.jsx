@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Badge } from "@/components/ui/badge";
@@ -8,8 +8,13 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Copy, Check, ExternalLink, Trophy, Target, Zap, BarChart3, Filter, CircleDot, RotateCcw } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { useAuthStore } from "@/store/useAuthStore";
+import { useProgressStore } from "@/store/useProgressStore";
 const QuestionsTable = ({ filteredQuestions, copiedQuestionId, handleCopyQuestion }) => {
-    const [solvedQuestions, setSolvedQuestions] = useState(() => {
+    const { isAuthenticated } = useAuthStore();
+    const { progressMap, updateProgress: storeUpdateProgress, removeProgress: storeRemoveProgress } = useProgressStore();
+
+    const [localSolvedQuestions, setLocalSolvedQuestions] = useState(() => {
         try {
             const saved = localStorage.getItem('mimir_dsa_solved');
             return saved ? new Set(JSON.parse(saved)) : new Set();
@@ -18,6 +23,20 @@ const QuestionsTable = ({ filteredQuestions, copiedQuestionId, handleCopyQuestio
             return new Set();
         }
     });
+
+    const solvedQuestions = useMemo(() => {
+        if (isAuthenticated) {
+            const set = new Set();
+            Object.keys(progressMap).forEach((key) => {
+                if (key.startsWith("dsa_") && progressMap[key] === "solved") {
+                    set.add(key.replace("dsa_", ""));
+                }
+            });
+            return set;
+        }
+        return localSolvedQuestions;
+    }, [isAuthenticated, progressMap, localSolvedQuestions]);
+
     const [showUnsolvedOnly, setShowUnsolvedOnly] = useState(false);
     const cardVariants = {
         hidden: { y: 20, opacity: 0 },
@@ -29,25 +48,42 @@ const QuestionsTable = ({ filteredQuestions, copiedQuestionId, handleCopyQuestio
             }
         }
     };
-    const handleCheckboxChange = (questionId, checked) => {
-        const newSolvedQuestions = new Set(solvedQuestions);
-        if (checked) {
-            newSolvedQuestions.add(questionId);
-        }
-        else {
-            newSolvedQuestions.delete(questionId);
-        }
-        setSolvedQuestions(newSolvedQuestions);
-        try {
-            localStorage.setItem('mimir_dsa_solved', JSON.stringify(Array.from(newSolvedQuestions)));
-        }
-        catch (e) {
-            console.error(e);
+    const handleCheckboxChange = async (questionId, checked) => {
+        const stringId = String(questionId);
+        if (isAuthenticated) {
+            if (checked) {
+                await storeUpdateProgress("dsa", stringId, "solved");
+            } else {
+                await storeRemoveProgress("dsa", stringId);
+            }
+        } else {
+            const newSolvedQuestions = new Set(localSolvedQuestions);
+            if (checked) {
+                newSolvedQuestions.add(questionId);
+            }
+            else {
+                newSolvedQuestions.delete(questionId);
+            }
+            setLocalSolvedQuestions(newSolvedQuestions);
+            try {
+                localStorage.setItem('mimir_dsa_solved', JSON.stringify(Array.from(newSolvedQuestions)));
+            }
+            catch (e) {
+                console.error(e);
+            }
         }
     };
-    const handleResetProgress = () => {
-        setSolvedQuestions(new Set());
-        localStorage.removeItem('mimir_dsa_solved');
+    const handleResetProgress = async () => {
+        if (isAuthenticated) {
+            const dsaKeys = Object.keys(progressMap).filter(key => key.startsWith("dsa_"));
+            for (const key of dsaKeys) {
+                const id = key.replace("dsa_", "");
+                await storeRemoveProgress("dsa", id);
+            }
+        } else {
+            setLocalSolvedQuestions(new Set());
+            localStorage.removeItem('mimir_dsa_solved');
+        }
     };
     // Calculate stats by difficulty
     const easyQuestions = filteredQuestions.filter(q => q.difficulty === 'Easy');

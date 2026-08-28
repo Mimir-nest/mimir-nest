@@ -4,6 +4,9 @@ import React, { useState, useEffect, useRef, useCallback, useMemo } from "react"
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { toast } from "sonner";
+import { useAuthStore } from "@/store/useAuthStore";
+import { useBookmarkStore } from "@/store/useBookmarkStore";
+import { useProgressStore } from "@/store/useProgressStore";
 import {
   Search,
   BookOpen,
@@ -388,8 +391,40 @@ export default function SystemDesignGuidePage() {
   const totalCount = allTopics.length;
 
   // ── States ─────────────────────────────────────────────────────────────────
-  const [readTopics, setReadTopics] = useState(new Set());
-  const [bookmarkedTopics, setBookmarkedTopics] = useState(new Set());
+  const { isAuthenticated } = useAuthStore();
+  const { bookmarkMap, toggleBookmark: storeToggleBookmark } = useBookmarkStore();
+  const { progressMap, updateProgress: storeUpdateProgress, removeProgress: storeRemoveProgress } = useProgressStore();
+
+  const [localReadTopics, setLocalReadTopics] = useState(new Set());
+  const [localBookmarkedTopics, setLocalBookmarkedTopics] = useState(new Set());
+
+  // Compute active bookmarks and read progress dynamically
+  const bookmarkedTopics = useMemo(() => {
+    if (isAuthenticated) {
+      const set = new Set();
+      Object.keys(bookmarkMap).forEach((key) => {
+        if (key.startsWith("system-design-guide_")) {
+          set.add(key.replace("system-design-guide_", ""));
+        }
+      });
+      return set;
+    }
+    return localBookmarkedTopics;
+  }, [isAuthenticated, bookmarkMap, localBookmarkedTopics]);
+
+  const readTopics = useMemo(() => {
+    if (isAuthenticated) {
+      const set = new Set();
+      Object.keys(progressMap).forEach((key) => {
+        if (key.startsWith("system-design-guide_") && progressMap[key] === "read") {
+          set.add(key.replace("system-design-guide_", ""));
+        }
+      });
+      return set;
+    }
+    return localReadTopics;
+  }, [isAuthenticated, progressMap, localReadTopics]);
+
   const [searchQuery, setSearchQuery] = useState("");
   const [activeChapter, setActiveChapter] = useState(null);
   const [activeTopicId, setActiveTopicId] = useState(null);
@@ -402,10 +437,10 @@ export default function SystemDesignGuidePage() {
   useEffect(() => {
     try {
       const savedRead = localStorage.getItem("sdg-read-topics");
-      if (savedRead) setReadTopics(new Set(JSON.parse(savedRead)));
+      if (savedRead) setLocalReadTopics(new Set(JSON.parse(savedRead)));
 
       const savedBookmarks = localStorage.getItem("sdg-bookmarked-topics");
-      if (savedBookmarks) setBookmarkedTopics(new Set(JSON.parse(savedBookmarks)));
+      if (savedBookmarks) setLocalBookmarkedTopics(new Set(JSON.parse(savedBookmarks)));
     } catch (e) {
       console.error(e);
     }
@@ -457,38 +492,57 @@ export default function SystemDesignGuidePage() {
   }, []);
 
   // ── Toggle Read ───────────────────────────────────────────────────────────
-  const toggleRead = useCallback((id) => {
-    setReadTopics((prev) => {
-      const next = new Set(prev);
-      const wasRead = next.has(id);
-      if (wasRead) {
-        next.delete(id);
+  const toggleRead = useCallback(async (id) => {
+    const stringId = String(id);
+    if (isAuthenticated) {
+      const key = `system-design-guide_${stringId}`;
+      const isRead = progressMap[key] === "read";
+      if (isRead) {
+        await storeRemoveProgress("system-design-guide", stringId);
         toast.info("Marked as unread");
       } else {
-        next.add(id);
+        await storeUpdateProgress("system-design-guide", stringId, "read");
         toast.success(`Completed "${topics[id]?.title || "Topic"}"!`);
       }
-      localStorage.setItem("sdg-read-topics", JSON.stringify(Array.from(next)));
-      return next;
-    });
-  }, []);
+    } else {
+      setLocalReadTopics((prev) => {
+        const next = new Set(prev);
+        const wasRead = next.has(id);
+        if (wasRead) {
+          next.delete(id);
+          toast.info("Marked as unread");
+        } else {
+          next.add(id);
+          toast.success(`Completed "${topics[id]?.title || "Topic"}"!`);
+        }
+        localStorage.setItem("sdg-read-topics", JSON.stringify(Array.from(next)));
+        return next;
+      });
+    }
+  }, [isAuthenticated, progressMap, storeRemoveProgress, storeUpdateProgress]);
 
   // ── Toggle Bookmark ───────────────────────────────────────────────────────
-  const toggleBookmark = useCallback((id) => {
-    setBookmarkedTopics((prev) => {
-      const next = new Set(prev);
-      const isBookmarked = next.has(id);
-      if (isBookmarked) {
-        next.delete(id);
-        toast.info("Bookmark removed");
-      } else {
-        next.add(id);
-        toast.success("Added to bookmarks");
-      }
-      localStorage.setItem("sdg-bookmarked-topics", JSON.stringify(Array.from(next)));
-      return next;
-    });
-  }, []);
+  const toggleBookmark = useCallback(async (id) => {
+    const stringId = String(id);
+    if (isAuthenticated) {
+      await storeToggleBookmark("system-design-guide", stringId);
+    } else {
+      setLocalBookmarkedTopics((prev) => {
+        const next = new Set(prev);
+        const isBookmarked = next.has(id);
+        if (isBookmarked) {
+          next.delete(id);
+          toast.info("Bookmark removed");
+        } else {
+          next.add(id);
+          toast.success("Added to bookmarks");
+        }
+        localStorage.setItem("sdg-bookmarked-topics", JSON.stringify(Array.from(next)));
+        return next;
+      });
+    }
+  }, [isAuthenticated, storeToggleBookmark]);
+
 
   // ── Toggle Chapter Expand ──────────────────────────────────────────────────
   const toggleChapterExpand = useCallback((chapterId) => {

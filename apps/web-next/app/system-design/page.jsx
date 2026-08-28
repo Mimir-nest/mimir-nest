@@ -1,11 +1,14 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
+import { useAuthStore } from "@/store/useAuthStore";
+import { useBookmarkStore } from "@/store/useBookmarkStore";
+import { useProgressStore } from "@/store/useProgressStore";
 import {
   BookOpen,
   Search,
@@ -158,8 +161,39 @@ export default function SystemDesignPage() {
   const [topicSearch, setTopicSearch] = useState("");
 
   // ── Persistent state ────────────────────────────────────────────
-  const [reviewed, setReviewed] = useState(new Set());
-  const [bookmarks, setBookmarks] = useState(new Set());
+  const { isAuthenticated } = useAuthStore();
+  const { bookmarkMap, toggleBookmark: storeToggleBookmark } = useBookmarkStore();
+  const { progressMap, updateProgress: storeUpdateProgress, removeProgress: storeRemoveProgress } = useProgressStore();
+
+  const [localReviewed, setLocalReviewed] = useState(new Set());
+  const [localBookmarks, setLocalBookmarks] = useState(new Set());
+
+  // Compute active bookmarks and reviewed states dynamically
+  const bookmarks = useMemo(() => {
+    if (isAuthenticated) {
+      const set = new Set();
+      Object.keys(bookmarkMap).forEach((key) => {
+        if (key.startsWith("system-design_")) {
+          set.add(key.replace("system-design_", ""));
+        }
+      });
+      return set;
+    }
+    return localBookmarks;
+  }, [isAuthenticated, bookmarkMap, localBookmarks]);
+
+  const reviewed = useMemo(() => {
+    if (isAuthenticated) {
+      const set = new Set();
+      Object.keys(progressMap).forEach((key) => {
+        if (key.startsWith("system-design_") && progressMap[key] === "reviewed") {
+          set.add(key.replace("system-design_", ""));
+        }
+      });
+      return set;
+    }
+    return localReviewed;
+  }, [isAuthenticated, progressMap, localReviewed]);
 
   // ── View States ─────────────────────────────────────────────────
   const [expandedQuestions, setExpandedQuestions] = useState(new Set()); // For Browse Mode
@@ -175,8 +209,8 @@ export default function SystemDesignPage() {
       const r = localStorage.getItem("sd-reviewed");
       const b = localStorage.getItem("sd-bookmarks");
       const savedMode = localStorage.getItem("sd-active-mode");
-      if (r) setReviewed(new Set(JSON.parse(r)));
-      if (b) setBookmarks(new Set(JSON.parse(b)));
+      if (r) setLocalReviewed(new Set(JSON.parse(r)));
+      if (b) setLocalBookmarks(new Set(JSON.parse(b)));
       if (savedMode === "practice") setMode("practice");
     } catch (err) {
       console.warn("Failed to load local storage state:", err);
@@ -297,30 +331,46 @@ export default function SystemDesignPage() {
   };
 
   // ── Toggle Actions ──────────────────────────────────────────────
-  const toggleReviewed = (id) => {
-    setReviewed((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) {
-        next.delete(id);
+  const toggleReviewed = async (id) => {
+    const stringId = String(id);
+    if (isAuthenticated) {
+      const key = `system-design_${stringId}`;
+      const isReviewed = progressMap[key] === "reviewed";
+      if (isReviewed) {
+        await storeRemoveProgress("system-design", stringId);
       } else {
-        next.add(id);
+        await storeUpdateProgress("system-design", stringId, "reviewed");
       }
-      saveReviewed(next);
-      return next;
-    });
+    } else {
+      setLocalReviewed((prev) => {
+        const next = new Set(prev);
+        if (next.has(id)) {
+          next.delete(id);
+        } else {
+          next.add(id);
+        }
+        saveReviewed(next);
+        return next;
+      });
+    }
   };
 
-  const toggleBookmark = (id) => {
-    setBookmarks((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-      saveBookmarks(next);
-      return next;
-    });
+  const toggleBookmark = async (id) => {
+    const stringId = String(id);
+    if (isAuthenticated) {
+      await storeToggleBookmark("system-design", stringId);
+    } else {
+      setLocalBookmarks((prev) => {
+        const next = new Set(prev);
+        if (next.has(id)) {
+          next.delete(id);
+        } else {
+          next.add(id);
+        }
+        saveBookmarks(next);
+        return next;
+      });
+    }
   };
 
   const toggleExpandBrowseCard = (id) => {

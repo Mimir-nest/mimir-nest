@@ -16,8 +16,12 @@ import {
   Map,
   BookOpen,
   GraduationCap,
+  LogOut,
+  User as UserIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useAuthStore } from "@/store/useAuthStore";
+import AuthModal from "./AuthModal";
 
 const categories = [
   {
@@ -67,6 +71,12 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const dropdownRef = useRef(null);
+
+  const { user, isAuthenticated, logout, checkAuth, isAuthModalOpen, openAuthModal, closeAuthModal } = useAuthStore();
+
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -199,8 +209,34 @@ const Navbar = () => {
           >
             Explore Tools
           </Link>
+
+          {isAuthenticated ? (
+            <div className="flex items-center gap-3 bg-surface-container border border-outline-variant/30 px-3 py-1.5 rounded-lg">
+              <Link href="/contributions" className="flex items-center gap-1.5 hover:text-surface-tint transition-colors">
+                <UserIcon className="w-4 h-4 text-surface-tint" />
+                <span className="text-sm font-semibold text-foreground max-w-[120px] truncate">
+                  {user?.name}
+                </span>
+              </Link>
+              <button
+                onClick={() => logout()}
+                className="text-on-surface-variant hover:text-destructive transition-colors ml-1 border-none bg-transparent cursor-pointer flex items-center"
+                title="Log Out"
+              >
+                <LogOut className="w-4 h-4" />
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={openAuthModal}
+              className="bg-surface-container border border-outline-variant/40 hover:bg-surface-container-high text-foreground px-4 py-2 rounded-lg font-semibold text-sm transition-colors cursor-pointer border-none"
+            >
+              Sign In
+            </button>
+          )}
         </div>
       </div>
+      <AuthModal isOpen={isAuthModalOpen} onClose={closeAuthModal} />
     </nav>
   );
 };
@@ -210,6 +246,8 @@ const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [expandedSection, setExpandedSection] = useState(null);
   const pathname = usePathname();
+
+  const { user, isAuthenticated, logout, isAuthModalOpen, openAuthModal, closeAuthModal } = useAuthStore();
 
   useEffect(() => {
     setIsOpen(false);
@@ -315,9 +353,44 @@ const MobileNav = () => {
               <Code className="h-5 w-5 flex-shrink-0" />
               GitHub
             </a>
+
+            {/* Auth Link (Mobile) */}
+            {isAuthenticated ? (
+              <div className="pt-4 border-t border-outline-variant/40 space-y-2">
+                <Link
+                  href="/contributions"
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-on-surface-variant hover:text-surface-tint hover:bg-surface-container transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <UserIcon className="h-5 w-5 text-surface-tint flex-shrink-0" />
+                  <span className="max-w-[200px] truncate">{user?.name} (My Contributions)</span>
+                </Link>
+                <button
+                  onClick={() => {
+                    logout();
+                    setIsOpen(false);
+                  }}
+                  className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-sm font-semibold text-destructive hover:bg-surface-container transition-colors border-none bg-transparent text-left cursor-pointer"
+                >
+                  <LogOut className="h-5 w-5 flex-shrink-0" />
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <div className="pt-4 border-t border-outline-variant/40">
+                <button
+                  onClick={openAuthModal}
+                  className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-sm font-semibold text-primary hover:text-primary-foreground hover:bg-primary transition-colors border border-primary/20 bg-transparent text-left cursor-pointer"
+                >
+                  <UserIcon className="h-5 w-5 flex-shrink-0" />
+                  Sign In / Up
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}
+      <AuthModal isOpen={isAuthModalOpen} onClose={closeAuthModal} />
     </nav>
   );
 };
