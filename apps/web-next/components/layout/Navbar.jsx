@@ -212,12 +212,12 @@ const Navbar = () => {
 
           {isAuthenticated ? (
             <div className="flex items-center gap-3 bg-surface-container border border-outline-variant/30 px-3 py-1.5 rounded-lg">
-              <Link href="/contributions" className="flex items-center gap-1.5 hover:text-surface-tint transition-colors">
+              <div className="flex items-center gap-1.5">
                 <UserIcon className="w-4 h-4 text-surface-tint" />
                 <span className="text-sm font-semibold text-foreground max-w-[120px] truncate">
                   {user?.name}
                 </span>
-              </Link>
+              </div>
               <button
                 onClick={() => logout()}
                 className="text-on-surface-variant hover:text-destructive transition-colors ml-1 border-none bg-transparent cursor-pointer flex items-center"
@@ -357,14 +357,12 @@ const MobileNav = () => {
             {/* Auth Link (Mobile) */}
             {isAuthenticated ? (
               <div className="pt-4 border-t border-outline-variant/40 space-y-2">
-                <Link
-                  href="/contributions"
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-on-surface-variant hover:text-surface-tint hover:bg-surface-container transition-colors"
-                  onClick={() => setIsOpen(false)}
+                <div
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-on-surface-variant"
                 >
                   <UserIcon className="h-5 w-5 text-surface-tint flex-shrink-0" />
-                  <span className="max-w-[200px] truncate">{user?.name} (My Contributions)</span>
-                </Link>
+                  <span className="max-w-[200px] truncate">{user?.name}</span>
+                </div>
                 <button
                   onClick={() => {
                     logout();
