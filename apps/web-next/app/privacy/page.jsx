@@ -3,7 +3,7 @@
 import React from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { Shield, Sparkles, FileText, Calendar, Info, Eye, Database, Globe, CheckCircle2, Lock, Mail, AlertTriangle } from "lucide-react";
+import { Shield, Calendar, AlertTriangle } from "lucide-react";
 import dynamic from "next/dynamic";
 
 const ParticleWave = dynamic(
@@ -45,7 +45,7 @@ const Privacy = () => {
 
             <div className="flex items-center gap-2 text-xs font-label-caps text-on-surface-variant/75 tracking-widest font-semibold pt-4">
               <Calendar className="w-4 h-4 text-surface-tint" />
-              <span>Effective Date: August 23, 2026</span>
+              <span>Effective Date: August 30, 2026</span>
             </div>
           </div>
         </section>
@@ -59,7 +59,7 @@ const Privacy = () => {
             <nav className="flex flex-col gap-2.5 text-xs font-body-md text-on-surface-variant">
               <a href="#overview" className="hover:text-surface-tint transition-colors">1. Overview</a>
               <a href="#info-collect" className="hover:text-surface-tint transition-colors">2. Information We Collect</a>
-              <a href="#local-storage" className="hover:text-surface-tint transition-colors">3. Local Storage</a>
+              <a href="#cookies-storage" className="hover:text-surface-tint transition-colors">3. Cookies and Local Storage</a>
               <a href="#use" className="hover:text-surface-tint transition-colors">4. How We Use Information</a>
               <a href="#analytics" className="hover:text-surface-tint transition-colors">5. Google Analytics</a>
               <a href="#third-party" className="hover:text-surface-tint transition-colors">6. Third-Party Services</a>
@@ -84,6 +84,9 @@ const Privacy = () => {
               <p>
                 Mimir Nest is an open-source student platform. The project is designed with the objective of minimizing unnecessary data collection, allowing students to access utilities without subscription barriers or commercial tracking. This policy details what data may be processed when you interact with the website at <a href="https://mimirnest.vercel.app/" className="text-surface-tint hover:underline">mimirnest.vercel.app</a>.
               </p>
+              <p>
+                Please note that while the website's educational content and frontend application code are publicly available and open-source, your private account details, bookmarks, and learning progress are stored securely on our private backend infrastructure and are never made public.
+              </p>
             </section>
 
             {/* 2. Information We Collect */}
@@ -92,43 +95,83 @@ const Privacy = () => {
                 2. Information We Collect
               </h2>
               
+              <p>
+                You can browse our public educational content (including Projects, Courses, DSA checklists, System Design articles, and Email Perks) completely without creating an account. Creating an account is entirely optional.
+              </p>
+
               <div className="space-y-3">
-                <h3 className="text-sm font-bold text-foreground">Information You Provide</h3>
+                <h3 className="text-sm font-bold text-foreground">Account and Profile Information</h3>
                 <p>
-                  Mimir Nest does not support user accounts, profile registration, or newsletters. When you browse the site, you do not input personal identifiers. If you voluntarily write to us at <a href="mailto:mimirnest@gmail.com" className="text-surface-tint hover:underline font-semibold">mimirnest@gmail.com</a>, we will process your email address and any message content to address your inquiry.
+                  If you choose to create a Mimir Nest account, we collect standard credentials:
+                </p>
+                <ul className="pl-6 list-disc space-y-1.5">
+                  <li><strong>Basic Account Information:</strong> Your name and email address when you register using our signup form.</li>
+                  <li><strong>Authentication Provider Info:</strong> If you use Google Sign-In, we receive authentication details from Google (email address, name, and profile picture/avatar URL) to create and log you into your Mimir Nest account.</li>
+                  <li><strong>Saved Features and Progress:</strong> We store bookmarks and learning progress details that you choose to save when logged into your account.</li>
+                </ul>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-sm font-bold text-foreground">Contact Communications</h3>
+                <p>
+                  If you voluntarily write to us at <a href="mailto:mimirnest@gmail.com" className="text-surface-tint hover:underline font-semibold">mimirnest@gmail.com</a>, we process your email address and any message content to address your inquiry.
                 </p>
               </div>
 
               <div className="space-y-3">
                 <h3 className="text-sm font-bold text-foreground">Analytics Information</h3>
                 <p>
-                  Mimir Nest integrates Google Analytics (measurement ID <code>G-S9BCG5CN4G</code>). This service collects telemetry concerning how users access the site, including request timestamps, approximate geolocation (derived from IP addresses), browser types, and system configurations.
+                  Mimir Nest integrates Google Analytics (measurement ID <code>G-S9BCG5CN4G</code>). This service collects telemetry concerning how users access the site, including page views, request timestamps, approximate geolocation (derived from IP addresses), browser types, and system configurations.
                 </p>
               </div>
 
               <div className="space-y-3">
                 <h3 className="text-sm font-bold text-foreground">Technical / Hosting Information</h3>
                 <p>
-                  Like most websites, our hosting infrastructure (Vercel) automatically processes standard web server log entries on every request. This includes your IP address, browser user-agent header, request pathways, and access timestamps. Mimir Nest does not maintain or copy these infrastructure logs locally.
+                  Our hosting and backend infrastructure automatically processes standard web server logs on every request. This includes your IP address, browser user-agent header, request pathways, and access timestamps. This information is processed to maintain performance, stability, and secure the service from unauthorized access or network abuse.
                 </p>
               </div>
             </section>
 
-            {/* 3. Local Storage */}
-            <section id="local-storage" className="space-y-4 scroll-mt-28 border-t border-border/40 pt-8">
+            {/* 3. Cookies and Local Storage */}
+            <section id="cookies-storage" className="space-y-4 scroll-mt-28 border-t border-border/40 pt-8">
               <h2 className="text-xl font-bold text-foreground font-headline-md">
-                3. Local Storage
+                3. Cookies and Local Storage
               </h2>
               <p>
-                To provide persistent preferences and utilities without requiring accounts or cloud databases, Mimir Nest stores files and configurations directly inside your browser using the <code>localStorage</code> API:
+                Mimir Nest uses standard cookies and browser local storage to enable essential features, persist layout preferences, and measure traffic performance:
               </p>
-              <ul className="pl-6 list-disc space-y-1.5">
-                <li><strong>Pomodoro Timer Settings & Stats:</strong> Saves active timer configurations, completed focus counts, and streak histories.</li>
-                <li><strong>Placement DSA SOLVED logs:</strong> Saves checked statuses representing which questions you have solved locally.</li>
-              </ul>
-              <p>
-                Based on our codebase audit, this stored browser information remains entirely client-side. It is never transmitted back to Mimir Nest servers or uploaded to any third-party services. You can clear this data at any time by utilizing your browser options to clear site storage cache.
-              </p>
+              <div className="space-y-3">
+                <h3 className="text-sm font-bold text-foreground">Authentication Cookies</h3>
+                <p>
+                  If you choose to register or log in, we set an HttpOnly session cookie (named <code>token</code>) containing a JSON Web Token (JWT). This cookie is protected from client-side script access, securing your authentication session against cross-site scripting vulnerabilities.
+                </p>
+              </div>
+              <div className="space-y-3">
+                <h3 className="text-sm font-bold text-foreground">Preference Cookies</h3>
+                <p>
+                  We use a standard client-side cookie (named <code>sidebar:state</code>) to persist the open/close state of the navigation sidebar across page loads.
+                </p>
+              </div>
+              <div className="space-y-3">
+                <h3 className="text-sm font-bold text-foreground">Analytics Cookies</h3>
+                <p>
+                  Google Analytics sets standard telemetry cookies to compile reports on site traffic and page interaction metrics.
+                </p>
+              </div>
+              <div className="space-y-3">
+                <h3 className="text-sm font-bold text-foreground">Local Browser Storage</h3>
+                <p>
+                  To support offline/local utilities without requiring an account, Mimir Nest stores configurations directly inside your browser using the <code>localStorage</code> API:
+                </p>
+                <ul className="pl-6 list-disc space-y-1.5">
+                  <li><strong>Pomodoro Timer Settings & Stats:</strong> Saves active timer configurations, completed focus counts, and streak histories.</li>
+                  <li><strong>Placement DSA SOLVED logs:</strong> Saves checked statuses representing which questions you have solved locally.</li>
+                </ul>
+                <p>
+                  This stored browser information remains entirely client-side and is never transmitted back to Mimir Nest servers or transferred to any third-party services. You can clear this data at any time by utilizing your browser options to clear site storage cache.
+                </p>
+              </div>
             </section>
 
             {/* 4. How We Use Information */}
@@ -137,13 +180,14 @@ const Privacy = () => {
                 4. How We Use Information
               </h2>
               <p>
-                Mimir Nest and its service providers process information for the following specific purposes:
+                We use the collected information for the following specific purposes:
               </p>
               <ul className="pl-6 list-disc space-y-1.5">
-                <li>Preserving local workspace settings and tools preferences in your browser.</li>
-                <li>Measuring aggregate, non-identifying traffic patterns to monitor website usage.</li>
-                <li>Diagnosing errors, improving site responsiveness, and preventing network abuse.</li>
-                <li>Replying to manual inquiries submitted via email support.</li>
+                <li><strong>Authentication and Account Management:</strong> Creating your account, verifying your identity, managing your session, and providing access to personalized features.</li>
+                <li><strong>Saving Preferences and Progress:</strong> Persisting your bookmarks and educational progress inside your account, or locally via browser storage/cookies if you are browsing without an account.</li>
+                <li><strong>Operating and Securing the Service:</strong> Diagnosing errors, resolving technical issues, preventing security incidents, and protecting against network abuse.</li>
+                <li><strong>Improving Performance:</strong> Monitoring website speed, layout responsiveness, and auditing traffic metrics.</li>
+                <li><strong>Correspondence:</strong> Responding to inquiries or privacy requests sent to our contact email.</li>
               </ul>
             </section>
 
@@ -172,7 +216,7 @@ const Privacy = () => {
                 6. Third-Party Services
               </h2>
               <p>
-                The following service providers process information necessary to host and analyze our platform:
+                The following service providers process information necessary to host, secure, authenticate, and analyze our platform:
               </p>
               
               <div className="overflow-x-auto rounded-xl border border-outline-variant/30">
@@ -189,23 +233,31 @@ const Privacy = () => {
                       <td className="px-4 py-3 font-semibold text-foreground">Vercel</td>
                       <td className="px-4 py-3">Hosting & CDN Infrastructure</td>
                       <td className="px-4 py-3">
-                        IP address, request paths, user agent. <br />
+                        IP address, request paths, user agent headers. <br />
                         <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-surface-tint hover:underline font-medium">Vercel Privacy Policy</a>
                       </td>
                     </tr>
                     <tr>
-                      <td className="px-4 py-3 font-semibold text-foreground">Google LLC</td>
-                      <td className="px-4 py-3">Usage Telemetry & Traffic Auditing</td>
+                      <td className="px-4 py-3 font-semibold text-foreground">Neon</td>
+                      <td className="px-4 py-3">Backend Database Hosting</td>
                       <td className="px-4 py-3">
-                        Page interactions, browser metrics, cookies. <br />
+                        User account credentials, email, profile name, bookmarks, and learning progress. <br />
+                        <a href="https://neon.tech/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-surface-tint hover:underline font-medium">Neon Privacy Policy</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-4 py-3 font-semibold text-foreground">Google LLC</td>
+                      <td className="px-4 py-3">Usage Telemetry & Google Sign-In</td>
+                      <td className="px-4 py-3">
+                        Telemetry cookies, Google OAuth profile details (email, name, avatar URL). <br />
                         <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-surface-tint hover:underline font-medium">Google Privacy Policy</a>
                       </td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 font-semibold text-foreground">GitHub</td>
-                      <td className="px-4 py-3">Code Repository & Collaboration</td>
+                      <td className="px-4 py-3">Code Repository & Open-Source Collaboration</td>
                       <td className="px-4 py-3">
-                        Processes account info of developers viewing or contributing to the codebase directly. <br />
+                        Processes profile details of developers viewing or collaborating on the open-source codebase directly. <br />
                         <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer" className="text-surface-tint hover:underline font-medium">GitHub Statement</a>
                       </td>
                     </tr>
@@ -220,7 +272,7 @@ const Privacy = () => {
                 7. Data Sharing
               </h2>
               <p>
-                Mimir Nest does not sell, barter, or distribute your information to advertising agencies or data brokers. Data processing is strictly limited to the infrastructure partners (Vercel and Google Analytics) needed to load and evaluate the website's performance, subject to their respective configurations.
+                Mimir Nest does not sell, barter, lease, or distribute your personal information to advertising agencies, data brokers, or third-party marketing services. Data processing is strictly limited to the infrastructure and integration partners (Vercel, Neon, and Google) needed to run, secure, authenticate, and analyze the website performance.
               </p>
             </section>
 
@@ -231,23 +283,30 @@ const Privacy = () => {
               </h2>
               
               <div className="space-y-3">
+                <h3 className="text-sm font-semibold text-foreground">Account and Progress Data</h3>
+                <p>
+                  Personal information, bookmarks, and learning progress stored on our backend database are retained for as long as your account remains active or as necessary to provide the platform services.
+                </p>
+              </div>
+
+              <div className="space-y-3">
                 <h3 className="text-sm font-semibold text-foreground">Local Browser Data</h3>
                 <p>
-                  Data inside your browser's <code>localStorage</code> is retained indefinitely until you choose to clear your browser cache or site storage.
+                  Information stored in your browser's <code>localStorage</code> or client-side cookies is retained indefinitely until you choose to clear your browser cache or site storage cache.
                 </p>
               </div>
 
               <div className="space-y-3">
                 <h3 className="text-sm font-semibold text-foreground">Contact Communications</h3>
                 <p>
-                  Any email correspondence sent to <code>mimirnest@gmail.com</code> is retained as long as necessary to address the request and maintain proper correspondence.
+                  Any email correspondence sent to <code>mimirnest@gmail.com</code> is retained as long as necessary to address the inquiry and maintain proper record of communication.
                 </p>
               </div>
 
               <div className="space-y-3">
-                <h3 className="text-sm font-semibold text-foreground">Third-Party Logs & Analytics</h3>
+                <h3 className="text-sm font-semibold text-foreground">Infrastructure and Telemetry Logs</h3>
                 <p>
-                  Retention durations of access logs and analytics events are governed directly by Vercel's and Google's standard security and analytics data lifecycle schedules.
+                  Retention durations of standard web server logs and Google Analytics events are governed by the hosting and analytical platform lifecycle configurations (Vercel and Google LLC).
                 </p>
               </div>
             </section>
@@ -268,12 +327,13 @@ const Privacy = () => {
                 10. Your Choices and Rights
               </h2>
               <p>
-                You can manage how your data is handled using these available options:
+                You can manage your data using the following options:
               </p>
               <ul className="pl-6 list-disc space-y-1.5">
-                <li><strong>Clear local files:</strong> Clear your browser cookies and site storage to reset Pomodoro logs and DSA checklists.</li>
-                <li><strong>Block tracking scripts:</strong> Install tracker blockers (e.g. uBlock Origin) or block cookies in your browser settings to prevent Google Analytics from operating.</li>
-                <li><strong>Privacy Requests:</strong> Depending on where you live and which privacy laws apply to you, you may have rights concerning your personal information (such as requesting access, deletion, or correction). To submit a request, contact us at <code>mimirnest@gmail.com</code>.</li>
+                <li><strong>Clear Local Storage and Cookies:</strong> You can clear your browser storage cache and cookies to reset Pomodoro logs, local DSA checkmarks, and the sidebar layout preference.</li>
+                <li><strong>Account Deletion and Data Management:</strong> You can manage or delete your bookmarks and learning progress directly inside your account settings when logged in. To delete your account completely, please contact us at <code>mimirnest@gmail.com</code>.</li>
+                <li><strong>Block Telemetry:</strong> Install tracker blockers (e.g., uBlock Origin) or block cookies in your browser settings to prevent Google Analytics scripts from running.</li>
+                <li><strong>Privacy Rights:</strong> Depending on your jurisdiction, you may have statutory rights regarding your personal information (such as requesting access, deletion, porting, or correction). To send a formal request, email us at <code>mimirnest@gmail.com</code>.</li>
               </ul>
             </section>
 

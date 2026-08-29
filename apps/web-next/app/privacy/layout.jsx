@@ -1,17 +1,17 @@
 export const metadata = {
   title: "Mimir Nest Privacy Policy",
-  description: "Understand how Mimir Nest handles your information. Our tools run locally in your browser with zero data collection, except standard usage analytics.",
+  description: "Understand how Mimir Nest handles your information. Learn about our user account options, bookmarks, learning progress, and data protection practices.",
   alternates: {
     canonical: "https://mimirnest.vercel.app/privacy",
   },
   openGraph: {
     title: "Mimir Nest Privacy Policy",
-    description: "Understand how Mimir Nest handles your information. Our tools run locally in your browser with zero data collection, except standard usage analytics.",
+    description: "Understand how Mimir Nest handles your information. Learn about our user account options, bookmarks, learning progress, and data protection practices.",
     url: "https://mimirnest.vercel.app/privacy",
   },
   twitter: {
     title: "Mimir Nest Privacy Policy",
-    description: "Understand how Mimir Nest handles your information. Our tools run locally in your browser with zero data collection, except standard usage analytics.",
+    description: "Understand how Mimir Nest handles your information. Learn about our user account options, bookmarks, learning progress, and data protection practices.",
   },
 };
 
@@ -20,7 +20,7 @@ export default function PrivacyLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Mimir Nest Privacy Policy",
-    "description": "Understand how Mimir Nest handles your information. Our tools run locally in your browser with zero data collection, except standard usage analytics.",
+    "description": "Understand how Mimir Nest handles your information. Learn about our user account options, bookmarks, learning progress, and data protection practices.",
     "url": "https://mimirnest.vercel.app/privacy",
     "breadcrumb": {
       "@context": "https://schema.org",
