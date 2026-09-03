@@ -20,7 +20,7 @@ const Roadmaps = () => {
 
       <main className="flex-1 flex flex-col items-center justify-center px-6 pt-32 pb-24 relative overflow-hidden">
         {/* Background Particle Wave */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
           <ParticleWave />
         </div>
 

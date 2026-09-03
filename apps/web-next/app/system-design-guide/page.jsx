@@ -642,7 +642,7 @@ export default function SystemDesignGuidePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#151616]/95 via-[#151616]/85 to-[#151616]/95 z-0 pointer-events-none" />
 
         {/* Background Particle Wave waves */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
           <ParticleWave />
         </div>
 

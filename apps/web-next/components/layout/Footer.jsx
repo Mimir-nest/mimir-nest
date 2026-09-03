@@ -21,6 +21,7 @@ const Footer = () => {
         { name: "Blog", path: "/blog" },
         { name: "Contributing", path: "/contributing" },
         { name: "GitHub", path: "https://github.com/Mimir-nest/mimir-nest", isExternal: true },
+        { name: "LinkedIn", path: "https://www.linkedin.com/company/mimir-nest/", isExternal: true },
         { name: "Changelog", path: "https://github.com/Mimir-nest/mimir-nest/releases", isExternal: true },
         { name: "License", path: "/license" }
       ]

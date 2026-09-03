@@ -290,7 +290,7 @@ const Pomodoro = () => {
     const ringColor = mode === 'pomodoro' ? '#FF5A36' : mode === 'shortBreak' ? '#D6D2C9' : '#9B9992';
     return (<div className="min-h-screen bg-mn-background text-on-background relative overflow-hidden">
       {/* Background Particle Wave */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
         <ParticleWave />
       </div>
 

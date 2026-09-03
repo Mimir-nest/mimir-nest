@@ -30,7 +30,7 @@ const ParticleWave: React.FC<ParticleWaveProps> = ({ className = '' }) => {
   const getParticleColor = (theme: string) => {
     return theme === 'light' 
       ? new THREE.Vector3(0.08, 0.09, 0.09) // #151616 (dark) for light background
-      : new THREE.Vector3(1.0, 0.353, 0.212); // #FF5A36 (Mimir Nest brand orange)
+      : new THREE.Vector3(1.0, 0.42, 0.12); // Vibrant glowing orange
   };
 
   const particleVertex = `
@@ -43,7 +43,7 @@ const ParticleWave: React.FC<ParticleWaveProps> = ({ className = '' }) => {
       p.x += (sin(p.y + uTime) * 0.5);
       s += (sin(p.x + uTime) * 0.5) + (cos(p.y + uTime) * 0.1) * 2.0;
       vec4 mvPosition = modelViewMatrix * vec4(p, 1.0);
-      gl_PointSize = s * 15.0 * (1.0 / -mvPosition.z);
+      gl_PointSize = s * 18.0 * (1.0 / -mvPosition.z);
       gl_Position = projectionMatrix * mvPosition;
     }
   `;
@@ -51,7 +51,11 @@ const ParticleWave: React.FC<ParticleWaveProps> = ({ className = '' }) => {
   const particleFragment = `
     uniform vec3 uColor;
     void main() {
-      gl_FragColor = vec4(uColor, 0.5);
+      float r = distance(gl_PointCoord, vec2(0.5));
+      if (r > 0.5) discard;
+      float alpha = smoothstep(0.5, 0.05, r) * 0.95;
+      vec3 brightColor = uColor * (1.3 - r * 0.4);
+      gl_FragColor = vec4(brightColor, alpha);
     }
   `;
 

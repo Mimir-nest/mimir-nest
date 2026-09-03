@@ -61,7 +61,7 @@ const About = () => {
         {/* ── 1. HERO ── */}
         <section className="relative bg-surface-container pt-[140px] md:pt-[180px] pb-20 md:pb-28 px-6 md:px-16 overflow-hidden rounded-b-3xl">
           {/* Background Particle Wave */}
-          <div className="absolute inset-0 z-0 pointer-events-none opacity-25">
+          <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
             <ParticleWave />
           </div>
 

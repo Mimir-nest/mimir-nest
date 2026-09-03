@@ -23,7 +23,7 @@ const Hero = () => {
   return (
     <section className="relative bg-surface-container pt-[120px] md:pt-[160px] pb-24 md:pb-[120px] px-6 md:px-16 overflow-hidden rounded-b-3xl">
       {/* Background Particle Wave */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-25">
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
         <ParticleWave />
       </div>
 

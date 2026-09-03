@@ -189,16 +189,6 @@ const Navbar = () => {
           >
             Blog
           </Link>
-
-          {/* GitHub link */}
-          <a
-            href="https://github.com/Mimir-nest/mimir-nest"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-body-md text-body-md text-on-surface-variant hover:text-surface-tint transition-colors"
-          >
-            GitHub
-          </a>
         </div>
 
         {/* Explore Tools CTA */}
@@ -342,17 +332,6 @@ const MobileNav = () => {
               <BookOpen className="h-5 w-5 flex-shrink-0 text-surface-tint" />
               Blog
             </Link>
-
-            {/* GitHub Link */}
-            <a
-              href="https://github.com/Mimir-nest/mimir-nest"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-on-surface-variant hover:text-surface-tint hover:bg-surface-container transition-colors"
-            >
-              <Code className="h-5 w-5 flex-shrink-0" />
-              GitHub
-            </a>
 
             {/* Auth Link (Mobile) */}
             {isAuthenticated ? (
