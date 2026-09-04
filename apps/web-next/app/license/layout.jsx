@@ -1,17 +1,17 @@
 export const metadata = {
   title: "Mimir Nest License | MIT License",
-  description: "Understand the MIT License terms and conditions for Mimir Nest, a free and open-source college student platform.",
+  description: "Understand the MIT License terms and conditions for Mimir Nest, a free college student platform.",
   alternates: {
     canonical: "https://mimirnest.vercel.app/license",
   },
   openGraph: {
     title: "Mimir Nest License | MIT License",
-    description: "Understand the MIT License terms and conditions for Mimir Nest, a free and open-source college student platform.",
+    description: "Understand the MIT License terms and conditions for Mimir Nest, a free college student platform.",
     url: "https://mimirnest.vercel.app/license",
   },
   twitter: {
     title: "Mimir Nest License | MIT License",
-    description: "Understand the MIT License terms and conditions for Mimir Nest, a free and open-source college student platform.",
+    description: "Understand the MIT License terms and conditions for Mimir Nest, a free college student platform.",
   },
 };
 
@@ -20,7 +20,7 @@ export default function LicenseLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Mimir Nest License | MIT License",
-    "description": "Understand the MIT License terms and conditions for Mimir Nest, a free and open-source college student platform.",
+    "description": "Understand the MIT License terms and conditions for Mimir Nest, a free college student platform.",
     "url": "https://mimirnest.vercel.app/license",
     "breadcrumb": {
       "@context": "https://schema.org",

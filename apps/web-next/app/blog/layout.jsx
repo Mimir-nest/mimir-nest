@@ -1,18 +1,18 @@
 export const metadata = {
   title: "Blog | Mimir Nest",
-  description: "Useful, original articles on student life, software engineering, programming, placements, and open source.",
+  description: "Useful, original articles on student life, software engineering, programming, placements, and project building.",
   alternates: {
     canonical: "https://mimirnest.vercel.app/blog",
   },
   openGraph: {
     title: "Blog | Mimir Nest",
-    description: "Useful, original articles on student life, software engineering, programming, placements, and open source.",
+    description: "Useful, original articles on student life, software engineering, programming, placements, and project building.",
     url: "https://mimirnest.vercel.app/blog",
     type: "website",
   },
   twitter: {
     title: "Blog | Mimir Nest",
-    description: "Useful, original articles on student life, software engineering, programming, placements, and open source.",
+    description: "Useful, original articles on student life, software engineering, programming, placements, and project building.",
   },
 };
 
@@ -21,7 +21,7 @@ export default function BlogLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Blog | Mimir Nest",
-    "description": "Useful, original articles on student life, software engineering, programming, placements, and open source.",
+    "description": "Useful, original articles on student life, software engineering, programming, placements, and project building.",
     "url": "https://mimirnest.vercel.app/blog",
     "breadcrumb": {
       "@context": "https://schema.org",

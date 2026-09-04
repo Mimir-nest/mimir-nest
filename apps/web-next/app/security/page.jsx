@@ -127,7 +127,7 @@ const Security = () => {
                 <span>Security practices</span>
               </h2>
               <p className="text-on-surface-variant font-body-md text-sm leading-relaxed">
-                Mimir Nest leverages the following baseline open-source security practices built directly into our codebase:
+                Mimir Nest leverages the following baseline security practices built directly into our codebase:
               </p>
               
               <div className="grid sm:grid-cols-2 gap-4 pt-2">

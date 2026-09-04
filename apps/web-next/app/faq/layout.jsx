@@ -1,17 +1,17 @@
 export const metadata = {
   title: "Frequently Asked Questions | Mimir Nest",
-  description: "Get clear answers to questions about Mimir Nest's tools, CGPA formulas, DSA preparation, privacy, and open source contribution.",
+  description: "Get clear answers to questions about Mimir Nest's tools, CGPA formulas, DSA preparation, privacy, and community contributions.",
   alternates: {
     canonical: "https://mimirnest.vercel.app/faq",
   },
   openGraph: {
     title: "Frequently Asked Questions | Mimir Nest",
-    description: "Get clear answers to questions about Mimir Nest's tools, CGPA formulas, DSA preparation, privacy, and open source contribution.",
+    description: "Get clear answers to questions about Mimir Nest's tools, CGPA formulas, DSA preparation, privacy, and community contributions.",
     url: "https://mimirnest.vercel.app/faq",
   },
   twitter: {
     title: "Frequently Asked Questions | Mimir Nest",
-    description: "Get clear answers to questions about Mimir Nest's tools, CGPA formulas, DSA preparation, privacy, and open source contribution.",
+    description: "Get clear answers to questions about Mimir Nest's tools, CGPA formulas, DSA preparation, privacy, and community contributions.",
   },
 };
 
@@ -74,7 +74,7 @@ export default function FaqLayout({ children }) {
           "name": "Is Mimir Nest free to use?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes! Mimir Nest is 100% free and open-source. All our calculators, timers, curriculums, and interview archives are accessible without paywalls."
+            "text": "Yes! Mimir Nest is 100% free to use. All our calculators, timers, curriculums, and interview archives are accessible without paywalls."
           }
         },
         {
@@ -90,7 +90,7 @@ export default function FaqLayout({ children }) {
           "name": "Can I contribute to the platform?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Absolutely! We welcome open-source contributions. You can submit questions, build features, report issues, or suggest new toolkits via our GitHub repository."
+            "text": "Absolutely! We welcome community contributions. You can submit questions, build features, report issues, or suggest new toolkits via our GitHub repository."
           }
         },
         {

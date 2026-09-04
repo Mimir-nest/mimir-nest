@@ -65,7 +65,7 @@ const Projects = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-xs font-label-caps text-surface-tint tracking-widest uppercase mx-auto">
             <Code className="w-4 h-4 text-surface-tint"/>
-            <span>Open Source Portfolio</span>
+            <span>Project Portfolio Vault</span>
           </motion.div>
 
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display-lg text-display-lg-mobile md:text-display-lg text-foreground leading-tight">
@@ -209,7 +209,7 @@ const Projects = () => {
             Ready to Contribute?
           </h3>
           <p className="text-on-surface-variant max-w-xl mx-auto font-body-md text-sm">
-            Join the Mimir Nest open-source ecosystem and build high-impact software alongside fellow engineers.
+            Join the Mimir Nest ecosystem and build high-impact software alongside fellow engineers.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-6 pt-2 text-xs font-label-caps tracking-widest text-on-surface-variant uppercase">
             <span className="flex items-center gap-2">

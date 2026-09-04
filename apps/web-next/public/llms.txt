@@ -1,6 +1,6 @@
 # Mimir Nest
 
-Mimir Nest is a free and open-source platform for college students, providing academic, learning, productivity, DSA, placement, project, and career-oriented tools.
+Mimir Nest provides everything you need to learn, build & launch — a platform for college students offering academic, learning, productivity, DSA, placement, project, and career-oriented tools.
 
 ## Core Features and Pages
 
@@ -8,7 +8,7 @@ Mimir Nest is a free and open-source platform for college students, providing ac
 - **Courses (/courses)**: Handpicked, high-quality, free courses and academic learning paths tailored for students.
 - **Roadmaps (/roadmaps)**: Flexible step-by-step career developer roadmaps.
 - **Placement & DSA (/placement-dsa)**: A curated vault of Data Structures and Algorithms questions from 190+ top tech companies.
-- **Projects (/projects)**: A curated directory of open-source project ideas and build guides.
+- **Projects (/projects)**: A curated directory of project ideas and build guides.
 - **CGPA Calculator (/cgpa)**: Mathematically rigorous credit-weighted grade calculator and GPA predictor.
 - **Pomodoro Timer (/pomodoro)**: Customizable focus timer with ambient soundscapes.
 - **Typing Practice (/typing)**: Developer-centric speed and accuracy assessment tool.

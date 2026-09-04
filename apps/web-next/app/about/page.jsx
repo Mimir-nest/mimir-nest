@@ -96,7 +96,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed"
             >
-              Mimir Nest is an open-source collection of tools and resources designed to make everyday student life a little simpler — from studying and placement preparation to learning, building, and finding useful opportunities.
+              Mimir Nest provides everything you need to learn, build & launch — a collection of tools and resources designed to make everyday student life simpler.
             </motion.p>
           </div>
         </section>
@@ -150,20 +150,20 @@ const About = () => {
             </div>
           </motion.section>
 
-          {/* ── 4. OPEN SOURCE ── */}
+          {/* ── 4. CODEBASE & REPOSITORY ── */}
           <motion.section
             variants={itemVariants}
             className="rounded-[32px] bg-surface-container p-8 md:p-12 border border-outline-variant/40 grid grid-cols-1 md:grid-cols-12 gap-8 items-center"
           >
             <div className="md:col-span-7 space-y-4">
               <span className="font-label-caps text-xs text-surface-tint tracking-widest uppercase font-semibold block">
-                Open Source
+                Public Repository
               </span>
               <h3 className="font-headline-lg text-2xl md:text-3xl text-foreground font-bold leading-tight">
-                Built in the open.
+                Inspect and explore.
               </h3>
               <p className="font-body-md text-sm text-on-surface-variant leading-relaxed max-w-xl">
-                Mimir Nest is free to use and open source. The code is available for anyone to inspect, learn from, improve, or contribute to.
+                Mimir Nest is free to use. You can view the code repository, inspect the implementation, or explore the project on GitHub.
               </p>
             </div>
             <div className="md:col-span-5 md:text-right">
@@ -197,7 +197,7 @@ const About = () => {
                 >
                   Sachin Patel
                 </a>{" "}
-                as an open-source repository.
+                for college students.
               </p>
             </div>
           </motion.section>
@@ -205,7 +205,7 @@ const About = () => {
           {/* ── 6. CLOSING ── */}
           <motion.section variants={itemVariants} className="text-center py-12 space-y-6">
             <p className="font-body-lg text-lg text-foreground font-medium italic tracking-wide">
-              For students, by the open-source community.
+              Everything You Need to Learn, Build & Launch.
             </p>
             <div className="pt-2">
               <button

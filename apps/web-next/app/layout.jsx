@@ -18,10 +18,10 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata = {
   metadataBase: new URL("https://mimirnest.vercel.app"),
   title: {
-    default: "Mimir Nest | Open-Source Student Platform",
+    default: "Mimir Nest | Everything You Need to Learn, Build & Launch",
     template: "%s | Mimir Nest",
   },
-  description: "Free, open-source platform offering academic, learning, productivity, DSA, and career tools for college students.",
+  description: "Mimir Nest provides everything you need to learn, build & launch — academic, learning, productivity, DSA, and career tools for students.",
   keywords: [
     "college student tools",
     "student productivity tools",
@@ -36,7 +36,6 @@ export const metadata = {
     "student portfolio",
     "college resources",
     "study tools",
-    "open source student platform",
     "free student tools",
     "career preparation for students"
   ],
@@ -59,8 +58,8 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     url: "https://mimirnest.vercel.app",
-    title: "Mimir Nest | Open-Source Student Platform",
-    description: "Free, open-source platform offering academic, learning, productivity, DSA, and career tools for college students.",
+    title: "Mimir Nest | Everything You Need to Learn, Build & Launch",
+    description: "Mimir Nest provides everything you need to learn, build & launch — academic, learning, productivity, DSA, and career tools for students.",
     siteName: "Mimir Nest",
     images: [
       {
@@ -73,8 +72,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mimir Nest | Open-Source Student Platform",
-    description: "Free, open-source platform offering academic, learning, productivity, DSA, and career tools for college students.",
+    title: "Mimir Nest | Everything You Need to Learn, Build & Launch",
+    description: "Mimir Nest provides everything you need to learn, build & launch — academic, learning, productivity, DSA, and career tools for students.",
     images: ["/logo/logo.png"],
   },
   robots: {

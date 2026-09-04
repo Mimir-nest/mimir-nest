@@ -42,14 +42,9 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-lg glass-panel w-fit"
           >
             <Sparkles className="w-4 h-4 text-surface-tint" />
-            <a
-              href="https://github.com/Mimir-nest/mimir-nest"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-label-caps text-label-caps text-surface-tint hover:underline transition-all tracking-widest uppercase font-semibold"
-            >
-              Open source. Free to use.
-            </a>
+            <span className="font-label-caps text-label-caps text-surface-tint tracking-widest uppercase font-semibold">
+              Everything You Need to Learn, Build & Launch
+            </span>
           </motion.div>
 
           <motion.h1
@@ -104,8 +99,8 @@ const Hero = () => {
             {[
               "8+ Student Tools",
               "50+ Learning Resources",
-              "Open Source",
-              "Free to Use"
+              "100% Free to Use",
+              "Build & Launch"
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <p className="font-label-caps text-label-caps text-on-background/45 tracking-widest uppercase">

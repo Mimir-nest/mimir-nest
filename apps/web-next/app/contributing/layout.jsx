@@ -1,16 +1,16 @@
 export const metadata = {
-  title: "Contribute to Mimir Nest — Open-Source Student Platform",
+  title: "Contribute to Mimir Nest — Everything You Need to Learn, Build & Launch",
   description: "Find out how to contribute to Mimir Nest. Guide on setup, development commands, reporting bugs, and submitting pull requests.",
   alternates: {
     canonical: "https://mimirnest.vercel.app/contributing",
   },
   openGraph: {
-    title: "Contribute to Mimir Nest — Open-Source Student Platform",
+    title: "Contribute to Mimir Nest — Everything You Need to Learn, Build & Launch",
     description: "Find out how to contribute to Mimir Nest. Guide on setup, development commands, reporting bugs, and submitting pull requests.",
     url: "https://mimirnest.vercel.app/contributing",
   },
   twitter: {
-    title: "Contribute to Mimir Nest — Open-Source Student Platform",
+    title: "Contribute to Mimir Nest — Everything You Need to Learn, Build & Launch",
     description: "Find out how to contribute to Mimir Nest. Guide on setup, development commands, reporting bugs, and submitting pull requests.",
   },
 };
@@ -19,7 +19,7 @@ export default function ContributingLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Contribute to Mimir Nest — Open-Source Student Platform",
+    "name": "Contribute to Mimir Nest — Everything You Need to Learn, Build & Launch",
     "description": "Find out how to contribute to Mimir Nest. Guide on setup, development commands, reporting bugs, and submitting pull requests.",
     "url": "https://mimirnest.vercel.app/contributing",
     "breadcrumb": {

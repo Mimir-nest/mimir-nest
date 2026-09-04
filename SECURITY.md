@@ -1,6 +1,6 @@
 # Security Policy
 
-Mimir Nest is an open-source project, and we take the security of the project, its contributors, and its users seriously.
+Mimir Nest is a student platform, and we take the security of the project, its contributors, and its users seriously.
 
 If you discover a security vulnerability, we encourage responsible disclosure so that it can be investigated and addressed before the issue is made public.
 
@@ -70,15 +70,14 @@ Only test against systems and data you are authorized to access.
 
 ## Supported Versions
 
-Security fixes are primarily applied to the latest release and the current development version.
+The following table outlines the current support status for security updates across major release series of Mimir Nest:
 
-| Version | Security Support |
-| --- | --- |
-| Latest release | Supported |
-| Current development version | Supported |
-| Older releases | Not guaranteed |
+| Version Series | Support Status | Notes |
+| :--- | :--- | :--- |
+| `1.x.x` (Current) | :white_check_mark: Supported | Active development; security patches released for main branch. |
+| `< 1.0.0` (Legacy Alpha) | :x: Unsupported | Deprecated preview builds; users should upgrade to current `1.x.x`. |
 
-Because Mimir Nest is an actively developed open-source project, support status may change as new releases are published.
+Because Mimir Nest is an actively developed project, support status may change as new releases are published.
 
 ## Dependency and Automated Security
 

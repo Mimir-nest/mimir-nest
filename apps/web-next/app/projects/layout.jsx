@@ -1,17 +1,17 @@
 export const metadata = {
-  title: "Open-Source Projects & Build Guides | Mimir Nest",
-  description: "Get inspired for your next software project. Browse curated open-source projects, beginner guides, and build templates.",
+  title: "Projects & Build Guides | Mimir Nest",
+  description: "Get inspired for your next software project. Browse curated project ideas, beginner guides, and build templates.",
   alternates: {
     canonical: "https://mimirnest.vercel.app/projects",
   },
   openGraph: {
-    title: "Open-Source Projects & Build Guides | Mimir Nest",
-    description: "Get inspired for your next software project. Browse curated open-source projects, beginner guides, and build templates.",
+    title: "Projects & Build Guides | Mimir Nest",
+    description: "Get inspired for your next software project. Browse curated project ideas, beginner guides, and build templates.",
     url: "https://mimirnest.vercel.app/projects",
   },
   twitter: {
-    title: "Open-Source Projects & Build Guides | Mimir Nest",
-    description: "Get inspired for your next software project. Browse curated open-source projects, beginner guides, and build templates.",
+    title: "Projects & Build Guides | Mimir Nest",
+    description: "Get inspired for your next software project. Browse curated project ideas, beginner guides, and build templates.",
   },
 };
 
@@ -19,8 +19,8 @@ export default function ProjectsLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Open-Source Projects & Build Guides | Mimir Nest",
-    "description": "Get inspired for your next software project. Browse curated open-source projects, beginner guides, and build templates.",
+    "name": "Projects & Build Guides | Mimir Nest",
+    "description": "Get inspired for your next software project. Browse curated project ideas, beginner guides, and build templates.",
     "url": "https://mimirnest.vercel.app/projects",
     "breadcrumb": {
       "@context": "https://schema.org",

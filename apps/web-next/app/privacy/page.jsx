@@ -82,10 +82,10 @@ const Privacy = () => {
                 1. Overview
               </h2>
               <p>
-                Mimir Nest is an open-source student platform. The project is designed with the objective of minimizing unnecessary data collection, allowing students to access utilities without subscription barriers or commercial tracking. This policy details what data may be processed when you interact with the website at <a href="https://mimirnest.vercel.app/" className="text-surface-tint hover:underline">mimirnest.vercel.app</a>.
+                Mimir Nest is a student platform. The project is designed with the objective of minimizing unnecessary data collection, allowing students to access utilities without subscription barriers or commercial tracking. This policy details what data may be processed when you interact with the website at <a href="https://mimirnest.vercel.app/" className="text-surface-tint hover:underline">mimirnest.vercel.app</a>.
               </p>
               <p>
-                Please note that while the website's educational content and frontend application code are publicly available and open-source, your private account details, bookmarks, and learning progress are stored securely on our private backend infrastructure and are never made public.
+                Please note that while the website's educational content and application code are publicly accessible, your private account details, bookmarks, and learning progress are stored securely on our private backend infrastructure and are never made public.
               </p>
             </section>
 
@@ -255,9 +255,9 @@ const Privacy = () => {
                     </tr>
                     <tr>
                       <td className="px-4 py-3 font-semibold text-foreground">GitHub</td>
-                      <td className="px-4 py-3">Code Repository & Open-Source Collaboration</td>
+                      <td className="px-4 py-3">Code Repository & Collaboration</td>
                       <td className="px-4 py-3">
-                        Processes profile details of developers viewing or collaborating on the open-source codebase directly. <br />
+                        Processes profile details of developers viewing or collaborating on the codebase directly. <br />
                         <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer" className="text-surface-tint hover:underline font-medium">GitHub Statement</a>
                       </td>
                     </tr>

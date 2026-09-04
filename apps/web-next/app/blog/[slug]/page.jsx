@@ -99,31 +99,43 @@ const ArticleContent = ({ content }) => {
 
   const blocks = content.split(/\n\n+/);
 
-  const parseTextWithLinks = (text) => {
+  const parseInline = (text) => {
+    if (!text) return text;
+
+    const tokenRegex = /(\*\*(.*?)\*\*|\[([^\]]+)\]\(([^)]+)\))/g;
     const parts = [];
-    const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
     let lastIndex = 0;
     let match;
 
-    while ((match = regex.exec(text)) !== null) {
-      const [fullMatch, linkText, linkPath] = match;
+    while ((match = tokenRegex.exec(text)) !== null) {
       const startIndex = match.index;
-
       if (startIndex > lastIndex) {
         parts.push(text.substring(lastIndex, startIndex));
       }
 
-      parts.push(
-        <Link
-          key={startIndex}
-          href={linkPath}
-          className="text-surface-tint hover:underline font-semibold"
-        >
-          {linkText}
-        </Link>
-      );
+      const fullMatch = match[0];
+      if (fullMatch.startsWith("**") && fullMatch.endsWith("**")) {
+        const boldText = match[2];
+        parts.push(
+          <strong key={startIndex} className="font-semibold text-foreground">
+            {parseInline(boldText)}
+          </strong>
+        );
+      } else if (fullMatch.startsWith("[")) {
+        const linkText = match[3];
+        const linkPath = match[4];
+        parts.push(
+          <Link
+            key={startIndex}
+            href={linkPath}
+            className="text-surface-tint hover:underline font-semibold"
+          >
+            {parseInline(linkText)}
+          </Link>
+        );
+      }
 
-      lastIndex = regex.lastIndex;
+      lastIndex = tokenRegex.lastIndex;
     }
 
     if (lastIndex < text.length) {
@@ -139,20 +151,54 @@ const ArticleContent = ({ content }) => {
         const trimmed = block.trim();
         if (!trimmed) return null;
 
-        // Headers
+        // Horizontal Rules
+        if (trimmed === "---" || trimmed === "***") {
+          return <hr key={index} className="border-t border-border/40 my-8" />;
+        }
+
+        // H3 Headers
+        if (trimmed.startsWith("### ")) {
+          return (
+            <h3
+              key={index}
+              className="font-headline-md text-lg md:text-xl text-foreground font-semibold pt-4 pb-1 tracking-tight"
+            >
+              {parseInline(trimmed.slice(4))}
+            </h3>
+          );
+        }
+
+        // H2 Headers
         if (trimmed.startsWith("## ")) {
           return (
             <h2
               key={index}
               className="font-headline-lg text-xl md:text-2xl text-foreground font-semibold pt-6 pb-2 border-b border-border/40 tracking-tight"
             >
-              {trimmed.slice(3)}
+              {parseInline(trimmed.slice(3))}
             </h2>
           );
         }
 
+        // Numbered lists
+        if (/^\d+\.\s/.test(trimmed)) {
+          const items = trimmed.split("\n");
+          return (
+            <ol
+              key={index}
+              className="list-decimal pl-6 space-y-2 text-on-surface-variant font-body-md text-base md:text-lg leading-relaxed"
+            >
+              {items.map((item, idx) => (
+                <li key={idx}>
+                  {parseInline(item.replace(/^\d+\.\s*/, ""))}
+                </li>
+              ))}
+            </ol>
+          );
+        }
+
         // Bullet lists
-        if (trimmed.startsWith("- ")) {
+        if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
           const items = trimmed.split("\n");
           return (
             <ul
@@ -161,10 +207,26 @@ const ArticleContent = ({ content }) => {
             >
               {items.map((item, idx) => (
                 <li key={idx}>
-                  {parseTextWithLinks(item.replace(/^-\s*/, ""))}
+                  {parseInline(item.replace(/^[-*]\s*/, ""))}
                 </li>
               ))}
             </ul>
+          );
+        }
+
+        // Blockquotes (Markdown > syntax)
+        if (trimmed.startsWith("> ")) {
+          const quoteText = trimmed
+            .split("\n")
+            .map((line) => line.replace(/^>\s*/, ""))
+            .join("\n");
+          return (
+            <blockquote
+              key={index}
+              className="border-l-4 border-surface-tint pl-6 py-3 my-8 italic font-body-lg text-lg md:text-xl text-foreground bg-surface-container/30 rounded-r-lg leading-relaxed"
+            >
+              {parseInline(quoteText)}
+            </blockquote>
           );
         }
 
@@ -175,7 +237,7 @@ const ArticleContent = ({ content }) => {
               key={index}
               className="border-l-4 border-surface-tint pl-6 py-3 my-8 italic font-body-lg text-lg md:text-xl text-foreground bg-surface-container/30 rounded-r-lg leading-relaxed"
             >
-              {parseTextWithLinks(trimmed)}
+              {parseInline(trimmed)}
             </blockquote>
           );
         }
@@ -186,7 +248,7 @@ const ArticleContent = ({ content }) => {
             key={index}
             className="text-on-surface-variant font-body-md text-base md:text-lg leading-relaxed"
           >
-            {parseTextWithLinks(trimmed)}
+            {parseInline(trimmed)}
           </p>
         );
       })}

@@ -42,7 +42,7 @@ const FAQ = () => {
         },
         {
             question: "Is Mimir Nest free to use?",
-            answer: "Yes! Mimir Nest is 100% free and open-source. All our calculators, timers, curriculums, and interview archives are accessible without paywalls.",
+            answer: "Yes! Mimir Nest is 100% free to use. All our calculators, timers, curriculums, and interview archives are accessible without paywalls.",
         },
         {
             question: "How often is the content updated?",
@@ -50,7 +50,7 @@ const FAQ = () => {
         },
         {
             question: "Can I contribute to the platform?",
-            answer: "Absolutely! We welcome open-source contributions. You can submit questions, build features, report issues, or suggest new toolkits via our GitHub repository.",
+            answer: "Absolutely! We welcome community contributions. You can submit questions, build features, report issues, or suggest new toolkits via our GitHub repository.",
         },
         {
             question: "What browsers are supported?",

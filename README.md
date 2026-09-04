@@ -191,9 +191,9 @@ Future developments and improvements are cataloged in [`roadmap.md`](file:///c:/
     *   Replace JSON file repositories with a PostgreSQL database layer while keeping existing frontend API contracts intact.
     *   Implement user authentication (e.g. Auth.js/NextAuth) and build administrator dashboards for content management.
 
-## Open Source Philosophy
+## Platform Philosophy
 
-Mimir Nest is designed to be free, open-source student software. We believe utilities for academic tracking, focus improvement, and placement preparation should be accessible to all students without recurring fees, commercial lock-in, or telemetry.
+Mimir Nest is designed to be free student software. We believe utilities for academic tracking, focus improvement, and placement preparation should be accessible to all students without recurring fees, commercial lock-in, or telemetry.
 
 ## License
 

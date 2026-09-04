@@ -69,33 +69,18 @@ const Contributing = () => {
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-primary-container/40 -translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-xs font-label-caps text-surface-tint tracking-widest uppercase mx-auto font-semibold"
-          >
-            <Sparkles className="w-4 h-4 text-surface-tint" />
-            <span>Open Source Community</span>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-xs font-label-caps text-surface-tint tracking-widest uppercase mx-auto">
+            <Sparkles className="w-4 h-4 text-surface-tint"/>
+            <span>Community & Development</span>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="font-display-lg text-display-lg-mobile md:text-display-lg text-foreground leading-tight"
-          >
-            Contributing to
-            <br />
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display-lg text-display-lg-mobile md:text-display-lg text-foreground leading-tight">
+            Contributing to <br />
             <span className="text-surface-tint">Mimir Nest.</span>
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="font-body-lg text-body-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-          >
-            Mimir Nest is open source, and contributions are welcome. Whether you are fixing a bug, improving documentation, adding a useful feature, or improving an existing resource, your contribution can help make the project better for students.
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body-lg text-body-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Mimir Nest welcomes community contributions. Whether you are fixing a bug, improving documentation, adding a useful feature, or improving an existing resource, your contribution can help make the project better for students.
           </motion.p>
         </div>
       </section>

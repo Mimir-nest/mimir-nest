@@ -71,7 +71,7 @@ const BlogIndex = () => {
             The Editorial <span className="text-surface-tint">Blog</span>
           </h1>
           <p className="font-body-lg text-base md:text-lg text-on-surface-variant max-w-xl leading-relaxed">
-            Original stories, insights, and guides built around student life, developer tools, placements, and open-source software engineering.
+            Original stories, insights, and guides built around student life, developer tools, placements, and software engineering.
           </p>
         </header>
 

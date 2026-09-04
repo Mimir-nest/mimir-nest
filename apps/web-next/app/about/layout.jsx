@@ -1,17 +1,17 @@
 export const metadata = {
-  title: "Mimir Nest — About the Open-Source Student Platform",
-  description: "Learn about Mimir Nest, a free and open-source platform providing academic, career prep, and learning tools built directly for students.",
+  title: "Mimir Nest — Everything You Need to Learn, Build & Launch",
+  description: "Learn about Mimir Nest, a free platform providing academic, career prep, and learning tools built directly for students.",
   alternates: {
     canonical: "https://mimirnest.vercel.app/about",
   },
   openGraph: {
-    title: "Mimir Nest — About the Open-Source Student Platform",
-    description: "Learn about Mimir Nest, a free and open-source platform providing academic, career prep, and learning tools built directly for students.",
+    title: "Mimir Nest — Everything You Need to Learn, Build & Launch",
+    description: "Learn about Mimir Nest, a free platform providing academic, career prep, and learning tools built directly for students.",
     url: "https://mimirnest.vercel.app/about",
   },
   twitter: {
-    title: "Mimir Nest — About the Open-Source Student Platform",
-    description: "Learn about Mimir Nest, a free and open-source platform providing academic, career prep, and learning tools built directly for students.",
+    title: "Mimir Nest — Everything You Need to Learn, Build & Launch",
+    description: "Learn about Mimir Nest, a free platform providing academic, career prep, and learning tools built directly for students.",
   },
 };
 
@@ -19,8 +19,8 @@ export default function AboutLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Mimir Nest — About the Open-Source Student Platform",
-    "description": "Learn about Mimir Nest, a free and open-source platform providing academic, career prep, and learning tools built directly for students.",
+    "name": "Mimir Nest — Everything You Need to Learn, Build & Launch",
+    "description": "Learn about Mimir Nest, a free platform providing academic, career prep, and learning tools built directly for students.",
     "url": "https://mimirnest.vercel.app/about",
     "breadcrumb": {
       "@context": "https://schema.org",
