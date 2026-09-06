@@ -51,7 +51,7 @@ const Footer = () => {
               <span className="text-xl font-bold text-foreground font-headline-md">Mimir Nest</span>
             </Link>
             <p className="text-muted-foreground leading-relaxed font-body-md text-sm mb-4">
-              Mimir Nest provides everything you need to learn, build & launch — a collection of tools and resources built for students.
+              Mimir Nest is an open-source platform built to help students learn, build & launch — providing free tools and resources for study, placement, and career preparation.
             </p>
             <div className="w-12 h-0.5 bg-border/55 rounded-full" />
           </div>

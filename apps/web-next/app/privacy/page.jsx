@@ -3,7 +3,7 @@
 import React from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { Shield, Calendar, AlertTriangle } from "lucide-react";
+import { Shield, Calendar, AlertTriangle, ShieldCheck } from "lucide-react";
 import dynamic from "next/dynamic";
 
 const ParticleWave = dynamic(
@@ -199,13 +199,13 @@ const Privacy = () => {
               <p>
                 Google Analytics is a telemetry service provided by Google LLC. It leverages identifiers and cookies to compile reports on site traffic. Google's data handling is outlined in the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-surface-tint hover:underline font-semibold">Google Privacy Policy</a> and <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" className="text-surface-tint hover:underline font-semibold">How Google uses information from sites</a>.
               </p>
-              <div className="p-4 rounded-xl bg-red-500/5 border border-red-500/20 text-xs text-on-surface-variant space-y-2 leading-relaxed">
-                <div className="flex items-center gap-2 text-red-500 font-bold">
-                  <AlertTriangle className="w-4 h-4" />
-                  <span>Important Implementation Disclosure</span>
+              <div className="p-4 rounded-xl bg-surface-container border border-outline-variant/40 text-xs text-on-surface-variant space-y-2 leading-relaxed">
+                <div className="flex items-center gap-2 text-surface-tint font-bold">
+                  <ShieldCheck className="w-4 h-4" />
+                  <span>Cookie Consent & Preferences</span>
                 </div>
                 <p>
-                  Google Analytics script loads and runs immediately upon page access. Mimir Nest does not currently feature a cookie consent banner. If you do not wish to be tracked, you can block the script by utilizing client-side privacy extensions (like uBlock Origin) or configuring your browser to block tracking scripts.
+                  MimirNest displays an interactive cookie consent popup upon your initial visit. You can choose to accept all cookies or restrict storage to essential cookies only. Your choice is remembered locally in your browser settings.
                 </p>
               </div>
             </section>

@@ -1,17 +1,17 @@
 export const metadata = {
-  title: "Mimir Nest — Everything You Need to Learn, Build & Launch",
-  description: "Learn about Mimir Nest, a free platform providing academic, career prep, and learning tools built directly for students.",
+  title: "About Mimir Nest — Open-Source Platform for Students",
+  description: "Learn about MimirNest, an open-source platform built to help students learn, build, and launch.",
   alternates: {
     canonical: "https://mimirnest.vercel.app/about",
   },
   openGraph: {
-    title: "Mimir Nest — Everything You Need to Learn, Build & Launch",
-    description: "Learn about Mimir Nest, a free platform providing academic, career prep, and learning tools built directly for students.",
+    title: "About Mimir Nest — Open-Source Platform for Students",
+    description: "Learn about MimirNest, an open-source platform built to help students learn, build, and launch.",
     url: "https://mimirnest.vercel.app/about",
   },
   twitter: {
-    title: "Mimir Nest — Everything You Need to Learn, Build & Launch",
-    description: "Learn about Mimir Nest, a free platform providing academic, career prep, and learning tools built directly for students.",
+    title: "About Mimir Nest — Open-Source Platform for Students",
+    description: "Learn about MimirNest, an open-source platform built to help students learn, build, and launch.",
   },
 };
 

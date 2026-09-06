@@ -1,6 +1,7 @@
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Toaster } from "sonner";
 import Script from "next/script";
+import CookieBanner from "@/components/layout/CookieBanner";
 import "./globals.css";
 
 const inter = Inter({
@@ -18,11 +19,16 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata = {
   metadataBase: new URL("https://mimirnest.vercel.app"),
   title: {
-    default: "Mimir Nest | Everything You Need to Learn, Build & Launch",
+    default: "Mimir Nest | Open-Source Platform for Students — Learn, Build & Launch",
     template: "%s | Mimir Nest",
   },
-  description: "Mimir Nest provides everything you need to learn, build & launch — academic, learning, productivity, DSA, and career tools for students.",
+  description: "MimirNest is an open-source platform built to help students learn, build, and launch. Access free academic, productivity, DSA placement prep, system design guides, and career resources.",
   keywords: [
+    "open-source platform",
+    "open-source student platform",
+    "open-source learning platform",
+    "open-source DSA preparation",
+    "open-source project",
     "college student tools",
     "student productivity tools",
     "college productivity",
@@ -58,8 +64,8 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     url: "https://mimirnest.vercel.app",
-    title: "Mimir Nest | Everything You Need to Learn, Build & Launch",
-    description: "Mimir Nest provides everything you need to learn, build & launch — academic, learning, productivity, DSA, and career tools for students.",
+    title: "Mimir Nest | Open-Source Platform for Students — Learn, Build & Launch",
+    description: "MimirNest is an open-source platform built to help students learn, build, and launch. Access free academic, productivity, DSA placement prep, system design guides, and career resources.",
     siteName: "Mimir Nest",
     images: [
       {
@@ -72,8 +78,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mimir Nest | Everything You Need to Learn, Build & Launch",
-    description: "Mimir Nest provides everything you need to learn, build & launch — academic, learning, productivity, DSA, and career tools for students.",
+    title: "Mimir Nest | Open-Source Platform for Students — Learn, Build & Launch",
+    description: "MimirNest is an open-source platform built to help students learn, build, and launch. Access free academic, productivity, DSA placement prep, system design guides, and career resources.",
     images: ["/logo/logo.png"],
   },
   robots: {
@@ -100,7 +106,7 @@ export default function RootLayout({ children }) {
     "url": "https://mimirnest.vercel.app",
     "logo": "https://mimirnest.vercel.app/logo/logo.png",
     "sameAs": [
-      "https://github.com/Mimir-nest"
+      "https://github.com/Mimir-nest/mimir-nest"
     ]
   };
 
@@ -109,6 +115,8 @@ export default function RootLayout({ children }) {
     "@type": "WebSite",
     "name": "Mimir Nest",
     "url": "https://mimirnest.vercel.app",
+    "description": "MimirNest is an open-source platform built to help students learn, build, and launch.",
+    "license": "https://opensource.org/licenses/MIT",
     "potentialAction": {
       "@type": "SearchAction",
       "target": "https://mimirnest.vercel.app/placement-dsa?search={search_term_string}",
@@ -153,6 +161,7 @@ export default function RootLayout({ children }) {
             duration: 4000,
           }}
         />
+        <CookieBanner />
       </body>
     </html>
   );

@@ -1,17 +1,17 @@
 export const metadata = {
-  title: "Contribute to Mimir Nest — Everything You Need to Learn, Build & Launch",
-  description: "Find out how to contribute to Mimir Nest. Guide on setup, development commands, reporting bugs, and submitting pull requests.",
+  title: "Contribute to Mimir Nest — Open-Source Platform for Students",
+  description: "Find out how to contribute to MimirNest, an open-source platform built to help students learn, build, and launch.",
   alternates: {
     canonical: "https://mimirnest.vercel.app/contributing",
   },
   openGraph: {
-    title: "Contribute to Mimir Nest — Everything You Need to Learn, Build & Launch",
-    description: "Find out how to contribute to Mimir Nest. Guide on setup, development commands, reporting bugs, and submitting pull requests.",
+    title: "Contribute to Mimir Nest — Open-Source Platform for Students",
+    description: "Find out how to contribute to MimirNest, an open-source platform built to help students learn, build, and launch.",
     url: "https://mimirnest.vercel.app/contributing",
   },
   twitter: {
-    title: "Contribute to Mimir Nest — Everything You Need to Learn, Build & Launch",
-    description: "Find out how to contribute to Mimir Nest. Guide on setup, development commands, reporting bugs, and submitting pull requests.",
+    title: "Contribute to Mimir Nest — Open-Source Platform for Students",
+    description: "Find out how to contribute to MimirNest, an open-source platform built to help students learn, build, and launch.",
   },
 };
 

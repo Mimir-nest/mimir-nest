@@ -18,6 +18,7 @@ import {
   GraduationCap,
   LogOut,
   User as UserIcon,
+  Github,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuthStore } from "@/store/useAuthStore";
@@ -189,6 +190,18 @@ const Navbar = () => {
           >
             Blog
           </Link>
+
+          {/* GitHub link */}
+          <a
+            href="https://github.com/Mimir-nest/mimir-nest"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-body-md text-body-md text-on-surface-variant hover:text-surface-tint transition-colors flex items-center gap-1.5"
+            title="MimirNest GitHub Repository"
+          >
+            <Github className="w-4 h-4" />
+            <span>GitHub</span>
+          </a>
         </div>
 
         {/* Explore Tools CTA */}
@@ -332,6 +345,17 @@ const MobileNav = () => {
               <BookOpen className="h-5 w-5 flex-shrink-0 text-surface-tint" />
               Blog
             </Link>
+
+            {/* GitHub Link */}
+            <a
+              href="https://github.com/Mimir-nest/mimir-nest"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-on-surface-variant hover:text-surface-tint hover:bg-surface-container transition-colors"
+            >
+              <Github className="h-5 w-5 flex-shrink-0 text-surface-tint" />
+              GitHub
+            </a>
 
             {/* Auth Link (Mobile) */}
             {isAuthenticated ? (

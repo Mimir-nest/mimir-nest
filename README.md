@@ -1,8 +1,8 @@
 # Mimir Nest
 
-A workspace consolidating academic, learning, productivity, and career planning utilities for college students.
+**MimirNest is an open-source platform built to help students learn, build, and launch.**
 
-Mimir Nest brings essential student tools together into a unified monorepo. The platform supports seamless offline-first usage through static client-side fallbacks, alongside a local Express server that manages data schemas and validation. This design provides students with accessible utilities without the need to manage fragmented services or rely on multiple disjointed platforms.
+Mimir Nest brings essential student tools together into a unified open-source monorepo. The platform supports seamless offline-first usage through static client-side fallbacks, alongside a local Express server that manages data schemas and validation. This design provides students with accessible utilities without the need to manage fragmented services or rely on multiple disjointed platforms.
 
 ## Overview
 

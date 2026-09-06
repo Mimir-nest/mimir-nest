@@ -64,7 +64,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Study smarter, prepare for placements, build projects, and find useful resources — all in one free platform.
+            MimirNest is an open-source platform built to help students learn, build, and launch. Study smarter, prepare for placements, build projects, and find useful resources — all 100% free.
           </motion.p>
 
           <motion.div
@@ -99,7 +99,7 @@ const Hero = () => {
             {[
               "8+ Student Tools",
               "50+ Learning Resources",
-              "100% Free to Use",
+              "100% Open Source",
               "Build & Launch"
             ].map((stat, i) => (
               <div key={i} className="text-center">

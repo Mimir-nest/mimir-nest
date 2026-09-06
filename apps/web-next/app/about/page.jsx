@@ -96,7 +96,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed"
             >
-              Mimir Nest provides everything you need to learn, build & launch — a collection of tools and resources designed to make everyday student life simpler.
+              MimirNest is an open-source platform built to help students learn, build, and launch — a collection of tools and resources designed to make everyday student life simpler.
             </motion.p>
           </div>
         </section>
@@ -157,13 +157,13 @@ const About = () => {
           >
             <div className="md:col-span-7 space-y-4">
               <span className="font-label-caps text-xs text-surface-tint tracking-widest uppercase font-semibold block">
-                Public Repository
+                Open Source Repository
               </span>
               <h3 className="font-headline-lg text-2xl md:text-3xl text-foreground font-bold leading-tight">
-                Inspect and explore.
+                Inspect, contribute, and explore.
               </h3>
               <p className="font-body-md text-sm text-on-surface-variant leading-relaxed max-w-xl">
-                Mimir Nest is free to use. You can view the code repository, inspect the implementation, or explore the project on GitHub.
+                MimirNest is an open-source project licensed under the MIT License. You can view the code repository, inspect the architecture, contribute improvements, or explore the codebase on GitHub.
               </p>
             </div>
             <div className="md:col-span-5 md:text-right">
