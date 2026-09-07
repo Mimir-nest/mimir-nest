@@ -31,7 +31,7 @@ export default function InterviewFeatures() {
     {
       icon: Layers,
       tag: "Engineering Depth",
-      title: "Real Technical Breadth",
+      title: "Real Technical Depth",
       description:
         "Expect focused discussion on databases, latency, concurrency, schema normalization, caching layers, and security decisions pertinent to your project.",
       status: "Evaluates tradeoffs & edge cases",

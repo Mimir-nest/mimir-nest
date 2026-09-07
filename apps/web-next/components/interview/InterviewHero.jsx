@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, Sparkles, GitBranch, Terminal, Shield, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Sparkles, Mic, Radio, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import InterviewOrb from "./InterviewOrb";
 
 export default function InterviewHero() {
   const scrollToEarlyAccess = () => {
@@ -37,10 +38,8 @@ export default function InterviewHero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-surface-tint" />
             </span>
             <span className="font-label-caps text-[11px] text-surface-tint tracking-widest uppercase font-semibold">
-              Coming Soon
+              COMING SOON · MIMIR ECOSYSTEM
             </span>
-            <span className="text-muted-foreground/60 text-xs">|</span>
-            <span className="text-xs text-foreground/80 font-medium">Mimir Ecosystem</span>
           </motion.div>
 
           {/* Main Headline */}
@@ -71,7 +70,7 @@ export default function InterviewHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.2 }}
           >
-            Connect your GitHub, choose a project, and get a personalized mock interview based on your actual work, technology choices, architecture, and engineering decisions.
+            Connect your GitHub, choose a project, and sit through a live voice-first mock interview built around your actual code, architecture, decisions, and engineering experience. An interviewer that has actually read your project—so you don&apos;t just memorize answers, you defend what you built.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -96,7 +95,7 @@ export default function InterviewHero() {
             </button>
           </motion.div>
 
-          {/* Micro Trust Indicators */}
+          {/* Value props */}
           <motion.div
             className="flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-on-surface-variant pt-2"
             initial={{ opacity: 0 }}
@@ -104,98 +103,35 @@ export default function InterviewHero() {
             transition={{ duration: 0.5, delay: 0.35 }}
           >
             <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-surface-tint" />
-              <span>Tailored to your repositories</span>
+              <Mic className="w-3.5 h-3.5 text-surface-tint" />
+              <span>Voice-first live session</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-surface-tint" />
+              <span>Contextual AI presence</span>
             </div>
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-surface-tint" />
-              <span>Dynamic follow-up questions</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-surface-tint" />
-              <span>Zero generic question banks</span>
+              <span>Defend what you built</span>
             </div>
           </motion.div>
         </div>
 
-        {/* Right Column: Realistic Interview Interface Preview */}
+        {/* Right Column: Siri Orb Live AI Interviewer Presence */}
         <motion.div
-          className="lg:col-span-6"
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
+          className="lg:col-span-6 flex items-center justify-center"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.55, delay: 0.2 }}
         >
-          <div className="relative rounded-2xl bg-mn-background/90 border border-outline-variant/80 shadow-2xl overflow-hidden backdrop-blur-md">
-            {/* Window Header / Titlebar */}
-            <div className="px-4 py-3 bg-surface-container border-b border-outline-variant/60 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-[#FF5F56]/80" />
-                <div className="w-3 h-3 rounded-full bg-[#FFBD2E]/80" />
-                <div className="w-3 h-3 rounded-full bg-[#27C93F]/80" />
-                <div className="h-4 w-[1px] bg-border mx-1" />
-                <span className="text-xs font-mono text-foreground/80 flex items-center gap-1.5">
-                  <Terminal className="w-3.5 h-3.5 text-surface-tint" />
-                  Mimir Interview
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono bg-surface-tint/10 text-surface-tint border border-surface-tint/20">
-                  <GitBranch className="w-3 h-3" />
-                  auth-service/main
-                </span>
-                <span className="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant border border-outline-variant">
-                  Preview
-                </span>
-              </div>
-            </div>
-
-            {/* Conversation Flow */}
-            <div className="p-5 md:p-6 space-y-4 font-sans text-sm">
-              {/* Interviewer Question 1 */}
-              <div className="space-y-1.5">
-                <div className="flex items-center gap-2 text-xs font-mono text-surface-tint">
-                  <span className="font-semibold">Interviewer</span>
-                  <span className="text-muted-foreground/60 text-[10px]">Architecture Analysis</span>
-                </div>
-                <div className="p-3.5 rounded-xl bg-surface-container border border-outline-variant/60 text-foreground/90 leading-relaxed font-body-md">
-                  &ldquo;I noticed you used Redis for caching in <code className="text-surface-tint bg-surface-container-high px-1 py-0.5 rounded text-xs font-mono">auth-service</code>. Why did you choose Redis instead of relying entirely on PostgreSQL?&rdquo;
-                </div>
-              </div>
-
-              {/* Candidate Response 1 */}
-              <div className="space-y-1.5 flex flex-col items-end">
-                <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
-                  <span className="text-[10px]">You</span>
-                </div>
-                <div className="p-3.5 rounded-xl bg-primary/10 border border-primary/25 text-foreground/95 max-w-[92%] leading-relaxed font-body-md text-right">
-                  &ldquo;I used Redis because our token blacklist verification had to run on every incoming request. Offloading active session checks kept Postgres connection pools free for transactional writes.&rdquo;
-                </div>
-              </div>
-
-              {/* Interviewer Follow-up (Adaptive) */}
-              <div className="space-y-1.5">
-                <div className="flex items-center gap-2 text-xs font-mono text-surface-tint">
-                  <span className="font-semibold">Interviewer</span>
-                  <span className="text-[10px] px-1.5 py-0.2 rounded bg-surface-tint/15 text-surface-tint font-mono">
-                    Adaptive Follow-Up
-                  </span>
-                </div>
-                <div className="p-3.5 rounded-xl bg-surface-container border border-surface-tint/30 text-foreground/90 leading-relaxed font-body-md">
-                  &ldquo;That handles connection exhaustion. But what happens if Redis experiences a cluster split or cache stampede when 10,000 users re-authenticate at once?&rdquo;
-                </div>
-              </div>
-
-              {/* Live typing / indicator */}
-              <div className="pt-2 flex items-center justify-between border-t border-outline-variant/40 text-xs text-muted-foreground font-mono">
-                <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-surface-tint animate-pulse" />
-                  Candidate answering in real-time...
-                </span>
-                <span className="text-[11px] text-surface-tint/80">
-                  Questions adapt to your decisions
-                </span>
-              </div>
-            </div>
+          <div className="w-full max-w-md p-6 sm:p-8 rounded-3xl bg-mn-background/80 border border-outline-variant/80 shadow-2xl backdrop-blur-md relative overflow-hidden">
+            <InterviewOrb
+              size="200px"
+              initialState="listening"
+              interactive={true}
+              showControls={true}
+              project="distributed-cache"
+            />
           </div>
         </motion.div>
       </div>

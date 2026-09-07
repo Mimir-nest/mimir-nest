@@ -1,36 +1,36 @@
 "use client";
 
 import React from "react";
-import { Github, FileSearch, MessageSquareText, BarChart3, ArrowRight } from "lucide-react";
+import { Github, FileSearch, Mic, BarChart3, ShieldCheck } from "lucide-react";
 
 export default function InterviewHowItWorks() {
   const steps = [
     {
       number: "01",
       title: "Connect GitHub",
-      description: "Sign in with GitHub and choose 1 to 3 projects you want to discuss.",
-      detail: "Scoped permissions. We only inspect the repositories you explicitly grant access to.",
+      description: "Sign in with GitHub and choose the projects you want to discuss.",
+      detail: "Scoped permissions. We only request read access to the specific repositories you choose.",
       icon: Github,
     },
     {
       number: "02",
-      title: "Mimir Understands Your Project",
-      description: "Your repository becomes the technical foundation for your interview.",
-      detail: "Analyzes configuration, database schemas, APIs, core logic, tests, and documentation.",
+      title: "Understand Your Project",
+      description: "Mimir analyzes the technical context of your selected repository — including the stack, APIs, architecture, data models, documentation, and implementation decisions.",
+      detail: "Deep analysis across code structure, schemas, endpoints, and architectural tradeoffs.",
       icon: FileSearch,
     },
     {
       number: "03",
-      title: "Take the Conversational Interview",
-      description: "Participate in a real conversational mock interview with dynamic follow-ups.",
-      detail: "Questions adapt one-by-one to your answers, testing your reasoning and architecture choices.",
-      icon: MessageSquareText,
+      title: "Take the Live Interview",
+      description: "Join a voice-first mock interview where the interviewer listens to your answers and adapts the conversation in real time.",
+      detail: "Spoken question-and-answer flow with dynamic follow-up scrutiny.",
+      icon: Mic,
     },
     {
       number: "04",
       title: "Understand Your Weaknesses",
-      description: "Get a detailed breakdown of your technical reasoning, communication, and areas to improve.",
-      detail: "Directly connects identified weak points back into Mimir Nest's System Design and DSA guides.",
+      description: "Receive a detailed diagnosis of your technical understanding, reasoning, communication, and engineering judgment.",
+      detail: "Identifies precise gaps and connects back to Mimir Nest's System Design and DSA guides.",
       icon: BarChart3,
     },
   ];
@@ -44,10 +44,10 @@ export default function InterviewHowItWorks() {
             How It Works
           </span>
           <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-mn-primary mb-4 tracking-tight">
-            From repository to technical defense in 4 steps.
+            From GitHub to a live technical interview.
           </h2>
           <p className="font-body-lg text-base md:text-lg text-on-surface-variant leading-relaxed">
-            A structured, transparent pipeline designed to test how well you understand the systems you build.
+            A future-oriented, structured pipeline designed to test how well you understand the systems you build.
           </p>
         </div>
 
@@ -88,10 +88,11 @@ export default function InterviewHowItWorks() {
           })}
         </div>
 
-        {/* Footnote on Security & Scope */}
-        <div className="mt-12 p-4 rounded-xl bg-surface-container-high/60 border border-outline-variant/50 max-w-2xl mx-auto text-center">
+        {/* Privacy Note */}
+        <div className="mt-12 p-4 rounded-xl bg-surface-container-high/60 border border-outline-variant/50 max-w-3xl mx-auto text-center flex items-center justify-center gap-2.5">
+          <ShieldCheck className="w-4 h-4 text-surface-tint shrink-0" />
           <p className="text-xs text-on-surface-variant font-mono">
-            Privacy first: Repositories are analyzed for context during the session. No personal GitHub tokens or credentials will be permanently exposed or stored.
+            GitHub access will be explicitly scoped to the repositories you choose, with credentials and sensitive tokens kept away from the client.
           </p>
         </div>
       </div>

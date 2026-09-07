@@ -62,13 +62,13 @@ export default function InterviewEvaluation() {
         {/* Section Header */}
         <div className="mb-14 max-w-3xl">
           <span className="font-label-caps text-xs text-surface-tint tracking-widest block mb-3 uppercase font-semibold">
-            Evaluation Matrix
+            Future Evaluation Dimensions
           </span>
           <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-mn-primary mb-4 tracking-tight">
             More than whether you got the answer right.
           </h2>
           <p className="font-body-lg text-base md:text-lg text-on-surface-variant leading-relaxed">
-            Real tech interviews aren't binary multiple-choice tests. The upcoming Mimir evaluation engine is modeled on how senior hiring managers evaluate engineers.
+            Real tech interviews aren&apos;t binary multiple-choice tests. The upcoming Mimir evaluation engine is being designed to evaluate candidates along genuine engineering dimensions rather than memorized trivia.
           </p>
         </div>
 
@@ -93,9 +93,9 @@ export default function InterviewEvaluation() {
                   </p>
                 </div>
                 <div className="mt-5 pt-3 border-t border-outline-variant/30 text-[11px] font-mono text-muted-foreground flex items-center justify-between">
-                  <span>Diagnostic Dimension</span>
+                  <span>Designed to evaluate</span>
                   <span className="text-surface-tint opacity-0 group-hover:opacity-100 transition-opacity">
-                    Active
+                    &rarr;
                   </span>
                 </div>
               </div>

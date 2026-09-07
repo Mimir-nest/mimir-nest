@@ -6,8 +6,10 @@ import Footer from "@/components/layout/Footer";
 import InterviewHero from "@/components/interview/InterviewHero";
 import InterviewComparison from "@/components/interview/InterviewComparison";
 import InterviewHowItWorks from "@/components/interview/InterviewHowItWorks";
-import InterviewFeatures from "@/components/interview/InterviewFeatures";
+import InterviewPreview from "@/components/interview/InterviewPreview";
 import InterviewDemo from "@/components/interview/InterviewDemo";
+import InterviewSpokenNatural from "@/components/interview/InterviewSpokenNatural";
+import InterviewFeatures from "@/components/interview/InterviewFeatures";
 import InterviewEvaluation from "@/components/interview/InterviewEvaluation";
 import InterviewAudience from "@/components/interview/InterviewAudience";
 import EarlyAccessForm from "@/components/interview/EarlyAccessForm";
@@ -20,8 +22,10 @@ export default function InterviewPage() {
         <InterviewHero />
         <InterviewComparison />
         <InterviewHowItWorks />
-        <InterviewFeatures />
+        <InterviewPreview />
         <InterviewDemo />
+        <InterviewSpokenNatural />
+        <InterviewFeatures />
         <InterviewEvaluation />
         <InterviewAudience />
         <EarlyAccessForm />

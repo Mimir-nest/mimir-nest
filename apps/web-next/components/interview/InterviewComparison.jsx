@@ -7,28 +7,28 @@ export default function InterviewComparison() {
   const comparisonItems = [
     {
       label: "Question Source",
-      traditional: "Generic question banks & generic textbook prompts",
-      mimir: "Your actual GitHub repositories, codebase & commits",
+      traditional: "Generic questions from question banks",
+      mimir: "Your GitHub repositories and real codebase",
+    },
+    {
+      label: "System Context",
+      traditional: "Generic context detached from your code",
+      mimir: "Your architecture, dependencies, and APIs",
+    },
+    {
+      label: "Technical Depth",
+      traditional: "Memorized trivia & textbook solutions",
+      mimir: "Your decisions, tradeoffs, and failure handling",
+    },
+    {
+      label: "Interview Format",
+      traditional: "Text-first interaction / chat window",
+      mimir: "Live voice conversation with an AI interviewer",
     },
     {
       label: "Follow-Up Mechanism",
-      traditional: "Pre-scripted or detached from previous responses",
-      mimir: "Adapts dynamically to the depth and claims of your answers",
-    },
-    {
-      label: "Project Context",
-      traditional: "Completely unaware of what you wrote or why",
-      mimir: "Inspects your schemas, APIs, packages, and architecture",
-    },
-    {
-      label: "Defensibility",
-      traditional: "Memorized LeetCode / trivia recitations",
-      mimir: "Real-world engineering defense of tradeoffs and failure cases",
-    },
-    {
-      label: "Student Value",
-      traditional: "Same generic test experience given to everyone",
-      mimir: "100% personalized diagnosis of your genuine code understanding",
+      traditional: "Fixed follow-ups from a static script",
+      mimir: "Adaptive follow-ups driven by your spoken answers",
     },
   ];
 
@@ -44,7 +44,7 @@ export default function InterviewComparison() {
             Not a random list of interview questions.
           </h2>
           <p className="font-body-lg text-base md:text-lg text-on-surface-variant leading-relaxed">
-            Most mock interviews ask questions that could have been generated for anyone. Mimir Interview starts with what you actually built.
+            Most AI interview tools start with a question bank. Mimir starts with you. Your project becomes the interview context.
           </p>
         </div>
 
