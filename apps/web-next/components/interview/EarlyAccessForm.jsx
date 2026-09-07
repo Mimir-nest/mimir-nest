@@ -47,7 +47,9 @@ export default function EarlyAccessForm() {
         if (formRef.current) {
           formRef.current.submit();
         }
-      } catch (_) {}
+      } catch (_) {
+        // ignore fallback errors
+      }
       setStatus("success");
       toast.success("You're on the list! We'll notify you when early access cohorts open.");
     }
