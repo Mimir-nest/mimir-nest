@@ -20,6 +20,7 @@ export default async function sitemap() {
     "/blog",
     "/system-design",
     "/system-design-guide",
+    "/interview",
   ];
 
   try {

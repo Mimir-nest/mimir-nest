@@ -11,7 +11,8 @@ const Footer = () => {
         { name: "Prepare", path: "/placement-dsa" },
         { name: "Build", path: "/projects" },
         { name: "Learn", path: "/courses" },
-        { name: "Resources", path: "/email-perks" }
+        { name: "Resources", path: "/email-perks" },
+        { name: "AI Interview (Soon)", path: "/interview" }
       ]
     },
     {

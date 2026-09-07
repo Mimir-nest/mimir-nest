@@ -19,6 +19,7 @@ import {
   LogOut,
   User as UserIcon,
   Github,
+  Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuthStore } from "@/store/useAuthStore";
@@ -40,7 +41,8 @@ const categories = [
     items: [
       { name: "Placement DSA", path: "/placement-dsa", icon: Code, description: "Technical interview coding prep" },
       { name: "System Design", path: "/system-design", icon: BookOpen, description: "500+ system design interview Q&A" },
-      { name: "System Design Guide", path: "/system-design-guide", icon: GraduationCap, description: "Chapter-by-chapter concepts & theory" }
+      { name: "System Design Guide", path: "/system-design-guide", icon: GraduationCap, description: "Chapter-by-chapter concepts & theory" },
+      { name: "AI Interview", path: "/interview", icon: Sparkles, description: "GitHub-based AI mock interview", badge: "Soon" }
     ]
   },
   {
@@ -165,8 +167,15 @@ const Navbar = () => {
                           onClick={() => setActiveCategory(null)}
                         >
                           {item.icon && <item.icon className="w-5 h-5 mt-0.5 text-surface-tint flex-shrink-0" />}
-                          <div>
-                            <div className="text-sm font-semibold text-foreground">{item.name}</div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between gap-1.5">
+                              <span className="text-sm font-semibold text-foreground">{item.name}</span>
+                              {item.badge && (
+                                <span className="text-[10px] font-mono font-semibold uppercase px-1.5 py-0.2 rounded bg-surface-tint/15 text-surface-tint border border-surface-tint/30">
+                                  {item.badge}
+                                </span>
+                              )}
+                            </div>
                             <div className="text-xs text-on-surface-variant/80 mt-0.5 leading-normal">
                               {item.description}
                             </div>
@@ -322,7 +331,12 @@ const MobileNav = () => {
                             )}
                           >
                             {item.icon && <item.icon className="h-4.5 w-4.5 flex-shrink-0" />}
-                            {item.name}
+                            <span className="flex-1">{item.name}</span>
+                            {item.badge && (
+                              <span className="text-[10px] font-mono font-semibold uppercase px-1.5 py-0.2 rounded bg-surface-tint/15 text-surface-tint border border-surface-tint/30">
+                                {item.badge}
+                              </span>
+                            )}
                           </Link>
                         );
                       })}
