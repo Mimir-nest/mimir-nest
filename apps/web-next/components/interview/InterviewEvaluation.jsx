@@ -57,14 +57,14 @@ export default function InterviewEvaluation() {
   ];
 
   return (
-    <section className="py-20 md:py-28 px-6 md:px-16 bg-mn-background max-w-full">
+    <section className="py-14 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 lg:px-16 bg-mn-background max-w-full">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="mb-14 max-w-3xl">
+        <div className="mb-10 sm:mb-14 max-w-3xl">
           <span className="font-label-caps text-xs text-surface-tint tracking-widest block mb-3 uppercase font-semibold">
             Future Evaluation Dimensions
           </span>
-          <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-mn-primary mb-4 tracking-tight">
+          <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-mn-primary mb-4 tracking-tight break-words">
             More than whether you got the answer right.
           </h2>
           <p className="font-body-lg text-base md:text-lg text-on-surface-variant leading-relaxed">
@@ -73,16 +73,16 @@ export default function InterviewEvaluation() {
         </div>
 
         {/* Evaluation Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {criteria.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.title}
-                className="rounded-2xl bg-surface-container border border-outline-variant/60 p-6 flex flex-col justify-between group hover:border-surface-tint/40 transition-all duration-200"
+                className="rounded-2xl bg-surface-container border border-outline-variant/60 p-5 sm:p-6 flex flex-col justify-between group hover:border-surface-tint/40 transition-all duration-200"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-surface-container-high border border-outline-variant flex items-center justify-center text-surface-tint mb-5 group-hover:bg-surface-tint/15 group-hover:border-surface-tint/30 transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-surface-container-high border border-outline-variant flex items-center justify-center text-surface-tint mb-4 sm:mb-5 group-hover:bg-surface-tint/15 group-hover:border-surface-tint/30 transition-all shrink-0">
                     <Icon className="w-5 h-5" />
                   </div>
                   <h3 className="font-headline-md text-base font-bold text-foreground mb-2">
@@ -94,7 +94,7 @@ export default function InterviewEvaluation() {
                 </div>
                 <div className="mt-5 pt-3 border-t border-outline-variant/30 text-[11px] font-mono text-muted-foreground flex items-center justify-between">
                   <span>Designed to evaluate</span>
-                  <span className="text-surface-tint opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="text-surface-tint opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
                     &rarr;
                   </span>
                 </div>

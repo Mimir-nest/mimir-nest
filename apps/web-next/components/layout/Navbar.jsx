@@ -119,7 +119,7 @@ const Navbar = () => {
           : "bg-mn-surface/80 backdrop-blur-sm border-b border-white/5 shadow-sm py-4"
       )}
     >
-      <div className="flex justify-between items-center px-16 max-w-full">
+      <div className="flex justify-between items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-full">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
           <img src="/logo/logo.png" alt="Mimir Nest" className="h-8 w-auto" />
@@ -129,7 +129,7 @@ const Navbar = () => {
         </Link>
 
         {/* Navigation Categories */}
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-4 lg:gap-8">
           {categories.map((cat) => {
             const isCategoryActive = cat.items.some((item) => pathname === item.path);
             return (
@@ -279,7 +279,7 @@ const MobileNav = () => {
   }, [isOpen]);
 
   return (
-    <nav className="md:hidden fixed top-0 w-full z-50 bg-mn-surface px-6 h-16 flex justify-between items-center border-b border-outline-variant shadow-md">
+    <nav className="md:hidden fixed top-0 w-full z-50 bg-mn-surface px-4 sm:px-6 h-16 flex justify-between items-center border-b border-outline-variant shadow-md">
       <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
         <img src="/logo/logo.png" alt="Mimir Nest" className="h-8 w-auto" />
         <span className="font-bold text-foreground text-xl">

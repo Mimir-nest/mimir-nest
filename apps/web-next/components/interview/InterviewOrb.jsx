@@ -79,18 +79,18 @@ export default function InterviewOrb({
 
       {/* Top Session Tag */}
       {showHeader && (
-        <div className="flex items-center gap-2 mb-5 z-10">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-[11px] font-mono text-muted-foreground">
-            <Radio className="w-3 h-3 text-red-400 animate-pulse" />
+        <div className="flex items-center justify-center gap-2 mb-5 z-10 max-w-full">
+          <span className="inline-flex flex-wrap items-center justify-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-[10px] sm:text-[11px] font-mono text-muted-foreground max-w-full text-center">
+            <Radio className="w-3 h-3 text-red-400 animate-pulse shrink-0" />
             <span className="text-foreground font-semibold">LIVE INTERVIEW</span>
-            <span className="text-muted-foreground/60">|</span>
-            <span className="text-surface-tint font-bold">{project}</span>
+            <span className="text-muted-foreground/60 hidden xs:inline">|</span>
+            <span className="text-surface-tint font-bold truncate max-w-[150px] sm:max-w-none">{project}</span>
           </span>
         </div>
       )}
 
       {/* Siri Orb Presence Container */}
-      <div className="relative p-6 rounded-full bg-surface-container/60 border border-outline-variant/50 backdrop-blur-md shadow-2xl flex items-center justify-center">
+      <div className="relative p-4 sm:p-6 rounded-full bg-surface-container/60 border border-outline-variant/50 backdrop-blur-md shadow-2xl flex items-center justify-center max-w-full">
         {/* Soft pulse ring */}
         <div
           className="absolute inset-0 rounded-full border border-surface-tint/20 animate-ping opacity-30 pointer-events-none"
@@ -101,36 +101,36 @@ export default function InterviewOrb({
           size={size}
           animationDuration={config.duration}
           colors={config.colors}
-          className="shadow-2xl"
+          className="shadow-2xl max-w-full"
         />
       </div>
 
       {/* AI Persona Title & State Indicator */}
-      <div className="mt-6 text-center z-10 space-y-1.5">
+      <div className="mt-6 text-center z-10 space-y-1.5 max-w-full px-2">
         <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground font-semibold">
           AI INTERVIEWER · MIMIR
         </div>
 
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-semibold transition-all duration-300"
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-semibold transition-all duration-300 max-w-full"
           style={{
             borderColor: currentState === "listening" ? "rgba(74, 222, 128, 0.4)" : currentState === "thinking" ? "rgba(168, 85, 247, 0.4)" : "rgba(255, 90, 54, 0.4)",
             backgroundColor: currentState === "listening" ? "rgba(74, 222, 128, 0.1)" : currentState === "thinking" ? "rgba(168, 85, 247, 0.1)" : "rgba(255, 90, 54, 0.1)",
             color: currentState === "listening" ? "#4ade80" : currentState === "thinking" ? "#c084fc" : "#FF5A36",
           }}
         >
-          <span className={`w-2 h-2 rounded-full ${config.dotColor} animate-pulse`} />
-          <StateIcon className="w-3.5 h-3.5" />
-          <span>{config.label}</span>
+          <span className={`w-2 h-2 rounded-full ${config.dotColor} animate-pulse shrink-0`} />
+          <StateIcon className="w-3.5 h-3.5 shrink-0" />
+          <span className="truncate">{config.label}</span>
         </div>
 
-        <p className="text-[11px] font-mono text-muted-foreground max-w-xs">
+        <p className="text-[11px] font-mono text-muted-foreground max-w-xs mx-auto">
           {config.subtext}
         </p>
       </div>
 
       {/* Interactive State Switcher Preview */}
       {interactive && showControls && (
-        <div className="mt-6 flex items-center gap-1.5 p-1 rounded-xl bg-surface-container border border-outline-variant/60 z-10 text-xs font-mono">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-1.5 p-1 rounded-xl bg-surface-container border border-outline-variant/60 z-10 text-xs font-mono max-w-full">
           <span className="text-[10px] uppercase tracking-wider text-muted-foreground px-2">
             State:
           </span>

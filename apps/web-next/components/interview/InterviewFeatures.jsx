@@ -63,14 +63,14 @@ export default function InterviewFeatures() {
   ];
 
   return (
-    <section className="py-20 md:py-28 px-6 md:px-16 bg-mn-background max-w-full">
+    <section className="py-14 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 lg:px-16 bg-mn-background max-w-full">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16 max-w-3xl">
+        <div className="mb-12 sm:mb-16 max-w-3xl">
           <span className="font-label-caps text-xs text-surface-tint tracking-widest block mb-3 uppercase font-semibold">
             Features
           </span>
-          <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-mn-primary mb-4 tracking-tight">
+          <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-mn-primary mb-4 tracking-tight break-words">
             Built around your actual work.
           </h2>
           <p className="font-body-lg text-base md:text-lg text-on-surface-variant leading-relaxed">
@@ -79,25 +79,25 @@ export default function InterviewFeatures() {
         </div>
 
         {/* Feature Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {features.map((feat) => {
             const Icon = feat.icon;
             return (
               <div
                 key={feat.title}
-                className="rounded-2xl bg-surface-container border border-outline-variant/60 p-7 flex flex-col justify-between group hover:border-surface-tint/40 transition-all duration-200"
+                className="rounded-2xl bg-surface-container border border-outline-variant/60 p-5 sm:p-7 flex flex-col justify-between group hover:border-surface-tint/40 transition-all duration-200"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-11 h-11 rounded-xl bg-surface-tint/10 flex items-center justify-center text-surface-tint group-hover:bg-surface-tint/20 transition-colors">
+                  <div className="flex items-center justify-between mb-5 gap-2">
+                    <div className="w-11 h-11 rounded-xl bg-surface-tint/10 flex items-center justify-center text-surface-tint group-hover:bg-surface-tint/20 transition-colors shrink-0">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground bg-surface-container-high px-2 py-0.5 rounded border border-outline-variant/50">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground bg-surface-container-high px-2 py-0.5 rounded border border-outline-variant/50 truncate">
                       {feat.tag}
                     </span>
                   </div>
 
-                  <h3 className="font-headline-md text-lg font-bold text-foreground mb-2.5">
+                  <h3 className="font-headline-md text-base sm:text-lg font-bold text-foreground mb-2.5">
                     {feat.title}
                   </h3>
                   <p className="font-body-md text-sm text-on-surface-variant leading-relaxed mb-6">
@@ -106,8 +106,8 @@ export default function InterviewFeatures() {
                 </div>
 
                 <div className="pt-4 border-t border-outline-variant/30 flex items-center justify-between text-xs font-mono text-muted-foreground/80">
-                  <span>{feat.status}</span>
-                  <span className="text-surface-tint opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="truncate">{feat.status}</span>
+                  <span className="text-surface-tint opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
                     →
                   </span>
                 </div>

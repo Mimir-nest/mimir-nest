@@ -70,7 +70,7 @@ export default function EarlyAccessForm() {
   };
 
   return (
-    <div id="early-access" className="py-20 md:py-28 px-6 md:px-16 bg-mn-background max-w-full">
+    <div id="early-access" className="py-14 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 lg:px-16 bg-mn-background max-w-full">
       {/* Hidden iframe to guarantee form submission even with adblockers or restrictive CORS */}
       <iframe
         name="web3forms_hidden_iframe"
@@ -79,30 +79,30 @@ export default function EarlyAccessForm() {
         title="Web3Forms Submission"
       />
 
-      <div className="max-w-4xl mx-auto space-y-16">
+      <div className="max-w-4xl mx-auto space-y-12 sm:space-y-16">
         {/* Main Early Access Card */}
-        <div className="rounded-3xl bg-surface-container border-2 border-surface-tint/30 p-8 sm:p-12 md:p-14 relative overflow-hidden shadow-2xl">
+        <div className="rounded-3xl bg-surface-container border-2 border-surface-tint/30 p-5 sm:p-10 md:p-14 relative overflow-hidden shadow-2xl">
           {/* Subtle Glow & Rings */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-surface-tint/5 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-64 h-64 border border-surface-tint/10 rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-          <div className="relative z-10 max-w-2xl mx-auto text-center space-y-6">
-            <span className="font-label-caps text-xs text-surface-tint tracking-widest uppercase font-semibold inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-tint/10 border border-surface-tint/20">
-              <Sparkles className="w-3.5 h-3.5 text-surface-tint" />
-              Limited Beta Cohorts
+          <div className="relative z-10 max-w-2xl mx-auto text-center space-y-5 sm:space-y-6">
+            <span className="font-label-caps text-xs text-surface-tint tracking-widest uppercase font-semibold inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-tint/10 border border-surface-tint/20 max-w-full truncate">
+              <Sparkles className="w-3.5 h-3.5 text-surface-tint shrink-0" />
+              <span>Limited Beta Cohorts</span>
             </span>
 
-            <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight">
+            <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight break-words">
               Be among the first to sit down with Mimir.
             </h2>
 
-            <p className="font-body-lg text-base sm:text-lg text-on-surface-variant leading-relaxed">
+            <p className="font-body-lg text-sm sm:text-lg text-on-surface-variant leading-relaxed">
               Mimir Interview is currently in development. Join the early-access list and we&apos;ll email you when interview cohorts open.
             </p>
 
             {status === "success" ? (
-              <div className="p-6 sm:p-8 rounded-2xl bg-surface-container-high border border-surface-tint/40 text-center space-y-3 animate-in fade-in zoom-in-95 duration-200">
-                <div className="w-12 h-12 rounded-full bg-surface-tint/15 text-surface-tint flex items-center justify-center mx-auto">
+              <div className="p-5 sm:p-8 rounded-2xl bg-surface-container-high border border-surface-tint/40 text-center space-y-3 animate-in fade-in zoom-in-95 duration-200">
+                <div className="w-12 h-12 rounded-full bg-surface-tint/15 text-surface-tint flex items-center justify-center mx-auto shrink-0">
                   <CheckCircle2 className="w-6 h-6 text-surface-tint" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground">You&apos;re on the list.</h3>
@@ -159,7 +159,7 @@ export default function EarlyAccessForm() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="you@university.edu or you@gmail.com"
-                      className="w-full h-11 pl-10 pr-4 rounded-xl bg-mn-background border border-outline-variant text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-surface-tint focus:ring-1 focus:ring-surface-tint text-sm"
+                      className="w-full h-11 pl-10 pr-4 rounded-xl bg-mn-background border border-outline-variant text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-surface-tint focus:ring-1 focus:ring-surface-tint text-sm min-w-0"
                     />
                   </div>
                 </div>
@@ -179,7 +179,7 @@ export default function EarlyAccessForm() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Sachin Patel"
-                        className="w-full h-11 pl-10 pr-4 rounded-xl bg-mn-background border border-outline-variant text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-surface-tint focus:ring-1 focus:ring-surface-tint text-sm"
+                        className="w-full h-11 pl-10 pr-4 rounded-xl bg-mn-background border border-outline-variant text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-surface-tint focus:ring-1 focus:ring-surface-tint text-sm min-w-0"
                       />
                     </div>
                   </div>
@@ -197,7 +197,7 @@ export default function EarlyAccessForm() {
                         value={formData.github}
                         onChange={(e) => setFormData({ ...formData, github: e.target.value })}
                         placeholder="github.com/username"
-                        className="w-full h-11 pl-10 pr-4 rounded-xl bg-mn-background border border-outline-variant text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-surface-tint focus:ring-1 focus:ring-surface-tint text-sm"
+                        className="w-full h-11 pl-10 pr-4 rounded-xl bg-mn-background border border-outline-variant text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-surface-tint focus:ring-1 focus:ring-surface-tint text-sm min-w-0"
                       />
                     </div>
                   </div>
@@ -210,20 +210,20 @@ export default function EarlyAccessForm() {
                 >
                   {status === "loading" ? (
                     <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <Loader2 className="w-4 h-4 animate-spin shrink-0" />
                       <span>Submitting to waitlist...</span>
                     </>
                   ) : (
                     <>
                       <span>Get Early Access</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-4 h-4 shrink-0" />
                     </>
                   )}
                 </button>
 
                 {errorMessage && (
                   <div className="flex items-center gap-1.5 text-xs text-red-400 justify-center pt-1">
-                    <AlertCircle className="w-3.5 h-3.5" />
+                    <AlertCircle className="w-3.5 h-3.5 shrink-0" />
                     <span>{errorMessage}</span>
                   </div>
                 )}
@@ -237,9 +237,9 @@ export default function EarlyAccessForm() {
         </div>
 
         {/* Closing CTA Banner */}
-        <div className="rounded-2xl bg-surface-container-low border border-outline-variant/50 p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="rounded-2xl bg-surface-container-low border border-outline-variant/50 p-5 sm:p-8 md:p-10 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
           <div className="text-center sm:text-left space-y-1.5">
-            <h3 className="text-xl sm:text-2xl font-bold text-foreground">
+            <h3 className="text-lg sm:text-2xl font-bold text-foreground break-words">
               Your next interview should be about your work.
             </h3>
             <p className="text-sm text-on-surface-variant font-body-md">
@@ -249,7 +249,7 @@ export default function EarlyAccessForm() {
 
           <button
             onClick={focusInput}
-            className="bg-surface-container hover:bg-surface-container-high text-foreground border border-outline-variant/60 hover:border-surface-tint/40 px-6 py-3 rounded-xl font-label-caps text-xs tracking-wider uppercase font-semibold transition-all cursor-pointer whitespace-nowrap"
+            className="w-full sm:w-auto bg-surface-container hover:bg-surface-container-high text-foreground border border-outline-variant/60 hover:border-surface-tint/40 px-6 py-3 rounded-xl font-label-caps text-xs tracking-wider uppercase font-semibold transition-all cursor-pointer whitespace-nowrap text-center"
           >
             Get Early Access
           </button>
