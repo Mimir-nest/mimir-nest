@@ -29,6 +29,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { sections, questions } from "./data/questions";
 import dynamic from "next/dynamic";
+import { redirect } from "next/navigation";
 
 const ParticleWave = dynamic(
   () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
@@ -511,6 +512,15 @@ export default function SystemDesignPage() {
             >
               <span>Explore questions</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </button>
+            <button
+              onClick={() => {
+                redirect("/playground")
+              }}
+              className="px-8 py-3.5 mt-3 rounded-full bg-[#FF5A36] text-black font-semibold text-xs uppercase tracking-widest hover:bg-[#ff7a5a] transition-all shadow-[0_0_20px_rgba(255,90,54,0.35)] flex items-center gap-2 group border border-[#FF5A36] font-sans"
+            >
+              <span>Playground</span>
+             
             </button>
           </div>
         </div>
