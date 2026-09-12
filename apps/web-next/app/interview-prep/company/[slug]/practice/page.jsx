@@ -956,7 +956,7 @@ function StructuredDetailedAnswer({ text }) {
                     return (
                       <div
                         key={lIdx}
-                        className="p-4 rounded-xl bg-surface-container border border-border/50 flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4"
+                        className="p-4 sm:p-5 rounded-xl bg-surface-container border border-border/50 flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4"
                       >
                         <div className="w-24 shrink-0 font-mono text-xs font-bold uppercase tracking-widest text-surface-tint">
                           {stepName}
@@ -979,39 +979,87 @@ function StructuredDetailedAnswer({ text }) {
           );
         }
 
-        // 3. Headings
-        if (trimmed.startsWith("**") && trimmed.includes("**\n")) {
-          const [heading, ...rest] = trimmed.split("\n");
+        // 3. What makes a strong answer
+        if (
+          trimmed.toLowerCase().includes("what makes a strong answer") ||
+          trimmed.toLowerCase().includes("strong answer signals") ||
+          trimmed.toLowerCase().includes("key elements of a strong answer")
+        ) {
+          const lines = trimmed.split("\n");
+          const items = lines
+            .filter((l) => {
+              const lt = l.trim().toLowerCase();
+              return lt && !lt.includes("what makes a strong answer") && !lt.includes("strong answer signals");
+            })
+            .map((l) => l.replace(/^[-•*]\s+/, "").trim())
+            .filter(Boolean);
+
           return (
-            <div key={idx} className="space-y-2">
-              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-foreground">
-                {heading.replace(/\*\*/g, "")}
-              </h4>
-              <div className="text-sm text-muted-foreground leading-relaxed space-y-1.5 font-body-md">
-                {rest.map((rLine, rIdx) => (
-                  <p key={rIdx}>
-                    <RichInlineText text={rLine.replace(/^[-•*]\s+/, "")} />
-                  </p>
+            <div
+              key={idx}
+              className="p-5 sm:p-6 rounded-2xl bg-surface-container/60 border border-border/60 space-y-3.5"
+            >
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400">
+                  WHAT MAKES A STRONG ANSWER
+                </h4>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                {items.map((it, itIdx) => (
+                  <div
+                    key={itIdx}
+                    className="p-3.5 rounded-xl bg-surface-container-low/80 border border-border/40 flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90 leading-relaxed font-body-md"
+                  >
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                    <span className="flex-1">
+                      <RichInlineText text={it} />
+                    </span>
+                  </div>
                 ))}
               </div>
             </div>
           );
         }
 
-        // 4. Default bullets
+        // 4. Headings
+        if (trimmed.startsWith("**") && trimmed.includes("**\n")) {
+          const [heading, ...rest] = trimmed.split("\n");
+          return (
+            <div key={idx} className="p-5 rounded-2xl bg-surface-container/40 border border-border/50 space-y-3">
+              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-foreground">
+                {heading.replace(/\*\*/g, "")}
+              </h4>
+              <div className="text-sm text-muted-foreground leading-relaxed space-y-2 font-body-md">
+                {rest.map((rLine, rIdx) => (
+                  <div key={rIdx} className="flex items-start gap-2">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-surface-tint shrink-0" />
+                    <span className="flex-1">
+                      <RichInlineText text={rLine.replace(/^[-•*]\s+/, "")} />
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        }
+
+        // 5. Default bullets
         if (trimmed.startsWith("- ") || trimmed.startsWith("• ")) {
           const items = trimmed.split("\n").map((l) => l.replace(/^[-•*]\s+/, ""));
           return (
-            <ul key={idx} className="space-y-2 list-none pl-0">
-              {items.map((it, itIdx) => (
-                <li key={itIdx} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-surface-tint shrink-0" />
-                  <span className="leading-relaxed">
-                    <RichInlineText text={it} />
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <div key={idx} className="p-4 rounded-xl bg-surface-container/30 border border-border/40">
+              <ul className="space-y-2 list-none pl-0">
+                {items.map((it, itIdx) => (
+                  <li key={itIdx} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-surface-tint shrink-0" />
+                    <span className="leading-relaxed">
+                      <RichInlineText text={it} />
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           );
         }
 
