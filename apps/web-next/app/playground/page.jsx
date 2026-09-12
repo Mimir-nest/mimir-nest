@@ -914,12 +914,38 @@ function Editor() {
     [history],
   );
   const add = useCallback(
-    (type, position = { x: 180, y: 160 }) => {
+    (type, customPosition) => {
       history();
-      setNodes((items) => [
-        ...items,
-        node(`${type}-${Date.now()}`, type, position),
-      ]);
+      setNodes((items) => {
+        let pos = customPosition;
+        if (!pos) {
+          // Calculate an unoccupied grid position so consecutive additions never stack or overlap
+          const count = items.length;
+          const col = Math.floor(count / 5);
+          const row = count % 5;
+          let candidateX = 220 + (col * 240) + (row * 15);
+          let candidateY = 120 + (row * 90);
+
+          // If there's an existing node too close, keep shifting until an open spot is found
+          let attempts = 0;
+          while (
+            attempts < 30 &&
+            items.some(
+              (n) =>
+                Math.abs(n.position.x - candidateX) < 140 &&
+                Math.abs(n.position.y - candidateY) < 70
+            )
+          ) {
+            candidateX += 40;
+            candidateY += 35;
+            attempts++;
+          }
+          pos = { x: candidateX, y: candidateY };
+        }
+
+        const newNodeId = `${type}-${Date.now()}`;
+        return [...items, node(newNodeId, type, pos)];
+      });
     },
     [history],
   );
@@ -1017,15 +1043,32 @@ function Editor() {
     const source = selection.item;
     clipboard.current = source;
     history();
-    setNodes((items) => [
-      ...items,
-      {
-        ...source,
-        id: `${source.data.type}-${Date.now()}`,
-        position: { x: source.position.x + 40, y: source.position.y + 40 },
-        data: { ...source.data },
-      },
-    ]);
+    setNodes((items) => {
+      let targetX = source.position.x + 50;
+      let targetY = source.position.y + 50;
+      let attempts = 0;
+      while (
+        attempts < 20 &&
+        items.some(
+          (n) =>
+            Math.abs(n.position.x - targetX) < 50 &&
+            Math.abs(n.position.y - targetY) < 40
+        )
+      ) {
+        targetX += 35;
+        targetY += 35;
+        attempts++;
+      }
+      return [
+        ...items,
+        {
+          ...source,
+          id: `${source.data.type}-${Date.now()}`,
+          position: { x: targetX, y: targetY },
+          data: { ...source.data },
+        },
+      ];
+    });
   }, [selection, history]);
   const openContextMenu = useCallback((event, kind, item) => {
     event.preventDefault();
@@ -1076,15 +1119,32 @@ function Editor() {
         event.preventDefault();
         const source = clipboard.current;
         history();
-        setNodes((items) => [
-          ...items,
-          {
-            ...source,
-            id: `${source.data.type}-${Date.now()}`,
-            position: { x: source.position.x + 40, y: source.position.y + 40 },
-            data: { ...source.data },
-          },
-        ]);
+        setNodes((items) => {
+          let targetX = source.position.x + 50;
+          let targetY = source.position.y + 50;
+          let attempts = 0;
+          while (
+            attempts < 20 &&
+            items.some(
+              (n) =>
+                Math.abs(n.position.x - targetX) < 50 &&
+                Math.abs(n.position.y - targetY) < 40
+            )
+          ) {
+            targetX += 35;
+            targetY += 35;
+            attempts++;
+          }
+          return [
+            ...items,
+            {
+              ...source,
+              id: `${source.data.type}-${Date.now()}`,
+              position: { x: targetX, y: targetY },
+              data: { ...source.data },
+            },
+          ];
+        });
       } else if (
         (event.key === "Delete" || event.key === "Backspace") &&
         selection
