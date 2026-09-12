@@ -3,7 +3,12 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import InterviewOrb from "@/components/interview/InterviewOrb";
+import dynamic from "next/dynamic";
+
+const InterviewOrb = dynamic(() => import("@/components/interview/InterviewOrb"), {
+  ssr: false,
+  loading: () => <div className="w-[220px] h-[220px] rounded-full bg-surface-container/60 animate-pulse" />,
+});
 
 export default function HomeInterviewSection() {
   return (

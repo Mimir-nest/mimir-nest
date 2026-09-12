@@ -72,6 +72,7 @@ const categories = [
 ];
 
 const Navbar = () => {
+  const [mounted, setMounted] = useState(false);
   const [activeCategory, setActiveCategory] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
@@ -80,6 +81,7 @@ const Navbar = () => {
   const { user, isAuthenticated, logout, checkAuth, isAuthModalOpen, openAuthModal, closeAuthModal } = useAuthStore();
 
   useEffect(() => {
+    setMounted(true);
     checkAuth();
   }, [checkAuth]);
 
@@ -226,7 +228,7 @@ const Navbar = () => {
             Explore Tools
           </Link>
 
-          {isAuthenticated ? (
+          {mounted && isAuthenticated ? (
             <div className="flex items-center gap-3 bg-surface-container border border-outline-variant/30 px-3 py-1.5 rounded-lg">
               <div className="flex items-center gap-1.5">
                 <UserIcon className="w-4 h-4 text-surface-tint" />
@@ -259,11 +261,16 @@ const Navbar = () => {
 
 /* Mobile nav — separate component */
 const MobileNav = () => {
+  const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [expandedSection, setExpandedSection] = useState(null);
   const pathname = usePathname();
 
   const { user, isAuthenticated, logout, isAuthModalOpen, openAuthModal, closeAuthModal } = useAuthStore();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     setIsOpen(false);
@@ -378,7 +385,7 @@ const MobileNav = () => {
             </a>
 
             {/* Auth Link (Mobile) */}
-            {isAuthenticated ? (
+            {mounted && isAuthenticated ? (
               <div className="pt-4 border-t border-outline-variant/40 space-y-2">
                 <div
                   className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-on-surface-variant"
