@@ -5,21 +5,26 @@ import React from "react";
 const UNIVERSITIES = [
   { name: "UC Berkeley", logo: "/logos/berkeley.svg" },
   { name: "Carnegie Mellon University", logo: "/logos/cmu.svg" },
-  { name: "Cornell University", logo: "/logos/cornell.svg" },
-  { name: "Princeton University", logo: "/logos/princeton.svg" },
-  { name: "University of Waterloo", logo: "/logos/waterloo.svg" },
   { name: "Stanford University", logo: "/logos/stanford.svg" },
+  { name: "University of Waterloo", logo: "/logos/waterloo.svg" },
 ];
 
 const COMPANIES = [
-  { name: "Bosch", logo: "/logos/bosch.svg" },
   { name: "Tata Consultancy Services (TCS)", logo: "/logos/tcs.svg" },
+  { name: "Infosys", logo: "/logos/infosys.svg" },
+  { name: "Wipro", logo: "/logos/wipro.svg" },
+  { name: "Swiggy", logo: "/logos/swiggy.svg" },
+  { name: "Zomato", logo: "/logos/zomato.svg" },
+  { name: "PhonePe", logo: "/logos/phonepe.svg" },
+  { name: "Paytm", logo: "/logos/paytm.svg" },
+  { name: "Razorpay", logo: "/logos/razorpay.svg" },
   { name: "Google", logo: "/logos/google.svg" },
-  { name: "NVIDIA", logo: "/logos/nvidia.svg" },
-  { name: "Amazon", logo: "/logos/amazon.svg" },
   { name: "Microsoft", logo: "/logos/microsoft.svg" },
+  { name: "Amazon", logo: "/logos/amazon.svg" },
+  { name: "NVIDIA", logo: "/logos/nvidia.svg" },
   { name: "Meta", logo: "/logos/meta.svg" },
   { name: "Adobe", logo: "/logos/adobe.svg" },
+  { name: "Bosch", logo: "/logos/bosch.svg" },
 ];
 
 const TrustedBy = () => {
@@ -47,7 +52,7 @@ const TrustedBy = () => {
         <div className="flex w-full overflow-hidden mb-8 sm:mb-12">
           <div className="flex w-max animate-marquee-left group-hover:[animation-play-state:paused] motion-reduce:animate-none motion-reduce:flex-wrap motion-reduce:justify-center">
             {/* First Sequence */}
-            <div className="flex items-center gap-10 sm:gap-14 md:gap-20 pr-10 sm:pr-14 md:pr-20 shrink-0">
+            <div className="flex items-center gap-12 sm:gap-16 md:gap-24 pr-12 sm:pr-16 md:pr-24 shrink-0">
               {UNIVERSITIES.map((uni, idx) => (
                 <img
                   key={`uni-1-${idx}`}
@@ -60,7 +65,7 @@ const TrustedBy = () => {
               ))}
             </div>
             {/* Duplicated Second Sequence for Seamless Infinite Loop */}
-            <div className="flex items-center gap-10 sm:gap-14 md:gap-20 pr-10 sm:pr-14 md:pr-20 shrink-0" aria-hidden="true">
+            <div className="flex items-center gap-12 sm:gap-16 md:gap-24 pr-12 sm:pr-16 md:pr-24 shrink-0" aria-hidden="true">
               {UNIVERSITIES.map((uni, idx) => (
                 <img
                   key={`uni-2-${idx}`}
@@ -79,7 +84,7 @@ const TrustedBy = () => {
         <div className="flex w-full overflow-hidden">
           <div className="flex w-max animate-marquee-right group-hover:[animation-play-state:paused] motion-reduce:animate-none motion-reduce:flex-wrap motion-reduce:justify-center">
             {/* First Sequence */}
-            <div className="flex items-center gap-10 sm:gap-14 md:gap-20 pr-10 sm:pr-14 md:pr-20 shrink-0">
+            <div className="flex items-center gap-12 sm:gap-16 md:gap-24 pr-12 sm:pr-16 md:pr-24 shrink-0">
               {COMPANIES.map((comp, idx) => (
                 <img
                   key={`comp-1-${idx}`}
@@ -92,7 +97,7 @@ const TrustedBy = () => {
               ))}
             </div>
             {/* Duplicated Second Sequence for Seamless Infinite Loop */}
-            <div className="flex items-center gap-10 sm:gap-14 md:gap-20 pr-10 sm:pr-14 md:pr-20 shrink-0" aria-hidden="true">
+            <div className="flex items-center gap-12 sm:gap-16 md:gap-24 pr-12 sm:pr-16 md:pr-24 shrink-0" aria-hidden="true">
               {COMPANIES.map((comp, idx) => (
                 <img
                   key={`comp-2-${idx}`}
