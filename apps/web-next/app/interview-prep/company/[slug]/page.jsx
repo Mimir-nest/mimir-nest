@@ -225,6 +225,18 @@ export default function CompanyInterviewPage() {
     return questions.filter((q) => practicedIds.has(q.question_id)).length;
   }, [questions, practicedIds]);
 
+  const firstUnpracticedIndex = useMemo(() => {
+    const idx = questions.findIndex((q) => !practicedIds.has(q.question_id));
+    return idx !== -1 ? idx : 0;
+  }, [questions, practicedIds]);
+
+  const practiceBtnText = useMemo(() => {
+    if (questions.length === 0) return "Start Practice";
+    if (companyPracticedCount === 0) return "Start Practice";
+    if (companyPracticedCount === questions.length) return "Practice Again";
+    return `Continue Practice (Q ${firstUnpracticedIndex + 1})`;
+  }, [companyPracticedCount, questions.length, firstUnpracticedIndex]);
+
   const scrollToQuestions = () => {
     const el = document.getElementById("company-questions");
     if (el) {
@@ -323,19 +335,19 @@ export default function CompanyInterviewPage() {
 
               {/* Hero Actions */}
               <div className="flex flex-row md:flex-col gap-3 shrink-0 pt-2 md:pt-0">
+                <Link
+                  href={`/interview-prep/company/${slug}/practice`}
+                  className="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all duration-200 shadow-lg shadow-surface-tint/20 cursor-pointer border-none text-center"
+                >
+                  <span>{practiceBtnText}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
                 <button
                   onClick={scrollToQuestions}
-                  className="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-surface-tint text-on-primary font-semibold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all duration-200 shadow-lg shadow-surface-tint/20 cursor-pointer border-none"
+                  className="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full glass-panel text-foreground hover:text-surface-tint hover:bg-white/5 border border-border/60 transition-colors text-xs font-label-caps tracking-wider text-center cursor-pointer"
                 >
-                  <span>Start Practice</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <span>Browse Questions</span>
                 </button>
-                <Link
-                  href="/interview-prep#companies"
-                  className="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full glass-panel text-foreground hover:text-surface-tint hover:bg-white/5 border border-border/60 transition-colors text-xs font-label-caps tracking-wider text-center"
-                >
-                  All Companies
-                </Link>
               </div>
             </div>
           )}
