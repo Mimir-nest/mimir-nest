@@ -21,6 +21,7 @@ import {
   Github,
   Sparkles,
   Briefcase,
+  Boxes,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuthStore } from "@/store/useAuthStore";
@@ -41,6 +42,7 @@ const categories = [
     label: "Prepare",
     items: [
       { name: "Placement DSA", path: "/placement-dsa", icon: Code, description: "Technical interview coding prep" },
+      { name: "System Design Problems", path: "/system-design/problems", icon: Boxes, description: "Real-world architecture problems & constraints" },
       { name: "System Design", path: "/system-design", icon: BookOpen, description: "500+ system design interview Q&A" },
       { name: "System Design Guide", path: "/system-design-guide", icon: GraduationCap, description: "Chapter-by-chapter concepts & theory" },
       { name: "AI Interview", path: "/interview", icon: Sparkles, description: "GitHub-based AI mock interview", badge: "Soon" },
