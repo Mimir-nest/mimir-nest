@@ -25,5 +25,8 @@ class JsonContentRepository {
     getRoadmaps() {
         return this.readJsonFile(["roadmaps", "roadmaps.json"]);
     }
+    getInterviewPrep() {
+        return this.readJsonFile(["interview-prep", "questions.json"]);
+    }
 }
 export const contentRepository = new JsonContentRepository();

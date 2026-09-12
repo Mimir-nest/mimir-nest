@@ -6,3 +6,4 @@ contentRoutes.get("/courses", contentController.getCourses);
 contentRoutes.get("/perks", contentController.getPerks);
 contentRoutes.get("/placement", contentController.getPlacement);
 contentRoutes.get("/roadmaps", contentController.getRoadmaps);
+contentRoutes.get("/interview-prep", contentController.getInterviewPrep);
