@@ -639,7 +639,11 @@ function Editor() {
       const mod = event.metaKey || event.ctrlKey;
       if (mod && event.key.toLowerCase() === "z") {
         event.preventDefault();
-        event.shiftKey ? redo() : undo();
+        if (event.shiftKey) {
+          redo();
+        } else {
+          undo();
+        }
       } else if (mod && event.key.toLowerCase() === "d") {
         event.preventDefault();
         duplicate();
