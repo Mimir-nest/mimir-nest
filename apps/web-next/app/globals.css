@@ -182,8 +182,6 @@
   }
 }
 
-html, body { overflow-x: hidden; }
-
 :focus-visible {
   outline: 2px solid #FF5A36;
   outline-offset: 2px;

@@ -39,10 +39,10 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high/90 border border-surface-tint/40 shadow-sm backdrop-blur-md w-fit"
+            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-surface-container-high/90 border border-surface-tint/40 shadow-sm backdrop-blur-md max-w-full w-fit"
           >
-            <Sparkles className="w-4 h-4 text-surface-tint" />
-            <span className="font-label-caps text-xs md:text-sm text-surface-tint tracking-widest uppercase font-bold">
+            <Sparkles className="w-4 h-4 text-surface-tint shrink-0" />
+            <span className="font-label-caps text-[11px] sm:text-xs md:text-sm text-surface-tint tracking-wider sm:tracking-widest uppercase font-bold text-center leading-tight">
               Everything You Need to Learn, Build & Launch
             </span>
           </motion.div>
