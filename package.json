@@ -24,8 +24,5 @@
     "globals": "^15.9.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1"
-  },
-  "dependencies": {
-    "i": "^0.3.7"
   }
 }
