@@ -502,26 +502,35 @@ export default function SystemDesignPage() {
               ))}
             </div>
 
-            {/* Explore Button */}
-            <button
-              onClick={() => {
-                const el = document.getElementById("questions-workspace");
-                if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-              }}
-              className="px-8 py-3.5 rounded-full bg-[#FF5A36] text-black font-semibold text-xs uppercase tracking-widest hover:bg-[#ff7a5a] transition-all shadow-[0_0_20px_rgba(255,90,54,0.35)] flex items-center gap-2 group border border-[#FF5A36] font-sans"
-            >
-              <span>Explore questions</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </button>
-            <button
-              onClick={() => {
-                redirect("/playground")
-              }}
-              className="px-8 py-3.5 mt-3 rounded-full bg-[#FF5A36] text-black font-semibold text-xs uppercase tracking-widest hover:bg-[#ff7a5a] transition-all shadow-[0_0_20px_rgba(255,90,54,0.35)] flex items-center gap-2 group border border-[#FF5A36] font-sans"
-            >
-              <span>Playground</span>
-             
-            </button>
+            {/* Navigation Actions */}
+            <div className="flex items-center justify-center gap-3 flex-wrap pt-2">
+              <button
+                onClick={() => {
+                  const el = document.getElementById("questions-workspace");
+                  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
+                className="px-6 py-3 rounded-full bg-[#FF5A36] text-black font-semibold text-xs uppercase tracking-widest hover:bg-[#ff7a5a] transition-all shadow-[0_0_20px_rgba(255,90,54,0.35)] flex items-center gap-2 group border border-[#FF5A36] font-sans cursor-pointer"
+              >
+                <span>Explore questions</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </button>
+
+              <Link
+                href="/system-design/problems"
+                className="px-6 py-3 rounded-full bg-[#161c1d] text-[#e1e7e3] hover:text-white font-semibold text-xs uppercase tracking-widest hover:bg-[#202729] transition-all border border-[#2e393b] flex items-center gap-2 font-sans no-underline"
+              >
+                <Boxes className="w-4 h-4 text-[#ff7657]" />
+                <span>Architecture Challenges & Workflows</span>
+              </Link>
+
+              <Link
+                href="/playground"
+                className="px-6 py-3 rounded-full bg-[#161c1d] text-[#e1e7e3] hover:text-white font-semibold text-xs uppercase tracking-widest hover:bg-[#202729] transition-all border border-[#2e393b] flex items-center gap-2 font-sans no-underline"
+              >
+                <ExternalLink className="w-3.5 h-3.5 text-[#9aa6a5]" />
+                <span>Canvas Playground</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

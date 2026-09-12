@@ -1,7 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useMemo, Suspense } from "react";
 import Link from "next/link";
+import { useSearchParams, useRouter } from "next/navigation";
 import {
   addEdge,
   applyEdgeChanges,
@@ -22,7 +23,9 @@ import {
   ArrowLeftRight,
   Boxes,
   Check,
+  CheckCircle2,
   ChevronDown,
+  ChevronUp,
   Cloud,
   Database,
   FileBox,
@@ -48,7 +51,18 @@ import {
   Undo2,
   X,
   Zap,
+  Activity,
+  DollarSign,
+  AlertCircle,
+  ExternalLink,
+  Award,
+  ArrowRight,
 } from "lucide-react";
+import {
+  getProblemBySlug,
+  calculateArchitectureCost,
+  systemDesignProblems,
+} from "../system-design/data/problems";
 
 const icons = {
   browser: Globe,
@@ -167,13 +181,13 @@ const node = (id, type, position) => ({
   data: { ...registry[type], description: "" },
 });
 const initialNodes = [
-  node("browser", "browser", { x: 30, y: 210 }),
-  node("lb", "load_balancer", { x: 290, y: 210 }),
-  node("gateway", "api_gateway", { x: 550, y: 210 }),
-  node("backend", "backend", { x: 810, y: 210 }),
-  node("postgres", "postgres", { x: 1080, y: 80 }),
-  node("redis", "redis", { x: 1080, y: 210 }),
-  node("kafka", "kafka", { x: 1080, y: 340 }),
+  node("browser", "browser", { x: 40, y: 220 }),
+  node("lb", "load_balancer", { x: 360, y: 220 }),
+  node("gateway", "api_gateway", { x: 680, y: 220 }),
+  node("backend", "backend", { x: 1000, y: 220 }),
+  node("postgres", "postgres", { x: 1330, y: 80 }),
+  node("redis", "redis", { x: 1330, y: 220 }),
+  node("kafka", "kafka", { x: 1330, y: 360 }),
 ];
 const initialEdges = [
   ["browser-lb", "browser", "lb", "HTTPS"],
@@ -288,16 +302,18 @@ function Sidebar({ onAdd }) {
     </aside>
   );
 }
-function Properties({ selection, onUpdate, onClose, onDelete }) {
+function Properties({ selection, onUpdate, onClose, onDelete, isReadOnly = false }) {
   if (!selection) return null;
   const nodeSelected = selection.kind === "node";
   const item = selection.item;
-  const Icon = nodeSelected ? icons[item.data.type] || Sparkles : null;
+  const Icon = nodeSelected ? icons[item.data?.type] || Sparkles : null;
+  const rationale = item.data?.rationale || "";
+
   return (
     <aside className="properties">
       <div className="side-title">
         <div>
-          <em>INSPECTOR</em>
+          <em>{isReadOnly ? "REFERENCE INFO" : "INSPECTOR"}</em>
           <h2>{nodeSelected ? "Node properties" : "Connection properties"}</h2>
         </div>
         <button onClick={onClose}>
@@ -312,73 +328,111 @@ function Properties({ selection, onUpdate, onClose, onDelete }) {
                 <Icon size={17} />
               </i>
               <div>
-                <b>{item.data.label}</b>
-                <small>{item.data.category}</small>
+                <b>{item.data?.label}</b>
+                <small>{item.data?.category || item.data?.subtitle}</small>
               </div>
             </div>
-            <Field
-              label="Name"
-              value={item.data.label}
-              update={(value) => onUpdate({ label: value })}
-            />
-            <Field
-              label="Subtitle"
-              value={item.data.subtitle}
-              update={(value) => onUpdate({ subtitle: value })}
-            />
-            <label>
-              Description
-              <textarea
-                value={item.data.description || ""}
-                onChange={(event) =>
-                  onUpdate({ description: event.target.value })
-                }
-                placeholder="Describe this component..."
-              />
-            </label>
+
+            {rationale && (
+              <div className="p-3 rounded-xl bg-[#ff7657]/10 border border-[#ff7657]/30 text-xs text-[#e9eeeb] space-y-1.5 my-2">
+                <div className="flex items-center gap-1.5 text-[#ff7657] font-mono font-bold text-[10px] uppercase tracking-wider">
+                  <Sparkles size={12} />
+                  <span>Why this component exists</span>
+                </div>
+                <p className="text-[11px] text-[#c2ccca] leading-relaxed m-0">
+                  {rationale}
+                </p>
+              </div>
+            )}
+
+            {!isReadOnly ? (
+              <>
+                <Field
+                  label="Name"
+                  value={item.data?.label}
+                  update={(value) => onUpdate({ label: value })}
+                />
+                <Field
+                  label="Subtitle"
+                  value={item.data?.subtitle}
+                  update={(value) => onUpdate({ subtitle: value })}
+                />
+                <label>
+                  Description
+                  <textarea
+                    value={item.data?.description || ""}
+                    onChange={(event) =>
+                      onUpdate({ description: event.target.value })
+                    }
+                    placeholder="Describe this component..."
+                  />
+                </label>
+              </>
+            ) : (
+              <div className="space-y-2 pt-2 text-xs font-mono text-[#9aa6a5]">
+                <div className="p-2.5 rounded-lg bg-[#0c0f10] border border-[#293032]">
+                  <span className="text-[#687678] block text-[10px] uppercase tracking-wider mb-0.5">Role / Subtitle</span>
+                  <span className="text-[#e1e7e3] font-semibold">{item.data?.subtitle || item.data?.type}</span>
+                </div>
+              </div>
+            )}
           </>
         ) : (
           <>
-            <label>
-              Connection label
-              <select
-                value={item.label || ""}
-                onChange={(event) => onUpdate({ label: event.target.value })}
-              >
-                <option value="">No label</option>
-                {[
-                  "HTTP",
-                  "HTTPS",
-                  "REST",
-                  "GraphQL",
-                  "gRPC",
-                  "WebSocket",
-                  "TCP",
-                  "Read",
-                  "Write",
-                  "Events",
-                  "Async",
-                ].map((label) => (
-                  <option key={label}>{label}</option>
-                ))}
-              </select>
-            </label>
-            <label>
-              Description
-              <textarea
-                value={item.data?.description || ""}
-                onChange={(event) =>
-                  onUpdate({ description: event.target.value })
-                }
-                placeholder="Describe this connection..."
-              />
-            </label>
+            {!isReadOnly ? (
+              <>
+                <label>
+                  Connection label
+                  <select
+                    value={item.label || ""}
+                    onChange={(event) => onUpdate({ label: event.target.value })}
+                  >
+                    <option value="">No label</option>
+                    {[
+                      "HTTP",
+                      "HTTPS",
+                      "REST",
+                      "GraphQL",
+                      "gRPC",
+                      "WebSocket",
+                      "TCP",
+                      "Read",
+                      "Write",
+                      "Events",
+                      "Async",
+                    ].map((label) => (
+                      <option key={label}>{label}</option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  Description
+                  <textarea
+                    value={item.data?.description || ""}
+                    onChange={(event) =>
+                      onUpdate({ description: event.target.value })
+                    }
+                    placeholder="Describe this connection..."
+                  />
+                </label>
+              </>
+            ) : (
+              <div className="space-y-2 text-xs font-mono">
+                <div className="p-2.5 rounded-lg bg-[#0c0f10] border border-[#293032]">
+                  <span className="text-[#687678] block text-[10px] uppercase tracking-wider mb-0.5">Protocol / Connection</span>
+                  <span className="text-[#e1e7e3] font-semibold">{item.label || "Direct Link"}</span>
+                </div>
+              </div>
+            )}
           </>
         )}
-        <button className="delete-property" onClick={onDelete}>
-          <Trash2 size={14} />
-          Delete {nodeSelected ? "node" : "connection"}
-        </button>
+
+        {!isReadOnly && (
+          <button className="delete-property" onClick={onDelete}>
+            <Trash2 size={14} />
+            Delete {nodeSelected ? "node" : "connection"}
+          </button>
+        )}
       </div>
     </aside>
   );
@@ -394,6 +448,379 @@ function Field({ label, value, update }) {
     </label>
   );
 }
+// ── Helper: Evaluate Architecture Constraints for Challenge ──
+function evaluateChallengeConstraints(challenge, nodes, edges) {
+  if (!challenge) return { allPassed: false, results: [], totalCost: 0 };
+
+  const nodeTypes = new Set(nodes.map((n) => n.data?.type).filter(Boolean));
+  const totalCost = calculateArchitectureCost(nodes);
+  const results = [];
+
+  // 1. Cost constraint
+  const maxBudget = challenge.maxBudgetUsd || 5000;
+  const costPassed = totalCost <= maxBudget && totalCost > 0;
+  results.push({
+    id: "cost",
+    label: `Cost within budget ($${totalCost.toLocaleString()}/mo ≤ $${maxBudget.toLocaleString()}/mo)`,
+    passed: costPassed,
+  });
+
+  // 2. Component tier requirements
+  const reqTypes = challenge.validationRules?.requiredNodeTypes || [];
+  reqTypes.forEach((reqType) => {
+    let passed = false;
+    let label = reqType;
+
+    if (reqType === "load_balancer" || reqType === "api_gateway" || reqType === "reverse_proxy") {
+      passed = nodeTypes.has("load_balancer") || nodeTypes.has("api_gateway") || nodeTypes.has("reverse_proxy");
+      label = "Load Balancer / API Gateway";
+    } else if (reqType === "backend" || reqType === "microservice" || reqType === "server" || reqType === "serverless" || reqType === "container") {
+      passed = nodeTypes.has("backend") || nodeTypes.has("microservice") || nodeTypes.has("server") || nodeTypes.has("serverless") || nodeTypes.has("container");
+      label = "Compute / Backend Service";
+    } else if (reqType === "postgres" || reqType === "mysql" || reqType === "sql" || reqType === "mongodb" || reqType === "nosql") {
+      passed = nodeTypes.has("postgres") || nodeTypes.has("mysql") || nodeTypes.has("sql") || nodeTypes.has("mongodb") || nodeTypes.has("nosql");
+      label = "Database (SQL / NoSQL)";
+    } else if (reqType === "redis" || reqType === "memcached") {
+      passed = nodeTypes.has("redis") || nodeTypes.has("memcached");
+      label = "In-Memory Cache (Redis / Memcached)";
+    } else if (reqType === "kafka" || reqType === "rabbitmq" || reqType === "queue") {
+      passed = nodeTypes.has("kafka") || nodeTypes.has("rabbitmq") || nodeTypes.has("queue");
+      label = "Message Stream / Queue (Kafka / RabbitMQ)";
+    } else if (reqType === "object_storage" || reqType === "file_storage") {
+      passed = nodeTypes.has("object_storage") || nodeTypes.has("file_storage");
+      label = "Blob / Object Storage";
+    } else if (reqType === "search") {
+      passed = nodeTypes.has("search");
+      label = "Search Engine Indexer";
+    } else if (reqType === "cdn") {
+      passed = nodeTypes.has("cdn");
+      label = "CDN Edge Network";
+    } else if (reqType === "dns") {
+      passed = nodeTypes.has("dns");
+      label = "DNS Service";
+    } else if (reqType === "auth") {
+      passed = nodeTypes.has("auth");
+      label = "Authentication Service";
+    } else if (reqType === "external_api" || reqType === "custom") {
+      passed = nodeTypes.has("external_api") || nodeTypes.has("custom");
+      label = "External Service Integration";
+    } else {
+      passed = nodeTypes.has(reqType);
+      label = reqType.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+    }
+
+    results.push({
+      id: `req-${reqType}`,
+      label: `Includes ${label}`,
+      passed,
+    });
+  });
+
+  // 3. Minimum component threshold
+  const minNodes = challenge.validationRules?.minNodes || 4;
+  results.push({
+    id: "min-nodes",
+    label: `Contains at least ${minNodes} components (${nodes.length} placed)`,
+    passed: nodes.length >= minNodes,
+  });
+
+  // 4. Edge connectivity
+  const hasConnections = edges.length >= Math.max(2, Math.floor(nodes.length / 2));
+  results.push({
+    id: "connections",
+    label: `Tier connectivity established (${edges.length} active connections)`,
+    passed: hasConnections,
+  });
+
+  const allPassed = results.every((r) => r.passed);
+  return { allPassed, results, totalCost };
+}
+
+// ── Challenge Overlay Panel ──
+function ChallengePanel({ challenge, validation, onValidate, onReset, isCollapsed, setIsCollapsed }) {
+  if (!challenge) return null;
+
+  const passedCount = validation.results.filter((r) => r.passed).length;
+  const totalCount = validation.results.length;
+
+  if (isCollapsed) {
+    return (
+      <div className="absolute top-4 left-4 z-20 flex items-center gap-3 p-2.5 px-3.5 rounded-xl bg-[#121617]/95 border border-[#293032] backdrop-blur-md shadow-2xl text-xs font-mono text-[#e9eeeb]">
+        <div className="w-2 h-2 rounded-full bg-[#ff7657] animate-pulse" />
+        <div className="flex items-center gap-2">
+          <strong className="text-[#e1e7e3]">{challenge.title}</strong>
+          <span className="text-[#687678]">·</span>
+          <span className="text-emerald-400 font-semibold">{passedCount}/{totalCount} Passed</span>
+        </div>
+        <button
+          onClick={() => setIsCollapsed(false)}
+          className="p-1 text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors rounded hover:bg-white/5 border-none bg-transparent cursor-pointer"
+          title="Expand Challenge Panel"
+        >
+          <ChevronDown size={15} />
+        </button>
+      </div>
+    );
+  }
+
+  const maxBudget = challenge.maxBudgetUsd || 5000;
+  const isOverBudget = validation.totalCost > maxBudget;
+
+  return (
+    <div className="absolute top-4 left-4 z-20 w-80 sm:w-96 rounded-2xl bg-[#121617]/95 border border-[#293032] backdrop-blur-md shadow-2xl overflow-hidden font-sans text-xs text-[#e9eeeb] max-h-[calc(100vh-140px)] flex flex-col">
+      {/* Panel Header */}
+      <div className="p-3.5 px-4 bg-[#161c1d] border-b border-[#293032] flex items-center justify-between gap-3 shrink-0">
+        <div className="flex items-center gap-2 truncate">
+          <div className="w-2 h-2 rounded-full bg-[#ff7657] shrink-0" />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#ff7657] font-semibold">
+            {challenge.company} Challenge
+          </span>
+        </div>
+
+        <div className="flex items-center gap-1.5 shrink-0">
+          <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase ${
+            challenge.difficulty === "Easy"
+              ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/30"
+              : challenge.difficulty === "Hard"
+              ? "bg-rose-500/10 text-rose-400 border border-rose-500/30"
+              : "bg-amber-500/10 text-amber-400 border border-amber-500/30"
+          }`}>
+            {challenge.difficulty}
+          </span>
+          <button
+            onClick={() => setIsCollapsed(true)}
+            className="p-1 text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors rounded hover:bg-white/5 border-none bg-transparent cursor-pointer"
+            title="Collapse Challenge Panel"
+          >
+            <ChevronUp size={15} />
+          </button>
+        </div>
+      </div>
+
+      {/* Challenge Title & Stats */}
+      <div className="p-4 space-y-3 overflow-y-auto flex-1">
+        <div>
+          <h3 className="text-sm font-bold text-[#e1e7e3] tracking-tight">
+            {challenge.title}
+          </h3>
+          <p className="text-[11px] text-[#9aa6a5] leading-relaxed mt-1">
+            {challenge.description}
+          </p>
+        </div>
+
+        {/* Live Scale & Budget */}
+        <div className="grid grid-cols-2 gap-2 text-[10px] font-mono">
+          <div className="p-2 rounded-lg bg-[#0c0f10] border border-[#293032]">
+            <span className="text-[#687678] block mb-0.5">Scale SLA</span>
+            <span className="text-[#e1e7e3] font-semibold truncate block" title={challenge.scale}>
+              {challenge.scale.split("·")[0].trim()}
+            </span>
+          </div>
+
+          <div className={`p-2 rounded-lg bg-[#0c0f10] border ${
+            isOverBudget ? "border-rose-500/40 text-rose-400" : "border-[#293032] text-emerald-400"
+          }`}>
+            <span className="text-[#687678] block mb-0.5">Cost vs Budget</span>
+            <span className="font-semibold block truncate">
+              ${validation.totalCost.toLocaleString()} / {challenge.budget}
+            </span>
+          </div>
+        </div>
+
+        {/* Architecture Constraints List */}
+        <div className="space-y-2 pt-1">
+          <div className="flex items-center justify-between text-[11px] font-mono font-semibold text-[#9aa6a5]">
+            <span className="uppercase tracking-wider">Architecture Constraints</span>
+            <span className={validation.allPassed ? "text-emerald-400" : "text-[#ff7657]"}>
+              {passedCount}/{totalCount}
+            </span>
+          </div>
+
+          <div className="space-y-1.5">
+            {validation.results.map((rule) => (
+              <div
+                key={rule.id}
+                className={`p-2 px-2.5 rounded-lg border text-[11px] flex items-start gap-2 transition-all ${
+                  rule.passed
+                    ? "bg-emerald-500/5 border-emerald-500/25 text-[#e1e7e3]"
+                    : "bg-[#0c0f10] border-[#293032] text-[#9aa6a5]"
+                }`}
+              >
+                {rule.passed ? (
+                  <CheckCircle2 size={13} className="text-emerald-400 shrink-0 mt-0.5" />
+                ) : (
+                  <div className="w-3.5 h-3.5 rounded-full border border-[#687678] shrink-0 mt-0.5" />
+                )}
+                <span className="leading-snug flex-1">{rule.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Validate / Reset / View Specs / Workflow Footer */}
+      <div className="p-3.5 bg-[#161c1d] border-t border-[#293032] flex items-center justify-between gap-2 shrink-0">
+        <div className="flex items-center gap-2">
+          <Link
+            href={`/system-design/problems/${challenge.slug}`}
+            className="text-[11px] font-mono text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors"
+          >
+            Specs ↗
+          </Link>
+          <span className="text-[#293032]">|</span>
+          <button
+            onClick={onReset}
+            className="text-[11px] font-mono text-[#9aa6a5] hover:text-rose-400 transition-colors bg-transparent border-none cursor-pointer p-0"
+            title="Reset challenge architecture"
+          >
+            Reset
+          </button>
+          {challenge.referenceWorkflow && (
+            <>
+              <span className="text-[#293032]">|</span>
+              <Link
+                href={`/playground?challenge=${challenge.slug}&mode=solution`}
+                className="text-[11px] font-mono text-[#ff7657] hover:underline transition-colors flex items-center gap-0.5"
+                title="View reference architecture workflow"
+              >
+                <Sparkles size={11} />
+                <span>Workflow ↗</span>
+              </Link>
+            </>
+          )}
+        </div>
+
+        <button
+          onClick={onValidate}
+          className={`px-4 py-2 rounded-xl text-xs font-bold font-mono tracking-wider uppercase transition-all duration-200 cursor-pointer border-none shadow-md ${
+            validation.allPassed
+              ? "bg-emerald-500 hover:bg-emerald-400 text-black shadow-emerald-500/20"
+              : "bg-[#ff7657] hover:bg-[#ff8a6f] text-black shadow-[#ff7657]/20"
+          }`}
+        >
+          {validation.allPassed ? "Complete ✓" : "Validate"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ── Solution Mode Floating Banner ──
+function SolutionBanner({ challenge, onTryYourself }) {
+  if (!challenge) return null;
+
+  return (
+    <div className="absolute top-4 left-4 right-4 z-20 flex flex-col md:flex-row md:items-center justify-between gap-3 p-3.5 sm:px-5 rounded-2xl bg-[#121617]/95 border border-[#ff7657]/40 backdrop-blur-md shadow-2xl font-sans text-xs text-[#e9eeeb]">
+      <div className="flex items-center gap-3">
+        <div className="w-9 h-9 rounded-xl bg-[#ff7657]/15 border border-[#ff7657]/30 flex items-center justify-center text-[#ff7657] shrink-0">
+          <Sparkles size={17} />
+        </div>
+        <div>
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[#ff7657] font-bold">
+              Reference Workflow
+            </span>
+            <span className="text-[#687678]">·</span>
+            <strong className="text-xs text-[#e1e7e3]">{challenge.title}</strong>
+            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/5 text-[#9aa6a5]">
+              Read-Only
+            </span>
+          </div>
+          <p className="text-[11px] text-[#9aa6a5] m-0 mt-0.5 leading-snug">
+            {challenge.referenceWorkflow?.explanation || "Explore one valid reference architecture with component rationales. Click any node to inspect why it exists."}
+          </p>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-2 shrink-0">
+        <Link
+          href={`/system-design/problems/${challenge.slug}`}
+          className="px-3 py-1.5 rounded-xl bg-[#161c1d] hover:bg-[#1f2728] border border-[#293032] text-xs font-mono text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors"
+        >
+          Specs ↗
+        </Link>
+        <button
+          onClick={onTryYourself}
+          className="px-4 py-2 rounded-xl bg-[#ff7657] hover:bg-[#ff8a6f] text-black text-xs font-bold font-mono tracking-wider uppercase transition-all shadow-md shadow-[#ff7657]/20 flex items-center gap-1.5 cursor-pointer border-none"
+        >
+          <span>Try Yourself</span>
+          <ArrowRight size={13} />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ── Completion Success Modal ──
+function CompletionModal({ challenge, validation, onClose, onReset, onNextChallenge }) {
+  if (!challenge) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="max-w-md w-full p-6 sm:p-7 rounded-2xl bg-[#121617] border border-[#293032] shadow-2xl space-y-6 text-center">
+        <div className="w-14 h-14 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto shadow-inner">
+          <Award size={28} />
+        </div>
+
+        <div className="space-y-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold block">
+            Challenge Complete
+          </span>
+          <h2 className="text-xl sm:text-2xl font-extrabold text-[#e1e7e3] tracking-tight">
+            {challenge.title}
+          </h2>
+          <p className="text-xs sm:text-sm text-[#9aa6a5] leading-relaxed">
+            All required architecture constraints, tier connectivity, and monthly cost thresholds have been successfully satisfied.
+          </p>
+        </div>
+
+        <div className="p-3.5 rounded-xl bg-[#0c0f10] border border-[#293032] grid grid-cols-2 gap-2 text-xs font-mono">
+          <div>
+            <span className="text-[#687678] block text-[10px]">Monthly Architecture Cost</span>
+            <span className="text-emerald-400 font-bold">
+              ${validation.totalCost.toLocaleString()}/mo
+            </span>
+          </div>
+          <div>
+            <span className="text-[#687678] block text-[10px]">Constraints Passed</span>
+            <span className="text-[#e1e7e3] font-bold">
+              {validation.results.length}/{validation.results.length} (100%)
+            </span>
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
+          <button
+            onClick={() => {
+              onClose();
+              if (onReset) onReset();
+            }}
+            className="w-full py-2.5 px-4 rounded-xl bg-[#161c1d] hover:bg-[#1f2728] border border-[#293032] text-xs font-mono font-medium text-[#e1e7e3] transition-colors cursor-pointer"
+          >
+            Try Again
+          </button>
+
+          {onNextChallenge ? (
+            <button
+              onClick={onNextChallenge}
+              className="w-full py-2.5 px-4 rounded-xl bg-[#ff7657] hover:bg-[#ff8a6f] text-black font-bold text-xs font-mono tracking-wider uppercase transition-all cursor-pointer border-none shadow-lg shadow-[#ff7657]/20"
+            >
+              Next Challenge →
+            </button>
+          ) : (
+            <Link
+              href="/system-design/problems"
+              className="w-full py-2.5 px-4 rounded-xl bg-[#ff7657] hover:bg-[#ff8a6f] text-black font-bold text-xs font-mono tracking-wider uppercase transition-all text-center no-underline"
+            >
+              All Problems
+            </Link>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Toolbar({
   title,
   setTitle,
@@ -405,6 +832,9 @@ function Toolbar({
   onSave,
   onFit,
   onZoom,
+  activeChallenge,
+  isSolutionMode = false,
+  onTryYourself,
 }) {
   const Button = ({ label, children, ...props }) => (
     <button className="tool" title={label} {...props}>
@@ -423,25 +853,54 @@ function Toolbar({
         </Link>
       </div>
       <div className="playground-heading">
-        <strong>System Design Playground</strong>
-        <small>Architecture canvas</small>
+        <strong>{isSolutionMode ? "Reference Architecture" : "System Design Playground"}</strong>
+        <small>
+          {isSolutionMode
+            ? `${activeChallenge?.title} · Solution Mode`
+            : activeChallenge
+            ? `${activeChallenge.title} Challenge`
+            : "Architecture canvas"}
+        </small>
       </div>
       <div className="diagram-title">
         <Pencil size={13} />
         <input
           value={title}
-          onChange={(event) => setTitle(event.target.value)}
+          onChange={(event) => !isSolutionMode && setTitle(event.target.value)}
+          readOnly={isSolutionMode}
         />
         <ChevronDown size={14} />
       </div>
       <div className="actions">
-        <Button label="Undo" onClick={undo} disabled={!canUndo}>
-          <Undo2 size={16} />
-        </Button>
-        <Button label="Redo" onClick={redo} disabled={!canRedo}>
-          <Redo2 size={16} />
-        </Button>
-        <i />
+        {activeChallenge && (
+          <Link
+            href="/system-design/problems"
+            className="px-3 py-1.5 rounded-lg bg-[#161c1d] border border-[#293032] text-xs font-mono text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors no-underline hidden md:inline-flex items-center gap-1 mr-2"
+          >
+            <span>Challenges</span>
+            <ExternalLink size={12} />
+          </Link>
+        )}
+        {isSolutionMode && onTryYourself && (
+          <button
+            onClick={onTryYourself}
+            className="px-3 py-1.5 rounded-lg bg-[#ff7657] hover:bg-[#ff8a6f] text-black text-xs font-mono font-bold uppercase transition-colors border-none cursor-pointer hidden sm:inline-flex items-center gap-1 mr-2"
+          >
+            <span>Try Yourself</span>
+            <ArrowRight size={12} />
+          </button>
+        )}
+        {!isSolutionMode && (
+          <>
+            <Button label="Undo" onClick={undo} disabled={!canUndo}>
+              <Undo2 size={16} />
+            </Button>
+            <Button label="Redo" onClick={redo} disabled={!canRedo}>
+              <Redo2 size={16} />
+            </Button>
+            <i />
+          </>
+        )}
         <Button label="Zoom in" onClick={() => onZoom(1.2)}>
           <Plus size={16} />
         </Button>
@@ -451,65 +910,229 @@ function Toolbar({
         <Button label="Fit view" onClick={onFit}>
           <RotateCcw size={15} />
         </Button>
-        <i />
-        <Button label="Delete selected" onClick={onDelete}>
-          <Trash2 size={16} />
-        </Button>
-        <button className="save" onClick={onSave}>
-          <Save size={15} /> Save
-        </button>
+        {!isSolutionMode && (
+          <>
+            <i />
+            <Button label="Delete selected" onClick={onDelete}>
+              <Trash2 size={16} />
+            </Button>
+            <button className="save" onClick={onSave}>
+              <Save size={15} /> Save
+            </button>
+          </>
+        )}
       </div>
     </header>
   );
 }
 
 function Editor() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const challengeSlug = searchParams.get("challenge");
+  const mode = searchParams.get("mode");
+  const isSolutionMode = mode === "solution";
+
+  const activeChallenge = useMemo(() => {
+    return challengeSlug ? getProblemBySlug(challengeSlug) : null;
+  }, [challengeSlug]);
+
   const [nodes, setNodes] = useState(initialNodes);
-  const [loading, setloading] = useState(false)
+  const [loading, setloading] = useState(false);
   const [edges, setEdges] = useState(initialEdges);
-  const [title, setTitle] = useState("Checkout architecture");
+  const [title, setTitle] = useState(
+    activeChallenge ? `${activeChallenge.title} Architecture` : "Checkout architecture"
+  );
   const [selection, setSelection] = useState(null);
   const [past, setPast] = useState([]);
   const [future, setFuture] = useState([]);
   const [saved, setSaved] = useState(false);
   const [contextMenu, setContextMenu] = useState(null);
+  const [isChallengePanelCollapsed, setIsChallengePanelCollapsed] = useState(false);
+  const [isCompletedModalOpen, setIsCompletedModalOpen] = useState(false);
+
   const reactFlow = useReactFlow();
   const dragStart = useRef(null);
   const clipboard = useRef(null);
+
+  // Live architecture validation against active challenge
+  const validation = useMemo(() => {
+    return evaluateChallengeConstraints(activeChallenge, nodes, edges);
+  }, [activeChallenge, nodes, edges]);
+
+  const resetChallenge = useCallback(() => {
+    if (activeChallenge) {
+      if (activeChallenge.starterNodes && activeChallenge.starterNodes.length > 0) {
+        const customNodes = activeChallenge.starterNodes.map((sn) =>
+          node(sn.id, sn.type, sn.position)
+        );
+        setNodes(customNodes);
+        if (activeChallenge.starterEdges) {
+          const customEdges = activeChallenge.starterEdges.map((se) => ({
+            id: se.id,
+            source: se.source,
+            target: se.target,
+            label: se.label || "",
+            type: "smoothstep",
+            animated: true,
+            markerEnd: { type: MarkerType.ArrowClosed, color: "#ff7657" },
+          }));
+          setEdges(customEdges);
+        } else {
+          setEdges([]);
+        }
+      } else {
+        setNodes([]);
+        setEdges([]);
+      }
+    } else {
+      setNodes(initialNodes);
+      setEdges(initialEdges);
+    }
+    setPast([]);
+    setFuture([]);
+    setSelection(null);
+    setIsCompletedModalOpen(false);
+  }, [activeChallenge]);
+
+  // Load appropriate nodes depending on mode (Solution Mode vs Build Mode)
+  useEffect(() => {
+    if (activeChallenge) {
+      if (isSolutionMode && activeChallenge.referenceWorkflow) {
+        setTitle(`${activeChallenge.title} Reference Architecture`);
+        const refNodes = activeChallenge.referenceWorkflow.nodes.map((rn) => {
+          const baseNode = node(rn.id, rn.type, rn.position);
+          return {
+            ...baseNode,
+            data: {
+              ...baseNode.data,
+              label: rn.label || baseNode.data.label,
+              subtitle: rn.subtitle || baseNode.data.subtitle,
+              category: rn.category || baseNode.data.category,
+              rationale: rn.rationale || "",
+            },
+          };
+        });
+        const refEdges = activeChallenge.referenceWorkflow.edges.map((re) => ({
+          id: re.id,
+          source: re.source,
+          target: re.target,
+          label: re.label || "",
+          type: "smoothstep",
+          animated: true,
+          markerEnd: { type: MarkerType.ArrowClosed, color: "#ff7657" },
+          data: {
+            label: re.label || "",
+            rationale: re.rationale || "",
+          },
+        }));
+        setNodes(refNodes);
+        setEdges(refEdges);
+        setPast([]);
+        setFuture([]);
+        setSelection(null);
+
+        // Auto-fit view for pristine initial layout presentation
+        setTimeout(() => {
+          reactFlow.fitView({ padding: 0.25, duration: 400 });
+        }, 150);
+      } else {
+        setTitle(`${activeChallenge.title} Architecture`);
+        resetChallenge();
+        setTimeout(() => {
+          reactFlow.fitView({ padding: 0.2, duration: 350 });
+        }, 150);
+      }
+    }
+  }, [activeChallenge, isSolutionMode, resetChallenge, reactFlow]);
+
+  const handleTryYourself = useCallback(() => {
+    if (activeChallenge) {
+      router.push(`/playground?challenge=${activeChallenge.slug}`);
+    }
+  }, [activeChallenge, router]);
+
+  const handleValidate = () => {
+    if (validation.allPassed) {
+      setIsCompletedModalOpen(true);
+    } else {
+      setIsChallengePanelCollapsed(false);
+    }
+  };
+
+  const handleNextChallenge = () => {
+    setIsCompletedModalOpen(false);
+    if (!activeChallenge) return;
+    const currIdx = systemDesignProblems.findIndex((p) => p.slug === activeChallenge.slug);
+    const nextIdx = (currIdx + 1) % systemDesignProblems.length;
+    const nextProblem = systemDesignProblems[nextIdx];
+    router.push(`/playground?challenge=${nextProblem.slug}`);
+  };
+
   const snapshot = useCallback(() => ({ nodes, edges }), [nodes, edges]);
   const history = useCallback(
     (state = snapshot()) => {
+      if (isSolutionMode) return;
       setPast((items) => [...items.slice(-29), state]);
       setFuture([]);
     },
-    [snapshot],
+    [snapshot, isSolutionMode],
   );
   const onNodesChange = useCallback(
     (changes) => {
+      if (isSolutionMode) return;
       if (changes.some((change) => change.type === "remove")) history();
       setNodes((items) => applyNodeChanges(changes, items));
     },
-    [history],
+    [history, isSolutionMode],
   );
   const onEdgesChange = useCallback(
     (changes) => {
+      if (isSolutionMode) return;
       if (changes.some((change) => change.type === "remove")) history();
       setEdges((items) => applyEdgeChanges(changes, items));
     },
-    [history],
+    [history, isSolutionMode],
   );
   const add = useCallback(
-    (type, position = { x: 180, y: 160 }) => {
+    (type, customPosition) => {
+      if (isSolutionMode) return;
       history();
-      setNodes((items) => [
-        ...items,
-        node(`${type}-${Date.now()}`, type, position),
-      ]);
+      setNodes((items) => {
+        let pos = customPosition;
+        if (!pos) {
+          // Calculate an unoccupied grid position with generous spacing so nodes and connection labels have breathing room
+          const count = items.length;
+          const col = Math.floor(count / 4);
+          const row = count % 4;
+          let candidateX = 220 + (col * 340) + (row * 15);
+          let candidateY = 120 + (row * 130);
+
+          // If there's an existing node too close, keep shifting until an open spot is found
+          let attempts = 0;
+          while (
+            attempts < 30 &&
+            items.some(
+              (n) =>
+                Math.abs(n.position.x - candidateX) < 220 &&
+                Math.abs(n.position.y - candidateY) < 80
+            )
+          ) {
+            candidateX += 60;
+            candidateY += 45;
+            attempts++;
+          }
+          pos = { x: candidateX, y: candidateY };
+        }
+
+        const newNodeId = `${type}-${Date.now()}`;
+        return [...items, node(newNodeId, type, pos)];
+      });
     },
-    [history],
+    [history, isSolutionMode],
   );
   const remove = useCallback(() => {
-    if (!selection) return;
+    if (isSolutionMode || !selection) return;
     history();
     if (selection.kind === "node") {
       setNodes((items) =>
@@ -527,28 +1150,28 @@ function Editor() {
         items.filter((item) => item.id !== selection.item.id),
       );
     setSelection(null);
-  }, [selection, history]);
+  }, [selection, history, isSolutionMode]);
   const undo = useCallback(() => {
-    if (!past.length) return;
+    if (isSolutionMode || !past.length) return;
     const previous = past[past.length - 1];
     setFuture((items) => [{ nodes, edges }, ...items]);
     setPast((items) => items.slice(0, -1));
     setNodes(previous.nodes);
     setEdges(previous.edges);
     setSelection(null);
-  }, [past, nodes, edges]);
+  }, [past, nodes, edges, isSolutionMode]);
   const redo = useCallback(() => {
-    if (!future.length) return;
+    if (isSolutionMode || !future.length) return;
     const next = future[0];
     setPast((items) => [...items, { nodes, edges }]);
     setFuture((items) => items.slice(1));
     setNodes(next.nodes);
     setEdges(next.edges);
     setSelection(null);
-  }, [future, nodes, edges]);
+  }, [future, nodes, edges, isSolutionMode]);
   const update = useCallback(
     (changes) => {
-      if (!selection) return;
+      if (isSolutionMode || !selection) return;
       if (selection.kind === "node")
         setNodes((items) =>
           items.map((item) =>
@@ -576,7 +1199,7 @@ function Editor() {
             : { ...selection.item, ...changes },
       }));
     },
-    [selection],
+    [selection, isSolutionMode],
   );
   const onSelectionChange = useCallback(({ nodes: selectedNodes, edges: selectedEdges }) => {
     const selectedNode = selectedNodes[0];
@@ -598,21 +1221,39 @@ function Editor() {
     });
   }, []);
   const duplicate = useCallback(() => {
-    if (!selection || selection.kind !== "node") return;
+    if (isSolutionMode || !selection || selection.kind !== "node") return;
     const source = selection.item;
     clipboard.current = source;
     history();
-    setNodes((items) => [
-      ...items,
-      {
-        ...source,
-        id: `${source.data.type}-${Date.now()}`,
-        position: { x: source.position.x + 40, y: source.position.y + 40 },
-        data: { ...source.data },
-      },
-    ]);
-  }, [selection, history]);
+    setNodes((items) => {
+      let targetX = source.position.x + 50;
+      let targetY = source.position.y + 50;
+      let attempts = 0;
+      while (
+        attempts < 20 &&
+        items.some(
+          (n) =>
+            Math.abs(n.position.x - targetX) < 50 &&
+            Math.abs(n.position.y - targetY) < 40
+        )
+      ) {
+        targetX += 35;
+        targetY += 35;
+        attempts++;
+      }
+      return [
+        ...items,
+        {
+          ...source,
+          id: `${source.data.type}-${Date.now()}`,
+          position: { x: targetX, y: targetY },
+          data: { ...source.data },
+        },
+      ];
+    });
+  }, [selection, history, isSolutionMode]);
   const openContextMenu = useCallback((event, kind, item) => {
+    if (isSolutionMode) return;
     event.preventDefault();
     event.stopPropagation();
     setSelection({ kind, item });
@@ -621,21 +1262,26 @@ function Editor() {
       y: event.clientY,
       kind,
     });
-  }, []);
+  }, [isSolutionMode]);
   const closeContextMenu = useCallback(() => setContextMenu(null), []);
-  useEffect(()=>{
-    setloading(true)
-    if(localStorage.getItem("canvasstate")){
-      const data = localStorage.getItem("canvasstate");
-      const prasedata = JSON.parse(data);
-      console.log(prasedata)
-      setNodes(prasedata.nodes);
-      setEdges(prasedata.edges)
+
+  useEffect(() => {
+    // Only load generic canvasstate if not opening a specific challenge or solution
+    if (!challengeSlug && !isSolutionMode && localStorage.getItem("canvasstate")) {
+      try {
+        const data = localStorage.getItem("canvasstate");
+        const parsed = JSON.parse(data);
+        if (parsed.nodes) setNodes(parsed.nodes);
+        if (parsed.edges) setEdges(parsed.edges);
+      } catch (e) {
+        console.debug("Failed to restore canvas state:", e);
+      }
     }
-    setloading(false);
-  },[])
+  }, [challengeSlug, isSolutionMode]);
+
   useEffect(() => {
     const key = (event) => {
+      if (isSolutionMode) return;
       const mod = event.metaKey || event.ctrlKey;
       if (mod && event.key.toLowerCase() === "z") {
         event.preventDefault();
@@ -657,15 +1303,32 @@ function Editor() {
         event.preventDefault();
         const source = clipboard.current;
         history();
-        setNodes((items) => [
-          ...items,
-          {
-            ...source,
-            id: `${source.data.type}-${Date.now()}`,
-            position: { x: source.position.x + 40, y: source.position.y + 40 },
-            data: { ...source.data },
-          },
-        ]);
+        setNodes((items) => {
+          let targetX = source.position.x + 50;
+          let targetY = source.position.y + 50;
+          let attempts = 0;
+          while (
+            attempts < 20 &&
+            items.some(
+              (n) =>
+                Math.abs(n.position.x - targetX) < 50 &&
+                Math.abs(n.position.y - targetY) < 40
+            )
+          ) {
+            targetX += 35;
+            targetY += 35;
+            attempts++;
+          }
+          return [
+            ...items,
+            {
+              ...source,
+              id: `${source.data.type}-${Date.now()}`,
+              position: { x: targetX, y: targetY },
+              data: { ...source.data },
+            },
+          ];
+        });
       } else if (
         (event.key === "Delete" || event.key === "Backspace") &&
         selection
@@ -676,153 +1339,223 @@ function Editor() {
     };
     window.addEventListener("keydown", key);
     return () => window.removeEventListener("keydown", key);
-  }, [undo, redo, duplicate, remove, selection, history]);
+  }, [undo, redo, duplicate, remove, selection, history, isSolutionMode]);
+
   return (
     <>
-    {loading ? <><div>wait</div></> : 
-    <div className="editor">
-      <Toolbar
-        title={title}
-        setTitle={setTitle}
-        undo={undo}
-        redo={redo}
-        canUndo={past.length > 0}
-        canRedo={future.length > 0}
-        onDelete={remove}
-        onFit={() => reactFlow.fitView({ padding: 0.2, duration: 350 })}
-        onZoom={(factor) => reactFlow.zoomIn({ duration: 180, factor })}
-        onSave={() => {
-          localStorage.setItem("canvasstate",JSON.stringify({ nodes, edges, viewport: reactFlow.getViewport() }));
-          setSaved(true);
-
-          setTimeout(() => setSaved(false), 1600);
-        }}
-      />
-      <div className="body">
-        <Sidebar onAdd={add} />
-        <main
-          className="canvas"
-          onClick={closeContextMenu}
-          onDrop={(event) => {
-            event.preventDefault();
-            const type = event.dataTransfer.getData("system-design");
-            if (type)
-              add(
-                type,
-                reactFlow.screenToFlowPosition({
-                  x: event.clientX,
-                  y: event.clientY,
-                }),
+      {loading ? (
+        <div className="flex items-center justify-center h-screen bg-[#0c0f10] text-[#9aa6a5] font-mono text-sm">
+          Loading canvas...
+        </div>
+      ) : (
+        <div className="editor">
+          <Toolbar
+            title={title}
+            setTitle={setTitle}
+            undo={undo}
+            redo={redo}
+            canUndo={!isSolutionMode && past.length > 0}
+            canRedo={!isSolutionMode && future.length > 0}
+            onDelete={remove}
+            onFit={() => reactFlow.fitView({ padding: 0.2, duration: 350 })}
+            onZoom={(factor) => reactFlow.zoomIn({ duration: 180, factor })}
+            onSave={() => {
+              localStorage.setItem(
+                "canvasstate",
+                JSON.stringify({ nodes, edges, viewport: reactFlow.getViewport() })
               );
-          }}
-          onDragOver={(event) => {
-            event.preventDefault();
-          }}
-        >
-          <div className="canvas-label">
-            <span /> LIVE CANVAS{" "}
-            <small>Drag components from the library to begin</small>
-          </div>
-          <ReactFlow
-            nodes={nodes}
-            edges={edges}
-            nodeTypes={nodeTypes}
-            onNodesChange={onNodesChange}
-            onEdgesChange={onEdgesChange}
-            onConnect={(connection) => {
-              history();
-              setEdges((items) =>
-                addEdge(
-                  {
-                    ...connection,
-                    id: `edge-${Date.now()}`,
-                    type: "smoothstep",
-                    animated: true,
-                    markerEnd: {
-                      type: MarkerType.ArrowClosed,
-                      color: "#ff7657",
-                    },
-                  },
-                  items,
-                ),
-              );
+              setSaved(true);
+              setTimeout(() => setSaved(false), 1600);
             }}
-            onReconnect={(oldEdge, newConnection) => {
-              history();
-              setEdges((items) => reconnectEdge(oldEdge, newConnection, items));
-            }}
-            onNodeDragStart={() => {
-              dragStart.current = snapshot();
-            }}
-            onNodeDragStop={() => {
-              if (dragStart.current) {
-                history(dragStart.current);
-                dragStart.current = null;
-              }
-            }}
-            onSelectionChange={onSelectionChange}
-            onNodeContextMenu={(event, item) =>
-              openContextMenu(event, "node", item)
-            }
-            onEdgeContextMenu={(event, item) =>
-              openContextMenu(event, "edge", item)
-            }
-            onPaneContextMenu={closeContextMenu}
-            connectionLineStyle={connectionLineStyle}
-            snapToGrid
-            snapGrid={snapGrid}
-            fitView
-            selectionOnDrag
-            panOnDrag={[1, 2]}
-            defaultEdgeOptions={defaultEdgeOptions}
-            proOptions={proOptions}
-          >
-            <Background
-              variant={BackgroundVariant.Dots}
-              gap={20}
-              size={1.2}
-              color="#30383a"
-            />
-            <Controls showInteractive={false} />
-            <MiniMap
-              nodeColor={(item) =>
-                item.data?.category === "Database" ? "#5b8def" : "#ff7657"
-              }
-              maskColor="rgba(9,11,12,.72)"
-              pannable
-              zoomable
-            />
-          </ReactFlow>
-          {contextMenu && (
-            <div
-              className="context-menu"
-              style={{ left: contextMenu.x, top: contextMenu.y }}
-              onClick={(event) => event.stopPropagation()}
+            activeChallenge={activeChallenge}
+            isSolutionMode={isSolutionMode}
+            onTryYourself={handleTryYourself}
+          />
+          <div className="body">
+            <Sidebar onAdd={add} />
+            <main
+              className="canvas relative"
+              onClick={closeContextMenu}
+              onDrop={(event) => {
+                event.preventDefault();
+                if (isSolutionMode) return;
+                const type = event.dataTransfer.getData("system-design");
+                if (type)
+                  add(
+                    type,
+                    reactFlow.screenToFlowPosition({
+                      x: event.clientX,
+                      y: event.clientY,
+                    }),
+                  );
+              }}
+              onDragOver={(event) => {
+                event.preventDefault();
+              }}
             >
-              <button
-                onClick={() => {
-                  remove();
-                  closeContextMenu();
+              {/* Solution Mode Header / Banner */}
+              {isSolutionMode && activeChallenge && (
+                <SolutionBanner
+                  challenge={activeChallenge}
+                  onTryYourself={handleTryYourself}
+                />
+              )}
+
+              {/* Build Mode Challenge Floating Overlay */}
+              {!isSolutionMode && activeChallenge && (
+                <ChallengePanel
+                  challenge={activeChallenge}
+                  validation={validation}
+                  onValidate={handleValidate}
+                  onReset={resetChallenge}
+                  isCollapsed={isChallengePanelCollapsed}
+                  setIsCollapsed={setIsChallengePanelCollapsed}
+                />
+              )}
+
+              {/* Invalid Challenge Notification Banner */}
+              {challengeSlug && !activeChallenge && (
+                <div className="absolute top-4 left-4 z-20 flex items-center gap-3 p-3 px-4 rounded-xl bg-[#1a140d]/95 border border-amber-500/40 text-xs font-mono text-amber-300 backdrop-blur-md shadow-2xl">
+                  <AlertCircle size={15} className="shrink-0 text-amber-400" />
+                  <span>
+                    Challenge &quot;{challengeSlug}&quot; not found. Loaded blank playground.
+                  </span>
+                  <Link
+                    href="/system-design/problems"
+                    className="underline text-amber-200 hover:text-white font-semibold ml-1 no-underline hover:underline"
+                  >
+                    Browse Challenges →
+                  </Link>
+                </div>
+              )}
+
+              <div className="canvas-label">
+                <span /> {isSolutionMode ? "REFERENCE ARCHITECTURE" : "LIVE CANVAS"}{" "}
+                <small>
+                  {isSolutionMode
+                    ? "Read-only architecture view · Select any component to inspect rationale"
+                    : "Drag components from the library to begin"}
+                </small>
+              </div>
+              <ReactFlow
+                nodes={nodes}
+                edges={edges}
+                nodeTypes={nodeTypes}
+                onNodesChange={isSolutionMode ? undefined : onNodesChange}
+                onEdgesChange={isSolutionMode ? undefined : onEdgesChange}
+                nodesDraggable={!isSolutionMode}
+                nodesConnectable={!isSolutionMode}
+                elementsSelectable={true}
+                onConnect={(connection) => {
+                  if (isSolutionMode) return;
+                  history();
+                  setEdges((items) =>
+                    addEdge(
+                      {
+                        ...connection,
+                        id: `edge-${Date.now()}`,
+                        type: "smoothstep",
+                        animated: true,
+                        markerEnd: {
+                          type: MarkerType.ArrowClosed,
+                          color: "#ff7657",
+                        },
+                      },
+                      items,
+                    ),
+                  );
                 }}
+                onReconnect={(oldEdge, newConnection) => {
+                  if (isSolutionMode) return;
+                  history();
+                  setEdges((items) => reconnectEdge(oldEdge, newConnection, items));
+                }}
+                onNodeDragStart={() => {
+                  if (isSolutionMode) return;
+                  dragStart.current = snapshot();
+                }}
+                onNodeDragStop={() => {
+                  if (isSolutionMode) return;
+                  if (dragStart.current) {
+                    history(dragStart.current);
+                    dragStart.current = null;
+                  }
+                }}
+                onSelectionChange={onSelectionChange}
+                onNodeContextMenu={(event, item) =>
+                  !isSolutionMode && openContextMenu(event, "node", item)
+                }
+                onEdgeContextMenu={(event, item) =>
+                  !isSolutionMode && openContextMenu(event, "edge", item)
+                }
+                onPaneContextMenu={closeContextMenu}
+                connectionLineStyle={connectionLineStyle}
+                snapToGrid
+                snapGrid={snapGrid}
+                fitView
+                selectionOnDrag={!isSolutionMode}
+                panOnDrag={[1, 2]}
+                defaultEdgeOptions={defaultEdgeOptions}
+                proOptions={proOptions}
               >
-                <Trash2 size={14} />
-                Delete {contextMenu.kind === "node" ? "node" : "connection"}
-              </button>
+                <Background
+                  variant={BackgroundVariant.Dots}
+                  gap={20}
+                  size={1.2}
+                  color="#30383a"
+                />
+                <Controls showInteractive={false} />
+                <MiniMap
+                  nodeColor={(item) =>
+                    item.data?.category === "Database" ? "#5b8def" : "#ff7657"
+                  }
+                  maskColor="rgba(9,11,12,.72)"
+                  pannable
+                  zoomable
+                />
+              </ReactFlow>
+              {contextMenu && (
+                <div
+                  className="context-menu"
+                  style={{ left: contextMenu.x, top: contextMenu.y }}
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <button
+                    onClick={() => {
+                      remove();
+                      closeContextMenu();
+                    }}
+                  >
+                    <Trash2 size={14} />
+                    Delete {contextMenu.kind === "node" ? "node" : "connection"}
+                  </button>
+                </div>
+              )}
+            </main>
+            <Properties
+              selection={selection}
+              onUpdate={update}
+              onClose={() => setSelection(null)}
+              onDelete={remove}
+              isReadOnly={isSolutionMode}
+            />
+          </div>
+          {saved && (
+            <div className="toast">
+              <Check size={15} /> Diagram saved to browser
             </div>
           )}
-        </main>
-        <Properties
-          selection={selection}
-          onUpdate={update}
-          onClose={() => setSelection(null)}
-          onDelete={remove}
-        />
-      </div>
-      {saved && (
-        <div className="toast">
-          <Check size={15} /> Diagram saved to console
-        </div>
-      )}
+
+          {/* Completion Modal */}
+          {isCompletedModalOpen && (
+            <CompletionModal
+              challenge={activeChallenge}
+              validation={validation}
+              onClose={() => setIsCompletedModalOpen(false)}
+              onReset={resetChallenge}
+              onNextChallenge={handleNextChallenge}
+            />
+          )}
       <style jsx global>{`
         * {
           box-sizing: border-box;
@@ -1236,12 +1969,25 @@ function Editor() {
           filter: drop-shadow(0 0 4px #ff765799);
         }
         .react-flow__edge-text {
-          fill: #aab6b3;
-          font: 10px monospace;
+          fill: #e1e7e3;
+          font: 10px / 1.2 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+          font-weight: 600;
+          letter-spacing: -0.01em;
         }
         .react-flow__edge-textbg {
-          fill: #151b1c;
-          stroke: #344041;
+          fill: #161c1d;
+          stroke: #364446;
+          stroke-width: 1px;
+          rx: 5px;
+          ry: 5px;
+        }
+        .react-flow__edge.selected .react-flow__edge-textbg {
+          stroke: #ff7657;
+          stroke-width: 1.5px;
+          fill: #1e1615;
+        }
+        .react-flow__edge.selected .react-flow__edge-text {
+          fill: #ffb09e;
         }
         .react-flow__controls {
           bottom: 18px;
@@ -1431,14 +2177,25 @@ function Editor() {
           }
         }
       `}</style>
-    </div>}</>
+        </div>
+      )}
+    </>
   );
 }
 
 export default function PlaygroundPage() {
   return (
-    <ReactFlowProvider>
-      <Editor />
-    </ReactFlowProvider>
+    <Suspense fallback={
+      <div className="flex h-screen w-screen items-center justify-center bg-[#0e1213] text-[#e1e7e3] font-mono text-sm">
+        <div className="flex items-center gap-3">
+          <div className="w-3 h-3 rounded-full bg-[#ff7657] animate-ping" />
+          <span>Loading System Design Canvas...</span>
+        </div>
+      </div>
+    }>
+      <ReactFlowProvider>
+        <Editor />
+      </ReactFlowProvider>
+    </Suspense>
   );
 }
