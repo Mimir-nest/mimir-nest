@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -25,6 +26,7 @@ import {
   Video,
   ArrowRight,
   Sparkles,
+  Boxes,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { sections, questions } from "./data/questions";
