@@ -27,6 +27,12 @@ Thumbs.db
 
 # Build and tooling artifacts
 build
+dist
+dist-ssr
+out
+.next
+.turbo
+.cache
 coverage
 .vite
 .vercel
