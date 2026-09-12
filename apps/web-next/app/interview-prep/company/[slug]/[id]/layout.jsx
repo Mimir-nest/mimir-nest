@@ -1,7 +1,7 @@
 import { questionsRepository } from "@/lib/db/questionsRepository";
 
 export async function generateMetadata({ params }) {
-  const { id } = await params;
+  const { id, slug } = await params;
   const q = questionsRepository.getQuestionById(id);
 
   if (q) {
@@ -19,7 +19,6 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function QuestionDetailLayout({ children }) {
+export default function CompanyQuestionLayout({ children }) {
   return <>{children}</>;
 }
-
