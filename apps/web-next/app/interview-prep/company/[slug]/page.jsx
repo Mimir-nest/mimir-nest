@@ -369,15 +369,6 @@ export default function CompanyInterviewPage() {
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         {companyData && !loading && (
           <div className="space-y-12">
-                          ? (companyPracticedCount / questions.length) * 100
-                          : 0
-                      }%`,
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-
             {/* ── 2. Category Breakdown ── */}
             <div className="space-y-3">
               <div className="flex items-center justify-between">
