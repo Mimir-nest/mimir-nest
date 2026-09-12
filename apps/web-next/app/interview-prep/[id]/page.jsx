@@ -49,6 +49,7 @@ export default function QuestionDetailPage() {
   const [copied, setCopied] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [isPracticed, setIsPracticed] = useState(false);
+  const [isAnswerRevealed, setIsAnswerRevealed] = useState(false);
 
   // Think First Drafting State
   const [isDraftOpen, setIsDraftOpen] = useState(true);
@@ -403,10 +404,13 @@ export default function QuestionDetailPage() {
                   </button>
 
                   <button
-                    onClick={scrollToAnswerGuide}
+                    onClick={() => {
+                      setIsAnswerRevealed(true);
+                      setTimeout(() => scrollToAnswerGuide(), 100);
+                    }}
                     className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-medium text-surface-tint hover:underline bg-transparent border-none cursor-pointer"
                   >
-                    <span>View Answer Guide ↓</span>
+                    <span>{isAnswerRevealed ? "Jump to Answer Guide ↓" : "Reveal Answer Guide ↓"}</span>
                   </button>
                 </div>
               </section>
@@ -481,10 +485,14 @@ export default function QuestionDetailPage() {
                             Save Draft
                           </button>
                           <button
-                            onClick={scrollToAnswerGuide}
-                            className="px-4 py-1.5 rounded-lg bg-surface-tint text-on-primary font-semibold text-xs font-label-caps tracking-wider uppercase hover:opacity-90 transition-opacity cursor-pointer border-none"
+                            onClick={() => {
+                              setIsAnswerRevealed(true);
+                              setTimeout(() => scrollToAnswerGuide(), 100);
+                            }}
+                            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-surface-tint text-on-primary font-semibold text-xs font-label-caps tracking-wider uppercase hover:opacity-90 transition-opacity cursor-pointer border-none shadow-md shadow-surface-tint/20"
                           >
-                            Reveal Guidance ↓
+                            <Sparkles className="w-3.5 h-3.5" />
+                            <span>Reveal Answer Guide ↓</span>
                           </button>
                         </div>
                       </div>
@@ -493,118 +501,155 @@ export default function QuestionDetailPage() {
                 </AnimatePresence>
               </section>
 
-              {/* ── 3. ANSWER GUIDE & APPROACH ── */}
-              <section id="answer-guide" className="space-y-8 pt-4">
-                <div className="border-b border-border/40 pb-4">
-                  <span className="text-[11px] font-mono uppercase tracking-widest text-surface-tint font-semibold block mb-1">
-                    Answer Guide
-                  </span>
-                  <h2 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
-                    How to approach this question
-                  </h2>
-                </div>
-
-                {/* 3.1 SHORT ANSWER / EXECUTIVE SUMMARY */}
-                {question.short_answer && (
-                  <div className="p-5 sm:p-6 rounded-2xl bg-surface-container border border-border/60 border-l-4 border-l-surface-tint space-y-2.5">
-                    <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-surface-tint">
-                      <Lightbulb className="w-4 h-4 text-surface-tint" />
-                      <span>Short Answer (Executive Summary)</span>
-                    </div>
-                    <p className="text-sm sm:text-base text-foreground/95 leading-relaxed font-body-md">
-                      {question.short_answer}
-                    </p>
+              {/* ── 3. ANSWER GUIDE & APPROACH (HIDDEN BY DEFAULT UNTIL REVEALED) ── */}
+              {!isAnswerRevealed ? (
+                <section id="answer-guide" className="p-8 sm:p-10 rounded-2xl bg-surface-container border border-dashed border-border/70 text-center space-y-4">
+                  <div className="w-12 h-12 rounded-2xl bg-surface-tint/10 border border-surface-tint/25 text-surface-tint flex items-center justify-center mx-auto shadow-inner">
+                    <BookOpen className="w-6 h-6" />
                   </div>
-                )}
-
-                {/* 3.2 DETAILED ANSWER & STRUCTURED WALKTHROUGH */}
-                {question.detailed_answer && (
-                  <div className="space-y-6">
-                    <h3 className="text-sm font-mono uppercase tracking-wider text-muted-foreground font-semibold">
-                      Detailed Walkthrough & Strategy
+                  <div className="max-w-md mx-auto space-y-1.5">
+                    <h3 className="text-base sm:text-lg font-bold text-foreground">
+                      Answer Guide is Hidden
                     </h3>
-                    <StructuredDetailedAnswer text={question.detailed_answer} />
-                  </div>
-                )}
-
-                {/* 3.3 EVALUATION RUBRIC (IF AVAILABLE) */}
-                {question.evaluation_rubric && (
-                  <div className="p-5 sm:p-6 rounded-2xl bg-surface-container/50 border border-border/40 space-y-3">
-                    <span className="text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground block">
-                      Evaluation Rubric (Score Calibration)
-                    </span>
                     <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                      {question.evaluation_rubric}
+                      Take a moment to structure your response in the practice area above or answer aloud before reviewing the recommended strategy.
                     </p>
                   </div>
-                )}
-              </section>
-
-              {/* ── 4. STRONG ANSWER SIGNALS (CONDITIONAL) ── */}
-              {strongSignals.length > 0 && (
-                <section className="space-y-4 pt-4 border-t border-border/40">
-                  <div className="flex items-center gap-2">
-                    <Target className="w-4 h-4 text-emerald-400" />
-                    <h3 className="text-base font-bold text-foreground tracking-tight">
-                      Strong answer signals
-                    </h3>
-                  </div>
-                  <ul className="space-y-2.5 list-none pl-0">
-                    {strongSignals.map((signal, i) => (
-                      <li key={i} className="flex items-start gap-3 text-sm text-foreground/90">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
-                        <span className="leading-relaxed">{signal}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <button
+                    onClick={() => {
+                      setIsAnswerRevealed(true);
+                      setTimeout(() => scrollToAnswerGuide(), 100);
+                    }}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all duration-200 shadow-lg shadow-surface-tint/20 cursor-pointer border-none"
+                  >
+                    <Sparkles className="w-4 h-4" />
+                    <span>Reveal Answer Guide</span>
+                  </button>
                 </section>
-              )}
-
-              {/* ── 5. COMMON MISTAKES (CONDITIONAL) ── */}
-              {commonMistakes.length > 0 && (
-                <section className="space-y-4 pt-4 border-t border-border/40">
-                  <div className="flex items-center gap-2">
-                    <AlertTriangle className="w-4 h-4 text-rose-400" />
-                    <h3 className="text-base font-bold text-foreground tracking-tight">
-                      Common mistakes to avoid
-                    </h3>
-                  </div>
-                  <ul className="space-y-2.5 list-none pl-0">
-                    {commonMistakes.map((mistake, i) => (
-                      <li key={i} className="flex items-start gap-3 text-sm text-foreground/90">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-400 shrink-0" />
-                        <span className="leading-relaxed">{mistake}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              )}
-
-              {/* ── 6. LIKELY FOLLOW-UPS (CONDITIONAL) ── */}
-              {followUps.length > 0 && (
-                <section className="space-y-4 pt-4 border-t border-border/40">
-                  <div className="flex items-center gap-2">
-                    <HelpCircle className="w-4 h-4 text-purple-400" />
-                    <h3 className="text-base font-bold text-foreground tracking-tight">
-                      Likely follow-up questions
-                    </h3>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {followUps.map((fu, i) => (
-                      <div
-                        key={i}
-                        className="p-4 rounded-xl bg-surface-container border border-border/50 flex items-start gap-3"
-                      >
-                        <span className="font-mono text-xs font-bold text-surface-tint shrink-0 pt-0.5">
-                          {String(i + 1).padStart(2, "0")}
+              ) : (
+                <div className="space-y-8">
+                  {/* Answer Guide Header */}
+                  <section id="answer-guide" className="space-y-8 pt-4">
+                    <div className="border-b border-border/40 pb-4 flex items-center justify-between">
+                      <div>
+                        <span className="text-[11px] font-mono uppercase tracking-widest text-surface-tint font-semibold block mb-1">
+                          Answer Guide
                         </span>
-                        <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
-                          {fu}
+                        <h2 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
+                          How to approach this question
+                        </h2>
+                      </div>
+                      <button
+                        onClick={() => setIsAnswerRevealed(false)}
+                        className="px-3 py-1.5 rounded-lg glass-panel hover:bg-white/5 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors border border-border/60 cursor-pointer"
+                      >
+                        Hide Guide
+                      </button>
+                    </div>
+
+                    {/* 3.1 SHORT ANSWER / EXECUTIVE SUMMARY */}
+                    {question.short_answer && (
+                      <div className="p-5 sm:p-6 rounded-2xl bg-surface-container border border-border/60 border-l-4 border-l-surface-tint space-y-2.5">
+                        <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-surface-tint">
+                          <Lightbulb className="w-4 h-4 text-surface-tint" />
+                          <span>Short Answer (Executive Summary)</span>
+                        </div>
+                        <p className="text-sm sm:text-base text-foreground/95 leading-relaxed font-body-md">
+                          {question.short_answer}
                         </p>
                       </div>
-                    ))}
-                  </div>
-                </section>
+                    )}
+
+                    {/* 3.2 DETAILED ANSWER & STRUCTURED WALKTHROUGH */}
+                    {question.detailed_answer && (
+                      <div className="space-y-6">
+                        <h3 className="text-sm font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+                          Detailed Walkthrough & Strategy
+                        </h3>
+                        <StructuredDetailedAnswer text={question.detailed_answer} />
+                      </div>
+                    )}
+
+                    {/* 3.3 EVALUATION RUBRIC (IF AVAILABLE) */}
+                    {question.evaluation_rubric && (
+                      <div className="p-5 sm:p-6 rounded-2xl bg-surface-container/50 border border-border/40 space-y-3">
+                        <span className="text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground block">
+                          Evaluation Rubric (Score Calibration)
+                        </span>
+                        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                          {question.evaluation_rubric}
+                        </p>
+                      </div>
+                    )}
+                  </section>
+
+                  {/* ── 4. STRONG ANSWER SIGNALS (CONDITIONAL) ── */}
+                  {strongSignals.length > 0 && (
+                    <section className="space-y-4 pt-4 border-t border-border/40">
+                      <div className="flex items-center gap-2">
+                        <Target className="w-4 h-4 text-emerald-400" />
+                        <h3 className="text-base font-bold text-foreground tracking-tight">
+                          Strong answer signals
+                        </h3>
+                      </div>
+                      <ul className="space-y-2.5 list-none pl-0">
+                        {strongSignals.map((signal, i) => (
+                          <li key={i} className="flex items-start gap-3 text-sm text-foreground/90">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                            <span className="leading-relaxed">{signal}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  )}
+
+                  {/* ── 5. COMMON MISTAKES (CONDITIONAL) ── */}
+                  {commonMistakes.length > 0 && (
+                    <section className="space-y-4 pt-4 border-t border-border/40">
+                      <div className="flex items-center gap-2">
+                        <AlertTriangle className="w-4 h-4 text-rose-400" />
+                        <h3 className="text-base font-bold text-foreground tracking-tight">
+                          Common mistakes to avoid
+                        </h3>
+                      </div>
+                      <ul className="space-y-2.5 list-none pl-0">
+                        {commonMistakes.map((mistake, i) => (
+                          <li key={i} className="flex items-start gap-3 text-sm text-foreground/90">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-400 shrink-0" />
+                            <span className="leading-relaxed">{mistake}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  )}
+
+                  {/* ── 6. LIKELY FOLLOW-UPS (CONDITIONAL) ── */}
+                  {followUps.length > 0 && (
+                    <section className="space-y-4 pt-4 border-t border-border/40">
+                      <div className="flex items-center gap-2">
+                        <HelpCircle className="w-4 h-4 text-purple-400" />
+                        <h3 className="text-base font-bold text-foreground tracking-tight">
+                          Likely follow-up questions
+                        </h3>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {followUps.map((fu, i) => (
+                          <div
+                            key={i}
+                            className="p-4 rounded-xl bg-surface-container border border-border/50 flex items-start gap-3"
+                          >
+                            <span className="font-mono text-xs font-bold text-surface-tint shrink-0 pt-0.5">
+                              {String(i + 1).padStart(2, "0")}
+                            </span>
+                            <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
+                              {fu}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                  )}
+                </div>
               )}
 
               {/* ── 7. BOTTOM QUESTION NAVIGATION (PREV / NEXT) ── */}
