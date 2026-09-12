@@ -57,4 +57,13 @@ export const contentController = {
             next(error);
         }
     },
+    async getInterviewPrep(req, res, next) {
+        try {
+            const interviewPrep = await contentService.getInterviewPrep();
+            sendContent(res, interviewPrep);
+        }
+        catch (error) {
+            next(error);
+        }
+    },
 };

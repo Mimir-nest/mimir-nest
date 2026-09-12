@@ -65,5 +65,8 @@ class ContentService {
     getRoadmaps() {
         return contentRepository.getRoadmaps();
     }
+    getInterviewPrep() {
+        return contentRepository.getInterviewPrep();
+    }
 }
 export const contentService = new ContentService();

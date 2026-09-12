@@ -21,6 +21,7 @@ export default async function sitemap() {
     "/system-design",
     "/system-design-guide",
     "/interview",
+    "/interview-prep",
   ];
 
   try {

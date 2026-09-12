@@ -20,6 +20,7 @@ import {
   User as UserIcon,
   Github,
   Sparkles,
+  Briefcase,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuthStore } from "@/store/useAuthStore";
@@ -42,7 +43,8 @@ const categories = [
       { name: "Placement DSA", path: "/placement-dsa", icon: Code, description: "Technical interview coding prep" },
       { name: "System Design", path: "/system-design", icon: BookOpen, description: "500+ system design interview Q&A" },
       { name: "System Design Guide", path: "/system-design-guide", icon: GraduationCap, description: "Chapter-by-chapter concepts & theory" },
-      { name: "AI Interview", path: "/interview", icon: Sparkles, description: "GitHub-based AI mock interview", badge: "Soon" }
+      { name: "AI Interview", path: "/interview", icon: Sparkles, description: "GitHub-based AI mock interview", badge: "Soon" },
+      { name: "Non-Technical Interview Prep", path: "/interview-prep", icon: Briefcase, description: "Non-technical Q&A for 7 interview roles" }
     ]
   },
   {
@@ -112,6 +114,7 @@ const Navbar = () => {
   return (
     <nav
       ref={dropdownRef}
+      suppressHydrationWarning
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out hidden md:block",
         scrolled
@@ -139,6 +142,7 @@ const Navbar = () => {
                 onMouseEnter={() => setActiveCategory(cat.key)}
               >
                 <button
+                  suppressHydrationWarning
                   onClick={() => setActiveCategory(activeCategory === cat.key ? null : cat.key)}
                   className={cn(
                     "font-body-md text-body-md transition-all duration-200 flex items-center gap-1 hover:text-surface-tint border-none bg-transparent cursor-pointer text-on-surface-variant",
@@ -279,7 +283,7 @@ const MobileNav = () => {
   }, [isOpen]);
 
   return (
-    <nav className="md:hidden fixed top-0 w-full z-50 bg-mn-surface px-4 sm:px-6 h-16 flex justify-between items-center border-b border-outline-variant shadow-md">
+    <nav suppressHydrationWarning className="md:hidden fixed top-0 w-full z-50 bg-mn-surface px-4 sm:px-6 h-16 flex justify-between items-center border-b border-outline-variant shadow-md">
       <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
         <img src="/logo/logo.png" alt="Mimir Nest" className="h-8 w-auto" />
         <span className="font-bold text-foreground text-xl">
@@ -287,6 +291,7 @@ const MobileNav = () => {
         </span>
       </Link>
       <button
+        suppressHydrationWarning
         onClick={() => setIsOpen(!isOpen)}
         className="text-on-background p-1.5 rounded-lg hover:bg-surface-container transition-colors"
         aria-label="Toggle menu"
@@ -304,6 +309,7 @@ const MobileNav = () => {
               return (
                 <div key={cat.key} className="space-y-1">
                   <button
+                    suppressHydrationWarning
                     onClick={() => setExpandedSection(isExpanded ? null : cat.key)}
                     className="flex justify-between items-center w-full px-4 py-3 rounded-lg text-sm font-semibold text-on-surface-variant hover:text-surface-tint hover:bg-surface-container transition-colors border-none bg-transparent text-left"
                   >

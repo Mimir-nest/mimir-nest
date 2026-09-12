@@ -73,4 +73,15 @@ export const contentApi = {
     request("/api/roadmaps", "/content/roadmaps/roadmaps.json"),
   getBlogArticles: () =>
     request("/api/blog", "/content/blog/articles.json"),
+  getInterviewPrepQuestions: (query = "") =>
+    request(
+      `/api/interview-prep${query ? `?${query}` : ""}`,
+      "/content/interview-prep/questions.json"
+    ),
+  getInterviewPrepCompanies: () =>
+    request("/api/interview-prep/companies", "/content/interview-prep/questions.json"),
+  getInterviewPrepQuestionById: (id) =>
+    request(`/api/interview-prep/${id}`, "/content/interview-prep/questions.json"),
+  getInterviewPrepStats: () =>
+    request("/api/interview-prep/stats", "/content/interview-prep/questions.json"),
 };
