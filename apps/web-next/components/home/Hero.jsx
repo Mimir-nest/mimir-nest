@@ -4,52 +4,6 @@ import { ArrowRight, Sparkles, Code, Library } from "lucide-react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import { ImageStreamHero } from "@/components/ui/image-stream-hero";
-
-const CDN = "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev";
-
-const HERO_IMAGES = [
-  {
-    src: `${CDN}/stock-images/767d99bb371a54d0d36751e8cecae43c.jpg`,
-    alt: "Hero showcase 1",
-  },
-  {
-    src: `${CDN}/gradients/hero_gradient/hero-gradients-01.png`,
-    alt: "Hero gradient 1",
-  },
-  {
-    src: `${CDN}/stock-images/821d815affa6496c39cbdeeec7a84603.jpg`,
-    alt: "Hero showcase 2",
-  },
-  {
-    src: `${CDN}/gradients/crimson_aura/crimson-aura-02.png`,
-    alt: "Crimson aura",
-  },
-  {
-    src: `${CDN}/stock-images/937438c560ada1c83317f2c11b3454b0.jpg`,
-    alt: "Hero showcase 3",
-  },
-  {
-    src: `${CDN}/gradients/hue-flow/hue-flow-01.png`,
-    alt: "Flowing hue",
-  },
-  {
-    src: `${CDN}/stock-images/98f89cb9994f5c382ab964062c4039db.jpg`,
-    alt: "Hero showcase 4",
-  },
-  {
-    src: `${CDN}/gradients/moon/moon-grade-03.png`,
-    alt: "Moon gradient",
-  },
-  {
-    src: `${CDN}/stock-images/ddcbee38be8b7274e19e132d7ab35b53.jpg`,
-    alt: "Hero showcase 5",
-  },
-  {
-    src: `${CDN}/gradients/hero_gradient/hero-gradients-03.png`,
-    alt: "Hero gradient 2",
-  },
-];
 
 const ParticleWave = dynamic(
   () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
@@ -67,15 +21,9 @@ const Hero = () => {
   };
 
   return (
-    <ImageStreamHero
-      images={HERO_IMAGES}
-      speed={20}
-      cards={10}
-      axis={55}
-      className="relative bg-surface-container pt-[120px] md:pt-[160px] pb-24 md:pb-[120px] px-6 md:px-16 overflow-hidden rounded-b-3xl"
-    >
+    <section className="relative bg-surface-container pt-[120px] md:pt-[160px] pb-24 md:pb-[120px] px-6 md:px-16 overflow-hidden rounded-b-3xl">
       {/* Background Particle Wave */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
         <ParticleWave />
       </div>
 
@@ -166,7 +114,7 @@ const Hero = () => {
         {/* Hero Floating Cards (desktop only) */}
         <div className="lg:col-span-6 relative h-[500px] mt-12 lg:mt-0 hidden md:block">
           {/* Main hero logo card */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-[380px] rounded-2xl overflow-hidden border border-border/45 bg-surface-container flex items-center justify-center backdrop-blur-sm bg-surface-container/60">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-[380px] rounded-2xl overflow-hidden border border-border/45 bg-surface-container flex items-center justify-center">
             <img
               src="/logo/logo.png"
               alt="Mimir Nest Logo"
@@ -201,7 +149,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </ImageStreamHero>
+    </section>
   );
 };
 
