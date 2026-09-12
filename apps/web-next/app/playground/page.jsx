@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import {
   addEdge,
   applyEdgeChanges,
@@ -48,7 +49,6 @@ import {
   X,
   Zap,
 } from "lucide-react";
-
 
 const icons = {
   browser: Globe,
@@ -414,16 +414,17 @@ function Toolbar({
   return (
     <header>
       <div className="brand">
-        <div className="brandmark">
-          <span />
-          <span />
-          <span />
-          <span />
-        </div>
-        <div>
-          <b>System Studio</b>
-          <small>Architecture canvas</small>
-        </div>
+        <Link href="/" className="brand-link" aria-label="Go to Mimir Nest home">
+          <img className="brand-logo" src="/logo/logo.png" alt="Mimir Nest" />
+          <div>
+            <b>Mimir <span>Nest</span></b>
+            <small>Developer workspace</small>
+          </div>
+        </Link>
+      </div>
+      <div className="playground-heading">
+        <strong>System Design Playground</strong>
+        <small>Architecture canvas</small>
       </div>
       <div className="diagram-title">
         <Pencil size={13} />
@@ -857,12 +858,22 @@ function Editor() {
           gap: 10px;
           min-width: 205px;
         }
+        .brand-link {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: inherit;
+          text-decoration: none;
+        }
         .brand b,
         .brand small {
           display: block;
         }
         .brand b {
           font-size: 13px;
+        }
+        .brand b span {
+          color: var(--orange);
         }
         .brand small {
           font-size: 11px;
@@ -884,6 +895,28 @@ function Editor() {
         .brandmark span:nth-child(2),
         .brandmark span:nth-child(3) {
           opacity: 0.46;
+        }
+        .brand-logo {
+          width: 30px;
+          height: 30px;
+          object-fit: contain;
+          flex: none;
+        }
+        .playground-heading {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;
+          padding-left: 20px;
+          border-left: 1px solid var(--line);
+        }
+        .playground-heading strong {
+          color: #e1e7e3;
+          font-size: 13px;
+          font-weight: 650;
+        }
+        .playground-heading small {
+          color: #687678;
+          font: 10px "SFMono-Regular", Consolas, monospace;
         }
         .diagram-title {
           gap: 8px;
@@ -1342,7 +1375,6 @@ function Editor() {
           .brand {
             min-width: auto;
           }
-          .brand > div:last-child,
           .diagram-title {
             display: none;
           }
@@ -1361,6 +1393,15 @@ function Editor() {
           .component-list button .plus,
           .sidebar footer {
             display: none;
+          }
+          .brand small {
+            display: none;
+          }
+          .playground-heading {
+            display: none;
+          }
+          .brand b {
+            white-space: nowrap;
           }
           .component-list button {
             justify-content: center;
