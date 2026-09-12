@@ -36,7 +36,9 @@ const nextConfig = {
   },
   // Ensure Next infers the monorepo workspace root correctly for tracing
   outputFileTracingRoot: path.resolve(__dirname, "..", ".."),
+  devIndicators: false,
   experimental: {
+    devtoolSegmentExplorer: false,
     optimizePackageImports: [
       "lucide-react",
       "framer-motion",
