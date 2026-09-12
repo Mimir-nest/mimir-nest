@@ -65,25 +65,7 @@ export default function ProblemDetailPage() {
   const [copied, setCopied] = useState(false);
 
   if (!problem) {
-    return (
-      <div className="min-h-screen bg-mn-background text-on-background selection:bg-surface-tint/30">
-        <Navbar />
-        <main className="max-w-4xl mx-auto px-4 pt-36 pb-24 text-center space-y-6">
-          <Boxes className="w-12 h-12 text-surface-tint mx-auto" />
-          <h1 className="text-2xl font-bold text-foreground">Problem Not Found</h1>
-          <p className="text-sm text-muted-foreground">
-            The system design problem you requested could not be located in our challenge library.
-          </p>
-          <Link
-            href="/system-design/problems"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-tint text-on-primary font-semibold text-xs font-label-caps tracking-wider"
-          >
-            Back to Problems Library
-          </Link>
-        </main>
-        <Footer />
-      </div>
-    );
+    notFound();
   }
 
   const currentIndex = systemDesignProblems.findIndex((p) => p.slug === problem.slug);

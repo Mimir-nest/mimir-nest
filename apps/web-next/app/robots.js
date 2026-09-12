@@ -4,6 +4,7 @@ export default function robots() {
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/api/", "/playground?*"],
       },
     ],
     sitemap: "https://mimirnest.vercel.app/sitemap.xml",
