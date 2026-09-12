@@ -1,7 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useMemo, Suspense } from "react";
 import Link from "next/link";
+import { useSearchParams, useRouter } from "next/navigation";
 import {
   addEdge,
   applyEdgeChanges,
@@ -22,7 +23,9 @@ import {
   ArrowLeftRight,
   Boxes,
   Check,
+  CheckCircle2,
   ChevronDown,
+  ChevronUp,
   Cloud,
   Database,
   FileBox,
@@ -48,7 +51,17 @@ import {
   Undo2,
   X,
   Zap,
+  Activity,
+  DollarSign,
+  AlertCircle,
+  ExternalLink,
+  Award,
 } from "lucide-react";
+import {
+  getProblemBySlug,
+  calculateArchitectureCost,
+  systemDesignProblems,
+} from "../system-design/data/problems";
 
 const icons = {
   browser: Globe,
@@ -394,6 +407,304 @@ function Field({ label, value, update }) {
     </label>
   );
 }
+// ── Helper: Evaluate Architecture Constraints for Challenge ──
+function evaluateChallengeConstraints(challenge, nodes, edges) {
+  if (!challenge) return { allPassed: false, results: [], totalCost: 0 };
+
+  const nodeTypes = new Set(nodes.map((n) => n.data?.type).filter(Boolean));
+  const totalCost = calculateArchitectureCost(nodes);
+  const results = [];
+
+  // 1. Cost constraint
+  const maxBudget = challenge.maxBudgetUsd || 5000;
+  const costPassed = totalCost <= maxBudget && totalCost > 0;
+  results.push({
+    id: "cost",
+    label: `Cost within budget ($${totalCost.toLocaleString()}/mo ≤ $${maxBudget.toLocaleString()}/mo)`,
+    passed: costPassed,
+  });
+
+  // 2. Component tier requirements
+  const reqTypes = challenge.validationRules?.requiredNodeTypes || [];
+  reqTypes.forEach((reqType) => {
+    let passed = false;
+    let label = reqType;
+
+    if (reqType === "load_balancer") {
+      passed = nodeTypes.has("load_balancer") || nodeTypes.has("api_gateway") || nodeTypes.has("reverse_proxy");
+      label = "Load Balancer / API Gateway";
+    } else if (reqType === "backend") {
+      passed = nodeTypes.has("backend") || nodeTypes.has("microservice") || nodeTypes.has("server") || nodeTypes.has("serverless") || nodeTypes.has("container");
+      label = "Compute / Backend Service";
+    } else if (reqType === "postgres") {
+      passed = nodeTypes.has("postgres") || nodeTypes.has("mysql") || nodeTypes.has("sql") || nodeTypes.has("mongodb") || nodeTypes.has("nosql");
+      label = "Database (SQL / NoSQL)";
+    } else if (reqType === "redis") {
+      passed = nodeTypes.has("redis") || nodeTypes.has("memcached");
+      label = "In-Memory Cache (Redis / Memcached)";
+    } else if (reqType === "kafka") {
+      passed = nodeTypes.has("kafka") || nodeTypes.has("rabbitmq") || nodeTypes.has("queue");
+      label = "Message Stream / Queue (Kafka / RabbitMQ)";
+    } else if (reqType === "object_storage") {
+      passed = nodeTypes.has("object_storage") || nodeTypes.has("file_storage");
+      label = "Blob / Object Storage";
+    } else if (reqType === "search") {
+      passed = nodeTypes.has("search");
+      label = "Search Engine Indexer";
+    } else if (reqType === "cdn") {
+      passed = nodeTypes.has("cdn");
+      label = "CDN Edge Network";
+    } else if (reqType === "dns") {
+      passed = nodeTypes.has("dns");
+      label = "DNS Service";
+    } else if (reqType === "auth") {
+      passed = nodeTypes.has("auth");
+      label = "Authentication Service";
+    } else {
+      passed = nodeTypes.has(reqType);
+      label = reqType.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+    }
+
+    results.push({
+      id: `req-${reqType}`,
+      label: `Includes ${label}`,
+      passed,
+    });
+  });
+
+  // 3. Minimum component threshold
+  const minNodes = challenge.validationRules?.minNodes || 4;
+  results.push({
+    id: "min-nodes",
+    label: `Contains at least ${minNodes} components (${nodes.length} placed)`,
+    passed: nodes.length >= minNodes,
+  });
+
+  // 4. Edge connectivity
+  const hasConnections = edges.length >= Math.max(2, Math.floor(nodes.length / 2));
+  results.push({
+    id: "connections",
+    label: `Tier connectivity established (${edges.length} active connections)`,
+    passed: hasConnections,
+  });
+
+  const allPassed = results.every((r) => r.passed);
+  return { allPassed, results, totalCost };
+}
+
+// ── Challenge Overlay Panel ──
+function ChallengePanel({ challenge, validation, onValidate, isCollapsed, setIsCollapsed }) {
+  if (!challenge) return null;
+
+  const passedCount = validation.results.filter((r) => r.passed).length;
+  const totalCount = validation.results.length;
+
+  if (isCollapsed) {
+    return (
+      <div className="absolute top-4 left-4 z-20 flex items-center gap-3 p-2.5 px-3.5 rounded-xl bg-[#121617]/95 border border-[#293032] backdrop-blur-md shadow-2xl text-xs font-mono text-[#e9eeeb]">
+        <div className="w-2 h-2 rounded-full bg-[#ff7657] animate-pulse" />
+        <div className="flex items-center gap-2">
+          <strong className="text-[#e1e7e3]">{challenge.title}</strong>
+          <span className="text-[#687678]">·</span>
+          <span className="text-emerald-400 font-semibold">{passedCount}/{totalCount} Passed</span>
+        </div>
+        <button
+          onClick={() => setIsCollapsed(false)}
+          className="p-1 text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors rounded hover:bg-white/5 border-none bg-transparent cursor-pointer"
+          title="Expand Challenge Panel"
+        >
+          <ChevronDown size={15} />
+        </button>
+      </div>
+    );
+  }
+
+  const maxBudget = challenge.maxBudgetUsd || 5000;
+  const isOverBudget = validation.totalCost > maxBudget;
+
+  return (
+    <div className="absolute top-4 left-4 z-20 w-80 sm:w-96 rounded-2xl bg-[#121617]/95 border border-[#293032] backdrop-blur-md shadow-2xl overflow-hidden font-sans text-xs text-[#e9eeeb] max-h-[calc(100vh-140px)] flex flex-col">
+      {/* Panel Header */}
+      <div className="p-3.5 px-4 bg-[#161c1d] border-b border-[#293032] flex items-center justify-between gap-3 shrink-0">
+        <div className="flex items-center gap-2 truncate">
+          <div className="w-2 h-2 rounded-full bg-[#ff7657] shrink-0" />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#ff7657] font-semibold">
+            {challenge.company} Challenge
+          </span>
+        </div>
+
+        <div className="flex items-center gap-1.5 shrink-0">
+          <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase ${
+            challenge.difficulty === "Easy"
+              ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/30"
+              : challenge.difficulty === "Hard"
+              ? "bg-rose-500/10 text-rose-400 border border-rose-500/30"
+              : "bg-amber-500/10 text-amber-400 border border-amber-500/30"
+          }`}>
+            {challenge.difficulty}
+          </span>
+          <button
+            onClick={() => setIsCollapsed(true)}
+            className="p-1 text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors rounded hover:bg-white/5 border-none bg-transparent cursor-pointer"
+            title="Collapse Challenge Panel"
+          >
+            <ChevronUp size={15} />
+          </button>
+        </div>
+      </div>
+
+      {/* Challenge Title & Stats */}
+      <div className="p-4 space-y-3 overflow-y-auto flex-1">
+        <div>
+          <h3 className="text-sm font-bold text-[#e1e7e3] tracking-tight">
+            {challenge.title}
+          </h3>
+          <p className="text-[11px] text-[#9aa6a5] leading-relaxed mt-1">
+            {challenge.description}
+          </p>
+        </div>
+
+        {/* Live Scale & Budget */}
+        <div className="grid grid-cols-2 gap-2 text-[10px] font-mono">
+          <div className="p-2 rounded-lg bg-[#0c0f10] border border-[#293032]">
+            <span className="text-[#687678] block mb-0.5">Scale SLA</span>
+            <span className="text-[#e1e7e3] font-semibold truncate block" title={challenge.scale}>
+              {challenge.scale.split("·")[0].trim()}
+            </span>
+          </div>
+
+          <div className={`p-2 rounded-lg bg-[#0c0f10] border ${
+            isOverBudget ? "border-rose-500/40 text-rose-400" : "border-[#293032] text-emerald-400"
+          }`}>
+            <span className="text-[#687678] block mb-0.5">Cost vs Budget</span>
+            <span className="font-semibold block truncate">
+              ${validation.totalCost.toLocaleString()} / {challenge.budget}
+            </span>
+          </div>
+        </div>
+
+        {/* Architecture Constraints List */}
+        <div className="space-y-2 pt-1">
+          <div className="flex items-center justify-between text-[11px] font-mono font-semibold text-[#9aa6a5]">
+            <span className="uppercase tracking-wider">Architecture Constraints</span>
+            <span className={validation.allPassed ? "text-emerald-400" : "text-[#ff7657]"}>
+              {passedCount}/{totalCount}
+            </span>
+          </div>
+
+          <div className="space-y-1.5">
+            {validation.results.map((rule) => (
+              <div
+                key={rule.id}
+                className={`p-2 px-2.5 rounded-lg border text-[11px] flex items-start gap-2 transition-all ${
+                  rule.passed
+                    ? "bg-emerald-500/5 border-emerald-500/25 text-[#e1e7e3]"
+                    : "bg-[#0c0f10] border-[#293032] text-[#9aa6a5]"
+                }`}
+              >
+                {rule.passed ? (
+                  <CheckCircle2 size={13} className="text-emerald-400 shrink-0 mt-0.5" />
+                ) : (
+                  <div className="w-3.5 h-3.5 rounded-full border border-[#687678] shrink-0 mt-0.5" />
+                )}
+                <span className="leading-snug flex-1">{rule.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Validate / Complete Button */}
+      <div className="p-3.5 bg-[#161c1d] border-t border-[#293032] flex items-center justify-between gap-2 shrink-0">
+        <Link
+          href={`/system-design/problems/${challenge.slug}`}
+          className="text-[11px] font-mono text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors"
+        >
+          View Specs ↗
+        </Link>
+
+        <button
+          onClick={onValidate}
+          className={`px-4 py-2 rounded-xl text-xs font-bold font-mono tracking-wider uppercase transition-all duration-200 cursor-pointer border-none shadow-md ${
+            validation.allPassed
+              ? "bg-emerald-500 hover:bg-emerald-400 text-black shadow-emerald-500/20"
+              : "bg-[#ff7657] hover:bg-[#ff8a6f] text-black shadow-[#ff7657]/20"
+          }`}
+        >
+          {validation.allPassed ? "Complete ✓" : "Validate"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ── Completion Success Modal ──
+function CompletionModal({ challenge, validation, onClose, onNextChallenge }) {
+  if (!challenge) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="max-w-md w-full p-6 sm:p-7 rounded-2xl bg-[#121617] border border-[#293032] shadow-2xl space-y-6 text-center">
+        <div className="w-14 h-14 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto shadow-inner">
+          <Award size={28} />
+        </div>
+
+        <div className="space-y-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold block">
+            Challenge Complete
+          </span>
+          <h2 className="text-xl sm:text-2xl font-extrabold text-[#e1e7e3] tracking-tight">
+            {challenge.title}
+          </h2>
+          <p className="text-xs sm:text-sm text-[#9aa6a5] leading-relaxed">
+            All required architecture constraints, tier connectivity, and monthly cost thresholds have been successfully satisfied.
+          </p>
+        </div>
+
+        <div className="p-3.5 rounded-xl bg-[#0c0f10] border border-[#293032] grid grid-cols-2 gap-2 text-xs font-mono">
+          <div>
+            <span className="text-[#687678] block text-[10px]">Monthly Architecture Cost</span>
+            <span className="text-emerald-400 font-bold">
+              ${validation.totalCost.toLocaleString()}/mo
+            </span>
+          </div>
+          <div>
+            <span className="text-[#687678] block text-[10px]">Constraints Passed</span>
+            <span className="text-[#e1e7e3] font-bold">
+              {validation.results.length}/{validation.results.length} (100%)
+            </span>
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
+          <button
+            onClick={onClose}
+            className="w-full py-2.5 px-4 rounded-xl bg-[#161c1d] hover:bg-[#1f2728] border border-[#293032] text-xs font-mono font-medium text-[#e1e7e3] transition-colors cursor-pointer"
+          >
+            Keep Designing
+          </button>
+
+          {onNextChallenge ? (
+            <button
+              onClick={onNextChallenge}
+              className="w-full py-2.5 px-4 rounded-xl bg-[#ff7657] hover:bg-[#ff8a6f] text-black font-bold text-xs font-mono tracking-wider uppercase transition-all cursor-pointer border-none shadow-lg shadow-[#ff7657]/20"
+            >
+              Next Challenge →
+            </button>
+          ) : (
+            <Link
+              href="/system-design/problems"
+              className="w-full py-2.5 px-4 rounded-xl bg-[#ff7657] hover:bg-[#ff8a6f] text-black font-bold text-xs font-mono tracking-wider uppercase transition-all text-center no-underline"
+            >
+              All Problems
+            </Link>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Toolbar({
   title,
   setTitle,
@@ -405,6 +716,7 @@ function Toolbar({
   onSave,
   onFit,
   onZoom,
+  activeChallenge,
 }) {
   const Button = ({ label, children, ...props }) => (
     <button className="tool" title={label} {...props}>
@@ -424,7 +736,7 @@ function Toolbar({
       </div>
       <div className="playground-heading">
         <strong>System Design Playground</strong>
-        <small>Architecture canvas</small>
+        <small>{activeChallenge ? `${activeChallenge.title} Challenge` : "Architecture canvas"}</small>
       </div>
       <div className="diagram-title">
         <Pencil size={13} />
@@ -435,6 +747,15 @@ function Toolbar({
         <ChevronDown size={14} />
       </div>
       <div className="actions">
+        {activeChallenge && (
+          <Link
+            href="/system-design/problems"
+            className="px-3 py-1.5 rounded-lg bg-[#161c1d] border border-[#293032] text-xs font-mono text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors no-underline hidden md:inline-flex items-center gap-1 mr-2"
+          >
+            <span>Challenges</span>
+            <ExternalLink size={12} />
+          </Link>
+        )}
         <Button label="Undo" onClick={undo} disabled={!canUndo}>
           <Undo2 size={16} />
         </Button>
@@ -464,18 +785,80 @@ function Toolbar({
 }
 
 function Editor() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const challengeSlug = searchParams.get("challenge");
+  const activeChallenge = useMemo(() => {
+    return challengeSlug ? getProblemBySlug(challengeSlug) : null;
+  }, [challengeSlug]);
+
   const [nodes, setNodes] = useState(initialNodes);
-  const [loading, setloading] = useState(false)
+  const [loading, setloading] = useState(false);
   const [edges, setEdges] = useState(initialEdges);
-  const [title, setTitle] = useState("Checkout architecture");
+  const [title, setTitle] = useState(
+    activeChallenge ? `${activeChallenge.title} Architecture` : "Checkout architecture"
+  );
   const [selection, setSelection] = useState(null);
   const [past, setPast] = useState([]);
   const [future, setFuture] = useState([]);
   const [saved, setSaved] = useState(false);
   const [contextMenu, setContextMenu] = useState(null);
+  const [isChallengePanelCollapsed, setIsChallengePanelCollapsed] = useState(false);
+  const [isCompletedModalOpen, setIsCompletedModalOpen] = useState(false);
+
   const reactFlow = useReactFlow();
   const dragStart = useRef(null);
   const clipboard = useRef(null);
+
+  // Live architecture validation against active challenge
+  const validation = useMemo(() => {
+    return evaluateChallengeConstraints(activeChallenge, nodes, edges);
+  }, [activeChallenge, nodes, edges]);
+
+  // Load starter nodes when challenge changes
+  useEffect(() => {
+    if (activeChallenge) {
+      setTitle(`${activeChallenge.title} Architecture`);
+      if (activeChallenge.starterNodes && activeChallenge.starterNodes.length > 0) {
+        const customNodes = activeChallenge.starterNodes.map((sn) =>
+          node(sn.id, sn.type, sn.position)
+        );
+        setNodes(customNodes);
+        if (activeChallenge.starterEdges) {
+          const customEdges = activeChallenge.starterEdges.map((se) => ({
+            id: se.id,
+            source: se.source,
+            target: se.target,
+            label: se.label || "",
+            type: "smoothstep",
+            animated: true,
+            markerEnd: { type: MarkerType.ArrowClosed, color: "#ff7657" },
+          }));
+          setEdges(customEdges);
+        } else {
+          setEdges([]);
+        }
+      }
+    }
+  }, [activeChallenge]);
+
+  const handleValidate = () => {
+    if (validation.allPassed) {
+      setIsCompletedModalOpen(true);
+    } else {
+      setIsChallengePanelCollapsed(false);
+    }
+  };
+
+  const handleNextChallenge = () => {
+    setIsCompletedModalOpen(false);
+    if (!activeChallenge) return;
+    const currIdx = systemDesignProblems.findIndex((p) => p.slug === activeChallenge.slug);
+    const nextIdx = (currIdx + 1) % systemDesignProblems.length;
+    const nextProblem = systemDesignProblems[nextIdx];
+    router.push(`/playground?challenge=${nextProblem.slug}`);
+  };
+
   const snapshot = useCallback(() => ({ nodes, edges }), [nodes, edges]);
   const history = useCallback(
     (state = snapshot()) => {
@@ -623,17 +1006,21 @@ function Editor() {
     });
   }, []);
   const closeContextMenu = useCallback(() => setContextMenu(null), []);
-  useEffect(()=>{
-    setloading(true)
-    if(localStorage.getItem("canvasstate")){
-      const data = localStorage.getItem("canvasstate");
-      const prasedata = JSON.parse(data);
-      console.log(prasedata)
-      setNodes(prasedata.nodes);
-      setEdges(prasedata.edges)
+
+  useEffect(() => {
+    // Only load generic canvasstate if not opening a specific challenge
+    if (!challengeSlug && localStorage.getItem("canvasstate")) {
+      try {
+        const data = localStorage.getItem("canvasstate");
+        const parsed = JSON.parse(data);
+        if (parsed.nodes) setNodes(parsed.nodes);
+        if (parsed.edges) setEdges(parsed.edges);
+      } catch (e) {
+        console.debug("Failed to restore canvas state:", e);
+      }
     }
-    setloading(false);
-  },[])
+  }, [challengeSlug]);
+
   useEffect(() => {
     const key = (event) => {
       const mod = event.metaKey || event.ctrlKey;
@@ -677,152 +1064,181 @@ function Editor() {
     window.addEventListener("keydown", key);
     return () => window.removeEventListener("keydown", key);
   }, [undo, redo, duplicate, remove, selection, history]);
+
   return (
     <>
-    {loading ? <><div>wait</div></> : 
-    <div className="editor">
-      <Toolbar
-        title={title}
-        setTitle={setTitle}
-        undo={undo}
-        redo={redo}
-        canUndo={past.length > 0}
-        canRedo={future.length > 0}
-        onDelete={remove}
-        onFit={() => reactFlow.fitView({ padding: 0.2, duration: 350 })}
-        onZoom={(factor) => reactFlow.zoomIn({ duration: 180, factor })}
-        onSave={() => {
-          localStorage.setItem("canvasstate",JSON.stringify({ nodes, edges, viewport: reactFlow.getViewport() }));
-          setSaved(true);
-
-          setTimeout(() => setSaved(false), 1600);
-        }}
-      />
-      <div className="body">
-        <Sidebar onAdd={add} />
-        <main
-          className="canvas"
-          onClick={closeContextMenu}
-          onDrop={(event) => {
-            event.preventDefault();
-            const type = event.dataTransfer.getData("system-design");
-            if (type)
-              add(
-                type,
-                reactFlow.screenToFlowPosition({
-                  x: event.clientX,
-                  y: event.clientY,
-                }),
+      {loading ? (
+        <div className="flex items-center justify-center h-screen bg-[#0c0f10] text-[#9aa6a5] font-mono text-sm">
+          Loading canvas...
+        </div>
+      ) : (
+        <div className="editor">
+          <Toolbar
+            title={title}
+            setTitle={setTitle}
+            undo={undo}
+            redo={redo}
+            canUndo={past.length > 0}
+            canRedo={future.length > 0}
+            onDelete={remove}
+            onFit={() => reactFlow.fitView({ padding: 0.2, duration: 350 })}
+            onZoom={(factor) => reactFlow.zoomIn({ duration: 180, factor })}
+            onSave={() => {
+              localStorage.setItem(
+                "canvasstate",
+                JSON.stringify({ nodes, edges, viewport: reactFlow.getViewport() })
               );
-          }}
-          onDragOver={(event) => {
-            event.preventDefault();
-          }}
-        >
-          <div className="canvas-label">
-            <span /> LIVE CANVAS{" "}
-            <small>Drag components from the library to begin</small>
-          </div>
-          <ReactFlow
-            nodes={nodes}
-            edges={edges}
-            nodeTypes={nodeTypes}
-            onNodesChange={onNodesChange}
-            onEdgesChange={onEdgesChange}
-            onConnect={(connection) => {
-              history();
-              setEdges((items) =>
-                addEdge(
-                  {
-                    ...connection,
-                    id: `edge-${Date.now()}`,
-                    type: "smoothstep",
-                    animated: true,
-                    markerEnd: {
-                      type: MarkerType.ArrowClosed,
-                      color: "#ff7657",
-                    },
-                  },
-                  items,
-                ),
-              );
+              setSaved(true);
+              setTimeout(() => setSaved(false), 1600);
             }}
-            onReconnect={(oldEdge, newConnection) => {
-              history();
-              setEdges((items) => reconnectEdge(oldEdge, newConnection, items));
-            }}
-            onNodeDragStart={() => {
-              dragStart.current = snapshot();
-            }}
-            onNodeDragStop={() => {
-              if (dragStart.current) {
-                history(dragStart.current);
-                dragStart.current = null;
-              }
-            }}
-            onSelectionChange={onSelectionChange}
-            onNodeContextMenu={(event, item) =>
-              openContextMenu(event, "node", item)
-            }
-            onEdgeContextMenu={(event, item) =>
-              openContextMenu(event, "edge", item)
-            }
-            onPaneContextMenu={closeContextMenu}
-            connectionLineStyle={connectionLineStyle}
-            snapToGrid
-            snapGrid={snapGrid}
-            fitView
-            selectionOnDrag
-            panOnDrag={[1, 2]}
-            defaultEdgeOptions={defaultEdgeOptions}
-            proOptions={proOptions}
-          >
-            <Background
-              variant={BackgroundVariant.Dots}
-              gap={20}
-              size={1.2}
-              color="#30383a"
-            />
-            <Controls showInteractive={false} />
-            <MiniMap
-              nodeColor={(item) =>
-                item.data?.category === "Database" ? "#5b8def" : "#ff7657"
-              }
-              maskColor="rgba(9,11,12,.72)"
-              pannable
-              zoomable
-            />
-          </ReactFlow>
-          {contextMenu && (
-            <div
-              className="context-menu"
-              style={{ left: contextMenu.x, top: contextMenu.y }}
-              onClick={(event) => event.stopPropagation()}
+            activeChallenge={activeChallenge}
+          />
+          <div className="body">
+            <Sidebar onAdd={add} />
+            <main
+              className="canvas relative"
+              onClick={closeContextMenu}
+              onDrop={(event) => {
+                event.preventDefault();
+                const type = event.dataTransfer.getData("system-design");
+                if (type)
+                  add(
+                    type,
+                    reactFlow.screenToFlowPosition({
+                      x: event.clientX,
+                      y: event.clientY,
+                    }),
+                  );
+              }}
+              onDragOver={(event) => {
+                event.preventDefault();
+              }}
             >
-              <button
-                onClick={() => {
-                  remove();
-                  closeContextMenu();
+              {/* Challenge Floating Overlay */}
+              {activeChallenge && (
+                <ChallengePanel
+                  challenge={activeChallenge}
+                  validation={validation}
+                  onValidate={handleValidate}
+                  isCollapsed={isChallengePanelCollapsed}
+                  setIsCollapsed={setIsChallengePanelCollapsed}
+                />
+              )}
+
+              <div className="canvas-label">
+                <span /> LIVE CANVAS{" "}
+                <small>Drag components from the library to begin</small>
+              </div>
+              <ReactFlow
+                nodes={nodes}
+                edges={edges}
+                nodeTypes={nodeTypes}
+                onNodesChange={onNodesChange}
+                onEdgesChange={onEdgesChange}
+                onConnect={(connection) => {
+                  history();
+                  setEdges((items) =>
+                    addEdge(
+                      {
+                        ...connection,
+                        id: `edge-${Date.now()}`,
+                        type: "smoothstep",
+                        animated: true,
+                        markerEnd: {
+                          type: MarkerType.ArrowClosed,
+                          color: "#ff7657",
+                        },
+                      },
+                      items,
+                    ),
+                  );
                 }}
+                onReconnect={(oldEdge, newConnection) => {
+                  history();
+                  setEdges((items) => reconnectEdge(oldEdge, newConnection, items));
+                }}
+                onNodeDragStart={() => {
+                  dragStart.current = snapshot();
+                }}
+                onNodeDragStop={() => {
+                  if (dragStart.current) {
+                    history(dragStart.current);
+                    dragStart.current = null;
+                  }
+                }}
+                onSelectionChange={onSelectionChange}
+                onNodeContextMenu={(event, item) =>
+                  openContextMenu(event, "node", item)
+                }
+                onEdgeContextMenu={(event, item) =>
+                  openContextMenu(event, "edge", item)
+                }
+                onPaneContextMenu={closeContextMenu}
+                connectionLineStyle={connectionLineStyle}
+                snapToGrid
+                snapGrid={snapGrid}
+                fitView
+                selectionOnDrag
+                panOnDrag={[1, 2]}
+                defaultEdgeOptions={defaultEdgeOptions}
+                proOptions={proOptions}
               >
-                <Trash2 size={14} />
-                Delete {contextMenu.kind === "node" ? "node" : "connection"}
-              </button>
+                <Background
+                  variant={BackgroundVariant.Dots}
+                  gap={20}
+                  size={1.2}
+                  color="#30383a"
+                />
+                <Controls showInteractive={false} />
+                <MiniMap
+                  nodeColor={(item) =>
+                    item.data?.category === "Database" ? "#5b8def" : "#ff7657"
+                  }
+                  maskColor="rgba(9,11,12,.72)"
+                  pannable
+                  zoomable
+                />
+              </ReactFlow>
+              {contextMenu && (
+                <div
+                  className="context-menu"
+                  style={{ left: contextMenu.x, top: contextMenu.y }}
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <button
+                    onClick={() => {
+                      remove();
+                      closeContextMenu();
+                    }}
+                  >
+                    <Trash2 size={14} />
+                    Delete {contextMenu.kind === "node" ? "node" : "connection"}
+                  </button>
+                </div>
+              )}
+            </main>
+            <Properties
+              selection={selection}
+              onUpdate={update}
+              onClose={() => setSelection(null)}
+              onDelete={remove}
+            />
+          </div>
+          {saved && (
+            <div className="toast">
+              <Check size={15} /> Diagram saved to browser
             </div>
           )}
-        </main>
-        <Properties
-          selection={selection}
-          onUpdate={update}
-          onClose={() => setSelection(null)}
-          onDelete={remove}
-        />
-      </div>
-      {saved && (
-        <div className="toast">
-          <Check size={15} /> Diagram saved to console
-        </div>
-      )}
+
+          {/* Completion Modal */}
+          {isCompletedModalOpen && (
+            <CompletionModal
+              challenge={activeChallenge}
+              validation={validation}
+              onClose={() => setIsCompletedModalOpen(false)}
+              onNextChallenge={handleNextChallenge}
+            />
+          )}
       <style jsx global>{`
         * {
           box-sizing: border-box;
@@ -1437,8 +1853,17 @@ function Editor() {
 
 export default function PlaygroundPage() {
   return (
-    <ReactFlowProvider>
-      <Editor />
-    </ReactFlowProvider>
+    <Suspense fallback={
+      <div className="flex h-screen w-screen items-center justify-center bg-[#0e1213] text-[#e1e7e3] font-mono text-sm">
+        <div className="flex items-center gap-3">
+          <div className="w-3 h-3 rounded-full bg-[#ff7657] animate-ping" />
+          <span>Loading System Design Canvas...</span>
+        </div>
+      </div>
+    }>
+      <ReactFlowProvider>
+        <Editor />
+      </ReactFlowProvider>
+    </Suspense>
   );
 }
