@@ -2,17 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import {
   ArrowLeft,
-  Building2,
   Clock,
-  Sparkles,
-  Tag,
   Bookmark,
   CheckCircle2,
   Circle,
@@ -20,37 +17,21 @@ import {
   Check,
   ChevronDown,
   ChevronRight,
-  ShieldAlert,
-  AlertCircle,
+  Lightbulb,
   BookOpen,
   Target,
-  Lightbulb,
   AlertTriangle,
   HelpCircle,
+  Info,
+  Building2,
+  Tag,
 } from "lucide-react";
 import CompanyLogo from "@/components/common/CompanyLogo";
-
-const difficultyColors = {
-  Easy: {
-    bg: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-    dot: "bg-emerald-400",
-  },
-  Medium: {
-    bg: "bg-amber-500/10 text-amber-400 border-amber-500/20",
-    dot: "bg-amber-400",
-  },
-  Hard: {
-    bg: "bg-[#FF5A36]/10 text-[#FF5A36] border-[#FF5A36]/20",
-    dot: "bg-[#FF5A36]",
-  },
-  Expert: {
-    bg: "bg-purple-500/10 text-purple-400 border-purple-500/20",
-    dot: "bg-purple-400",
-  },
-};
+import { companyToSlug, difficultyMeta } from "@/lib/interviewPrepUtils";
 
 export default function QuestionDetailPage() {
   const params = useParams();
+  const router = useRouter();
   const questionId = params?.id;
 
   const [question, setQuestion] = useState(null);
@@ -104,12 +85,16 @@ export default function QuestionDetailPage() {
       });
 
     try {
-      const savedBookmarks = JSON.parse(localStorage.getItem("mimir_prep_bookmarks") || "[]");
-      const savedPracticed = JSON.parse(localStorage.getItem("mimir_prep_practiced") || "[]");
+      const savedBookmarks = JSON.parse(
+        localStorage.getItem("mimir_prep_bookmarks") || "[]"
+      );
+      const savedPracticed = JSON.parse(
+        localStorage.getItem("mimir_prep_practiced") || "[]"
+      );
       setIsBookmarked(savedBookmarks.includes(questionId));
       setIsPracticed(savedPracticed.includes(questionId));
     } catch (e) {
-      // ignore
+      console.debug("Failed to read initial storage:", e);
     }
 
     return () => {
@@ -128,7 +113,9 @@ export default function QuestionDetailPage() {
 
   const toggleBookmark = () => {
     try {
-      const saved = JSON.parse(localStorage.getItem("mimir_prep_bookmarks") || "[]");
+      const saved = JSON.parse(
+        localStorage.getItem("mimir_prep_bookmarks") || "[]"
+      );
       let updated;
       if (saved.includes(questionId)) {
         updated = saved.filter((id) => id !== questionId);
@@ -141,13 +128,15 @@ export default function QuestionDetailPage() {
       }
       localStorage.setItem("mimir_prep_bookmarks", JSON.stringify(updated));
     } catch (e) {
-      // ignore
+      console.debug("Failed to save bookmark:", e);
     }
   };
 
   const togglePracticed = () => {
     try {
-      const saved = JSON.parse(localStorage.getItem("mimir_prep_practiced") || "[]");
+      const saved = JSON.parse(
+        localStorage.getItem("mimir_prep_practiced") || "[]"
+      );
       let updated;
       if (saved.includes(questionId)) {
         updated = saved.filter((id) => id !== questionId);
@@ -160,72 +149,97 @@ export default function QuestionDetailPage() {
       }
       localStorage.setItem("mimir_prep_practiced", JSON.stringify(updated));
     } catch (e) {
-      // ignore
+      console.debug("Failed to save practiced status:", e);
     }
   };
 
-  const diffStyle = difficultyColors[question?.difficulty] || difficultyColors.Medium;
+  const meta = difficultyMeta[question?.difficulty] || difficultyMeta.Medium;
 
   return (
-    <div className="min-h-screen bg-[#0F1010] text-[#F4F1EA] selection:bg-[#FF5A36]/30 selection:text-[#F4F1EA]">
+    <div className="min-h-screen bg-[#0F1010] text-[#F4F1EA] selection:bg-[#FF5A36] selection:text-[#0F1010]">
       <Navbar />
 
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-24 space-y-8">
         {/* Navigation Breadcrumbs */}
-        <div className="flex items-center justify-between gap-4 mb-6">
-          <Link
-            href="/interview-prep"
-            className="inline-flex items-center gap-2 text-sm text-[#9B9992] hover:text-[#FF5A36] transition-colors py-1.5 px-3 rounded-lg bg-[#151616] border border-[#242525] hover:border-[#FF5A36]/40"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back to Question Bank</span>
-          </Link>
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2 text-xs font-mono text-[#9B9992] flex-wrap">
+            <Link
+              href="/interview-prep"
+              className="hover:text-[#FF5A36] transition-colors flex items-center gap-1.5"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>Question Bank</span>
+            </Link>
+            {question?.company && (
+              <>
+                <span>/</span>
+                <Link
+                  href={`/interview-prep/company/${companyToSlug(question.company)}`}
+                  className="hover:text-[#FF5A36] transition-colors"
+                >
+                  {question.company}
+                </Link>
+              </>
+            )}
+            <span>/</span>
+            <span className="text-[#F4F1EA] font-semibold">
+              {questionId}
+            </span>
+          </div>
 
           <div className="flex items-center gap-2">
             <button
+              onClick={handleCopy}
+              className="p-2 rounded-xl border border-[#242525] bg-[#151616] text-[#9B9992] hover:text-[#F4F1EA] hover:border-[#FF5A36]/30 transition-colors cursor-pointer"
+              title="Copy Question"
+            >
+              {copied ? (
+                <Check className="w-4 h-4 text-emerald-400" />
+              ) : (
+                <Copy className="w-4 h-4" />
+              )}
+            </button>
+
+            <button
               onClick={toggleBookmark}
-              className={`p-2 rounded-lg border transition-all ${
+              className={`p-2 rounded-xl border transition-all cursor-pointer ${
                 isBookmarked
                   ? "bg-amber-500/10 border-amber-500/30 text-amber-400"
-                  : "bg-[#151616] border-[#242525] text-[#9B9992] hover:text-[#F4F1EA]"
+                  : "bg-[#151616] border-[#242525] text-[#9B9992] hover:text-[#F4F1EA] hover:border-[#FF5A36]/30"
               }`}
               title={isBookmarked ? "Bookmarked" : "Bookmark this question"}
             >
-              <Bookmark className={`w-4 h-4 ${isBookmarked ? "fill-amber-400" : ""}`} />
+              <Bookmark
+                className={`w-4 h-4 ${isBookmarked ? "fill-amber-400" : ""}`}
+              />
             </button>
+
             <button
               onClick={togglePracticed}
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border transition-all ${
+              className={`inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-xl border transition-all cursor-pointer ${
                 isPracticed
-                  ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-400"
-                  : "bg-[#151616] border-[#242525] text-[#9B9992] hover:text-[#F4F1EA]"
+                  ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-400 font-semibold"
+                  : "bg-[#151616] border-[#242525] text-[#9B9992] hover:text-[#F4F1EA] hover:border-[#FF5A36]/30"
               }`}
             >
               {isPracticed ? (
                 <>
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Practiced</span>
                 </>
               ) : (
                 <>
-                  <Circle className="w-4 h-4" />
-                  <span>Mark as Practiced</span>
+                  <Circle className="w-3.5 h-3.5" />
+                  <span>Mark Practiced</span>
                 </>
               )}
-            </button>
-            <button
-              onClick={handleCopy}
-              className="p-2 rounded-lg border bg-[#151616] border-[#242525] text-[#9B9992] hover:text-[#F4F1EA] transition-colors"
-              title="Copy Question"
-            >
-              {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
             </button>
           </div>
         </div>
 
         {/* Loading State */}
         {loading && (
-          <div className="p-12 text-center rounded-2xl bg-[#151616] border border-[#242525]">
+          <div className="p-16 text-center rounded-2xl bg-[#151616] border border-[#242525]">
             <div className="w-8 h-8 border-2 border-[#FF5A36] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
             <p className="text-[#9B9992] text-sm">Loading interview question details...</p>
           </div>
@@ -233,13 +247,12 @@ export default function QuestionDetailPage() {
 
         {/* Error State */}
         {error && !loading && (
-          <div className="p-8 text-center rounded-2xl bg-rose-500/5 border border-rose-500/20 text-rose-300">
-            <AlertCircle className="w-8 h-8 text-rose-400 mx-auto mb-3" />
-            <h2 className="text-lg font-semibold text-rose-200 mb-1">Question Not Found</h2>
-            <p className="text-sm text-[#9B9992] mb-4">{error}</p>
+          <div className="p-12 text-center rounded-2xl bg-[#151616] border border-[#242525]">
+            <h2 className="text-lg font-bold text-[#F4F1EA] mb-2">Question Not Found</h2>
+            <p className="text-sm text-[#9B9992] mb-6">{error}</p>
             <Link
               href="/interview-prep"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FF5A36] hover:bg-[#ff451d] text-white text-sm font-medium transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#FF5A36] text-[#0F1010] font-semibold text-xs font-label-caps tracking-wider"
             >
               Return to Question Bank
             </Link>
@@ -248,80 +261,66 @@ export default function QuestionDetailPage() {
 
         {/* Main Content */}
         {question && !loading && (
-          <div className="space-y-6">
-            {/* Header Card */}
-            <div className="p-6 sm:p-8 rounded-2xl bg-[#151616] border border-[#242525] shadow-xl">
-              {/* Meta Badges */}
-              <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4">
-                <span className="font-mono text-xs text-[#FF5A36] font-semibold px-2.5 py-1 rounded-md bg-[#FF5A36]/10 border border-[#FF5A36]/25">
+          <div className="space-y-8">
+            {/* ── Question Hero Card ── */}
+            <div className="p-6 sm:p-10 rounded-2xl bg-[#151616] border border-[#242525] shadow-xl space-y-6">
+              {/* Badges Row */}
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                <span className="font-mono text-xs font-semibold text-[#FF5A36] px-2.5 py-1 rounded bg-[#FF5A36]/10 border border-[#FF5A36]/25">
                   {question.question_id}
                 </span>
 
-                <span
-                  className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border text-xs font-semibold ${diffStyle.bg}`}
-                >
-                  <span className={`w-1.5 h-1.5 rounded-full ${diffStyle.dot}`} />
-                  {question.difficulty}
-                </span>
-
-                <span className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md border text-xs font-medium bg-[#1E2020] border-[#242525] text-[#F4F1EA]">
-                  <CompanyLogo company={question.company} className="w-4 h-4" />
-                  <span>{question.company}</span>
-                </span>
-
-                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md border text-xs font-medium bg-[#1E2020] border-[#242525] text-[#9B9992]">
-                  <Tag className="w-3 h-3 text-[#9B9992]" />
+                <span className="text-[11px] font-medium px-2.5 py-1 rounded bg-[#1E2020] text-[#9B9992] border border-[#242525]">
                   {question.category}
                 </span>
 
-                <span className="inline-flex items-center gap-1.5 text-xs text-[#9B9992] px-2.5 py-1 rounded-md bg-[#1E2020] border border-[#242525]">
-                  <Clock className="w-3.5 h-3.5 text-[#9B9992]" />
-                  {question.expected_time || "5-15 min"}
+                <span
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded border text-[11px] font-semibold ${meta.bg} ${meta.text} ${meta.border}`}
+                >
+                  <span className={`w-1.5 h-1.5 rounded-full ${meta.dot}`} />
+                  {question.difficulty}
                 </span>
+
+                <Link
+                  href={`/interview-prep/company/${companyToSlug(question.company)}`}
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded border text-[11px] font-medium bg-[#1E2020] border-[#242525] text-[#F4F1EA] hover:border-[#FF5A36]/40 transition-colors"
+                >
+                  <CompanyLogo company={question.company} className="w-3.5 h-3.5" />
+                  <span>{question.company}</span>
+                </Link>
+
+                <div className="flex items-center gap-1.5 text-xs text-[#9B9992] px-2.5 py-1 rounded bg-[#1E2020] border border-[#242525]">
+                  <Clock className="w-3.5 h-3.5 text-[#9B9992]" />
+                  <span>{question.expected_time || "5–15 min"}</span>
+                </div>
               </div>
 
-              {/* Question Text */}
-              <h1 className="text-xl sm:text-2xl font-bold text-[#F4F1EA] leading-snug mb-4">
+              {/* Main Question Text */}
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#F4F1EA] leading-snug tracking-tight">
                 {question.question}
               </h1>
 
-              {/* Contextual Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-[#242525] text-xs text-[#9B9992]">
+              {/* Contextual Info */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#242525] text-xs font-mono text-[#9B9992]">
                 <div>
-                  <span className="text-[#9B9992]/70 block mb-0.5">Industry Domain</span>
-                  <span className="text-[#F4F1EA] font-medium">{question.industry || question.company_industry}</span>
+                  <span className="text-[#9B9992]/60 block mb-0.5">Industry Context</span>
+                  <span className="text-[#F4F1EA] font-semibold">
+                    {question.industry || question.company_industry || "Technology"}
+                  </span>
                 </div>
                 <div>
-                  <span className="text-[#9B9992]/70 block mb-0.5">Target Role Scope</span>
-                  <span className="text-[#F4F1EA] font-medium">{question.role}</span>
+                  <span className="text-[#9B9992]/60 block mb-0.5">Interview Scope</span>
+                  <span className="text-[#F4F1EA] font-semibold">
+                    {question.role || "Company-specific / Cross-functional"}
+                  </span>
                 </div>
               </div>
-
-              {/* Skills and Tags */}
-              {(question.skills || question.tags) && (
-                <div className="mt-4 pt-4 border-t border-[#242525] flex flex-wrap gap-1.5 items-center">
-                  <span className="text-xs text-[#9B9992] mr-2">Tags:</span>
-                  {(question.skills || question.tags || "")
-                    .split(",")
-                    .map((s) => s.trim())
-                    .filter(Boolean)
-                    .map((t, idx) => (
-                      <span
-                        key={idx}
-                        className="text-[11px] px-2 py-0.5 rounded bg-[#1E2020] text-[#9B9992] border border-[#242525]"
-                      >
-                        #{t}
-                      </span>
-                    ))}
-                </div>
-              )}
             </div>
 
-            {/* Expandable Sections */}
+            {/* ── Structured Answer Frameworks ── */}
             <div className="space-y-3.5">
               {/* 1. Short Answer */}
               <AccordionSection
-                id="shortAnswer"
                 title="Short Answer (Executive Summary)"
                 icon={<Lightbulb className="w-4 h-4 text-amber-400" />}
                 isOpen={openSections.shortAnswer}
@@ -331,9 +330,8 @@ export default function QuestionDetailPage() {
 
               {/* 2. Detailed Answer */}
               <AccordionSection
-                id="detailedAnswer"
                 title="Detailed Answer & Structured Walkthrough"
-                icon={<BookOpen className="w-4 h-4 text-[#FF8C68]" />}
+                icon={<BookOpen className="w-4 h-4 text-[#FF5A36]" />}
                 isOpen={openSections.detailedAnswer}
                 onToggle={() => toggleSection("detailedAnswer")}
                 content={question.detailed_answer}
@@ -341,7 +339,6 @@ export default function QuestionDetailPage() {
 
               {/* 3. Strong Answer Signals */}
               <AccordionSection
-                id="strongSignals"
                 title="Strong Answer Signals"
                 icon={<Target className="w-4 h-4 text-emerald-400" />}
                 isOpen={openSections.strongSignals}
@@ -351,7 +348,6 @@ export default function QuestionDetailPage() {
 
               {/* 4. Common Mistakes */}
               <AccordionSection
-                id="commonMistakes"
                 title="Common Mistakes to Avoid"
                 icon={<AlertTriangle className="w-4 h-4 text-rose-400" />}
                 isOpen={openSections.commonMistakes}
@@ -361,14 +357,12 @@ export default function QuestionDetailPage() {
 
               {/* 5. Follow-ups */}
               <AccordionSection
-                id="followUps"
                 title="Likely Follow-up Questions"
                 icon={<HelpCircle className="w-4 h-4 text-purple-400" />}
                 isOpen={openSections.followUps}
                 onToggle={() => toggleSection("followUps")}
                 content={question.follow_ups}
               />
-
             </div>
           </div>
         )}
@@ -379,30 +373,25 @@ export default function QuestionDetailPage() {
   );
 }
 
-// ── Helpers ─────────────────────────────────────────────────────────────────
+// ── Helpers ──
 
-/** Parse a field that may be a plain string or a JSON-encoded array */
 function parseField(content) {
   if (!content) return null;
   if (Array.isArray(content)) return content;
   const trimmed = typeof content === "string" ? content.trim() : "";
   if (!trimmed) return null;
-  // Try to parse as JSON array
   if (trimmed.startsWith("[")) {
     try {
       const parsed = JSON.parse(trimmed);
       if (Array.isArray(parsed)) return parsed;
-    } catch (_) {
-      // fall through to plain string
+    } catch (e) {
+      // Fall through to plain text if JSON parse fails
+      console.debug("Field is not a JSON array, treating as plain text:", e);
     }
   }
   return trimmed;
 }
 
-/**
- * Render a single line of text with **bold** markers converted to <strong>.
- * Also supports lines starting with "- " as bullet items.
- */
 function RichLine({ text }) {
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
   return (
@@ -420,7 +409,6 @@ function RichLine({ text }) {
   );
 }
 
-/** Render a plain string field with markdown-like formatting */
 function RichText({ text }) {
   const lines = text.split("\n");
   const elements = [];
@@ -429,13 +417,11 @@ function RichText({ text }) {
   while (i < lines.length) {
     const line = lines[i];
 
-    // Blank line
     if (!line.trim()) {
       i++;
       continue;
     }
 
-    // Heading-like lines: **Heading:**  or lines ending with ":"
     if (line.startsWith("**") && line.endsWith("**")) {
       elements.push(
         <h4 key={i} className="text-[#F4F1EA] font-semibold text-sm mt-3 mb-1">
@@ -446,7 +432,6 @@ function RichText({ text }) {
       continue;
     }
 
-    // Bullet line: starts with "- " or "• "
     if (line.trim().startsWith("- ") || line.trim().startsWith("• ")) {
       const bulletItems = [];
       while (
@@ -459,8 +444,8 @@ function RichText({ text }) {
       elements.push(
         <ul key={`ul-${i}`} className="list-none space-y-1.5 my-2">
           {bulletItems.map((item, j) => (
-            <li key={j} className="flex items-start gap-2 text-sm text-[#9B9992]">
-              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#FF5A36] flex-shrink-0" />
+            <li key={j} className="flex items-start gap-2.5 text-sm text-[#9B9992]">
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#FF5A36] shrink-0" />
               <RichLine text={item} />
             </li>
           ))}
@@ -469,7 +454,6 @@ function RichText({ text }) {
       continue;
     }
 
-    // Normal paragraph line
     elements.push(
       <p key={i} className="text-sm text-[#9B9992] leading-relaxed">
         <RichLine text={line} />
@@ -478,16 +462,15 @@ function RichText({ text }) {
     i++;
   }
 
-  return <div className="space-y-1">{elements}</div>;
+  return <div className="space-y-1.5">{elements}</div>;
 }
 
-/** Render an array as a styled bullet list */
 function BulletList({ items }) {
   return (
     <ul className="space-y-2">
       {items.map((item, i) => (
-        <li key={i} className="flex items-start gap-3">
-          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#FF5A36] flex-shrink-0" />
+        <li key={i} className="flex items-start gap-2.5">
+          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#FF5A36] shrink-0" />
           <span className="text-sm text-[#9B9992] leading-relaxed">
             <RichLine text={String(item)} />
           </span>
@@ -497,82 +480,17 @@ function BulletList({ items }) {
   );
 }
 
-/** Render an evaluation rubric string (1: ... 2: ... pattern) as score cards */
-function RubricDisplay({ text }) {
-  const SCORE_LABELS = ["Poor", "Basic", "Good", "Strong", "Excellent"];
-  const SCORE_COLORS = [
-    "bg-rose-500/10 border-rose-500/20 text-rose-300",
-    "bg-orange-500/10 border-orange-500/20 text-orange-300",
-    "bg-amber-500/10 border-amber-500/20 text-amber-300",
-    "bg-emerald-500/10 border-emerald-500/20 text-emerald-300",
-    "bg-cyan-500/10 border-cyan-500/20 text-cyan-300",
-  ];
-
-  // Try to parse "1: ...... 2: ...... 3: ..." pattern
-  const pattern = /([1-5])\s*:/g;
-  const matches = [...text.matchAll(pattern)];
-
-  if (matches.length < 2) {
-    // Fallback: just render as rich text
-    return <RichText text={text} />;
-  }
-
-  const scores = [];
-  for (let i = 0; i < matches.length; i++) {
-    const score = parseInt(matches[i][1]);
-    const start = matches[i].index + matches[i][0].length;
-    const end = i + 1 < matches.length ? matches[i + 1].index : text.length;
-    const description = text.slice(start, end).trim().replace(/\.$/, "");
-    scores.push({ score, description });
-  }
-
-  return (
-    <div className="space-y-2">
-      {scores.map(({ score, description }) => (
-        <div
-          key={score}
-          className={`p-3 rounded-lg border text-sm ${SCORE_COLORS[score - 1] || SCORE_COLORS[2]}`}
-        >
-          <div className="flex items-center gap-2 mb-1">
-            <span className="font-bold text-base">{score}</span>
-            <span className="font-semibold text-xs uppercase tracking-wider opacity-80">
-              {SCORE_LABELS[score - 1] || ""}
-            </span>
-          </div>
-          <p className="opacity-80 leading-relaxed">{description}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// ── Reusable Accordion Section ────────────────────────────────────────────────
-function AccordionSection({
-  id,
-  title,
-  icon,
-  isOpen,
-  onToggle,
-  content,
-  isRubric = false,
-}) {
+function AccordionSection({ title, icon, isOpen, onToggle, content }) {
   const parsed = parseField(content);
   const hasContent = parsed !== null && parsed !== "";
 
-  function renderContent() {
-    if (!hasContent) return null;
-    if (Array.isArray(parsed)) return <BulletList items={parsed} />;
-    if (isRubric) return <RubricDisplay text={parsed} />;
-    return <RichText text={parsed} />;
-  }
-
   return (
-    <div className="rounded-xl border border-[#242525] bg-[#151616] overflow-hidden transition-colors hover:border-[#FF5A36]/30">
+    <div className="rounded-2xl border border-[#242525] bg-[#151616] overflow-hidden transition-colors hover:border-[#FF5A36]/30">
       <button
         onClick={onToggle}
-        className="w-full px-5 py-4 flex items-center justify-between text-left font-semibold text-[#F4F1EA] hover:bg-[#1E2020] transition-colors"
+        className="w-full px-6 py-4.5 flex items-center justify-between text-left font-semibold text-[#F4F1EA] hover:bg-[#1E2020] transition-colors border-none bg-transparent cursor-pointer"
       >
-        <div className="flex items-center gap-2.5 text-sm">
+        <div className="flex items-center gap-3 text-sm font-semibold">
           {icon}
           <span>{title}</span>
         </div>
@@ -590,14 +508,18 @@ function AccordionSection({
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="border-t border-[#242525] p-5 bg-[#111212] text-sm leading-relaxed"
+            className="border-t border-[#242525] p-6 bg-[#111212] text-sm leading-relaxed"
           >
             {hasContent ? (
-              renderContent()
+              Array.isArray(parsed) ? (
+                <BulletList items={parsed} />
+              ) : (
+                <RichText text={parsed} />
+              )
             ) : (
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-[#151616] border border-dashed border-[#242525] text-[#9B9992]">
+              <div className="flex items-start gap-2.5 p-3 rounded-lg bg-[#151616] border border-dashed border-[#242525] text-xs text-[#9B9992]">
                 <Info className="w-4 h-4 text-[#FF5A36] shrink-0 mt-0.5" />
-                <p className="text-xs text-[#9B9992] leading-normal">No content available for this section yet.</p>
+                <span>No details available for this section.</span>
               </div>
             )}
           </motion.div>
