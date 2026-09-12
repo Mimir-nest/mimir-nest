@@ -717,7 +717,7 @@ export default function PracticeModePage() {
                 <div className="border-b border-border/40 pb-4 flex items-center justify-between">
                   <div>
                     <span className="text-[11px] font-mono uppercase tracking-widest text-surface-tint font-semibold block mb-1">
-                      Guidance & Calibration
+                      Answer Guide
                     </span>
                     <h2 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
                       How to approach this question
@@ -727,16 +727,16 @@ export default function PracticeModePage() {
                     onClick={() => setIsGuidanceRevealed(false)}
                     className="px-3 py-1.5 rounded-lg glass-panel hover:bg-white/5 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors border border-border/60 cursor-pointer"
                   >
-                    Hide Guidance
+                    Hide Guide
                   </button>
                 </div>
 
-                {/* 1. Short Answer */}
+                {/* 1. SHORT ANSWER / EXECUTIVE SUMMARY (FULL-WIDTH COMPACT) */}
                 {currentQuestion.short_answer && (
-                  <div className="p-5 sm:p-6 rounded-2xl bg-surface-container border border-border/60 border-l-4 border-l-surface-tint space-y-2.5">
+                  <div className="p-5 sm:p-6 rounded-2xl bg-surface-container border border-border/60 border-l-4 border-l-surface-tint space-y-2">
                     <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-surface-tint">
                       <Lightbulb className="w-4 h-4 text-surface-tint" />
-                      <span>Executive Summary</span>
+                      <span>Short Answer (Executive Summary)</span>
                     </div>
                     <p className="text-sm sm:text-base text-foreground/95 leading-relaxed font-body-md">
                       {currentQuestion.short_answer}
@@ -744,66 +744,91 @@ export default function PracticeModePage() {
                   </div>
                 )}
 
-                {/* 2. Detailed Walkthrough & STAR */}
-                {currentQuestion.detailed_answer && (
-                  <div className="space-y-6">
-                    <h3 className="text-sm font-mono uppercase tracking-wider text-muted-foreground font-semibold">
-                      Detailed Walkthrough & STAR Framework
-                    </h3>
-                    <StructuredDetailedAnswer text={currentQuestion.detailed_answer} />
-                  </div>
-                )}
-
-                {/* 3. Strong Signals */}
-                {strongSignals.length > 0 && (
-                  <div className="space-y-4 pt-4 border-t border-border/40">
-                    <div className="flex items-center gap-2">
-                      <Target className="w-4 h-4 text-emerald-400" />
-                      <h3 className="text-base font-bold text-foreground tracking-tight">
-                        Strong answer signals
+                {/* 2. TWO-COLUMN ANSWER GUIDE GRID */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+                  {/* LEFT COLUMN (Detailed Walkthrough, Intent, STAR, Strong Answer) */}
+                  <div className={`${currentQuestion.evaluation_rubric || strongSignals.length > 0 || commonMistakes.length > 0 ? "lg:col-span-7" : "lg:col-span-12"} space-y-6`}>
+                    <div className="flex items-center gap-2 pb-1">
+                      <span className="w-2 h-2 rounded-full bg-surface-tint" />
+                      <h3 className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+                        Detailed Walkthrough & Strategy
                       </h3>
                     </div>
-                    <ul className="space-y-2.5 list-none pl-0">
-                      {strongSignals.map((signal, i) => (
-                        <li key={i} className="flex items-start gap-3 text-sm text-foreground/90">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
-                          <span className="leading-relaxed">{signal}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
 
-                {/* 4. Common Mistakes */}
-                {commonMistakes.length > 0 && (
-                  <div className="space-y-4 pt-4 border-t border-border/40">
-                    <div className="flex items-center gap-2">
-                      <AlertTriangle className="w-4 h-4 text-rose-400" />
-                      <h3 className="text-base font-bold text-foreground tracking-tight">
-                        Common mistakes to avoid
-                      </h3>
+                    {currentQuestion.detailed_answer ? (
+                      <StructuredDetailedAnswer text={currentQuestion.detailed_answer} />
+                    ) : (
+                      <p className="text-sm text-muted-foreground">
+                        No additional detailed walkthrough recorded for this question.
+                      </p>
+                    )}
+                  </div>
+
+                  {/* RIGHT COLUMN (Interviewer Checklist & Calibration) */}
+                  {(currentQuestion.evaluation_rubric || strongSignals.length > 0 || commonMistakes.length > 0) && (
+                    <div className="lg:col-span-5 space-y-5 lg:sticky lg:top-24">
+                      {/* Evaluation Rubric */}
+                      {currentQuestion.evaluation_rubric && (
+                        <div className="p-5 rounded-2xl bg-surface-container/70 border border-border/60 space-y-2.5">
+                          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
+                            <span className="w-2 h-2 rounded-full bg-amber-400" />
+                            <span>Evaluation Rubric</span>
+                          </div>
+                          <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed font-body-md whitespace-pre-line">
+                            {currentQuestion.evaluation_rubric}
+                          </p>
+                        </div>
+                      )}
+
+                      {/* Strong Answer Signals */}
+                      {strongSignals.length > 0 && (
+                        <div className="p-5 rounded-2xl bg-surface-container/70 border border-border/60 space-y-3">
+                          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-emerald-400">
+                            <Target className="w-4 h-4 text-emerald-400" />
+                            <span>Strong Answer Signals</span>
+                          </div>
+                          <ul className="space-y-2 list-none pl-0">
+                            {strongSignals.map((signal, i) => (
+                              <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                                <span className="leading-relaxed">{signal}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {/* Common Mistakes */}
+                      {commonMistakes.length > 0 && (
+                        <div className="p-5 rounded-2xl bg-surface-container/70 border border-border/60 space-y-3">
+                          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-rose-400">
+                            <AlertTriangle className="w-4 h-4 text-rose-400" />
+                            <span>Common Mistakes to Avoid</span>
+                          </div>
+                          <ul className="space-y-2 list-none pl-0">
+                            {commonMistakes.map((mistake, i) => (
+                              <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-400 shrink-0" />
+                                <span className="leading-relaxed">{mistake}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
-                    <ul className="space-y-2.5 list-none pl-0">
-                      {commonMistakes.map((mistake, i) => (
-                        <li key={i} className="flex items-start gap-3 text-sm text-foreground/90">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-400 shrink-0" />
-                          <span className="leading-relaxed">{mistake}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                  )}
+                </div>
 
-                {/* 5. Follow-ups */}
+                {/* 3. LIKELY FOLLOW-UP QUESTIONS (FULL-WIDTH 2-COLUMN GRID) */}
                 {followUps.length > 0 && (
-                  <div className="space-y-4 pt-4 border-t border-border/40">
+                  <section className="pt-6 border-t border-border/40 space-y-4">
                     <div className="flex items-center gap-2">
                       <HelpCircle className="w-4 h-4 text-purple-400" />
                       <h3 className="text-base font-bold text-foreground tracking-tight">
-                        Likely follow-up questions
+                        Likely Follow-up Questions
                       </h3>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       {followUps.map((fu, i) => (
                         <div
                           key={i}
@@ -812,25 +837,13 @@ export default function PracticeModePage() {
                           <span className="font-mono text-xs font-bold text-surface-tint shrink-0 pt-0.5">
                             {String(i + 1).padStart(2, "0")}
                           </span>
-                          <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
+                          <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed font-body-md">
                             {fu}
                           </p>
                         </div>
                       ))}
                     </div>
-                  </div>
-                )}
-
-                {/* 6. Evaluation Rubric */}
-                {currentQuestion.evaluation_rubric && (
-                  <div className="p-5 sm:p-6 rounded-2xl bg-surface-container/50 border border-border/40 space-y-3">
-                    <span className="text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground block">
-                      Evaluation Rubric (Score Calibration)
-                    </span>
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                      {currentQuestion.evaluation_rubric}
-                    </p>
-                  </div>
+                  </section>
                 )}
               </motion.div>
             )}

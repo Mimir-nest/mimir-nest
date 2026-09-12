@@ -222,7 +222,7 @@ export default function QuestionDetailPage() {
     <div className="min-h-screen bg-mn-background text-on-background selection:bg-surface-tint/30">
       <Navbar />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-24">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-24 space-y-10">
         {/* ── 1. BREADCRUMBS ── */}
         <div className="flex items-center justify-between gap-4 pb-6 border-b border-border/40">
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-mono text-muted-foreground flex-wrap">
@@ -309,503 +309,394 @@ export default function QuestionDetailPage() {
 
         {/* Main Workspace Layout */}
         {question && !loading && (
-          <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            {/* ── LEFT / MAIN COLUMN (70%) ── */}
-            <div className="lg:col-span-8 space-y-10">
-              {/* ── QUESTION HERO (THE HERO OF THE PAGE) ── */}
-              <section className="space-y-4">
-                {/* Clean Top Metadata Row (Visually Separated) */}
-                <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono">
-                  <span className="font-semibold text-surface-tint px-2.5 py-0.5 rounded bg-surface-tint/10 border border-surface-tint/25">
-                    {question.question_id}
-                  </span>
-                  <span className="text-muted-foreground/40">·</span>
-                  <span className="font-medium uppercase tracking-wider text-muted-foreground">
-                    {question.category}
-                  </span>
-                  <span className="text-muted-foreground/40">·</span>
-                  <span
-                    className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded border text-[11px] font-semibold ${meta.bg} ${meta.text} ${meta.border}`}
-                  >
-                    <span className={`w-1.5 h-1.5 rounded-full ${meta.dot}`} />
-                    {question.difficulty}
-                  </span>
-                </div>
+          <div className="space-y-10">
+            {/* ── QUESTION HERO (THE HERO OF THE PAGE) ── */}
+            <section className="space-y-4">
+              {/* Clean Top Metadata Row */}
+              <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono">
+                <span className="font-semibold text-surface-tint px-2.5 py-0.5 rounded bg-surface-tint/10 border border-surface-tint/25">
+                  {question.question_id}
+                </span>
+                <span className="text-muted-foreground/40">·</span>
+                <span className="font-medium uppercase tracking-wider text-muted-foreground">
+                  {question.category}
+                </span>
+                <span className="text-muted-foreground/40">·</span>
+                <span
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded border text-[11px] font-semibold ${meta.bg} ${meta.text} ${meta.border}`}
+                >
+                  <span className={`w-1.5 h-1.5 rounded-full ${meta.dot}`} />
+                  {question.difficulty}
+                </span>
+              </div>
 
-                {/* Company & Context Bar */}
-                <div className="flex flex-wrap items-center gap-3 pt-1 text-xs text-muted-foreground">
-                  <Link
-                    href={`/interview-prep/company/${companyToSlug(question.company)}`}
-                    className="inline-flex items-center gap-2 font-medium text-foreground hover:text-surface-tint transition-colors group"
-                  >
-                    <div className="w-6 h-6 rounded-md bg-surface-container-high p-1 flex items-center justify-center border border-border/40 group-hover:border-surface-tint/30 transition-colors">
-                      <CompanyLogo company={question.company} className="w-4 h-4" />
-                    </div>
-                    <span className="font-semibold">{question.company}</span>
-                  </Link>
-
-                  <span className="text-muted-foreground/40">·</span>
-                  <span>{question.industry || question.company_industry || "Technology"}</span>
-
-                  <span className="text-muted-foreground/40">·</span>
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5 text-muted-foreground" />
-                    <span>{question.expected_time || "5–15 min"}</span>
+              {/* Company & Context Bar */}
+              <div className="flex flex-wrap items-center gap-3 pt-1 text-xs text-muted-foreground">
+                <Link
+                  href={`/interview-prep/company/${companyToSlug(question.company)}`}
+                  className="inline-flex items-center gap-2 font-medium text-foreground hover:text-surface-tint transition-colors group"
+                >
+                  <div className="w-6 h-6 rounded-md bg-surface-container-high p-1 flex items-center justify-center border border-border/40 group-hover:border-surface-tint/30 transition-colors">
+                    <CompanyLogo company={question.company} className="w-4 h-4" />
                   </div>
+                  <span className="font-semibold">{question.company}</span>
+                </Link>
+
+                <span className="text-muted-foreground/40">·</span>
+                <span>{question.industry || question.company_industry || "Technology"}</span>
+
+                <span className="text-muted-foreground/40">·</span>
+                <div className="flex items-center gap-1">
+                  <Clock className="w-3.5 h-3.5 text-muted-foreground" />
+                  <span>{question.expected_time || "5–15 min"}</span>
                 </div>
+              </div>
 
-                {/* THE QUESTION HERO HEADLINE */}
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground leading-[1.25] tracking-tight pt-2">
-                  {question.question}
-                </h1>
+              {/* THE QUESTION HERO HEADLINE */}
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground leading-[1.25] tracking-tight pt-2">
+                {question.question}
+              </h1>
 
-                {/* Interview Scope Note */}
-                {question.role && (
-                  <p className="text-xs text-muted-foreground font-mono">
-                    Target Scope: <span className="text-foreground/90">{question.role}</span>
-                  </p>
-                )}
-
-                {/* Immediate Practice Action Row */}
-                <div className="flex flex-wrap items-center gap-3 pt-3">
-                  <button
-                    onClick={togglePracticed}
-                    className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold font-label-caps tracking-wider uppercase transition-all duration-200 cursor-pointer border ${
-                      isPracticed
-                        ? "bg-emerald-500/15 border-emerald-500/40 text-emerald-400 shadow-sm"
-                        : "bg-surface-container hover:bg-surface-container-high border-border text-foreground hover:border-surface-tint/40"
-                    }`}
-                  >
-                    {isPracticed ? (
-                      <>
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                        <span>Practiced</span>
-                      </>
-                    ) : (
-                      <>
-                        <Circle className="w-4 h-4 text-muted-foreground" />
-                        <span>Mark as Practiced</span>
-                      </>
-                    )}
-                  </button>
-
-                  <button
-                    onClick={toggleBookmark}
-                    className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer border ${
-                      isBookmarked
-                        ? "bg-amber-500/10 border-amber-500/30 text-amber-400"
-                        : "bg-surface-container hover:bg-surface-container-high border-border text-muted-foreground hover:text-foreground hover:border-surface-tint/40"
-                    }`}
-                  >
-                    <Bookmark
-                      className={`w-3.5 h-3.5 ${isBookmarked ? "fill-amber-400" : ""}`}
-                    />
-                    <span>{isBookmarked ? "Saved" : "Save"}</span>
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      setIsAnswerRevealed(true);
-                      setTimeout(() => scrollToAnswerGuide(), 100);
-                    }}
-                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-medium text-surface-tint hover:underline bg-transparent border-none cursor-pointer"
-                  >
-                    <span>{isAnswerRevealed ? "Jump to Answer Guide ↓" : "Reveal Answer Guide ↓"}</span>
-                  </button>
-                </div>
-              </section>
-
-              {/* ── 2. "THINK FIRST" PRACTICE WORKSPACE ── */}
-              <section className="p-6 sm:p-7 rounded-2xl bg-surface-container/70 border border-border/50 space-y-4">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-surface-tint" />
-                      <h2 className="text-sm font-bold text-foreground tracking-wide font-mono uppercase">
-                        Before you look at the answer
-                      </h2>
-                    </div>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
-                      Take a moment to structure your response as if you&apos;re live in the interview.
-                    </p>
-                  </div>
-
-                  <button
-                    onClick={() => setIsDraftOpen(!isDraftOpen)}
-                    className="text-xs font-mono text-muted-foreground hover:text-foreground flex items-center gap-1 py-1 px-2 rounded hover:bg-surface-container-high transition-colors cursor-pointer border-none bg-transparent"
-                  >
-                    <span>{isDraftOpen ? "Collapse" : "Write Response"}</span>
-                    <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                        isDraftOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                </div>
-
-                <AnimatePresence initial={false}>
-                  {isDraftOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="space-y-3 pt-1"
-                    >
-                      <div className="relative">
-                        <textarea
-                          value={userDraft}
-                          onChange={handleDraftChange}
-                          rows={5}
-                          placeholder="Structure your thoughts here using STAR (Situation, Task, Action, Result)..."
-                          className="w-full p-4 rounded-xl bg-surface-container-low border border-border/70 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-surface-tint/60 focus:ring-1 focus:ring-surface-tint/60 transition-all font-body-md resize-y"
-                          aria-label="Draft your answer"
-                        />
-                      </div>
-
-                      <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
-                        <div className="flex items-center gap-2 text-muted-foreground font-mono text-[11px]">
-                          <Sparkles className="w-3.5 h-3.5 text-surface-tint" />
-                          <span>Saved automatically on this device</span>
-                        </div>
-
-                        <div className="flex items-center gap-2">
-                          {userDraft && (
-                            <button
-                              onClick={handleClearDraft}
-                              className="px-3 py-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-surface-container-high transition-colors cursor-pointer border-none bg-transparent"
-                            >
-                              Clear
-                            </button>
-                          )}
-                          <button
-                            onClick={handleSaveDraftExplicit}
-                            className="px-4 py-1.5 rounded-lg bg-surface-container-high border border-border hover:border-surface-tint/40 text-foreground font-medium transition-colors cursor-pointer"
-                          >
-                            Save Draft
-                          </button>
-                          <button
-                            onClick={() => {
-                              setIsAnswerRevealed(true);
-                              setTimeout(() => scrollToAnswerGuide(), 100);
-                            }}
-                            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-surface-tint text-on-primary font-semibold text-xs font-label-caps tracking-wider uppercase hover:opacity-90 transition-opacity cursor-pointer border-none shadow-md shadow-surface-tint/20"
-                          >
-                            <Sparkles className="w-3.5 h-3.5" />
-                            <span>Reveal Answer Guide ↓</span>
-                          </button>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </section>
-
-              {/* ── 3. ANSWER GUIDE & APPROACH (HIDDEN BY DEFAULT UNTIL REVEALED) ── */}
-              {!isAnswerRevealed ? (
-                <section id="answer-guide" className="p-8 sm:p-10 rounded-2xl bg-surface-container border border-dashed border-border/70 text-center space-y-4">
-                  <div className="w-12 h-12 rounded-2xl bg-surface-tint/10 border border-surface-tint/25 text-surface-tint flex items-center justify-center mx-auto shadow-inner">
-                    <BookOpen className="w-6 h-6" />
-                  </div>
-                  <div className="max-w-md mx-auto space-y-1.5">
-                    <h3 className="text-base sm:text-lg font-bold text-foreground">
-                      Answer Guide is Hidden
-                    </h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                      Take a moment to structure your response in the practice area above or answer aloud before reviewing the recommended strategy.
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => {
-                      setIsAnswerRevealed(true);
-                      setTimeout(() => scrollToAnswerGuide(), 100);
-                    }}
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all duration-200 shadow-lg shadow-surface-tint/20 cursor-pointer border-none"
-                  >
-                    <Sparkles className="w-4 h-4" />
-                    <span>Reveal Answer Guide</span>
-                  </button>
-                </section>
-              ) : (
-                <div className="space-y-8">
-                  {/* Answer Guide Header */}
-                  <section id="answer-guide" className="space-y-8 pt-4">
-                    <div className="border-b border-border/40 pb-4 flex items-center justify-between">
-                      <div>
-                        <span className="text-[11px] font-mono uppercase tracking-widest text-surface-tint font-semibold block mb-1">
-                          Answer Guide
-                        </span>
-                        <h2 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
-                          How to approach this question
-                        </h2>
-                      </div>
-                      <button
-                        onClick={() => setIsAnswerRevealed(false)}
-                        className="px-3 py-1.5 rounded-lg glass-panel hover:bg-white/5 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors border border-border/60 cursor-pointer"
-                      >
-                        Hide Guide
-                      </button>
-                    </div>
-
-                    {/* 3.1 SHORT ANSWER / EXECUTIVE SUMMARY */}
-                    {question.short_answer && (
-                      <div className="p-5 sm:p-6 rounded-2xl bg-surface-container border border-border/60 border-l-4 border-l-surface-tint space-y-2.5">
-                        <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-surface-tint">
-                          <Lightbulb className="w-4 h-4 text-surface-tint" />
-                          <span>Short Answer (Executive Summary)</span>
-                        </div>
-                        <p className="text-sm sm:text-base text-foreground/95 leading-relaxed font-body-md">
-                          {question.short_answer}
-                        </p>
-                      </div>
-                    )}
-
-                    {/* 3.2 DETAILED ANSWER & STRUCTURED WALKTHROUGH */}
-                    {question.detailed_answer && (
-                      <div className="space-y-6">
-                        <h3 className="text-sm font-mono uppercase tracking-wider text-muted-foreground font-semibold">
-                          Detailed Walkthrough & Strategy
-                        </h3>
-                        <StructuredDetailedAnswer text={question.detailed_answer} />
-                      </div>
-                    )}
-
-                    {/* 3.3 EVALUATION RUBRIC (IF AVAILABLE) */}
-                    {question.evaluation_rubric && (
-                      <div className="p-5 sm:p-6 rounded-2xl bg-surface-container/50 border border-border/40 space-y-3">
-                        <span className="text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground block">
-                          Evaluation Rubric (Score Calibration)
-                        </span>
-                        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                          {question.evaluation_rubric}
-                        </p>
-                      </div>
-                    )}
-                  </section>
-
-                  {/* ── 4. STRONG ANSWER SIGNALS (CONDITIONAL) ── */}
-                  {strongSignals.length > 0 && (
-                    <section className="space-y-4 pt-4 border-t border-border/40">
-                      <div className="flex items-center gap-2">
-                        <Target className="w-4 h-4 text-emerald-400" />
-                        <h3 className="text-base font-bold text-foreground tracking-tight">
-                          Strong answer signals
-                        </h3>
-                      </div>
-                      <ul className="space-y-2.5 list-none pl-0">
-                        {strongSignals.map((signal, i) => (
-                          <li key={i} className="flex items-start gap-3 text-sm text-foreground/90">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
-                            <span className="leading-relaxed">{signal}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </section>
-                  )}
-
-                  {/* ── 5. COMMON MISTAKES (CONDITIONAL) ── */}
-                  {commonMistakes.length > 0 && (
-                    <section className="space-y-4 pt-4 border-t border-border/40">
-                      <div className="flex items-center gap-2">
-                        <AlertTriangle className="w-4 h-4 text-rose-400" />
-                        <h3 className="text-base font-bold text-foreground tracking-tight">
-                          Common mistakes to avoid
-                        </h3>
-                      </div>
-                      <ul className="space-y-2.5 list-none pl-0">
-                        {commonMistakes.map((mistake, i) => (
-                          <li key={i} className="flex items-start gap-3 text-sm text-foreground/90">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-400 shrink-0" />
-                            <span className="leading-relaxed">{mistake}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </section>
-                  )}
-
-                  {/* ── 6. LIKELY FOLLOW-UPS (CONDITIONAL) ── */}
-                  {followUps.length > 0 && (
-                    <section className="space-y-4 pt-4 border-t border-border/40">
-                      <div className="flex items-center gap-2">
-                        <HelpCircle className="w-4 h-4 text-purple-400" />
-                        <h3 className="text-base font-bold text-foreground tracking-tight">
-                          Likely follow-up questions
-                        </h3>
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {followUps.map((fu, i) => (
-                          <div
-                            key={i}
-                            className="p-4 rounded-xl bg-surface-container border border-border/50 flex items-start gap-3"
-                          >
-                            <span className="font-mono text-xs font-bold text-surface-tint shrink-0 pt-0.5">
-                              {String(i + 1).padStart(2, "0")}
-                            </span>
-                            <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
-                              {fu}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </section>
-                  )}
-                </div>
+              {/* Interview Scope Note */}
+              {question.role && (
+                <p className="text-xs text-muted-foreground font-mono">
+                  Target Scope: <span className="text-foreground/90">{question.role}</span>
+                </p>
               )}
 
-              {/* ── 7. BOTTOM QUESTION NAVIGATION (PREV / NEXT) ── */}
-              <div className="pt-8 border-t border-border/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                {prevQuestion ? (
-                  <Link
-                    href={`/interview-prep/${prevQuestion.question_id}`}
-                    className="flex-1 p-4 rounded-xl bg-surface-container border border-border/60 hover:border-surface-tint/40 hover:bg-surface-container-high transition-all group"
-                  >
-                    <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest flex items-center gap-1 mb-1">
-                      <ArrowLeft className="w-3 h-3 group-hover:-translate-x-0.5 transition-transform" />
-                      Previous Question
-                    </span>
-                    <span className="text-xs font-semibold text-foreground group-hover:text-surface-tint transition-colors line-clamp-1">
-                      #{prevQuestion.question_id} · {prevQuestion.question}
-                    </span>
-                  </Link>
-                ) : (
-                  <div className="flex-1" />
-                )}
+              {/* Immediate Practice Action Row */}
+              <div className="flex flex-wrap items-center gap-3 pt-3">
+                <button
+                  onClick={togglePracticed}
+                  className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold font-label-caps tracking-wider uppercase transition-all duration-200 cursor-pointer border ${
+                    isPracticed
+                      ? "bg-emerald-500/15 border-emerald-500/40 text-emerald-400 shadow-sm"
+                      : "bg-surface-container hover:bg-surface-container-high border-border text-foreground hover:border-surface-tint/40"
+                  }`}
+                >
+                  {isPracticed ? (
+                    <>
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                      <span>Practiced</span>
+                    </>
+                  ) : (
+                    <>
+                      <Circle className="w-4 h-4 text-muted-foreground" />
+                      <span>Mark as Practiced</span>
+                    </>
+                  )}
+                </button>
 
-                {nextQuestion ? (
-                  <Link
-                    href={`/interview-prep/${nextQuestion.question_id}`}
-                    className="flex-1 p-4 rounded-xl bg-surface-container border border-border/60 hover:border-surface-tint/40 hover:bg-surface-container-high transition-all text-right group"
-                  >
-                    <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest flex items-center justify-end gap-1 mb-1">
-                      Next Question
-                      <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                    </span>
-                    <span className="text-xs font-semibold text-foreground group-hover:text-surface-tint transition-colors line-clamp-1">
-                      #{nextQuestion.question_id} · {nextQuestion.question}
-                    </span>
-                  </Link>
-                ) : (
-                  <div className="flex-1" />
-                )}
+                <button
+                  onClick={toggleBookmark}
+                  className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer border ${
+                    isBookmarked
+                      ? "bg-amber-500/10 border-amber-500/30 text-amber-400"
+                      : "bg-surface-container hover:bg-surface-container-high border-border text-muted-foreground hover:text-foreground hover:border-surface-tint/40"
+                  }`}
+                >
+                  <Bookmark
+                    className={`w-3.5 h-3.5 ${isBookmarked ? "fill-amber-400" : ""}`}
+                  />
+                  <span>{isBookmarked ? "Saved" : "Save"}</span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    setIsAnswerRevealed(true);
+                    setTimeout(() => scrollToAnswerGuide(), 100);
+                  }}
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-medium text-surface-tint hover:underline bg-transparent border-none cursor-pointer"
+                >
+                  <span>{isAnswerRevealed ? "Jump to Answer Guide ↓" : "Reveal Answer Guide ↓"}</span>
+                </button>
               </div>
-            </div>
+            </section>
 
-            {/* ── RIGHT SIDEBAR (30%) ── */}
-            <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
-              {/* Card 1: Your Progress */}
-              <div className="p-5 sm:p-6 rounded-2xl bg-surface-container border border-border/60 space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-surface-tint">
-                    Your Progress
-                  </span>
-                  <span className="text-xs font-mono text-muted-foreground">
-                    {question.question_id}
-                  </span>
+            {/* ── 2. "THINK FIRST" PRACTICE WORKSPACE ── */}
+            <section className="p-6 sm:p-7 rounded-2xl bg-surface-container/70 border border-border/50 space-y-4">
+              <div className="flex items-start justify-between gap-4">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-surface-tint" />
+                    <h2 className="text-sm font-bold text-foreground tracking-wide font-mono uppercase">
+                      Before you look at the answer
+                    </h2>
+                  </div>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Take a moment to structure your response as if you&apos;re live in the interview.
+                  </p>
                 </div>
 
-                <div className="space-y-2.5">
-                  <button
-                    onClick={togglePracticed}
-                    className={`w-full py-2.5 px-4 rounded-xl text-xs font-semibold font-label-caps tracking-wider uppercase transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer border ${
-                      isPracticed
-                        ? "bg-emerald-500/15 border-emerald-500/40 text-emerald-400"
-                        : "bg-surface-container-high hover:bg-surface-container-highest border-border text-foreground hover:border-surface-tint/40"
+                <button
+                  onClick={() => setIsDraftOpen(!isDraftOpen)}
+                  className="text-xs font-mono text-muted-foreground hover:text-foreground flex items-center gap-1 py-1 px-2 rounded hover:bg-surface-container-high transition-colors cursor-pointer border-none bg-transparent"
+                >
+                  <span>{isDraftOpen ? "Collapse" : "Write Response"}</span>
+                  <ChevronDown
+                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                      isDraftOpen ? "rotate-180" : ""
                     }`}
+                  />
+                </button>
+              </div>
+
+              <AnimatePresence initial={false}>
+                {isDraftOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="space-y-3 pt-1"
                   >
-                    {isPracticed ? (
-                      <>
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                        <span>Practiced</span>
-                      </>
+                    <div className="relative">
+                      <textarea
+                        value={userDraft}
+                        onChange={handleDraftChange}
+                        rows={5}
+                        placeholder="Structure your thoughts here using STAR (Situation, Task, Action, Result)..."
+                        className="w-full p-4 rounded-xl bg-surface-container-low border border-border/70 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-surface-tint/60 focus:ring-1 focus:ring-surface-tint/60 transition-all font-body-md resize-y"
+                        aria-label="Draft your answer"
+                      />
+                    </div>
+
+                    <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
+                      <div className="flex items-center gap-2 text-muted-foreground font-mono text-[11px]">
+                        <Sparkles className="w-3.5 h-3.5 text-surface-tint" />
+                        <span>Saved automatically on this device</span>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        {userDraft && (
+                          <button
+                            onClick={handleClearDraft}
+                            className="px-3 py-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-surface-container-high transition-colors cursor-pointer border-none bg-transparent"
+                          >
+                            Clear
+                          </button>
+                        )}
+                        <button
+                          onClick={handleSaveDraftExplicit}
+                          className="px-4 py-1.5 rounded-lg bg-surface-container-high border border-border hover:border-surface-tint/40 text-foreground font-medium transition-colors cursor-pointer"
+                        >
+                          Save Draft
+                        </button>
+                        <button
+                          onClick={() => {
+                            setIsAnswerRevealed(true);
+                            setTimeout(() => scrollToAnswerGuide(), 100);
+                          }}
+                          className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-surface-tint text-on-primary font-semibold text-xs font-label-caps tracking-wider uppercase hover:opacity-90 transition-opacity cursor-pointer border-none shadow-md shadow-surface-tint/20"
+                        >
+                          <Sparkles className="w-3.5 h-3.5" />
+                          <span>Reveal Answer Guide ↓</span>
+                        </button>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </section>
+
+            {/* ── 3. ANSWER GUIDE & APPROACH (HIDDEN BY DEFAULT UNTIL REVEALED) ── */}
+            {!isAnswerRevealed ? (
+              <section id="answer-guide" className="p-8 sm:p-10 rounded-2xl bg-surface-container border border-dashed border-border/70 text-center space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-surface-tint/10 border border-surface-tint/25 text-surface-tint flex items-center justify-center mx-auto shadow-inner">
+                  <BookOpen className="w-6 h-6" />
+                </div>
+                <div className="max-w-md mx-auto space-y-1.5">
+                  <h3 className="text-base sm:text-lg font-bold text-foreground">
+                    Answer Guide is Hidden
+                  </h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    Take a moment to structure your response in the practice area above or answer aloud before reviewing the recommended strategy.
+                  </p>
+                </div>
+                <button
+                  onClick={() => {
+                    setIsAnswerRevealed(true);
+                    setTimeout(() => scrollToAnswerGuide(), 100);
+                  }}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all duration-200 shadow-lg shadow-surface-tint/20 cursor-pointer border-none"
+                >
+                  <Sparkles className="w-4 h-4" />
+                  <span>Reveal Answer Guide</span>
+                </button>
+              </section>
+            ) : (
+              <div id="answer-guide" className="space-y-8 pt-4">
+                {/* Answer Guide Header */}
+                <div className="border-b border-border/40 pb-4 flex items-center justify-between">
+                  <div>
+                    <span className="text-[11px] font-mono uppercase tracking-widest text-surface-tint font-semibold block mb-1">
+                      Answer Guide
+                    </span>
+                    <h2 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
+                      How to approach this question
+                    </h2>
+                  </div>
+                  <button
+                    onClick={() => setIsAnswerRevealed(false)}
+                    className="px-3 py-1.5 rounded-lg glass-panel hover:bg-white/5 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors border border-border/60 cursor-pointer"
+                  >
+                    Hide Guide
+                  </button>
+                </div>
+
+                {/* 3.1 SHORT ANSWER / EXECUTIVE SUMMARY (FULL-WIDTH COMPACT) */}
+                {question.short_answer && (
+                  <div className="p-5 sm:p-6 rounded-2xl bg-surface-container border border-border/60 border-l-4 border-l-surface-tint space-y-2">
+                    <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-surface-tint">
+                      <Lightbulb className="w-4 h-4 text-surface-tint" />
+                      <span>Short Answer (Executive Summary)</span>
+                    </div>
+                    <p className="text-sm sm:text-base text-foreground/95 leading-relaxed font-body-md">
+                      {question.short_answer}
+                    </p>
+                  </div>
+                )}
+
+                {/* 3.2 TWO-COLUMN ANSWER GUIDE GRID */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+                  {/* LEFT COLUMN (Detailed Walkthrough, Intent, STAR, Strong Answer) */}
+                  <div className={`${question.evaluation_rubric || strongSignals.length > 0 || commonMistakes.length > 0 ? "lg:col-span-7" : "lg:col-span-12"} space-y-6`}>
+                    <div className="flex items-center gap-2 pb-1">
+                      <span className="w-2 h-2 rounded-full bg-surface-tint" />
+                      <h3 className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+                        Detailed Walkthrough & Strategy
+                      </h3>
+                    </div>
+
+                    {question.detailed_answer ? (
+                      <StructuredDetailedAnswer text={question.detailed_answer} />
                     ) : (
-                      <>
-                        <Circle className="w-4 h-4 text-muted-foreground" />
-                        <span>Mark as Practiced</span>
-                      </>
+                      <p className="text-sm text-muted-foreground">
+                        No additional detailed walkthrough recorded for this question.
+                      </p>
                     )}
-                  </button>
+                  </div>
 
-                  <button
-                    onClick={toggleBookmark}
-                    className={`w-full py-2.5 px-4 rounded-xl text-xs font-medium transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer border ${
-                      isBookmarked
-                        ? "bg-amber-500/10 border-amber-500/30 text-amber-400 font-semibold"
-                        : "bg-surface-container-high hover:bg-surface-container-highest border-border text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    <Bookmark
-                      className={`w-4 h-4 ${isBookmarked ? "fill-amber-400" : ""}`}
-                    />
-                    <span>{isBookmarked ? "Saved in Bookmarks" : "Save Question"}</span>
-                  </button>
+                  {/* RIGHT COLUMN (Interviewer Checklist & Calibration) */}
+                  {(question.evaluation_rubric || strongSignals.length > 0 || commonMistakes.length > 0) && (
+                    <div className="lg:col-span-5 space-y-5 lg:sticky lg:top-24">
+                      {/* Evaluation Rubric */}
+                      {question.evaluation_rubric && (
+                        <div className="p-5 rounded-2xl bg-surface-container/70 border border-border/60 space-y-2.5">
+                          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
+                            <span className="w-2 h-2 rounded-full bg-amber-400" />
+                            <span>Evaluation Rubric</span>
+                          </div>
+                          <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed font-body-md whitespace-pre-line">
+                            {question.evaluation_rubric}
+                          </p>
+                        </div>
+                      )}
+
+                      {/* Strong Answer Signals */}
+                      {strongSignals.length > 0 && (
+                        <div className="p-5 rounded-2xl bg-surface-container/70 border border-border/60 space-y-3">
+                          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-emerald-400">
+                            <Target className="w-4 h-4 text-emerald-400" />
+                            <span>Strong Answer Signals</span>
+                          </div>
+                          <ul className="space-y-2 list-none pl-0">
+                            {strongSignals.map((signal, i) => (
+                              <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                                <span className="leading-relaxed">{signal}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {/* Common Mistakes */}
+                      {commonMistakes.length > 0 && (
+                        <div className="p-5 rounded-2xl bg-surface-container/70 border border-border/60 space-y-3">
+                          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-rose-400">
+                            <AlertTriangle className="w-4 h-4 text-rose-400" />
+                            <span>Common Mistakes to Avoid</span>
+                          </div>
+                          <ul className="space-y-2 list-none pl-0">
+                            {commonMistakes.map((mistake, i) => (
+                              <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-400 shrink-0" />
+                                <span className="leading-relaxed">{mistake}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
 
-                {userDraft && (
-                  <div className="pt-2 border-t border-border/40 text-[11px] text-muted-foreground flex items-center gap-1.5 font-mono">
-                    <PenTool className="w-3 h-3 text-surface-tint" />
-                    <span>Response draft saved locally</span>
-                  </div>
+                {/* 3.3 LIKELY FOLLOW-UP QUESTIONS (FULL-WIDTH 2-COLUMN GRID) */}
+                {followUps.length > 0 && (
+                  <section className="pt-6 border-t border-border/40 space-y-4">
+                    <div className="flex items-center gap-2">
+                      <HelpCircle className="w-4 h-4 text-purple-400" />
+                      <h3 className="text-base font-bold text-foreground tracking-tight">
+                        Likely Follow-up Questions
+                      </h3>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                      {followUps.map((fu, i) => (
+                        <div
+                          key={i}
+                          className="p-4 rounded-xl bg-surface-container border border-border/50 flex items-start gap-3"
+                        >
+                          <span className="font-mono text-xs font-bold text-surface-tint shrink-0 pt-0.5">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed font-body-md">
+                            {fu}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
                 )}
               </div>
+            )}
 
-              {/* Card 2: Question Summary Metadata */}
-              <div className="p-5 sm:p-6 rounded-2xl bg-surface-container border border-border/60 space-y-3.5 text-xs font-mono">
-                <span className="text-[11px] uppercase tracking-widest text-muted-foreground font-semibold block">
-                  Question Specs
-                </span>
+            {/* ── 4. BOTTOM QUESTION NAVIGATION (PREV / NEXT) ── */}
+            <div className="pt-8 border-t border-border/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              {prevQuestion ? (
+                <Link
+                  href={`/interview-prep/${prevQuestion.question_id}`}
+                  className="flex-1 p-4 rounded-xl bg-surface-container border border-border/60 hover:border-surface-tint/40 hover:bg-surface-container-high transition-all group"
+                >
+                  <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest flex items-center gap-1 mb-1">
+                    <ArrowLeft className="w-3 h-3 group-hover:-translate-x-0.5 transition-transform" />
+                    Previous Question
+                  </span>
+                  <span className="text-xs font-semibold text-foreground group-hover:text-surface-tint transition-colors line-clamp-1">
+                    #{prevQuestion.question_id} · {prevQuestion.question}
+                  </span>
+                </Link>
+              ) : (
+                <div className="flex-1" />
+              )}
 
-                <div className="space-y-2.5 pt-1">
-                  <div className="flex items-center justify-between py-1 border-b border-border/30">
-                    <span className="text-muted-foreground">Company</span>
-                    <Link
-                      href={`/interview-prep/company/${companyToSlug(question.company)}`}
-                      className="text-foreground hover:text-surface-tint font-semibold transition-colors"
-                    >
-                      {question.company}
-                    </Link>
-                  </div>
-
-                  <div className="flex items-center justify-between py-1 border-b border-border/30">
-                    <span className="text-muted-foreground">Category</span>
-                    <span className="text-foreground font-semibold">
-                      {question.category}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center justify-between py-1 border-b border-border/30">
-                    <span className="text-muted-foreground">Difficulty</span>
-                    <span className={`font-semibold ${meta.text}`}>
-                      {question.difficulty}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center justify-between py-1 border-b border-border/30">
-                    <span className="text-muted-foreground">Estimated Time</span>
-                    <span className="text-foreground font-semibold">
-                      {question.expected_time || "5–15 min"}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center justify-between py-1">
-                    <span className="text-muted-foreground">Industry</span>
-                    <span className="text-foreground font-semibold truncate max-w-[140px]">
-                      {question.industry || question.company_industry || "Technology"}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Company Link Button */}
-                <div className="pt-2">
-                  <Link
-                    href={`/interview-prep/company/${companyToSlug(question.company)}`}
-                    className="w-full py-2.5 px-4 rounded-xl glass-panel hover:bg-white/5 border border-border/60 text-xs font-semibold text-foreground hover:text-surface-tint transition-all flex items-center justify-center gap-1.5 text-center"
-                  >
-                    <span>All {question.company} Questions</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            </aside>
+              {nextQuestion ? (
+                <Link
+                  href={`/interview-prep/${nextQuestion.question_id}`}
+                  className="flex-1 p-4 rounded-xl bg-surface-container border border-border/60 hover:border-surface-tint/40 hover:bg-surface-container-high transition-all text-right group"
+                >
+                  <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest flex items-center justify-end gap-1 mb-1">
+                    Next Question
+                    <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
+                  <span className="text-xs font-semibold text-foreground group-hover:text-surface-tint transition-colors line-clamp-1">
+                    #{nextQuestion.question_id} · {nextQuestion.question}
+                  </span>
+                </Link>
+              ) : (
+                <div className="flex-1" />
+              )}
+            </div>
           </div>
         )}
 
