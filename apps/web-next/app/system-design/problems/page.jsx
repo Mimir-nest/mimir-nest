@@ -24,6 +24,13 @@ import {
 import { systemDesignProblems } from "../data/problems";
 import CompanyLogo from "@/components/common/CompanyLogo";
 
+import dynamic from "next/dynamic";
+
+const ParticleWave = dynamic(
+  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
+  { ssr: false }
+);
+
 const difficultyColors = {
   Easy: {
     bg: "bg-emerald-500/10",
@@ -81,46 +88,90 @@ export default function SystemDesignProblemsPage() {
     <div className="min-h-screen bg-mn-background text-on-background selection:bg-surface-tint/30">
       <Navbar />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-24 space-y-12">
-        {/* ── 1. PAGE HERO ── */}
-        <section className="space-y-4 max-w-3xl">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-surface-tint" />
-            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-surface-tint">
-              System Design Workspace
-            </span>
-          </div>
+      {/* ── FLAGSHIP HERO SECTION (Matches Mimir Nest Flagship Style) ── */}
+      <section className="relative bg-[#151616] pt-[130px] md:pt-[160px] pb-16 md:pb-20 px-6 md:px-16 overflow-hidden rounded-b-3xl border-b border-white/[0.06] bg-cover bg-center" style={{ backgroundImage: "url('/images/hero-bg.png')" }}>
+        {/* Dark overlay for contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#151616]/95 via-[#151616]/85 to-[#151616]/95 z-0 pointer-events-none" />
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-[1.15]">
-            SYSTEM DESIGN PROBLEMS
-          </h1>
+        {/* Background Particle Wave */}
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
+          <ParticleWave />
+        </div>
 
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Practice system design by solving real-world architecture problems with constraints around scale, reliability, cost, and performance.
-          </p>
-        </section>
+        {/* Decorative Rings */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-[#FF5A36]/10 translate-x-1/4 -translate-y-1/4 pointer-events-none z-0" />
+        <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-[#FF5A36]/15 translate-x-1/3 -translate-y-1/3 pointer-events-none z-0" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-white/[0.03] -translate-x-1/2 translate-y-1/2 pointer-events-none z-0" />
 
-        {/* ── 2. SECTION INTRO & QUICK STATS ── */}
-        <div className="p-6 sm:p-7 rounded-2xl bg-surface-container/60 border border-border/60 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-          <div className="space-y-1.5">
-            <h2 className="text-base sm:text-lg font-bold text-foreground">
-              Architecture Challenges
-            </h2>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-xl">
-              Choose a problem, understand the constraints and traffic volume, then build your interactive architecture on the canvas.
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+            {/* Top pill badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-6 w-fit border border-white/[0.08] shadow-inner bg-white/[0.02] backdrop-blur-md">
+              <Sparkles className="w-4 h-4 text-[#FF5A36] animate-pulse" />
+              <span className="font-mono text-xs text-[#FF5A36] tracking-widest uppercase font-semibold">
+                Interactive Architecture Challenges
+              </span>
+            </div>
+
+            {/* Headline */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-6 font-sans">
+              System Design <br />
+              <span className="text-[#FF5A36]">Problems & Workflows.</span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-sm sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed mb-8 font-normal font-sans">
+              Solve production-grade system design problems with live constraint validation, real scale SLAs, monthly cost limits, and reference architecture workflows.
             </p>
-          </div>
 
-          <div className="flex items-center gap-3 shrink-0">
-            <Link
-              href="/playground"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-surface-container-high border border-border hover:border-surface-tint/40 text-foreground text-xs font-semibold font-label-caps tracking-wider transition-colors"
-            >
-              <Boxes className="w-4 h-4 text-surface-tint" />
-              <span>Blank Playground</span>
-            </Link>
+            {/* Quick Stats Strip */}
+            <div className="grid grid-cols-3 gap-4 w-full max-w-2xl pt-2 mb-8 z-10 font-sans">
+              {[
+                { label: "Challenges", val: `${systemDesignProblems.length} Total` },
+                { label: "Reference Workflows", val: "100% Available" },
+                { label: "Validation Engine", val: "Live Graded" },
+              ].map((stat, i) => (
+                <div key={i} className="p-4 rounded-xl glass-panel text-center border border-white/[0.08] bg-[#141517]/55 backdrop-blur-md">
+                  <div className="text-xl text-white font-bold">{stat.val}</div>
+                  <div className="text-[10px] text-white/50 uppercase tracking-widest font-mono mt-0.5">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Navigation Actions */}
+            <div className="flex items-center justify-center gap-3 flex-wrap pt-2">
+              <button
+                onClick={() => {
+                  const el = document.getElementById("challenges-workspace");
+                  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
+                className="px-6 py-3 rounded-full bg-[#FF5A36] text-black font-semibold text-xs uppercase tracking-widest hover:bg-[#ff7a5a] transition-all shadow-[0_0_20px_rgba(255,90,54,0.35)] flex items-center gap-2 group border border-[#FF5A36] font-sans cursor-pointer"
+              >
+                <span>Browse Challenges</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </button>
+
+              <Link
+                href="/playground"
+                className="px-6 py-3 rounded-full bg-[#161c1d] text-[#e1e7e3] hover:text-white font-semibold text-xs uppercase tracking-widest hover:bg-[#202729] transition-all border border-[#2e393b] flex items-center gap-2 font-sans no-underline"
+              >
+                <Boxes className="w-4 h-4 text-[#ff7657]" />
+                <span>Blank Playground</span>
+              </Link>
+
+              <Link
+                href="/system-design"
+                className="px-6 py-3 rounded-full bg-[#161c1d] text-[#e1e7e3] hover:text-white font-semibold text-xs uppercase tracking-widest hover:bg-[#202729] transition-all border border-[#2e393b] flex items-center gap-2 font-sans no-underline"
+              >
+                <ExternalLink className="w-3.5 h-3.5 text-[#9aa6a5]" />
+                <span>500+ Interview Q&A</span>
+              </Link>
+            </div>
           </div>
         </div>
+      </section>
+
+      <main id="challenges-workspace" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24 space-y-12">
 
         {/* ── 3. SEARCH & FILTERS ── */}
         <section className="space-y-4">
@@ -267,7 +318,7 @@ export default function SystemDesignProblemsPage() {
                       </div>
 
                       {/* Actions */}
-                      <div className="flex items-center justify-between gap-3 pt-1">
+                      <div className="flex items-center justify-between gap-2 pt-1 flex-wrap sm:flex-nowrap">
                         <Link
                           href={`/system-design/problems/${problem.slug}`}
                           className="text-xs font-semibold text-foreground hover:text-surface-tint inline-flex items-center gap-1 transition-colors"
@@ -276,13 +327,25 @@ export default function SystemDesignProblemsPage() {
                           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                         </Link>
 
-                        <Link
-                          href={`/playground?challenge=${problem.slug}`}
-                          className="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-tint hover:text-on-primary text-[11px] font-mono font-medium text-foreground transition-all flex items-center gap-1 border border-border hover:border-surface-tint"
-                        >
-                          <span>Playground</span>
-                          <ExternalLink className="w-3 h-3" />
-                        </Link>
+                        <div className="flex items-center gap-1.5 shrink-0">
+                          {problem.referenceWorkflow && (
+                            <Link
+                              href={`/playground?challenge=${problem.slug}&mode=solution`}
+                              className="px-2.5 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-tint/15 text-surface-tint text-[11px] font-mono font-medium transition-all flex items-center gap-1 border border-surface-tint/30 no-underline"
+                              title="View reference workflow"
+                            >
+                              <Sparkles className="w-3 h-3" />
+                              <span>Workflow</span>
+                            </Link>
+                          )}
+                          <Link
+                            href={`/playground?challenge=${problem.slug}`}
+                            className="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-tint hover:text-on-primary text-[11px] font-mono font-medium text-foreground transition-all flex items-center gap-1 border border-border hover:border-surface-tint no-underline"
+                          >
+                            <span>Playground</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>

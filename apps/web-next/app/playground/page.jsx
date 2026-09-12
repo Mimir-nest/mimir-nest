@@ -56,6 +56,7 @@ import {
   AlertCircle,
   ExternalLink,
   Award,
+  ArrowRight,
 } from "lucide-react";
 import {
   getProblemBySlug,
@@ -180,13 +181,13 @@ const node = (id, type, position) => ({
   data: { ...registry[type], description: "" },
 });
 const initialNodes = [
-  node("browser", "browser", { x: 30, y: 210 }),
-  node("lb", "load_balancer", { x: 290, y: 210 }),
-  node("gateway", "api_gateway", { x: 550, y: 210 }),
-  node("backend", "backend", { x: 810, y: 210 }),
-  node("postgres", "postgres", { x: 1080, y: 80 }),
-  node("redis", "redis", { x: 1080, y: 210 }),
-  node("kafka", "kafka", { x: 1080, y: 340 }),
+  node("browser", "browser", { x: 40, y: 220 }),
+  node("lb", "load_balancer", { x: 360, y: 220 }),
+  node("gateway", "api_gateway", { x: 680, y: 220 }),
+  node("backend", "backend", { x: 1000, y: 220 }),
+  node("postgres", "postgres", { x: 1330, y: 80 }),
+  node("redis", "redis", { x: 1330, y: 220 }),
+  node("kafka", "kafka", { x: 1330, y: 360 }),
 ];
 const initialEdges = [
   ["browser-lb", "browser", "lb", "HTTPS"],
@@ -301,16 +302,18 @@ function Sidebar({ onAdd }) {
     </aside>
   );
 }
-function Properties({ selection, onUpdate, onClose, onDelete }) {
+function Properties({ selection, onUpdate, onClose, onDelete, isReadOnly = false }) {
   if (!selection) return null;
   const nodeSelected = selection.kind === "node";
   const item = selection.item;
-  const Icon = nodeSelected ? icons[item.data.type] || Sparkles : null;
+  const Icon = nodeSelected ? icons[item.data?.type] || Sparkles : null;
+  const rationale = item.data?.rationale || "";
+
   return (
     <aside className="properties">
       <div className="side-title">
         <div>
-          <em>INSPECTOR</em>
+          <em>{isReadOnly ? "REFERENCE INFO" : "INSPECTOR"}</em>
           <h2>{nodeSelected ? "Node properties" : "Connection properties"}</h2>
         </div>
         <button onClick={onClose}>
@@ -325,73 +328,111 @@ function Properties({ selection, onUpdate, onClose, onDelete }) {
                 <Icon size={17} />
               </i>
               <div>
-                <b>{item.data.label}</b>
-                <small>{item.data.category}</small>
+                <b>{item.data?.label}</b>
+                <small>{item.data?.category || item.data?.subtitle}</small>
               </div>
             </div>
-            <Field
-              label="Name"
-              value={item.data.label}
-              update={(value) => onUpdate({ label: value })}
-            />
-            <Field
-              label="Subtitle"
-              value={item.data.subtitle}
-              update={(value) => onUpdate({ subtitle: value })}
-            />
-            <label>
-              Description
-              <textarea
-                value={item.data.description || ""}
-                onChange={(event) =>
-                  onUpdate({ description: event.target.value })
-                }
-                placeholder="Describe this component..."
-              />
-            </label>
+
+            {rationale && (
+              <div className="p-3 rounded-xl bg-[#ff7657]/10 border border-[#ff7657]/30 text-xs text-[#e9eeeb] space-y-1.5 my-2">
+                <div className="flex items-center gap-1.5 text-[#ff7657] font-mono font-bold text-[10px] uppercase tracking-wider">
+                  <Sparkles size={12} />
+                  <span>Why this component exists</span>
+                </div>
+                <p className="text-[11px] text-[#c2ccca] leading-relaxed m-0">
+                  {rationale}
+                </p>
+              </div>
+            )}
+
+            {!isReadOnly ? (
+              <>
+                <Field
+                  label="Name"
+                  value={item.data?.label}
+                  update={(value) => onUpdate({ label: value })}
+                />
+                <Field
+                  label="Subtitle"
+                  value={item.data?.subtitle}
+                  update={(value) => onUpdate({ subtitle: value })}
+                />
+                <label>
+                  Description
+                  <textarea
+                    value={item.data?.description || ""}
+                    onChange={(event) =>
+                      onUpdate({ description: event.target.value })
+                    }
+                    placeholder="Describe this component..."
+                  />
+                </label>
+              </>
+            ) : (
+              <div className="space-y-2 pt-2 text-xs font-mono text-[#9aa6a5]">
+                <div className="p-2.5 rounded-lg bg-[#0c0f10] border border-[#293032]">
+                  <span className="text-[#687678] block text-[10px] uppercase tracking-wider mb-0.5">Role / Subtitle</span>
+                  <span className="text-[#e1e7e3] font-semibold">{item.data?.subtitle || item.data?.type}</span>
+                </div>
+              </div>
+            )}
           </>
         ) : (
           <>
-            <label>
-              Connection label
-              <select
-                value={item.label || ""}
-                onChange={(event) => onUpdate({ label: event.target.value })}
-              >
-                <option value="">No label</option>
-                {[
-                  "HTTP",
-                  "HTTPS",
-                  "REST",
-                  "GraphQL",
-                  "gRPC",
-                  "WebSocket",
-                  "TCP",
-                  "Read",
-                  "Write",
-                  "Events",
-                  "Async",
-                ].map((label) => (
-                  <option key={label}>{label}</option>
-                ))}
-              </select>
-            </label>
-            <label>
-              Description
-              <textarea
-                value={item.data?.description || ""}
-                onChange={(event) =>
-                  onUpdate({ description: event.target.value })
-                }
-                placeholder="Describe this connection..."
-              />
-            </label>
+            {!isReadOnly ? (
+              <>
+                <label>
+                  Connection label
+                  <select
+                    value={item.label || ""}
+                    onChange={(event) => onUpdate({ label: event.target.value })}
+                  >
+                    <option value="">No label</option>
+                    {[
+                      "HTTP",
+                      "HTTPS",
+                      "REST",
+                      "GraphQL",
+                      "gRPC",
+                      "WebSocket",
+                      "TCP",
+                      "Read",
+                      "Write",
+                      "Events",
+                      "Async",
+                    ].map((label) => (
+                      <option key={label}>{label}</option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  Description
+                  <textarea
+                    value={item.data?.description || ""}
+                    onChange={(event) =>
+                      onUpdate({ description: event.target.value })
+                    }
+                    placeholder="Describe this connection..."
+                  />
+                </label>
+              </>
+            ) : (
+              <div className="space-y-2 text-xs font-mono">
+                <div className="p-2.5 rounded-lg bg-[#0c0f10] border border-[#293032]">
+                  <span className="text-[#687678] block text-[10px] uppercase tracking-wider mb-0.5">Protocol / Connection</span>
+                  <span className="text-[#e1e7e3] font-semibold">{item.label || "Direct Link"}</span>
+                </div>
+              </div>
+            )}
           </>
         )}
-        <button className="delete-property" onClick={onDelete}>
-          <Trash2 size={14} />
-          Delete {nodeSelected ? "node" : "connection"}
-        </button>
+
+        {!isReadOnly && (
+          <button className="delete-property" onClick={onDelete}>
+            <Trash2 size={14} />
+            Delete {nodeSelected ? "node" : "connection"}
+          </button>
+        )}
       </div>
     </aside>
   );
@@ -617,7 +658,7 @@ function ChallengePanel({ challenge, validation, onValidate, onReset, isCollapse
         </div>
       </div>
 
-      {/* Validate / Reset / View Specs Footer */}
+      {/* Validate / Reset / View Specs / Workflow Footer */}
       <div className="p-3.5 bg-[#161c1d] border-t border-[#293032] flex items-center justify-between gap-2 shrink-0">
         <div className="flex items-center gap-2">
           <Link
@@ -634,6 +675,19 @@ function ChallengePanel({ challenge, validation, onValidate, onReset, isCollapse
           >
             Reset
           </button>
+          {challenge.referenceWorkflow && (
+            <>
+              <span className="text-[#293032]">|</span>
+              <Link
+                href={`/playground?challenge=${challenge.slug}&mode=solution`}
+                className="text-[11px] font-mono text-[#ff7657] hover:underline transition-colors flex items-center gap-0.5"
+                title="View reference architecture workflow"
+              >
+                <Sparkles size={11} />
+                <span>Workflow ↗</span>
+              </Link>
+            </>
+          )}
         </div>
 
         <button
@@ -645,6 +699,52 @@ function ChallengePanel({ challenge, validation, onValidate, onReset, isCollapse
           }`}
         >
           {validation.allPassed ? "Complete ✓" : "Validate"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ── Solution Mode Floating Banner ──
+function SolutionBanner({ challenge, onTryYourself }) {
+  if (!challenge) return null;
+
+  return (
+    <div className="absolute top-4 left-4 right-4 z-20 flex flex-col md:flex-row md:items-center justify-between gap-3 p-3.5 sm:px-5 rounded-2xl bg-[#121617]/95 border border-[#ff7657]/40 backdrop-blur-md shadow-2xl font-sans text-xs text-[#e9eeeb]">
+      <div className="flex items-center gap-3">
+        <div className="w-9 h-9 rounded-xl bg-[#ff7657]/15 border border-[#ff7657]/30 flex items-center justify-center text-[#ff7657] shrink-0">
+          <Sparkles size={17} />
+        </div>
+        <div>
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[#ff7657] font-bold">
+              Reference Workflow
+            </span>
+            <span className="text-[#687678]">·</span>
+            <strong className="text-xs text-[#e1e7e3]">{challenge.title}</strong>
+            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/5 text-[#9aa6a5]">
+              Read-Only
+            </span>
+          </div>
+          <p className="text-[11px] text-[#9aa6a5] m-0 mt-0.5 leading-snug">
+            {challenge.referenceWorkflow?.explanation || "Explore one valid reference architecture with component rationales. Click any node to inspect why it exists."}
+          </p>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-2 shrink-0">
+        <Link
+          href={`/system-design/problems/${challenge.slug}`}
+          className="px-3 py-1.5 rounded-xl bg-[#161c1d] hover:bg-[#1f2728] border border-[#293032] text-xs font-mono text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors"
+        >
+          Specs ↗
+        </Link>
+        <button
+          onClick={onTryYourself}
+          className="px-4 py-2 rounded-xl bg-[#ff7657] hover:bg-[#ff8a6f] text-black text-xs font-bold font-mono tracking-wider uppercase transition-all shadow-md shadow-[#ff7657]/20 flex items-center gap-1.5 cursor-pointer border-none"
+        >
+          <span>Try Yourself</span>
+          <ArrowRight size={13} />
         </button>
       </div>
     </div>
@@ -733,6 +833,8 @@ function Toolbar({
   onFit,
   onZoom,
   activeChallenge,
+  isSolutionMode = false,
+  onTryYourself,
 }) {
   const Button = ({ label, children, ...props }) => (
     <button className="tool" title={label} {...props}>
@@ -751,14 +853,21 @@ function Toolbar({
         </Link>
       </div>
       <div className="playground-heading">
-        <strong>System Design Playground</strong>
-        <small>{activeChallenge ? `${activeChallenge.title} Challenge` : "Architecture canvas"}</small>
+        <strong>{isSolutionMode ? "Reference Architecture" : "System Design Playground"}</strong>
+        <small>
+          {isSolutionMode
+            ? `${activeChallenge?.title} · Solution Mode`
+            : activeChallenge
+            ? `${activeChallenge.title} Challenge`
+            : "Architecture canvas"}
+        </small>
       </div>
       <div className="diagram-title">
         <Pencil size={13} />
         <input
           value={title}
-          onChange={(event) => setTitle(event.target.value)}
+          onChange={(event) => !isSolutionMode && setTitle(event.target.value)}
+          readOnly={isSolutionMode}
         />
         <ChevronDown size={14} />
       </div>
@@ -772,13 +881,26 @@ function Toolbar({
             <ExternalLink size={12} />
           </Link>
         )}
-        <Button label="Undo" onClick={undo} disabled={!canUndo}>
-          <Undo2 size={16} />
-        </Button>
-        <Button label="Redo" onClick={redo} disabled={!canRedo}>
-          <Redo2 size={16} />
-        </Button>
-        <i />
+        {isSolutionMode && onTryYourself && (
+          <button
+            onClick={onTryYourself}
+            className="px-3 py-1.5 rounded-lg bg-[#ff7657] hover:bg-[#ff8a6f] text-black text-xs font-mono font-bold uppercase transition-colors border-none cursor-pointer hidden sm:inline-flex items-center gap-1 mr-2"
+          >
+            <span>Try Yourself</span>
+            <ArrowRight size={12} />
+          </button>
+        )}
+        {!isSolutionMode && (
+          <>
+            <Button label="Undo" onClick={undo} disabled={!canUndo}>
+              <Undo2 size={16} />
+            </Button>
+            <Button label="Redo" onClick={redo} disabled={!canRedo}>
+              <Redo2 size={16} />
+            </Button>
+            <i />
+          </>
+        )}
         <Button label="Zoom in" onClick={() => onZoom(1.2)}>
           <Plus size={16} />
         </Button>
@@ -788,13 +910,17 @@ function Toolbar({
         <Button label="Fit view" onClick={onFit}>
           <RotateCcw size={15} />
         </Button>
-        <i />
-        <Button label="Delete selected" onClick={onDelete}>
-          <Trash2 size={16} />
-        </Button>
-        <button className="save" onClick={onSave}>
-          <Save size={15} /> Save
-        </button>
+        {!isSolutionMode && (
+          <>
+            <i />
+            <Button label="Delete selected" onClick={onDelete}>
+              <Trash2 size={16} />
+            </Button>
+            <button className="save" onClick={onSave}>
+              <Save size={15} /> Save
+            </button>
+          </>
+        )}
       </div>
     </header>
   );
@@ -804,6 +930,9 @@ function Editor() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const challengeSlug = searchParams.get("challenge");
+  const mode = searchParams.get("mode");
+  const isSolutionMode = mode === "solution";
+
   const activeChallenge = useMemo(() => {
     return challengeSlug ? getProblemBySlug(challengeSlug) : null;
   }, [challengeSlug]);
@@ -866,13 +995,62 @@ function Editor() {
     setIsCompletedModalOpen(false);
   }, [activeChallenge]);
 
-  // Load starter nodes when challenge changes
+  // Load appropriate nodes depending on mode (Solution Mode vs Build Mode)
   useEffect(() => {
     if (activeChallenge) {
-      setTitle(`${activeChallenge.title} Architecture`);
-      resetChallenge();
+      if (isSolutionMode && activeChallenge.referenceWorkflow) {
+        setTitle(`${activeChallenge.title} Reference Architecture`);
+        const refNodes = activeChallenge.referenceWorkflow.nodes.map((rn) => {
+          const baseNode = node(rn.id, rn.type, rn.position);
+          return {
+            ...baseNode,
+            data: {
+              ...baseNode.data,
+              label: rn.label || baseNode.data.label,
+              subtitle: rn.subtitle || baseNode.data.subtitle,
+              category: rn.category || baseNode.data.category,
+              rationale: rn.rationale || "",
+            },
+          };
+        });
+        const refEdges = activeChallenge.referenceWorkflow.edges.map((re) => ({
+          id: re.id,
+          source: re.source,
+          target: re.target,
+          label: re.label || "",
+          type: "smoothstep",
+          animated: true,
+          markerEnd: { type: MarkerType.ArrowClosed, color: "#ff7657" },
+          data: {
+            label: re.label || "",
+            rationale: re.rationale || "",
+          },
+        }));
+        setNodes(refNodes);
+        setEdges(refEdges);
+        setPast([]);
+        setFuture([]);
+        setSelection(null);
+
+        // Auto-fit view for pristine initial layout presentation
+        setTimeout(() => {
+          reactFlow.fitView({ padding: 0.25, duration: 400 });
+        }, 150);
+      } else {
+        setTitle(`${activeChallenge.title} Architecture`);
+        resetChallenge();
+        setTimeout(() => {
+          reactFlow.fitView({ padding: 0.2, duration: 350 });
+        }, 150);
+      }
     }
-  }, [activeChallenge, resetChallenge]);
+  }, [activeChallenge, isSolutionMode, resetChallenge, reactFlow]);
+
+  const handleTryYourself = useCallback(() => {
+    if (activeChallenge) {
+      router.push(`/playground?challenge=${activeChallenge.slug}`);
+    }
+  }, [activeChallenge, router]);
 
   const handleValidate = () => {
     if (validation.allPassed) {
@@ -894,37 +1072,41 @@ function Editor() {
   const snapshot = useCallback(() => ({ nodes, edges }), [nodes, edges]);
   const history = useCallback(
     (state = snapshot()) => {
+      if (isSolutionMode) return;
       setPast((items) => [...items.slice(-29), state]);
       setFuture([]);
     },
-    [snapshot],
+    [snapshot, isSolutionMode],
   );
   const onNodesChange = useCallback(
     (changes) => {
+      if (isSolutionMode) return;
       if (changes.some((change) => change.type === "remove")) history();
       setNodes((items) => applyNodeChanges(changes, items));
     },
-    [history],
+    [history, isSolutionMode],
   );
   const onEdgesChange = useCallback(
     (changes) => {
+      if (isSolutionMode) return;
       if (changes.some((change) => change.type === "remove")) history();
       setEdges((items) => applyEdgeChanges(changes, items));
     },
-    [history],
+    [history, isSolutionMode],
   );
   const add = useCallback(
     (type, customPosition) => {
+      if (isSolutionMode) return;
       history();
       setNodes((items) => {
         let pos = customPosition;
         if (!pos) {
-          // Calculate an unoccupied grid position so consecutive additions never stack or overlap
+          // Calculate an unoccupied grid position with generous spacing so nodes and connection labels have breathing room
           const count = items.length;
-          const col = Math.floor(count / 5);
-          const row = count % 5;
-          let candidateX = 220 + (col * 240) + (row * 15);
-          let candidateY = 120 + (row * 90);
+          const col = Math.floor(count / 4);
+          const row = count % 4;
+          let candidateX = 220 + (col * 340) + (row * 15);
+          let candidateY = 120 + (row * 130);
 
           // If there's an existing node too close, keep shifting until an open spot is found
           let attempts = 0;
@@ -932,12 +1114,12 @@ function Editor() {
             attempts < 30 &&
             items.some(
               (n) =>
-                Math.abs(n.position.x - candidateX) < 140 &&
-                Math.abs(n.position.y - candidateY) < 70
+                Math.abs(n.position.x - candidateX) < 220 &&
+                Math.abs(n.position.y - candidateY) < 80
             )
           ) {
-            candidateX += 40;
-            candidateY += 35;
+            candidateX += 60;
+            candidateY += 45;
             attempts++;
           }
           pos = { x: candidateX, y: candidateY };
@@ -947,10 +1129,10 @@ function Editor() {
         return [...items, node(newNodeId, type, pos)];
       });
     },
-    [history],
+    [history, isSolutionMode],
   );
   const remove = useCallback(() => {
-    if (!selection) return;
+    if (isSolutionMode || !selection) return;
     history();
     if (selection.kind === "node") {
       setNodes((items) =>
@@ -968,28 +1150,28 @@ function Editor() {
         items.filter((item) => item.id !== selection.item.id),
       );
     setSelection(null);
-  }, [selection, history]);
+  }, [selection, history, isSolutionMode]);
   const undo = useCallback(() => {
-    if (!past.length) return;
+    if (isSolutionMode || !past.length) return;
     const previous = past[past.length - 1];
     setFuture((items) => [{ nodes, edges }, ...items]);
     setPast((items) => items.slice(0, -1));
     setNodes(previous.nodes);
     setEdges(previous.edges);
     setSelection(null);
-  }, [past, nodes, edges]);
+  }, [past, nodes, edges, isSolutionMode]);
   const redo = useCallback(() => {
-    if (!future.length) return;
+    if (isSolutionMode || !future.length) return;
     const next = future[0];
     setPast((items) => [...items, { nodes, edges }]);
     setFuture((items) => items.slice(1));
     setNodes(next.nodes);
     setEdges(next.edges);
     setSelection(null);
-  }, [future, nodes, edges]);
+  }, [future, nodes, edges, isSolutionMode]);
   const update = useCallback(
     (changes) => {
-      if (!selection) return;
+      if (isSolutionMode || !selection) return;
       if (selection.kind === "node")
         setNodes((items) =>
           items.map((item) =>
@@ -1017,7 +1199,7 @@ function Editor() {
             : { ...selection.item, ...changes },
       }));
     },
-    [selection],
+    [selection, isSolutionMode],
   );
   const onSelectionChange = useCallback(({ nodes: selectedNodes, edges: selectedEdges }) => {
     const selectedNode = selectedNodes[0];
@@ -1039,7 +1221,7 @@ function Editor() {
     });
   }, []);
   const duplicate = useCallback(() => {
-    if (!selection || selection.kind !== "node") return;
+    if (isSolutionMode || !selection || selection.kind !== "node") return;
     const source = selection.item;
     clipboard.current = source;
     history();
@@ -1069,8 +1251,9 @@ function Editor() {
         },
       ];
     });
-  }, [selection, history]);
+  }, [selection, history, isSolutionMode]);
   const openContextMenu = useCallback((event, kind, item) => {
+    if (isSolutionMode) return;
     event.preventDefault();
     event.stopPropagation();
     setSelection({ kind, item });
@@ -1079,12 +1262,12 @@ function Editor() {
       y: event.clientY,
       kind,
     });
-  }, []);
+  }, [isSolutionMode]);
   const closeContextMenu = useCallback(() => setContextMenu(null), []);
 
   useEffect(() => {
-    // Only load generic canvasstate if not opening a specific challenge
-    if (!challengeSlug && localStorage.getItem("canvasstate")) {
+    // Only load generic canvasstate if not opening a specific challenge or solution
+    if (!challengeSlug && !isSolutionMode && localStorage.getItem("canvasstate")) {
       try {
         const data = localStorage.getItem("canvasstate");
         const parsed = JSON.parse(data);
@@ -1094,10 +1277,11 @@ function Editor() {
         console.debug("Failed to restore canvas state:", e);
       }
     }
-  }, [challengeSlug]);
+  }, [challengeSlug, isSolutionMode]);
 
   useEffect(() => {
     const key = (event) => {
+      if (isSolutionMode) return;
       const mod = event.metaKey || event.ctrlKey;
       if (mod && event.key.toLowerCase() === "z") {
         event.preventDefault();
@@ -1155,7 +1339,7 @@ function Editor() {
     };
     window.addEventListener("keydown", key);
     return () => window.removeEventListener("keydown", key);
-  }, [undo, redo, duplicate, remove, selection, history]);
+  }, [undo, redo, duplicate, remove, selection, history, isSolutionMode]);
 
   return (
     <>
@@ -1170,8 +1354,8 @@ function Editor() {
             setTitle={setTitle}
             undo={undo}
             redo={redo}
-            canUndo={past.length > 0}
-            canRedo={future.length > 0}
+            canUndo={!isSolutionMode && past.length > 0}
+            canRedo={!isSolutionMode && future.length > 0}
             onDelete={remove}
             onFit={() => reactFlow.fitView({ padding: 0.2, duration: 350 })}
             onZoom={(factor) => reactFlow.zoomIn({ duration: 180, factor })}
@@ -1184,6 +1368,8 @@ function Editor() {
               setTimeout(() => setSaved(false), 1600);
             }}
             activeChallenge={activeChallenge}
+            isSolutionMode={isSolutionMode}
+            onTryYourself={handleTryYourself}
           />
           <div className="body">
             <Sidebar onAdd={add} />
@@ -1192,6 +1378,7 @@ function Editor() {
               onClick={closeContextMenu}
               onDrop={(event) => {
                 event.preventDefault();
+                if (isSolutionMode) return;
                 const type = event.dataTransfer.getData("system-design");
                 if (type)
                   add(
@@ -1206,8 +1393,16 @@ function Editor() {
                 event.preventDefault();
               }}
             >
-              {/* Challenge Floating Overlay */}
-              {activeChallenge && (
+              {/* Solution Mode Header / Banner */}
+              {isSolutionMode && activeChallenge && (
+                <SolutionBanner
+                  challenge={activeChallenge}
+                  onTryYourself={handleTryYourself}
+                />
+              )}
+
+              {/* Build Mode Challenge Floating Overlay */}
+              {!isSolutionMode && activeChallenge && (
                 <ChallengePanel
                   challenge={activeChallenge}
                   validation={validation}
@@ -1235,16 +1430,24 @@ function Editor() {
               )}
 
               <div className="canvas-label">
-                <span /> LIVE CANVAS{" "}
-                <small>Drag components from the library to begin</small>
+                <span /> {isSolutionMode ? "REFERENCE ARCHITECTURE" : "LIVE CANVAS"}{" "}
+                <small>
+                  {isSolutionMode
+                    ? "Read-only architecture view · Select any component to inspect rationale"
+                    : "Drag components from the library to begin"}
+                </small>
               </div>
               <ReactFlow
                 nodes={nodes}
                 edges={edges}
                 nodeTypes={nodeTypes}
-                onNodesChange={onNodesChange}
-                onEdgesChange={onEdgesChange}
+                onNodesChange={isSolutionMode ? undefined : onNodesChange}
+                onEdgesChange={isSolutionMode ? undefined : onEdgesChange}
+                nodesDraggable={!isSolutionMode}
+                nodesConnectable={!isSolutionMode}
+                elementsSelectable={true}
                 onConnect={(connection) => {
+                  if (isSolutionMode) return;
                   history();
                   setEdges((items) =>
                     addEdge(
@@ -1263,13 +1466,16 @@ function Editor() {
                   );
                 }}
                 onReconnect={(oldEdge, newConnection) => {
+                  if (isSolutionMode) return;
                   history();
                   setEdges((items) => reconnectEdge(oldEdge, newConnection, items));
                 }}
                 onNodeDragStart={() => {
+                  if (isSolutionMode) return;
                   dragStart.current = snapshot();
                 }}
                 onNodeDragStop={() => {
+                  if (isSolutionMode) return;
                   if (dragStart.current) {
                     history(dragStart.current);
                     dragStart.current = null;
@@ -1277,17 +1483,17 @@ function Editor() {
                 }}
                 onSelectionChange={onSelectionChange}
                 onNodeContextMenu={(event, item) =>
-                  openContextMenu(event, "node", item)
+                  !isSolutionMode && openContextMenu(event, "node", item)
                 }
                 onEdgeContextMenu={(event, item) =>
-                  openContextMenu(event, "edge", item)
+                  !isSolutionMode && openContextMenu(event, "edge", item)
                 }
                 onPaneContextMenu={closeContextMenu}
                 connectionLineStyle={connectionLineStyle}
                 snapToGrid
                 snapGrid={snapGrid}
                 fitView
-                selectionOnDrag
+                selectionOnDrag={!isSolutionMode}
                 panOnDrag={[1, 2]}
                 defaultEdgeOptions={defaultEdgeOptions}
                 proOptions={proOptions}
@@ -1331,6 +1537,7 @@ function Editor() {
               onUpdate={update}
               onClose={() => setSelection(null)}
               onDelete={remove}
+              isReadOnly={isSolutionMode}
             />
           </div>
           {saved && (
@@ -1762,12 +1969,25 @@ function Editor() {
           filter: drop-shadow(0 0 4px #ff765799);
         }
         .react-flow__edge-text {
-          fill: #aab6b3;
-          font: 10px monospace;
+          fill: #e1e7e3;
+          font: 10px / 1.2 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+          font-weight: 600;
+          letter-spacing: -0.01em;
         }
         .react-flow__edge-textbg {
-          fill: #151b1c;
-          stroke: #344041;
+          fill: #161c1d;
+          stroke: #364446;
+          stroke-width: 1px;
+          rx: 5px;
+          ry: 5px;
+        }
+        .react-flow__edge.selected .react-flow__edge-textbg {
+          stroke: #ff7657;
+          stroke-width: 1.5px;
+          fill: #1e1615;
+        }
+        .react-flow__edge.selected .react-flow__edge-text {
+          fill: #ffb09e;
         }
         .react-flow__controls {
           bottom: 18px;
