@@ -13,18 +13,18 @@ const COMPANIES = [
   { name: "Tata Consultancy Services (TCS)", logo: "/logos/tcs.svg" },
   { name: "Infosys", logo: "/logos/infosys.svg" },
   { name: "Wipro", logo: "/logos/wipro.svg" },
-  { name: "Swiggy", logo: "/logos/swiggy.svg" },
   { name: "Zomato", logo: "/logos/zomato.svg" },
-  { name: "PhonePe", logo: "/logos/phonepe.svg" },
   { name: "Paytm", logo: "/logos/paytm.svg" },
   { name: "Razorpay", logo: "/logos/razorpay.svg" },
+  { name: "Ola", logo: "/logos/ola.svg" },
+  { name: "Zoho", logo: "/logos/zoho.svg" },
+  { name: "Postman", logo: "/logos/postman.svg" },
   { name: "Google", logo: "/logos/google.svg" },
   { name: "Microsoft", logo: "/logos/microsoft.svg" },
   { name: "Amazon", logo: "/logos/amazon.svg" },
   { name: "NVIDIA", logo: "/logos/nvidia.svg" },
   { name: "Meta", logo: "/logos/meta.svg" },
   { name: "Adobe", logo: "/logos/adobe.svg" },
-  { name: "Bosch", logo: "/logos/bosch.svg" },
 ];
 
 const TrustedBy = () => {
