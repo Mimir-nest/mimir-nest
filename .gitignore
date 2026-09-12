@@ -44,3 +44,13 @@ coverage
 
 # TypeScript incremental state
 *.tsbuildinfo
+
+# Reports & Documentation Artifacts
+reports/
+reports/*
+report/
+report/*
+artifacts/
+scratch/
+.tmp/
+temp/
