@@ -430,22 +430,22 @@ function evaluateChallengeConstraints(challenge, nodes, edges) {
     let passed = false;
     let label = reqType;
 
-    if (reqType === "load_balancer") {
+    if (reqType === "load_balancer" || reqType === "api_gateway" || reqType === "reverse_proxy") {
       passed = nodeTypes.has("load_balancer") || nodeTypes.has("api_gateway") || nodeTypes.has("reverse_proxy");
       label = "Load Balancer / API Gateway";
-    } else if (reqType === "backend") {
+    } else if (reqType === "backend" || reqType === "microservice" || reqType === "server" || reqType === "serverless" || reqType === "container") {
       passed = nodeTypes.has("backend") || nodeTypes.has("microservice") || nodeTypes.has("server") || nodeTypes.has("serverless") || nodeTypes.has("container");
       label = "Compute / Backend Service";
-    } else if (reqType === "postgres") {
+    } else if (reqType === "postgres" || reqType === "mysql" || reqType === "sql" || reqType === "mongodb" || reqType === "nosql") {
       passed = nodeTypes.has("postgres") || nodeTypes.has("mysql") || nodeTypes.has("sql") || nodeTypes.has("mongodb") || nodeTypes.has("nosql");
       label = "Database (SQL / NoSQL)";
-    } else if (reqType === "redis") {
+    } else if (reqType === "redis" || reqType === "memcached") {
       passed = nodeTypes.has("redis") || nodeTypes.has("memcached");
       label = "In-Memory Cache (Redis / Memcached)";
-    } else if (reqType === "kafka") {
+    } else if (reqType === "kafka" || reqType === "rabbitmq" || reqType === "queue") {
       passed = nodeTypes.has("kafka") || nodeTypes.has("rabbitmq") || nodeTypes.has("queue");
       label = "Message Stream / Queue (Kafka / RabbitMQ)";
-    } else if (reqType === "object_storage") {
+    } else if (reqType === "object_storage" || reqType === "file_storage") {
       passed = nodeTypes.has("object_storage") || nodeTypes.has("file_storage");
       label = "Blob / Object Storage";
     } else if (reqType === "search") {
@@ -460,6 +460,9 @@ function evaluateChallengeConstraints(challenge, nodes, edges) {
     } else if (reqType === "auth") {
       passed = nodeTypes.has("auth");
       label = "Authentication Service";
+    } else if (reqType === "external_api" || reqType === "custom") {
+      passed = nodeTypes.has("external_api") || nodeTypes.has("custom");
+      label = "External Service Integration";
     } else {
       passed = nodeTypes.has(reqType);
       label = reqType.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
@@ -493,7 +496,7 @@ function evaluateChallengeConstraints(challenge, nodes, edges) {
 }
 
 // ── Challenge Overlay Panel ──
-function ChallengePanel({ challenge, validation, onValidate, isCollapsed, setIsCollapsed }) {
+function ChallengePanel({ challenge, validation, onValidate, onReset, isCollapsed, setIsCollapsed }) {
   if (!challenge) return null;
 
   const passedCount = validation.results.filter((r) => r.passed).length;
@@ -614,14 +617,24 @@ function ChallengePanel({ challenge, validation, onValidate, isCollapsed, setIsC
         </div>
       </div>
 
-      {/* Validate / Complete Button */}
+      {/* Validate / Reset / View Specs Footer */}
       <div className="p-3.5 bg-[#161c1d] border-t border-[#293032] flex items-center justify-between gap-2 shrink-0">
-        <Link
-          href={`/system-design/problems/${challenge.slug}`}
-          className="text-[11px] font-mono text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors"
-        >
-          View Specs ↗
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link
+            href={`/system-design/problems/${challenge.slug}`}
+            className="text-[11px] font-mono text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors"
+          >
+            Specs ↗
+          </Link>
+          <span className="text-[#293032]">|</span>
+          <button
+            onClick={onReset}
+            className="text-[11px] font-mono text-[#9aa6a5] hover:text-rose-400 transition-colors bg-transparent border-none cursor-pointer p-0"
+            title="Reset challenge architecture"
+          >
+            Reset
+          </button>
+        </div>
 
         <button
           onClick={onValidate}
@@ -639,7 +652,7 @@ function ChallengePanel({ challenge, validation, onValidate, isCollapsed, setIsC
 }
 
 // ── Completion Success Modal ──
-function CompletionModal({ challenge, validation, onClose, onNextChallenge }) {
+function CompletionModal({ challenge, validation, onClose, onReset, onNextChallenge }) {
   if (!challenge) return null;
 
   return (
@@ -678,10 +691,13 @@ function CompletionModal({ challenge, validation, onClose, onNextChallenge }) {
 
         <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
           <button
-            onClick={onClose}
+            onClick={() => {
+              onClose();
+              if (onReset) onReset();
+            }}
             className="w-full py-2.5 px-4 rounded-xl bg-[#161c1d] hover:bg-[#1f2728] border border-[#293032] text-xs font-mono font-medium text-[#e1e7e3] transition-colors cursor-pointer"
           >
-            Keep Designing
+            Try Again
           </button>
 
           {onNextChallenge ? (
@@ -815,10 +831,8 @@ function Editor() {
     return evaluateChallengeConstraints(activeChallenge, nodes, edges);
   }, [activeChallenge, nodes, edges]);
 
-  // Load starter nodes when challenge changes
-  useEffect(() => {
+  const resetChallenge = useCallback(() => {
     if (activeChallenge) {
-      setTitle(`${activeChallenge.title} Architecture`);
       if (activeChallenge.starterNodes && activeChallenge.starterNodes.length > 0) {
         const customNodes = activeChallenge.starterNodes.map((sn) =>
           node(sn.id, sn.type, sn.position)
@@ -838,9 +852,27 @@ function Editor() {
         } else {
           setEdges([]);
         }
+      } else {
+        setNodes([]);
+        setEdges([]);
       }
+    } else {
+      setNodes(initialNodes);
+      setEdges(initialEdges);
     }
+    setPast([]);
+    setFuture([]);
+    setSelection(null);
+    setIsCompletedModalOpen(false);
   }, [activeChallenge]);
+
+  // Load starter nodes when challenge changes
+  useEffect(() => {
+    if (activeChallenge) {
+      setTitle(`${activeChallenge.title} Architecture`);
+      resetChallenge();
+    }
+  }, [activeChallenge, resetChallenge]);
 
   const handleValidate = () => {
     if (validation.allPassed) {
@@ -1120,9 +1152,26 @@ function Editor() {
                   challenge={activeChallenge}
                   validation={validation}
                   onValidate={handleValidate}
+                  onReset={resetChallenge}
                   isCollapsed={isChallengePanelCollapsed}
                   setIsCollapsed={setIsChallengePanelCollapsed}
                 />
+              )}
+
+              {/* Invalid Challenge Notification Banner */}
+              {challengeSlug && !activeChallenge && (
+                <div className="absolute top-4 left-4 z-20 flex items-center gap-3 p-3 px-4 rounded-xl bg-[#1a140d]/95 border border-amber-500/40 text-xs font-mono text-amber-300 backdrop-blur-md shadow-2xl">
+                  <AlertCircle size={15} className="shrink-0 text-amber-400" />
+                  <span>
+                    Challenge &quot;{challengeSlug}&quot; not found. Loaded blank playground.
+                  </span>
+                  <Link
+                    href="/system-design/problems"
+                    className="underline text-amber-200 hover:text-white font-semibold ml-1 no-underline hover:underline"
+                  >
+                    Browse Challenges →
+                  </Link>
+                </div>
               )}
 
               <div className="canvas-label">
@@ -1236,6 +1285,7 @@ function Editor() {
               challenge={activeChallenge}
               validation={validation}
               onClose={() => setIsCompletedModalOpen(false)}
+              onReset={resetChallenge}
               onNextChallenge={handleNextChallenge}
             />
           )}
