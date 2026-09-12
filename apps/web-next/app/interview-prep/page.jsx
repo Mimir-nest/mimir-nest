@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import {
@@ -19,6 +21,11 @@ import {
 import CompanyLogo from "@/components/common/CompanyLogo";
 import { companyToSlug } from "@/lib/interviewPrepUtils";
 import { useAuthStore } from "@/store/useAuthStore";
+
+const ParticleWave = dynamic(
+  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
+  { ssr: false }
+);
 
 export default function InterviewPrepHub() {
   const { isAuthenticated, openAuthModal } = useAuthStore();
@@ -115,52 +122,107 @@ export default function InterviewPrepHub() {
   );
 
   return (
-    <div className="min-h-screen bg-[#0F1010] text-[#F4F1EA] selection:bg-[#FF5A36] selection:text-[#0F1010]">
+    <div className="min-h-screen bg-mn-background text-on-background selection:bg-surface-tint/30">
       <Navbar />
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-24 space-y-20">
-        {/* ── 1. HERO SECTION ── */}
-        <section className="text-left space-y-6 pt-2">
-          {/* Small eyebrow */}
-          <div className="inline-flex items-center gap-2">
-            <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-[#FF5A36]">
-              INTERVIEW PREP
-            </span>
-          </div>
+      {/* ── Sanctuary Flagship Hero Header ── */}
+      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-4 sm:px-6 md:px-16 overflow-hidden rounded-b-3xl border-b border-border/40">
+        {/* Background Particle Wave */}
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
+          <ParticleWave />
+        </div>
 
-          {/* Main heading */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#F4F1EA] max-w-3xl leading-[1.12]">
-            Prepare for the conversations behind the interview.
-          </h1>
+        {/* Ambient Decorative Glowing Rings */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-primary-container/40 -translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
-          {/* Supporting text */}
-          <p className="text-base sm:text-lg text-[#9B9992] max-w-2xl leading-relaxed">
-            Practice behavioral, leadership, strategy, product, finance, and market-focused questions from leading companies.
-          </p>
+        <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
+          {/* Eyebrow badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-xs font-label-caps text-surface-tint tracking-widest uppercase mx-auto"
+          >
+            <Sparkles className="w-4 h-4 text-surface-tint" />
+            <span>Non-Technical Interview Prep</span>
+          </motion.div>
 
-          {/* Metadata row (understated typography & separators) */}
-          <div className="flex items-center gap-3 pt-1 text-xs sm:text-sm font-mono text-[#9B9992]">
-            <span className="text-[#F4F1EA] font-semibold">400 Questions</span>
-            <span className="text-[#9B9992]/40">·</span>
-            <span className="text-[#F4F1EA] font-semibold">20 Companies</span>
-            <span className="text-[#9B9992]/40">·</span>
-            <span className="text-[#F4F1EA] font-semibold">8 Categories</span>
-          </div>
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="font-display-lg text-display-lg-mobile md:text-display-lg text-foreground leading-tight"
+          >
+            Prepare for the Conversations <br />
+            <span className="text-surface-tint">Behind the Interview.</span>
+          </motion.h1>
 
-          {/* Primary & Secondary CTAs */}
-          <div className="flex flex-wrap items-center gap-3 pt-3">
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="font-body-lg text-body-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+          >
+            Practice behavioral, leadership, product strategy, consulting, and market-focused interview questions from 20 top-tier global companies with verified response blueprints.
+          </motion.p>
+
+          {/* Stats Strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto pt-2"
+          >
+            {[
+              { label: "Questions", val: "400 Total" },
+              { label: "Top Companies", val: "20 Leaders" },
+              { label: "Core Categories", val: "8 Roles" },
+              { label: "Framework", val: "STAR Ready" },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className="p-3.5 rounded-xl glass-panel text-center border border-border/40"
+              >
+                <div className="font-headline-md text-xl text-foreground font-bold">
+                  {stat.val}
+                </div>
+                <div className="text-[10px] font-label-caps text-muted-foreground uppercase tracking-widest mt-0.5">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Action CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex flex-wrap items-center justify-center gap-3 pt-2"
+          >
             <button
               onClick={() => scrollToSection("companies")}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#FF5A36] text-[#0F1010] font-semibold text-xs font-label-caps tracking-widest uppercase hover:scale-[1.02] transition-transform border-none cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-surface-tint text-on-primary font-semibold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all duration-200 shadow-lg shadow-surface-tint/20 cursor-pointer border-none"
             >
               <span>Explore Companies</span>
               <ArrowRight className="w-4 h-4" />
             </button>
-          </div>
-        </section>
+            <button
+              onClick={() => scrollToSection("how-to-prepare")}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full glass-panel text-foreground hover:text-surface-tint hover:bg-white/5 font-semibold text-xs font-label-caps tracking-widest uppercase transition-all duration-200 border border-border/60 cursor-pointer"
+            >
+              <span>How To Prepare</span>
+            </button>
+          </motion.div>
+        </div>
+      </section>
 
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 space-y-20">
         {/* ── 2. QUICK START / PRACTICE DIMENSIONS ── */}
-        <section className="space-y-4">
+        <section id="how-to-prepare" className="space-y-4">
           <h2 className="text-xs font-mono uppercase tracking-widest text-[#9B9992] font-semibold">
             How to prepare
           </h2>

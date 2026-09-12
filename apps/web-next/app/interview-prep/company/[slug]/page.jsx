@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { motion, AnimatePresence } from "framer-motion";
@@ -27,6 +28,11 @@ import {
 } from "lucide-react";
 import CompanyLogo from "@/components/common/CompanyLogo";
 import { findCompanyBySlug, difficultyMeta } from "@/lib/interviewPrepUtils";
+
+const ParticleWave = dynamic(
+  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
+  { ssr: false }
+);
 
 export default function CompanyInterviewPage() {
   const params = useParams();
@@ -227,117 +233,142 @@ export default function CompanyInterviewPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0F1010] text-[#F4F1EA] selection:bg-[#FF5A36] selection:text-[#0F1010]">
+    <div className="min-h-screen bg-mn-background text-on-background selection:bg-surface-tint/30">
       <Navbar />
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-24">
-        {/* Breadcrumbs */}
-        <div className="flex items-center gap-2 text-xs font-mono text-[#9B9992] mb-8">
-          <Link
-            href="/interview-prep"
-            className="hover:text-[#FF5A36] transition-colors flex items-center gap-1.5"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Interview Prep</span>
-          </Link>
-          <span>/</span>
-          <Link
-            href="/interview-prep#companies"
-            className="hover:text-[#FF5A36] transition-colors"
-          >
-            Companies
-          </Link>
-          <span>/</span>
-          <span className="text-[#F4F1EA] font-semibold">
-            {companyData?.name || slug}
-          </span>
+      {/* ── Sanctuary Flagship Company Hero Header ── */}
+      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-12 md:pb-16 px-4 sm:px-6 md:px-16 overflow-hidden rounded-b-3xl border-b border-border/40">
+        {/* Background Particle Wave */}
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
+          <ParticleWave />
         </div>
 
-        {/* Loading State */}
-        {loading && (
-          <div className="p-16 text-center rounded-2xl bg-[#151616] border border-[#242525]">
-            <div className="w-8 h-8 border-2 border-[#FF5A36] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-[#9B9992] text-sm">Loading company interview questions...</p>
-          </div>
-        )}
+        {/* Ambient Decorative Glowing Rings */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-primary-container/40 -translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
-        {/* Error State */}
-        {error && !loading && (
-          <div className="p-12 text-center rounded-2xl bg-[#151616] border border-[#242525]">
-            <Building2 className="w-10 h-10 text-[#FF5A36] mx-auto mb-3" />
-            <h2 className="text-lg font-bold text-[#F4F1EA] mb-2">Company Not Found</h2>
-            <p className="text-sm text-[#9B9992] mb-6 max-w-md mx-auto">{error}</p>
+        <div className="max-w-6xl mx-auto relative z-10 space-y-6">
+          {/* Breadcrumbs */}
+          <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
             <Link
               href="/interview-prep"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#FF5A36] text-[#0F1010] font-semibold text-xs font-label-caps tracking-wider hover:opacity-90 transition-opacity"
+              className="hover:text-surface-tint transition-colors flex items-center gap-1.5"
             >
-              Back to Companies
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>Interview Prep</span>
             </Link>
+            <span>/</span>
+            <Link
+              href="/interview-prep#companies"
+              className="hover:text-surface-tint transition-colors"
+            >
+              Companies
+            </Link>
+            <span>/</span>
+            <span className="text-foreground font-semibold">
+              {companyData?.name || slug}
+            </span>
           </div>
-        )}
 
-        {companyData && !loading && (
-          <div className="space-y-12">
-            {/* ── 1. Company Hero ── */}
-            <div className="p-6 sm:p-10 rounded-2xl bg-[#151616] border border-[#242525] relative overflow-hidden">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
-                <div className="flex items-start gap-4 sm:gap-6">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#1E2020] p-3 flex items-center justify-center border border-[#242525] shrink-0">
-                    <CompanyLogo company={companyData.name} className="w-10 h-10 sm:w-12 sm:h-12" />
-                  </div>
+          {/* Loading State */}
+          {loading && (
+            <div className="p-16 text-center rounded-2xl glass-panel border border-border/40">
+              <div className="w-8 h-8 border-2 border-surface-tint border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+              <p className="text-muted-foreground text-sm">Loading company interview questions...</p>
+            </div>
+          )}
 
-                  <div>
-                    <div className="flex flex-wrap items-center gap-2.5 mb-2">
-                      <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-[#FF5A36] px-2.5 py-0.5 rounded bg-[#FF5A36]/10 border border-[#FF5A36]/25">
-                        {companyData.industry || "Technology"}
-                      </span>
-                      <span className="text-xs text-[#9B9992] font-mono">
-                        {questions.length} Interview Questions
-                      </span>
-                    </div>
+          {/* Error State */}
+          {error && !loading && (
+            <div className="p-12 text-center rounded-2xl glass-panel border border-border/40">
+              <Building2 className="w-10 h-10 text-surface-tint mx-auto mb-3" />
+              <h2 className="text-lg font-bold text-foreground mb-2">Company Not Found</h2>
+              <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">{error}</p>
+              <Link
+                href="/interview-prep"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-tint text-on-primary font-semibold text-xs font-label-caps tracking-wider hover:opacity-90 transition-opacity"
+              >
+                Back to Companies
+              </Link>
+            </div>
+          )}
 
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#F4F1EA] tracking-tight">
-                      {companyData.name}
-                    </h1>
-
-                    <p className="text-sm text-[#9B9992] mt-2 max-w-2xl leading-relaxed">
-                      Practice non-technical interview questions across behavioral, leadership, strategy, and other interview dimensions contextualized for {companyData.name}.
-                    </p>
-                  </div>
+          {companyData && !loading && (
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pt-2">
+              <div className="flex items-start gap-4 sm:gap-6">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-surface-container-high p-3 flex items-center justify-center border border-border/40 shadow-xl shrink-0">
+                  <CompanyLogo company={companyData.name} className="w-10 h-10 sm:w-12 sm:h-12" />
                 </div>
 
-                {/* Hero Actions */}
-                <div className="flex flex-row md:flex-col gap-3 shrink-0 pt-2 md:pt-0">
-                  <button
-                    onClick={scrollToQuestions}
-                    className="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#FF5A36] text-[#0F1010] font-semibold text-xs font-label-caps tracking-widest uppercase hover:scale-[1.02] transition-transform border-none cursor-pointer"
-                  >
-                    <span>Start Practice</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                  <Link
-                    href="/interview-prep#companies"
-                    className="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#1E2020] text-[#9B9992] hover:text-[#F4F1EA] border border-[#242525] hover:border-[#FF5A36]/30 transition-colors text-xs font-label-caps tracking-wider text-center"
-                  >
-                    All Companies
-                  </Link>
+                <div className="space-y-2">
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-surface-tint px-2.5 py-0.5 rounded-full glass-panel border border-surface-tint/30">
+                      {companyData.industry || "Technology"}
+                    </span>
+                    <span className="text-xs text-muted-foreground font-mono">
+                      {questions.length} Questions
+                    </span>
+                  </div>
+
+                  <h1 className="font-display-lg text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
+                    {companyData.name} <span className="text-surface-tint">Interview Vault</span>
+                  </h1>
+
+                  <p className="font-body-md text-sm sm:text-base text-muted-foreground max-w-2xl leading-relaxed">
+                    Practice real non-technical interview questions across behavioral, leadership, product, strategy, and analytical dimensions asked at {companyData.name}.
+                  </p>
                 </div>
               </div>
 
-              {/* Progress snippet within company */}
-              <div className="mt-8 pt-6 border-t border-[#242525] flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
-                <div className="flex items-center gap-3">
-                  <span className="text-[#9B9992]">Company Progress:</span>
-                  <span className="text-[#F4F1EA] font-semibold">
-                    {companyPracticedCount} of {questions.length} practiced
-                  </span>
-                </div>
-                <div className="w-full sm:w-48 h-1.5 rounded-full bg-[#1E2020] overflow-hidden">
-                  <div
-                    className="h-full bg-[#FF5A36] transition-all duration-300"
-                    style={{
-                      width: `${
-                        questions.length > 0
+              {/* Hero Actions */}
+              <div className="flex flex-row md:flex-col gap-3 shrink-0 pt-2 md:pt-0">
+                <button
+                  onClick={scrollToQuestions}
+                  className="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-surface-tint text-on-primary font-semibold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all duration-200 shadow-lg shadow-surface-tint/20 cursor-pointer border-none"
+                >
+                  <span>Start Practice</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <Link
+                  href="/interview-prep#companies"
+                  className="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full glass-panel text-foreground hover:text-surface-tint hover:bg-white/5 border border-border/60 transition-colors text-xs font-label-caps tracking-wider text-center"
+                >
+                  All Companies
+                </Link>
+              </div>
+            </div>
+          )}
+
+          {companyData && !loading && (
+            /* Progress snippet within company */
+            <div className="pt-4 border-t border-border/40 flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
+              <div className="flex items-center gap-3">
+                <span className="text-muted-foreground">Company Progress:</span>
+                <span className="text-foreground font-semibold">
+                  {companyPracticedCount} of {questions.length} practiced ({Math.round(questions.length > 0 ? (companyPracticedCount / questions.length) * 100 : 0)}%)
+                </span>
+              </div>
+              <div className="w-full sm:w-56 h-2 rounded-full bg-surface-container-high overflow-hidden border border-border/40">
+                <div
+                  className="h-full bg-surface-tint transition-all duration-300"
+                  style={{
+                    width: `${
+                      questions.length > 0
+                        ? (companyPracticedCount / questions.length) * 100
+                        : 0
+                    }%`,
+                  }}
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        {companyData && !loading && (
+          <div className="space-y-12">
                           ? (companyPracticedCount / questions.length) * 100
                           : 0
                       }%`,

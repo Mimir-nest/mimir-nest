@@ -159,7 +159,7 @@ const PlacementDSA = () => {
       <Navbar />
 
       {/* ── Crazy Deep Emerald Hero Section ── */}
-      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl">
+      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl border-b border-border/40">
         {/* Background Particle Wave */}
         <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
           <ParticleWave />
