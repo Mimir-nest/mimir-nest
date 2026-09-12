@@ -98,6 +98,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for local setup, development guidelines, 
 
 See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
+## Open Source Programs
+
+Mimir Nest is part of the [Mintlify Open Source Program](https://mintlify.com/oss), which supports open-source projects with documentation infrastructure.
+
 ## License
 
 [MIT License](LICENSE).
