@@ -1847,7 +1847,9 @@ function Editor() {
           }
         }
       `}</style>
-    </div>}</>
+        </div>
+      )}
+    </>
   );
 }
 
