@@ -225,7 +225,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <Link
             href="/#features"
-            className="bg-primary text-primary-foreground px-5 py-2 rounded-lg font-label-caps text-label-caps hover:opacity-90 transition-opacity tracking-widest font-semibold border-none"
+            className="bg-primary text-primary-foreground px-5 py-2 rounded-lg font-medium text-sm hover:opacity-90 transition-opacity"
           >
             Explore Tools
           </Link>

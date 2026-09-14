@@ -19,19 +19,19 @@ export default function HomeInterviewSection() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Main Banner Card */}
-        <div className="rounded-3xl bg-surface-container border-2 border-surface-tint/30 p-8 sm:p-12 md:p-16 relative overflow-hidden shadow-2xl">
+        <div className="rounded-2xl bg-surface-container border-2 border-surface-tint/30 p-8 sm:p-12 md:p-16 relative overflow-hidden shadow-2xl">
           {/* Subtle Decorative Rings */}
           <div className="absolute top-0 right-0 w-96 h-96 border border-surface-tint/10 rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Column: Teaser Copy & Positioning */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-surface-tint/30 backdrop-blur-sm">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high border border-surface-tint/30 backdrop-blur-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-surface-tint opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-surface-tint" />
                 </span>
-                <span className="font-label-caps text-[11px] text-surface-tint tracking-widest uppercase font-semibold">
+                <span className="font-label-caps text-xs text-surface-tint tracking-wider font-semibold">
                   MIMIR ECOSYSTEM · COMING SOON
                 </span>
               </div>
@@ -47,16 +47,16 @@ export default function HomeInterviewSection() {
 
               {/* The Mimir Preparation Loop */}
               <div className="p-4 rounded-xl bg-mn-background/80 border border-outline-variant/60 space-y-2">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-surface-tint block font-semibold">
+                <span className="text-xs font-mono tracking-wider text-surface-tint block font-semibold">
                   The Full Engineering Loop
                 </span>
-                <p className="text-xs text-foreground/90 font-mono flex flex-wrap items-center gap-1.5 leading-normal">
-                  <span className="text-muted-foreground">Learn</span> &rarr;
-                  <span className="text-muted-foreground">Build</span> &rarr;
+                <p className="text-xs text-foreground font-mono flex flex-wrap items-center gap-1.5 leading-normal">
+                  <span className="text-on-surface-variant">Learn</span> &rarr;
+                  <span className="text-on-surface-variant">Build</span> &rarr;
                   <span className="text-surface-tint font-bold">Mimir Interview</span> &rarr;
-                  <span className="text-muted-foreground">Diagnose Weaknesses</span>
+                  <span className="text-on-surface-variant">Diagnose Weaknesses</span>
                 </p>
-                <p className="text-[11px] text-on-surface-variant/80 font-body-md">
+                <p className="text-xs text-on-surface-variant font-body-md">
                   Don&apos;t just memorize interview questions. Build something genuine, understand every decision behind it, and learn to defend your work with confidence.
                 </p>
               </div>
@@ -65,14 +65,14 @@ export default function HomeInterviewSection() {
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <Link
                   href="/interview"
-                  className="bg-primary text-primary-foreground px-7 py-3.5 rounded-xl font-label-caps text-sm hover:scale-[1.02] active:scale-[0.99] transition-all flex items-center justify-center gap-2 tracking-wider font-semibold shadow-lg shadow-primary/20"
+                  className="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium text-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
                 >
                   Explore Mimir Interview
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/interview#early-access"
-                  className="bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/70 text-foreground px-6 py-3.5 rounded-xl font-medium text-sm transition-all flex items-center justify-center gap-2"
+                  className="bg-surface-container border border-outline-variant text-foreground px-6 py-3 rounded-lg font-medium text-sm hover:bg-surface-container-high transition-colors flex items-center justify-center gap-2"
                 >
                   Get Early Access
                 </Link>

@@ -21,7 +21,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative bg-surface-container pt-[120px] md:pt-[160px] pb-20 md:pb-[120px] px-6 md:px-16 overflow-hidden rounded-b-3xl">
+    <section className="relative bg-surface-container pt-[120px] md:pt-[160px] pb-20 md:pb-[120px] px-6 md:px-16 overflow-hidden rounded-b-2xl">
       {/* Background Particle Wave */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
         <ParticleWave />
@@ -42,13 +42,13 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-surface-container-high/90 border border-surface-tint/40 shadow-sm backdrop-blur-md max-w-full w-fit"
           >
             <Sparkles className="w-4 h-4 text-surface-tint shrink-0" />
-            <span className="font-label-caps text-[11px] sm:text-xs md:text-sm text-surface-tint tracking-wider sm:tracking-widest uppercase font-bold text-center leading-tight">
+            <span className="font-label-caps text-xs sm:text-sm text-surface-tint tracking-wider font-semibold text-center leading-tight">
               Everything You Need to Learn, Build & Launch
             </span>
           </motion.div>
 
           <motion.h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight drop-shadow-sm"
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.1] tracking-tight drop-shadow-sm"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -59,7 +59,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-            className="text-base sm:text-lg text-white/90 max-w-lg leading-relaxed font-normal"
+            className="text-base sm:text-lg text-on-surface-variant max-w-lg leading-relaxed font-normal"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -75,16 +75,16 @@ const Hero = () => {
           >
             <button
               onClick={scrollToFeatures}
-              className="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-label-caps text-sm hover:scale-[1.02] transition-all flex items-center justify-center gap-2 tracking-widest font-bold border-none cursor-pointer shadow-lg shadow-primary/20"
+              className="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium text-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2 border-none cursor-pointer"
             >
               Explore Tools
               <ArrowRight className="w-4 h-4" />
             </button>
             <button
               onClick={() => router.push("/email-perks")}
-              className="bg-surface-container-lowest border border-border/80 text-white px-8 py-4 rounded-xl font-label-caps text-sm hover:bg-surface-container-high transition-colors flex items-center justify-center gap-2 tracking-widest font-bold cursor-pointer"
+              className="bg-surface-container border border-outline-variant text-foreground px-6 py-3 rounded-lg font-medium text-sm hover:bg-surface-container-high transition-colors flex items-center justify-center gap-2 cursor-pointer"
             >
-              <Code className="w-5 h-5 text-surface-tint" />
+              <Code className="w-4 h-4 text-surface-tint" />
               View Resources
             </button>
           </motion.div>
@@ -103,7 +103,7 @@ const Hero = () => {
               "Build & Launch"
             ].map((stat, i) => (
               <div key={i} className="text-center sm:text-left">
-                <p className="font-label-caps text-xs text-white/80 font-bold tracking-wider uppercase">
+                <p className="font-body-md text-xs text-on-surface-variant font-medium">
                   {stat}
                 </p>
               </div>
@@ -111,41 +111,41 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Hero Floating Cards (desktop only) */}
-        <div className="lg:col-span-6 relative h-[480px] mt-12 lg:mt-0 hidden md:block">
-          {/* Main hero logo card */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-[360px] rounded-2xl overflow-hidden border border-border/60 bg-surface-container-lowest flex items-center justify-center shadow-2xl">
+        {/* Hero Graphic & Aligned Stat Badges (desktop only) */}
+        <div className="lg:col-span-6 relative h-[420px] mt-12 lg:mt-0 hidden md:flex items-center justify-center">
+          {/* Main hero logo card container */}
+          <div className="relative w-full max-w-md h-[320px] rounded-2xl border border-border/60 bg-surface-container-lowest flex items-center justify-center shadow-xl p-8">
             <img
               src="/logo/logo.png"
               alt="Mimir Nest Logo"
-              className="w-48 h-auto object-contain brightness-105"
+              className="w-28 sm:w-32 h-auto object-contain opacity-90 transition-opacity"
             />
-          </div>
 
-          {/* Floating Stat Card 1 — Resources */}
-          <div className="absolute top-8 right-0 glass-panel p-5 rounded-xl shadow-2xl border border-white/10 animate-float z-20">
-            <div className="flex items-center gap-3 mb-2">
+            {/* Floating Stat Card 1 — Resources (Anchored top-right corner) */}
+            <div className="absolute -top-4 -right-4 bg-surface-container p-4 rounded-xl shadow-lg border border-border/80 z-20 flex items-center gap-3">
               <div className="w-9 h-9 rounded-lg bg-surface-tint flex items-center justify-center shadow-md">
-                <Library className="w-4 h-4 text-primary-foreground" strokeWidth={2.5} />
+                <Library className="w-4 h-4 text-primary-foreground" strokeWidth={2} />
               </div>
-              <span className="font-label-caps text-xs text-white/80 font-bold tracking-widest uppercase">
-                Resources
-              </span>
+              <div>
+                <p className="text-2xl font-bold text-foreground leading-none">50+</p>
+                <span className="text-xs text-on-surface-variant font-medium">
+                  Resources
+                </span>
+              </div>
             </div>
-            <h3 className="text-3xl font-extrabold text-white">50+</h3>
-          </div>
 
-          {/* Floating Stat Card 2 — Student Tools */}
-          <div className="absolute bottom-8 left-0 bg-surface-container-lowest p-5 rounded-xl shadow-2xl border border-border/80 animate-float-reverse z-20">
-            <div className="flex items-center gap-3 mb-2">
+            {/* Floating Stat Card 2 — Student Tools (Anchored bottom-left corner) */}
+            <div className="absolute -bottom-4 -left-4 bg-surface-container p-4 rounded-xl shadow-lg border border-border/80 z-20 flex items-center gap-3">
               <div className="w-9 h-9 rounded-lg bg-primary-container border border-surface-tint/30 flex items-center justify-center shadow-md">
-                <Sparkles className="w-4 h-4 text-surface-tint" strokeWidth={2.5} />
+                <Sparkles className="w-4 h-4 text-surface-tint" strokeWidth={2} />
               </div>
-              <span className="font-label-caps text-xs text-white/80 font-bold tracking-widest uppercase">
-                Student Tools
-              </span>
+              <div>
+                <p className="text-2xl font-bold text-foreground leading-none">8+</p>
+                <span className="text-xs text-on-surface-variant font-medium">
+                  Student Tools
+                </span>
+              </div>
             </div>
-            <h3 className="text-3xl font-extrabold text-white">8+</h3>
           </div>
         </div>
       </div>

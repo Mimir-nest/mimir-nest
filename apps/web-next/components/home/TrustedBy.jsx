@@ -31,13 +31,13 @@ const TrustedBy = () => {
   return (
     <section className="relative py-16 md:py-24 bg-mn-background overflow-hidden border-y border-border/40">
       <div className="max-w-7xl mx-auto px-6 mb-12 md:mb-16 text-center">
-        <p className="font-label-caps text-xs text-surface-tint tracking-widest uppercase font-semibold mb-3">
+        <p className="font-label-caps text-xs text-surface-tint tracking-wider font-semibold mb-3">
           TRUSTED BY USERS FROM
         </p>
         <h2 className="font-headline-lg text-2xl md:text-3xl lg:text-4xl text-on-background max-w-3xl mx-auto mb-3 font-bold tracking-tight">
           Students and professionals from leading universities and companies
         </h2>
-        <p className="font-body-md text-sm md:text-base text-on-background/70 max-w-xl mx-auto leading-relaxed">
+        <p className="font-body-md text-sm md:text-base text-on-surface-variant max-w-xl mx-auto leading-relaxed">
           Join 3,000+ students and developers using Mimir Nest to learn, practice, and prepare.
         </p>
       </div>
@@ -59,7 +59,7 @@ const TrustedBy = () => {
                   src={uni.logo}
                   alt={uni.name}
                   title={uni.name}
-                  className="h-7 sm:h-9 md:h-10 w-auto max-w-[130px] sm:max-w-[170px] md:max-w-[200px] object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0 select-none pointer-events-auto"
+                  className="h-7 sm:h-9 md:h-10 w-auto max-w-[130px] sm:max-w-[170px] md:max-w-[200px] object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300 shrink-0 select-none pointer-events-auto"
                   loading="lazy"
                 />
               ))}
@@ -72,7 +72,7 @@ const TrustedBy = () => {
                   src={uni.logo}
                   alt=""
                   title={uni.name}
-                  className="h-7 sm:h-9 md:h-10 w-auto max-w-[130px] sm:max-w-[170px] md:max-w-[200px] object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0 select-none pointer-events-auto"
+                  className="h-7 sm:h-9 md:h-10 w-auto max-w-[130px] sm:max-w-[170px] md:max-w-[200px] object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300 shrink-0 select-none pointer-events-auto"
                   loading="lazy"
                 />
               ))}
@@ -91,7 +91,7 @@ const TrustedBy = () => {
                   src={comp.logo}
                   alt={comp.name}
                   title={comp.name}
-                  className="h-7 sm:h-9 md:h-10 w-auto max-w-[130px] sm:max-w-[170px] md:max-w-[200px] object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0 select-none pointer-events-auto"
+                  className="h-7 sm:h-9 md:h-10 w-auto max-w-[130px] sm:max-w-[170px] md:max-w-[200px] object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300 shrink-0 select-none pointer-events-auto"
                   loading="lazy"
                 />
               ))}
@@ -104,7 +104,7 @@ const TrustedBy = () => {
                   src={comp.logo}
                   alt=""
                   title={comp.name}
-                  className="h-7 sm:h-9 md:h-10 w-auto max-w-[130px] sm:max-w-[170px] md:max-w-[200px] object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0 select-none pointer-events-auto"
+                  className="h-7 sm:h-9 md:h-10 w-auto max-w-[130px] sm:max-w-[170px] md:max-w-[200px] object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300 shrink-0 select-none pointer-events-auto"
                   loading="lazy"
                 />
               ))}

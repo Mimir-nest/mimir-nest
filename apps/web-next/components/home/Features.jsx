@@ -24,16 +24,16 @@ const Features = () => {
           {/* Card 1: Study (col-span-4, bg-surface-container) */}
           <Link
             href="/cgpa"
-            className="md:col-span-4 rounded-2xl bg-surface-container p-6 md:p-8 flex flex-col items-start border border-border/40 group transition-colors hover:border-surface-tint/30 cursor-pointer"
+            className="md:col-span-4 rounded-2xl bg-surface-container p-6 md:p-8 flex flex-col justify-between border border-border/40 group transition-colors hover:border-surface-tint/30 cursor-pointer"
           >
-            <div className="w-12 h-12 rounded-xl bg-surface-tint/10 flex items-center justify-center mb-auto group-hover:bg-surface-tint/20 transition-colors">
+            <div className="w-12 h-12 rounded-xl bg-surface-tint/10 flex items-center justify-center group-hover:bg-surface-tint/20 transition-colors">
               <Clock className="w-6 h-6 text-surface-tint" strokeWidth={1.5} />
             </div>
-            <div className="mt-8">
-              <h3 className="font-headline-md text-headline-md text-mn-primary mb-2">
+            <div className="mt-6">
+              <h3 className="font-headline-md text-xl font-bold text-mn-primary mb-2">
                 Tools for everyday college life.
               </h3>
-              <p className="font-body-md text-body-md text-on-surface-variant">
+              <p className="font-body-md text-sm text-on-surface-variant">
                 CGPA calculation, focused study sessions, and typing practice.
               </p>
             </div>
@@ -42,16 +42,16 @@ const Features = () => {
           {/* Card 2: Learn (col-span-4, bg-surface-container) */}
           <Link
             href="/courses"
-            className="md:col-span-4 rounded-2xl bg-surface-container p-6 md:p-8 flex flex-col items-start border border-border/40 group transition-colors hover:border-surface-tint/30 cursor-pointer"
+            className="md:col-span-4 rounded-2xl bg-surface-container p-6 md:p-8 flex flex-col justify-between border border-border/40 group transition-colors hover:border-surface-tint/30 cursor-pointer"
           >
-            <div className="w-12 h-12 rounded-xl bg-surface-tint/10 flex items-center justify-center mb-auto group-hover:bg-surface-tint/20 transition-colors">
+            <div className="w-12 h-12 rounded-xl bg-surface-tint/10 flex items-center justify-center group-hover:bg-surface-tint/20 transition-colors">
               <BookMarked className="w-6 h-6 text-surface-tint" strokeWidth={1.5} />
             </div>
-            <div className="mt-8">
-              <h3 className="font-headline-md text-headline-md text-mn-primary mb-2">
+            <div className="mt-6">
+              <h3 className="font-headline-md text-xl font-bold text-mn-primary mb-2">
                 Learn without the paywall.
               </h3>
-              <p className="font-body-md text-body-md text-on-surface-variant">
+              <p className="font-body-md text-sm text-on-surface-variant">
                 Curated courses and learning resources.
               </p>
             </div>
@@ -60,18 +60,18 @@ const Features = () => {
           {/* Card 3: Resources (col-span-4, bg-surface-tint, white text) */}
           <Link
             href="/email-perks"
-            className="md:col-span-4 rounded-2xl bg-surface-tint p-6 md:p-8 flex flex-col items-start relative overflow-hidden group cursor-pointer"
+            className="md:col-span-4 rounded-2xl bg-surface-tint p-6 md:p-8 flex flex-col justify-between relative overflow-hidden group cursor-pointer"
           >
             <div className="absolute -right-8 -bottom-8 w-40 h-40 border border-white/20 rounded-full pointer-events-none" />
             <div className="absolute -right-16 -bottom-16 w-56 h-56 border border-white/10 rounded-full pointer-events-none" />
-            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-auto group-hover:bg-white/20 transition-colors">
+            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
               <Mail className="w-6 h-6 text-white" strokeWidth={1.5} />
             </div>
-            <div className="mt-8 relative z-10">
-              <h3 className="font-headline-md text-headline-md text-white mb-2">
+            <div className="mt-6 relative z-10">
+              <h3 className="font-headline-md text-xl font-bold text-white mb-2">
                 Make your student status count.
               </h3>
-              <p className="font-body-md text-body-md text-white/80">
+              <p className="font-body-md text-sm text-white/90">
                 Student discounts, developer programs, software licenses, and academic benefits.
               </p>
             </div>

@@ -38,7 +38,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full rounded-t-3xl bg-surface-container relative overflow-hidden border-t border-border/50">
+    <footer className="w-full rounded-t-2xl bg-surface-container relative overflow-hidden border-t border-border/50">
       {/* Subtle decorative rings */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full border border-surface-tint/5 translate-x-1/3 -translate-y-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-primary-container/20 -translate-x-1/2 translate-y-1/2 pointer-events-none" />
@@ -60,10 +60,10 @@ const Footer = () => {
           {/* Map Columns */}
           {columns.map((col) => (
             <div key={col.title} className="col-span-1">
-              <h3 className="font-label-caps text-label-caps text-muted-foreground/60 tracking-widest uppercase mb-5">
+              <h3 className="font-body-md text-xs font-semibold text-on-surface-variant tracking-wider uppercase mb-4">
                 {col.title}
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.name}>
                     {link.isExternal ? (
@@ -71,14 +71,14 @@ const Footer = () => {
                         href={link.path}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground transition-all duration-200 text-sm font-body-md hover:translate-x-1 transform inline-block"
+                        className="text-on-surface-variant hover:text-foreground transition-colors text-sm font-body-md inline-block"
                       >
                         {link.name}
                       </a>
                     ) : (
                       <Link
                         href={link.path}
-                        className="text-muted-foreground hover:text-foreground transition-all duration-200 text-sm font-body-md hover:translate-x-1 transform inline-block"
+                        className="text-on-surface-variant hover:text-foreground transition-colors text-sm font-body-md inline-block"
                       >
                         {link.name}
                       </Link>
