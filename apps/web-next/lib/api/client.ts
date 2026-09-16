@@ -1,14 +1,16 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+export const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
 
 export class ApiError extends Error {
   code: string;
   status: number;
+  data?: any;
 
-  constructor(message: string, code: string, status: number) {
+  constructor(message: string, code: string, status: number, data?: any) {
     super(message);
     this.name = "ApiError";
     this.code = code;
     this.status = status;
+    this.data = data;
   }
 }
 
@@ -35,20 +37,25 @@ export async function apiFetch<T>(
     return {} as T;
   }
 
-  let data;
+  let data: any;
   try {
     data = await response.json();
   } catch (err) {
     if (!response.ok) {
-      throw new ApiError(response.statusText, "HTTP_ERROR", response.status);
+      throw new ApiError(response.statusText || "HTTP_ERROR", "HTTP_ERROR", response.status);
     }
     return {} as T;
   }
 
   if (!response.ok) {
-    const errorCode = data?.error?.code || "UNKNOWN_ERROR";
-    const errorMessage = data?.error?.message || "Something went wrong";
-    throw new ApiError(errorMessage, errorCode, response.status);
+    const errorCode = data?.error?.code || data?.code || "UNKNOWN_ERROR";
+    const errorMessage =
+      data?.error?.message ||
+      data?.message ||
+      (typeof data?.error === "string" ? data.error : null) ||
+      response.statusText ||
+      "Something went wrong";
+    throw new ApiError(errorMessage, errorCode, response.status, data);
   }
 
   return data as T;
