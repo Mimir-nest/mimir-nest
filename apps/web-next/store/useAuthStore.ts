@@ -122,12 +122,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   },
 
   resendVerification: async (email) => {
-    try {
-      const res = await apiResendVerification(email);
-      return res;
-    } catch (err: any) {
-      throw err;
-    }
+    return await apiResendVerification(email);
   },
 
   logout: async () => {
