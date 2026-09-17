@@ -26,6 +26,8 @@ import {
 import { cn } from "@/lib/utils";
 import { useAuthStore } from "@/store/useAuthStore";
 import AuthModal from "./AuthModal";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { toast } from "sonner";
 
 const categories = [
   {
@@ -85,7 +87,17 @@ const Navbar = () => {
   useEffect(() => {
     setMounted(true);
     checkAuth();
-  }, [checkAuth]);
+
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("verified") === "true") {
+        toast.success("Email verified successfully! Please sign in.");
+        openAuthModal("signin");
+        const cleanUrl = window.location.pathname;
+        window.history.replaceState({}, document.title, cleanUrl);
+      }
+    }
+  }, [checkAuth, openAuthModal]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -231,28 +243,37 @@ const Navbar = () => {
           </Link>
 
           {mounted && isAuthenticated ? (
-            <div className="flex items-center gap-3 bg-surface-container border border-outline-variant/30 px-3 py-1.5 rounded-lg">
-              <div className="flex items-center gap-1.5">
-                <UserIcon className="w-4 h-4 text-surface-tint" />
-                <span className="text-sm font-semibold text-foreground max-w-[120px] truncate">
+            <div className="flex items-center gap-2.5 bg-surface-container/80 border border-outline-variant/30 pl-2 pr-3 py-1.5 rounded-xl shadow-xs">
+              <Avatar className="w-7 h-7 border border-surface-tint/30 shrink-0">
+                <AvatarImage src={user?.avatarUrl} alt={user?.name || "User"} />
+                <AvatarFallback className="bg-primary/20 text-surface-tint text-xs font-bold">
+                  {user?.name ? user.name.charAt(0).toUpperCase() : "U"}
+                </AvatarFallback>
+              </Avatar>
+              <div className="flex flex-col text-left">
+                <span className="text-xs font-semibold text-foreground max-w-[120px] truncate leading-tight">
                   {user?.name}
+                </span>
+                <span className="text-[10px] text-on-surface-variant/70 max-w-[120px] truncate leading-none">
+                  {user?.email}
                 </span>
               </div>
               <button
                 onClick={() => logout()}
-                className="text-on-surface-variant hover:text-destructive transition-colors ml-1 border-none bg-transparent cursor-pointer flex items-center"
-                title="Log Out"
+                className="text-on-surface-variant hover:text-destructive transition-colors ml-1 p-1 rounded-lg hover:bg-surface-container-high border-none bg-transparent cursor-pointer flex items-center"
+                title="Sign Out"
+                aria-label="Sign Out"
               >
                 <LogOut className="w-4 h-4" />
               </button>
             </div>
           ) : (
-            <button
-              onClick={openAuthModal}
-              className="bg-surface-container border border-outline-variant/40 hover:bg-surface-container-high text-foreground px-4 py-2 rounded-lg font-semibold text-sm transition-colors cursor-pointer border-none"
+            <Link
+              href="/login"
+              className="bg-surface-container border border-outline-variant/40 hover:bg-surface-container-high text-foreground px-4 py-2 rounded-xl font-semibold text-xs transition-colors cursor-pointer inline-flex items-center justify-center"
             >
               Sign In
-            </button>
+            </Link>
           )}
         </div>
       </div>
@@ -389,32 +410,43 @@ const MobileNav = () => {
             {/* Auth Link (Mobile) */}
             {mounted && isAuthenticated ? (
               <div className="pt-4 border-t border-outline-variant/40 space-y-2">
-                <div
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-on-surface-variant"
-                >
-                  <UserIcon className="h-5 w-5 text-surface-tint flex-shrink-0" />
-                  <span className="max-w-[200px] truncate">{user?.name}</span>
+                <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-surface-container/60 border border-outline-variant/30">
+                  <Avatar className="w-9 h-9 border border-surface-tint/30 shrink-0">
+                    <AvatarImage src={user?.avatarUrl} alt={user?.name || "User"} />
+                    <AvatarFallback className="bg-primary/20 text-surface-tint text-sm font-bold">
+                      {user?.name ? user.name.charAt(0).toUpperCase() : "U"}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="flex flex-col text-left min-w-0 flex-1">
+                    <span className="text-sm font-semibold text-foreground truncate">
+                      {user?.name}
+                    </span>
+                    <span className="text-xs text-on-surface-variant/70 truncate">
+                      {user?.email}
+                    </span>
+                  </div>
                 </div>
                 <button
                   onClick={() => {
                     logout();
                     setIsOpen(false);
                   }}
-                  className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-sm font-semibold text-destructive hover:bg-surface-container transition-colors border-none bg-transparent text-left cursor-pointer"
+                  className="flex items-center gap-3 w-full px-4 py-3 rounded-xl text-sm font-semibold text-destructive hover:bg-destructive/10 transition-colors border-none bg-transparent text-left cursor-pointer"
                 >
-                  <LogOut className="h-5 w-5 flex-shrink-0" />
+                  <LogOut className="h-4.5 w-4.5 flex-shrink-0" />
                   Sign Out
                 </button>
               </div>
             ) : (
               <div className="pt-4 border-t border-outline-variant/40">
-                <button
-                  onClick={openAuthModal}
-                  className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-sm font-semibold text-primary hover:text-primary-foreground hover:bg-primary transition-colors border border-primary/20 bg-transparent text-left cursor-pointer"
+                <Link
+                  href="/login"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center gap-2.5 w-full px-4 py-3 rounded-xl text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/95 transition-colors border-none cursor-pointer shadow-sm"
                 >
-                  <UserIcon className="h-5 w-5 flex-shrink-0" />
-                  Sign In / Up
-                </button>
+                  <UserIcon className="h-4.5 w-4.5 flex-shrink-0" />
+                  Sign In / Create Account
+                </Link>
               </div>
             )}
           </div>
