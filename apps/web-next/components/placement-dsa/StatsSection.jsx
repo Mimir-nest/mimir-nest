@@ -18,7 +18,7 @@ const StatsSection = ({ questions }) => {
         </div>
         <div>
           <div className="text-2xl font-bold text-white">{questions.length}</div>
-          <div className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Total Questions</div>
+          <div className="text-xs text-on-surface-variant font-medium uppercase tracking-wider">Total Questions</div>
         </div>
       </div>
 
@@ -28,7 +28,7 @@ const StatsSection = ({ questions }) => {
         </div>
         <div>
           <div className="text-2xl font-bold text-white">{questions.filter(q => q.difficulty === 'Easy').length}</div>
-          <div className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Easy</div>
+          <div className="text-xs text-on-surface-variant font-medium uppercase tracking-wider">Easy</div>
         </div>
       </div>
 
@@ -38,7 +38,7 @@ const StatsSection = ({ questions }) => {
         </div>
         <div>
           <div className="text-2xl font-bold text-white">{questions.filter(q => q.difficulty === 'Medium').length}</div>
-          <div className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Medium</div>
+          <div className="text-xs text-on-surface-variant font-medium uppercase tracking-wider">Medium</div>
         </div>
       </div>
 
@@ -48,7 +48,7 @@ const StatsSection = ({ questions }) => {
         </div>
         <div>
           <div className="text-2xl font-bold text-white">{questions.filter(q => q.difficulty === 'Hard').length}</div>
-          <div className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Hard</div>
+          <div className="text-xs text-on-surface-variant font-medium uppercase tracking-wider">Hard</div>
         </div>
       </div>
     </motion.div>);

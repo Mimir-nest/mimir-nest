@@ -51,7 +51,7 @@ const CookieBanner = () => {
           transition={{ duration: 0.3, ease: "easeOut" }}
           className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:bottom-6 z-[60] md:max-w-md w-auto"
         >
-          <div className="bg-mn-surface/95 backdrop-blur-md border border-outline-variant/60 rounded-2xl p-5 shadow-[0_12px_32px_rgba(0,0,0,0.35)] space-y-4">
+          <div className="bg-mn-surface/95 backdrop-blur-md border border-outline-variant/60 rounded-2xl p-5 shadow-pop space-y-4">
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-2.5">
                 <div className="p-2 rounded-xl bg-surface-tint/15 text-surface-tint flex-shrink-0">

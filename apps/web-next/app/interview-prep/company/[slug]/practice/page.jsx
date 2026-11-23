@@ -356,9 +356,9 @@ export default function PracticeModePage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="p-8 sm:p-12 rounded-3xl bg-surface-container border border-border/60 text-center space-y-8 max-w-2xl mx-auto shadow-2xl mt-4"
+            className="p-8 sm:p-12 rounded-3xl bg-surface-container border border-border/60 text-center space-y-8 max-w-2xl mx-auto shadow-pop mt-4"
           >
-            <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-good flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-9 h-9" />
             </div>
 
@@ -381,7 +381,7 @@ export default function PracticeModePage() {
             {/* Score Strip */}
             <div className="p-4 rounded-2xl bg-surface-container-high border border-border/40 max-w-sm mx-auto flex items-center justify-around text-center">
               <div>
-                <div className="text-2xl font-bold font-mono text-emerald-400">
+                <div className="text-2xl font-bold font-mono text-good">
                   {completedInSet}
                 </div>
                 <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
@@ -403,7 +403,7 @@ export default function PracticeModePage() {
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
               <button
                 onClick={handleRestartPractice}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all shadow-lg shadow-surface-tint/20 cursor-pointer border-none"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all shadow-lg cursor-pointer border-none"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Practice Again</span>
@@ -555,13 +555,13 @@ export default function PracticeModePage() {
                   onClick={togglePracticed}
                   className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold font-label-caps tracking-wider uppercase transition-all duration-200 cursor-pointer border ${
                     isCurrentPracticed
-                      ? "bg-emerald-500/15 border-emerald-500/40 text-emerald-400 shadow-sm"
+                      ? "bg-emerald-500/15 border-emerald-500/40 text-good shadow-sm"
                       : "bg-surface-container hover:bg-surface-container-high border-border text-foreground hover:border-surface-tint/40"
                   }`}
                 >
                   {isCurrentPracticed ? (
                     <>
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                      <CheckCircle2 className="w-4 h-4 text-good" />
                       <span>Practiced</span>
                     </>
                   ) : (
@@ -576,7 +576,7 @@ export default function PracticeModePage() {
                   onClick={toggleBookmark}
                   className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer border ${
                     isCurrentBookmarked
-                      ? "bg-amber-500/10 border-amber-500/30 text-amber-400"
+                      ? "bg-amber-500/10 border-amber-500/30 text-warn"
                       : "bg-surface-container hover:bg-surface-container-high border-border text-muted-foreground hover:text-foreground hover:border-surface-tint/40"
                   }`}
                 >
@@ -592,7 +592,7 @@ export default function PracticeModePage() {
                   title="Copy Question"
                 >
                   {copied ? (
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                    <Check className="w-3.5 h-3.5 text-good" />
                   ) : (
                     <Copy className="w-3.5 h-3.5" />
                   )}
@@ -672,7 +672,7 @@ export default function PracticeModePage() {
                         {!isGuidanceRevealed && (
                           <button
                             onClick={() => setIsGuidanceRevealed(true)}
-                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-surface-tint text-on-primary font-semibold text-xs font-label-caps tracking-wider uppercase hover:opacity-90 transition-opacity cursor-pointer border-none shadow-md shadow-surface-tint/20"
+                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-surface-tint text-on-primary font-semibold text-xs font-label-caps tracking-wider uppercase hover:opacity-90 transition-opacity cursor-pointer border-none shadow-md"
                           >
                             <Sparkles className="w-3.5 h-3.5" />
                             <span>Reveal Guidance ↓</span>
@@ -688,7 +688,7 @@ export default function PracticeModePage() {
             {/* ── ANSWER GUIDANCE SECTION (HIDDEN BY DEFAULT) ── */}
             {!isGuidanceRevealed ? (
               <section className="p-8 sm:p-10 rounded-2xl bg-surface-container border border-dashed border-border/70 text-center space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-surface-tint/10 border border-surface-tint/25 text-surface-tint flex items-center justify-center mx-auto shadow-inner">
+                <div className="w-12 h-12 rounded-2xl bg-surface-tint/10 border border-surface-tint/25 text-surface-tint flex items-center justify-center mx-auto">
                   <BookOpen className="w-6 h-6" />
                 </div>
                 <div className="max-w-md mx-auto space-y-1.5">
@@ -701,7 +701,7 @@ export default function PracticeModePage() {
                 </div>
                 <button
                   onClick={() => setIsGuidanceRevealed(true)}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all duration-200 shadow-lg shadow-surface-tint/20 cursor-pointer border-none"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all duration-200 shadow-lg cursor-pointer border-none"
                 >
                   <Sparkles className="w-4 h-4" />
                   <span>Reveal Guidance</span>
@@ -770,7 +770,7 @@ export default function PracticeModePage() {
                       {/* Evaluation Rubric */}
                       {currentQuestion.evaluation_rubric && (
                         <div className="p-5 rounded-2xl bg-surface-container/70 border border-border/60 space-y-2.5">
-                          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
+                          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-warn">
                             <span className="w-2 h-2 rounded-full bg-amber-400" />
                             <span>Evaluation Rubric</span>
                           </div>
@@ -783,8 +783,8 @@ export default function PracticeModePage() {
                       {/* Strong Answer Signals */}
                       {strongSignals.length > 0 && (
                         <div className="p-5 rounded-2xl bg-surface-container/70 border border-border/60 space-y-3">
-                          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-emerald-400">
-                            <Target className="w-4 h-4 text-emerald-400" />
+                          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-good">
+                            <Target className="w-4 h-4 text-good" />
                             <span>Strong Answer Signals</span>
                           </div>
                           <ul className="space-y-2 list-none pl-0">
@@ -861,7 +861,7 @@ export default function PracticeModePage() {
 
               <button
                 onClick={handleNextQuestion}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all shadow-lg shadow-surface-tint/20 cursor-pointer border-none"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all shadow-lg cursor-pointer border-none"
               >
                 <span>
                   {currentIndex === practiceQuestions.length - 1
@@ -1014,7 +1014,7 @@ function StructuredDetailedAnswer({ text }) {
             >
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
-                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400">
+                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-good">
                   WHAT MAKES A STRONG ANSWER
                 </h4>
               </div>

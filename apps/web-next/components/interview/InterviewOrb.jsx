@@ -16,7 +16,7 @@ export const orbStates = {
       c2: "oklch(78% 0.16 200)", // cyan
       c3: "oklch(74% 0.18 310)", // magenta
     },
-    badgeColor: "bg-green-500/15 text-green-400 border-green-500/30",
+    badgeColor: "bg-green-500/15 text-good border-green-500/30",
     dotColor: "bg-green-400",
   },
   thinking: {
@@ -64,24 +64,12 @@ export default function InterviewOrb({
 
   return (
     <div className={`relative flex flex-col items-center justify-center ${className}`}>
-      {/* Ambient Radial Glow */}
-      <div
-        className="absolute w-72 h-72 rounded-full blur-3xl pointer-events-none transition-all duration-700 opacity-40"
-        style={{
-          background:
-            currentState === "listening"
-              ? "radial-gradient(circle, rgba(74, 222, 128, 0.2) 0%, rgba(255, 90, 54, 0.15) 50%, transparent 75%)"
-              : currentState === "thinking"
-              ? "radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(59, 130, 246, 0.15) 50%, transparent 75%)"
-              : "radial-gradient(circle, rgba(255, 90, 54, 0.35) 0%, rgba(245, 158, 11, 0.2) 50%, transparent 75%)",
-        }}
-      />
 
       {/* Top Session Tag */}
       {showHeader && (
         <div className="flex items-center justify-center gap-2 mb-5 z-10 max-w-full">
           <span className="inline-flex flex-wrap items-center justify-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-[10px] sm:text-[11px] font-mono text-muted-foreground max-w-full text-center">
-            <Radio className="w-3 h-3 text-red-400 animate-pulse shrink-0" />
+            <Radio className="w-3 h-3 text-alert animate-pulse shrink-0" />
             <span className="text-foreground font-semibold">LIVE INTERVIEW</span>
             <span className="text-muted-foreground/60 hidden xs:inline">|</span>
             <span className="text-surface-tint font-bold truncate max-w-[150px] sm:max-w-none">{project}</span>
@@ -90,7 +78,7 @@ export default function InterviewOrb({
       )}
 
       {/* Siri Orb Presence Container */}
-      <div className="relative p-4 sm:p-6 rounded-full bg-surface-container/60 border border-outline-variant/50 backdrop-blur-md shadow-2xl flex items-center justify-center max-w-full">
+      <div className="relative p-4 sm:p-6 rounded-full bg-surface-container/60 border border-outline-variant/50 backdrop-blur-md shadow-pop flex items-center justify-center max-w-full">
         {/* Soft pulse ring */}
         <div
           className="absolute inset-0 rounded-full border border-surface-tint/20 animate-ping opacity-30 pointer-events-none"
@@ -101,7 +89,7 @@ export default function InterviewOrb({
           size={size}
           animationDuration={config.duration}
           colors={config.colors}
-          className="shadow-2xl max-w-full"
+          className="shadow-pop max-w-full"
         />
       </div>
 
@@ -113,9 +101,9 @@ export default function InterviewOrb({
 
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border text-xs font-mono font-semibold transition-all duration-300 max-w-full"
           style={{
-            borderColor: currentState === "listening" ? "rgba(74, 222, 128, 0.4)" : currentState === "thinking" ? "rgba(168, 85, 247, 0.4)" : "rgba(255, 90, 54, 0.4)",
-            backgroundColor: currentState === "listening" ? "rgba(74, 222, 128, 0.1)" : currentState === "thinking" ? "rgba(168, 85, 247, 0.1)" : "rgba(255, 90, 54, 0.1)",
-            color: currentState === "listening" ? "#4ade80" : currentState === "thinking" ? "#c084fc" : "#FF5A36",
+            borderColor: currentState === "listening" ? "rgba(74, 222, 128, 0.4)" : currentState === "thinking" ? "rgba(168, 85, 247, 0.4)" : "rgba(8,123,203, 0.4)",
+            backgroundColor: currentState === "listening" ? "rgba(74, 222, 128, 0.1)" : currentState === "thinking" ? "rgba(168, 85, 247, 0.1)" : "rgba(8,123,203, 0.1)",
+            color: currentState === "listening" ? "#4ade80" : currentState === "thinking" ? "#c084fc" : "#087BCB",
           }}
         >
           <span className={`w-2 h-2 rounded-full ${config.dotColor} animate-pulse shrink-0`} />

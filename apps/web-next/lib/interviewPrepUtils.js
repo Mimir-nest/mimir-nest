@@ -44,10 +44,10 @@ export const difficultyMeta = {
     dot: "bg-amber-400",
   },
   Hard: {
-    bg: "bg-[#FF5A36]/10",
-    text: "text-[#FF5A36]",
-    border: "border-[#FF5A36]/20",
-    dot: "bg-[#FF5A36]",
+    bg: "bg-surface-tint/10",
+    text: "text-surface-tint",
+    border: "border-surface-tint/20",
+    dot: "bg-surface-tint",
   },
   Expert: {
     bg: "bg-purple-500/10",

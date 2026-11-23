@@ -24,23 +24,19 @@ import {
 import { systemDesignProblems } from "../data/problems";
 import CompanyLogo from "@/components/common/CompanyLogo";
 
-import dynamic from "next/dynamic";
 
-const ParticleWave = dynamic(
-  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
-  { ssr: false }
-);
 
+import { PixelScene } from "@/components/pixel";
 const difficultyColors = {
   Easy: {
     bg: "bg-emerald-500/10",
-    text: "text-emerald-400",
+    text: "text-good",
     border: "border-emerald-500/30",
     dot: "bg-emerald-400",
   },
   Medium: {
     bg: "bg-amber-500/10",
-    text: "text-amber-400",
+    text: "text-warn",
     border: "border-amber-500/30",
     dot: "bg-amber-400",
   },
@@ -89,26 +85,14 @@ export default function SystemDesignProblemsPage() {
       <Navbar />
 
       {/* ── FLAGSHIP HERO SECTION (Matches Mimir Nest Flagship Style) ── */}
-      <section className="relative bg-[#151616] pt-[130px] md:pt-[160px] pb-16 md:pb-20 px-6 md:px-16 overflow-hidden rounded-b-3xl border-b border-white/[0.06] bg-cover bg-center" style={{ backgroundImage: "url('/images/hero-bg.png')" }}>
-        {/* Dark overlay for contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#151616]/95 via-[#151616]/85 to-[#151616]/95 z-0 pointer-events-none" />
-
-        {/* Background Particle Wave */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
-          <ParticleWave />
-        </div>
-
-        {/* Decorative Rings */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-[#FF5A36]/10 translate-x-1/4 -translate-y-1/4 pointer-events-none z-0" />
-        <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-[#FF5A36]/15 translate-x-1/3 -translate-y-1/3 pointer-events-none z-0" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-white/[0.03] -translate-x-1/2 translate-y-1/2 pointer-events-none z-0" />
+      <section className="relative pt-[130px] md:pt-[160px] pb-16 md:pb-20 px-6 md:px-16 overflow-hidden pixel-grid border-b border-line">
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
             {/* Top pill badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-6 w-fit border border-white/[0.08] shadow-inner bg-white/[0.02] backdrop-blur-md">
-              <Sparkles className="w-4 h-4 text-[#FF5A36] animate-pulse" />
-              <span className="font-mono text-xs text-[#FF5A36] tracking-widest uppercase font-semibold">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-6 w-fit border border-white/[0.08] bg-white/[0.02] backdrop-blur-md">
+              <Sparkles className="w-4 h-4 text-surface-tint animate-pulse" />
+              <span className="font-mono text-xs text-surface-tint tracking-widest uppercase font-semibold">
                 Interactive Architecture Challenges
               </span>
             </div>
@@ -116,7 +100,7 @@ export default function SystemDesignProblemsPage() {
             {/* Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-6 font-sans">
               System Design <br />
-              <span className="text-[#FF5A36]">Problems & Workflows.</span>
+              <span className="text-surface-tint">Problems & Workflows.</span>
             </h1>
 
             {/* Subtitle */}
@@ -131,7 +115,7 @@ export default function SystemDesignProblemsPage() {
                 { label: "Reference Workflows", val: "100% Available" },
                 { label: "Validation Engine", val: "Live Graded" },
               ].map((stat, i) => (
-                <div key={i} className="p-4 rounded-xl glass-panel text-center border border-white/[0.08] bg-[#141517]/55 backdrop-blur-md">
+                <div key={i} className="p-4 rounded-xl glass-panel text-center border border-white/[0.08] bg-surface-container-lowest/55 backdrop-blur-md">
                   <div className="text-xl text-white font-bold">{stat.val}</div>
                   <div className="text-[10px] text-white/50 uppercase tracking-widest font-mono mt-0.5">{stat.label}</div>
                 </div>
@@ -145,7 +129,7 @@ export default function SystemDesignProblemsPage() {
                   const el = document.getElementById("challenges-workspace");
                   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
                 }}
-                className="px-6 py-3 rounded-full bg-[#FF5A36] text-black font-semibold text-xs uppercase tracking-widest hover:bg-[#ff7a5a] transition-all shadow-[0_0_20px_rgba(255,90,54,0.35)] flex items-center gap-2 group border border-[#FF5A36] font-sans cursor-pointer"
+                className="px-6 py-3 rounded-full bg-surface-tint text-black font-semibold text-xs uppercase tracking-widest hover:bg-surface-tint transition-all flex items-center gap-2 group border border-surface-tint font-sans cursor-pointer"
               >
                 <span>Browse Challenges</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -153,21 +137,24 @@ export default function SystemDesignProblemsPage() {
 
               <Link
                 href="/playground"
-                className="px-6 py-3 rounded-full bg-[#161c1d] text-[#e1e7e3] hover:text-white font-semibold text-xs uppercase tracking-widest hover:bg-[#202729] transition-all border border-[#2e393b] flex items-center gap-2 font-sans no-underline"
+                className="px-6 py-3 rounded-full bg-surface-container-lowest text-on-surface hover:text-white font-semibold text-xs uppercase tracking-widest hover:bg-surface-container-high transition-all border border-outline-variant flex items-center gap-2 font-sans no-underline"
               >
-                <Boxes className="w-4 h-4 text-[#ff7657]" />
+                <Boxes className="w-4 h-4 text-surface-tint" />
                 <span>Blank Playground</span>
               </Link>
 
               <Link
                 href="/system-design"
-                className="px-6 py-3 rounded-full bg-[#161c1d] text-[#e1e7e3] hover:text-white font-semibold text-xs uppercase tracking-widest hover:bg-[#202729] transition-all border border-[#2e393b] flex items-center gap-2 font-sans no-underline"
+                className="px-6 py-3 rounded-full bg-surface-container-lowest text-on-surface hover:text-white font-semibold text-xs uppercase tracking-widest hover:bg-surface-container-high transition-all border border-outline-variant flex items-center gap-2 font-sans no-underline"
               >
-                <ExternalLink className="w-3.5 h-3.5 text-[#9aa6a5]" />
+                <ExternalLink className="w-3.5 h-3.5 text-on-surface-variant" />
                 <span>500+ Interview Q&A</span>
               </Link>
             </div>
           </div>
+        </div>
+        <div className="relative z-10 mx-auto mt-10 max-w-5xl sm:mt-14">
+          <div className="frame"><PixelScene kind="prepare" h={90} /></div>
         </div>
       </section>
 
@@ -312,7 +299,7 @@ export default function SystemDesignProblemsPage() {
                         </div>
 
                         <div className="p-2 rounded-lg bg-surface-container-low border border-border/40 flex items-center gap-1.5 text-muted-foreground">
-                          <DollarSign className="w-3 h-3 text-emerald-400 shrink-0" />
+                          <DollarSign className="w-3 h-3 text-good shrink-0" />
                           <span className="truncate">{problem.budget}</span>
                         </div>
                       </div>

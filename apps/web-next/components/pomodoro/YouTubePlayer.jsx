@@ -165,7 +165,7 @@ const YouTubePlayer = ({ className }) => {
             <Music2 className="h-5 w-5 text-surface-tint"/>
             <h3 className="text-white text-lg font-medium">Background Music</h3>
           </div>
-          {!videoId && (<Button variant="ghost" size="sm" className="text-gray-400 hover:text-white" onClick={() => setShowUrlInput(true)}>
+          {!videoId && (<Button variant="ghost" size="sm" className="text-on-surface-variant hover:text-white" onClick={() => setShowUrlInput(true)}>
               <Link className="h-4 w-4 mr-2"/>
               Add Music
             </Button>)}
@@ -176,7 +176,7 @@ const YouTubePlayer = ({ className }) => {
             <Button type="submit" variant="secondary" className="shrink-0">
               Load
             </Button>
-            <Button type="button" variant="ghost" size="icon" onClick={() => setShowUrlInput(false)} className="text-gray-400 hover:text-white">
+            <Button type="button" variant="ghost" size="icon" onClick={() => setShowUrlInput(false)} className="text-on-surface-variant hover:text-white">
               <X className="h-4 w-4"/>
             </Button>
           </form>)}
@@ -185,8 +185,8 @@ const YouTubePlayer = ({ className }) => {
       {videoId && (<div className="p-4 space-y-4">
           {/* Video Title */}
           <div className="flex items-center justify-between">
-            <p className="text-sm text-gray-400 truncate flex-1">{videoTitle}</p>
-            <Button variant="ghost" size="icon" onClick={clearVideo} className="text-gray-400 hover:text-white ml-2">
+            <p className="text-sm text-on-surface-variant truncate flex-1">{videoTitle}</p>
+            <Button variant="ghost" size="icon" onClick={clearVideo} className="text-on-surface-variant hover:text-white ml-2">
               <X className="h-4 w-4"/>
             </Button>
           </div>
@@ -194,15 +194,15 @@ const YouTubePlayer = ({ className }) => {
           {/* Controls */}
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-1">
-              <Button variant="ghost" size="icon" onClick={skipBackward} className="text-gray-400 hover:text-white">
+              <Button variant="ghost" size="icon" onClick={skipBackward} className="text-on-surface-variant hover:text-white">
                 <SkipBack className="h-5 w-5"/>
               </Button>
               
-              <Button variant="ghost" size="icon" onClick={togglePlay} className={`${isPlaying ? "text-primary hover:text-surface-tint" : "text-gray-400 hover:text-white"} transition-colors`}>
+              <Button variant="ghost" size="icon" onClick={togglePlay} className={`${isPlaying ? "text-primary hover:text-surface-tint" : "text-on-surface-variant hover:text-white"} transition-colors`}>
                 {isPlaying ? <Pause className="h-6 w-6"/> : <Play className="h-6 w-6"/>}
               </Button>
               
-              <Button variant="ghost" size="icon" onClick={skipForward} className="text-gray-400 hover:text-white">
+              <Button variant="ghost" size="icon" onClick={skipForward} className="text-on-surface-variant hover:text-white">
                 <SkipForward className="h-5 w-5"/>
               </Button>
             </div>
@@ -211,7 +211,7 @@ const YouTubePlayer = ({ className }) => {
               <div className="w-24">
                 <Slider value={[volume]} min={0} max={100} step={1} onValueChange={handleVolumeChange} className="cursor-pointer"/>
               </div>
-              <Button variant="ghost" size="icon" onClick={toggleMute} className={`${isMuted ? "text-red-500 hover:text-red-400" : "text-gray-400 hover:text-white"} transition-colors`}>
+              <Button variant="ghost" size="icon" onClick={toggleMute} className={`${isMuted ? "text-alert hover:text-alert" : "text-on-surface-variant hover:text-white"} transition-colors`}>
                 {isMuted ? <VolumeX className="h-5 w-5"/> : <Volume2 className="h-5 w-5"/>}
               </Button>
             </div>

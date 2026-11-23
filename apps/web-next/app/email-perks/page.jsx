@@ -10,12 +10,8 @@ import PerkDetails from "@/components/email-perks/PerkDetails";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 import { contentApi } from "@/services/contentApi";
-import dynamic from "next/dynamic";
 
-const ParticleWave = dynamic(
-  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
-  { ssr: false }
-);
+import { PixelScene } from "@/components/pixel";
 const categories = [
     { id: "all", label: "All Benefits", icon: Sparkles },
     { id: "developers", label: "Developers", icon: Code },
@@ -108,16 +104,7 @@ const EmailPerks = () => {
       <Navbar />
 
       {/* ── Deep Green Sanctuary Hero ── */}
-      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-4 sm:px-6 md:px-16 overflow-hidden rounded-b-3xl">
-        {/* Background Particle Wave */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
-          <ParticleWave />
-        </div>
-
-        {/* Decorative Rings */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
-        <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-primary-container/40 -translate-x-1/2 translate-y-1/2 pointer-events-none"/>
+      <section className="relative pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-4 sm:px-6 md:px-16 overflow-hidden pixel-grid border-b border-line">
 
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-xs font-label-caps text-surface-tint tracking-widest uppercase mx-auto">
@@ -137,7 +124,7 @@ const EmailPerks = () => {
 
           {/* Search bar inside Hero */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="relative max-w-xl mx-auto pt-2">
-            <div className="relative flex items-center bg-surface-container border border-border rounded-full shadow-2xl transition-all focus-within:border-surface-tint">
+            <div className="relative flex items-center bg-surface-container border border-border rounded-full shadow-pop transition-all focus-within:border-surface-tint">
               <Search className="h-5 w-5 text-muted-foreground ml-5"/>
               <input type="text" placeholder="Search tools (e.g. GitHub, AWS, JetBrains, Figma)..." className="w-full bg-transparent border-none text-base px-4 py-4 focus:outline-none text-white placeholder:text-muted-foreground/60 font-body-md" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
               {searchQuery && (<button onClick={() => setSearchQuery("")} className="mr-4 p-1 rounded-full text-muted-foreground hover:text-white hover:bg-white/10">
@@ -145,6 +132,9 @@ const EmailPerks = () => {
                 </button>)}
             </div>
           </motion.div>
+        </div>
+        <div className="relative z-10 mx-auto mt-10 max-w-5xl sm:mt-14">
+          <div className="frame"><PixelScene kind="resources" h={90} /></div>
         </div>
       </section>
 
@@ -186,7 +176,7 @@ const EmailPerks = () => {
                           {perkIcons[perk.iconKey] || <Gift className="h-5 w-5 text-surface-tint"/>}
                         </div>
                         {perk.value && perk.value !== "Not specified" && (
-                          <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-md">
+                          <span className="text-xs font-bold text-good bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-md">
                             {perk.value} Value
                           </span>
                         )}

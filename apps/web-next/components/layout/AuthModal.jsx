@@ -137,7 +137,7 @@ export default function AuthModal({ isOpen, onClose }) {
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="sm:max-w-[440px] bg-mn-surface border-outline-variant/40 shadow-2xl rounded-2xl p-6 text-foreground">
+      <DialogContent className="sm:max-w-[440px] bg-mn-surface border-outline-variant/40 shadow-pop rounded-2xl p-6 text-foreground">
         <DialogHeader className="space-y-1.5 pb-2">
           <DialogTitle className="text-2xl font-bold text-center font-headline-md tracking-tight">
             Mimir <span className="text-surface-tint">Nest</span>
@@ -172,13 +172,13 @@ export default function AuthModal({ isOpen, onClose }) {
           <TabsContent value="signin" className="space-y-4 focus-visible:outline-none">
             {/* Unverified Email Warning Banner */}
             {unverifiedEmail && (
-              <div className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-3.5 space-y-2 text-amber-200">
+              <div className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-3.5 space-y-2 text-warn">
                 <div className="flex items-start gap-2.5">
-                  <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                  <AlertTriangle className="w-4 h-4 text-warn shrink-0 mt-0.5" />
                   <div className="text-xs leading-relaxed">
-                    <p className="font-semibold text-amber-300">Email Verification Required</p>
-                    <p className="text-amber-200/80 mt-0.5">
-                      Please verify <span className="font-medium text-amber-100">{unverifiedEmail}</span> before signing in.
+                    <p className="font-semibold text-warn">Email Verification Required</p>
+                    <p className="text-warn/80 mt-0.5">
+                      Please verify <span className="font-medium text-warn">{unverifiedEmail}</span> before signing in.
                     </p>
                   </div>
                 </div>
@@ -188,7 +188,7 @@ export default function AuthModal({ isOpen, onClose }) {
                   size="sm"
                   onClick={() => handleResendVerification(unverifiedEmail)}
                   disabled={isResending}
-                  className="w-full text-xs h-8 bg-amber-500/15 border-amber-500/30 hover:bg-amber-500/25 text-amber-200 font-medium rounded-lg"
+                  className="w-full text-xs h-8 bg-amber-500/15 border-amber-500/30 hover:bg-amber-500/25 text-warn font-medium rounded-lg"
                 >
                   {isResending ? (
                     <>
@@ -295,13 +295,13 @@ export default function AuthModal({ isOpen, onClose }) {
           <TabsContent value="signup" className="space-y-4 focus-visible:outline-none">
             {signupComplete ? (
               <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-5 text-center space-y-3">
-                <div className="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto">
+                <div className="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-good flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-6 h-6" />
                 </div>
                 <div className="space-y-1">
                   <h3 className="text-sm font-bold text-foreground">Verify your email address</h3>
                   <p className="text-xs text-on-surface-variant leading-relaxed">
-                    We sent a verification link to <span className="text-emerald-400 font-semibold">{registeredEmail}</span>.
+                    We sent a verification link to <span className="text-good font-semibold">{registeredEmail}</span>.
                     Please check your inbox to activate your account.
                   </p>
                 </div>

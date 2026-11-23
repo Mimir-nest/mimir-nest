@@ -14,18 +14,18 @@ export default function TypingTestResults({ onRestart }) {
         : 0;
     const getPerformanceGrade = (wpm) => {
         if (wpm >= 70)
-            return { grade: 'Master Tier', color: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20', icon: Trophy };
+            return { grade: 'Master Tier', color: 'text-good bg-emerald-500/10 border-emerald-500/20', icon: Trophy };
         if (wpm >= 50)
             return { grade: 'Proficient', color: 'text-primary bg-primary/10 border-primary/20', icon: Target };
         if (wpm >= 30)
-            return { grade: 'Intermediate', color: 'text-amber-400 bg-amber-500/10 border-amber-500/20', icon: Clock };
+            return { grade: 'Intermediate', color: 'text-warn bg-amber-500/10 border-amber-500/20', icon: Clock };
         return { grade: 'Needs Practice', color: 'text-rose-400 bg-rose-500/10 border-rose-500/20', icon: Zap };
     };
     const performance = getPerformanceGrade(finalWPM);
     const PerformanceIcon = performance.icon;
     return (<div className="space-y-8 max-w-4xl mx-auto">
       {/* Test Complete Header Banner */}
-      <div className="text-center py-10 bg-primary-container text-on-primary rounded-3xl border border-surface-tint/30 relative overflow-hidden shadow-xl">
+      <div className="text-center py-10 bg-primary-container text-on-primary rounded-3xl border border-surface-tint/30 relative overflow-hidden shadow-pop">
         <div className="absolute top-0 right-0 w-64 h-64 rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
         <div className="flex justify-center mb-4 relative z-10">
           <div className="p-4 bg-surface-container-lowest text-mn-primary rounded-full shadow-lg">
@@ -60,7 +60,7 @@ export default function TypingTestResults({ onRestart }) {
       {/* Detailed Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-surface-container-lowest p-5 rounded-xl shadow-sm border border-outline-variant/40 text-center">
-          <div className="font-headline-md text-2xl font-bold text-emerald-400 tabular-nums mb-1">{Math.round(stats.accuracy)}%</div>
+          <div className="font-headline-md text-2xl font-bold text-good tabular-nums mb-1">{Math.round(stats.accuracy)}%</div>
           <div className="text-[11px] font-label-caps text-on-surface-variant uppercase tracking-wider">Accuracy</div>
           <div className="text-[11px] text-on-surface-variant/60 mt-0.5">Errors: {stats.totalErrors}</div>
         </div>
@@ -102,7 +102,7 @@ export default function TypingTestResults({ onRestart }) {
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           <div className="text-center p-3 rounded-xl bg-surface-container/50">
-            <div className="text-2xl font-bold text-emerald-400 mb-1 tabular-nums">
+            <div className="text-2xl font-bold text-good mb-1 tabular-nums">
               {stats.characters.correct}
             </div>
             <div className="text-[11px] font-label-caps text-on-surface-variant uppercase tracking-wider mb-2">Correct</div>
@@ -126,7 +126,7 @@ export default function TypingTestResults({ onRestart }) {
           </div>
           
           <div className="text-center p-3 rounded-xl bg-surface-container/50">
-            <div className="text-2xl font-bold text-amber-400 mb-1 tabular-nums">
+            <div className="text-2xl font-bold text-warn mb-1 tabular-nums">
               {stats.characters.extra}
             </div>
             <div className="text-[11px] font-label-caps text-on-surface-variant uppercase tracking-wider mb-2">Extra</div>

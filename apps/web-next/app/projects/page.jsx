@@ -5,14 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Github, Star, Code, Sparkles } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { contentApi } from "@/services/contentApi";
 
-const ParticleWave = dynamic(
-  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
-  { ssr: false }
-);
+import { PixelScene } from "@/components/pixel";
 const categories = [
     { id: "all", label: "All Projects" },
     { id: "ai", label: "AI/ML & Data" },
@@ -51,16 +47,7 @@ const Projects = () => {
       <Navbar />
 
       {/* ── Deep Green Sanctuary Hero ── */}
-      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl">
-        {/* Background Particle Wave */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
-          <ParticleWave />
-        </div>
-
-        {/* Decorative Rings */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
-        <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-primary-container/40 -translate-x-1/2 translate-y-1/2 pointer-events-none"/>
+      <section className="relative pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden pixel-grid border-b border-line">
 
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-xs font-label-caps text-surface-tint tracking-widest uppercase mx-auto">
@@ -88,6 +75,9 @@ const Projects = () => {
               <span>Open Source / MIT</span>
             </span>
           </div>
+        </div>
+        <div className="relative z-10 mx-auto mt-10 max-w-5xl sm:mt-14">
+          <div className="frame"><PixelScene kind="build" h={90} /></div>
         </div>
       </section>
 
@@ -128,7 +118,7 @@ const Projects = () => {
                       <h3 className="font-headline-md text-xl font-bold text-mn-primary">
                         {project.title}
                       </h3>
-                      <div className="flex items-center gap-1.5 text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-md text-xs font-bold shrink-0">
+                      <div className="flex items-center gap-1.5 text-warn bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-md text-xs font-bold shrink-0">
                         <Star className="h-3.5 w-3.5 fill-current"/>
                         <span>{project.stars || "4.9"}</span>
                       </div>
@@ -173,7 +163,7 @@ const Projects = () => {
                     <h3 className="font-headline-md text-lg font-bold text-mn-primary line-clamp-1">
                       {project.title}
                     </h3>
-                    <div className="flex items-center gap-1 text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-md text-xs font-bold shrink-0">
+                    <div className="flex items-center gap-1 text-warn bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-md text-xs font-bold shrink-0">
                       <Star className="h-3 w-3 fill-current"/>
                       <span>{project.stars || "5.0"}</span>
                     </div>

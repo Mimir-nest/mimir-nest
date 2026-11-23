@@ -58,7 +58,7 @@ const SearchFilters = ({ searchTerm, setSearchTerm, difficultyFilter, setDifficu
                 <SelectValue placeholder="Difficulty"/>
               </div>
             </SelectTrigger>
-            <SelectContent className="bg-surface-container-lowest border-outline-variant/40 text-mn-primary rounded-2xl shadow-xl">
+            <SelectContent className="bg-surface-container-lowest border-outline-variant/40 text-mn-primary rounded-2xl shadow-pop">
               <SelectItem value="All">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-surface-tint"/>
@@ -91,7 +91,7 @@ const SearchFilters = ({ searchTerm, setSearchTerm, difficultyFilter, setDifficu
                 <SelectValue placeholder="Topics"/>
               </div>
             </SelectTrigger>
-            <SelectContent className="bg-surface-container-lowest border-outline-variant/40 text-mn-primary rounded-2xl shadow-xl max-h-[320px]">
+            <SelectContent className="bg-surface-container-lowest border-outline-variant/40 text-mn-primary rounded-2xl shadow-pop max-h-[320px]">
               <SelectItem value="All">
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-3.5 h-3.5 text-surface-tint"/>

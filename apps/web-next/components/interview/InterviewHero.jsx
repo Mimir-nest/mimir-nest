@@ -17,11 +17,7 @@ export default function InterviewHero() {
   };
 
   return (
-    <section className="relative bg-surface-container pt-[100px] sm:pt-[120px] md:pt-[150px] pb-16 sm:pb-20 md:pb-[110px] px-4 sm:px-6 md:px-12 lg:px-16 overflow-hidden rounded-b-3xl border-b border-border/40 max-w-full">
-      {/* Subtle Technical Ambient Geometry */}
-      <div className="absolute top-0 right-0 w-[350px] sm:w-[700px] h-[350px] sm:h-[700px] rounded-full border border-surface-tint/10 translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full border border-surface-tint/5 -translate-x-1/2 translate-y-1/2 pointer-events-none" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#24252515_1px,transparent_1px),linear-gradient(to_bottom,#24252515_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] pointer-events-none" />
+    <section className="relative pixel-grid pt-[100px] sm:pt-[120px] md:pt-[150px] pb-16 sm:pb-20 md:pb-[110px] px-4 sm:px-6 md:px-12 lg:px-16 overflow-hidden border-b border-line max-w-full">
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 relative z-10 items-center">
         {/* Left Column: Copy & CTAs */}
@@ -82,7 +78,7 @@ export default function InterviewHero() {
           >
             <button
               onClick={scrollToEarlyAccess}
-              className="w-full sm:w-auto bg-primary text-primary-foreground px-7 py-3.5 rounded-xl font-label-caps text-sm hover:scale-[1.02] active:scale-[0.99] transition-all flex items-center justify-center gap-2.5 tracking-wider font-semibold shadow-lg shadow-primary/20 border-none cursor-pointer"
+              className="w-full sm:w-auto bg-primary text-primary-foreground px-7 py-3.5 rounded-xl font-label-caps text-sm hover:scale-[1.02] active:scale-[0.99] transition-all flex items-center justify-center gap-2.5 tracking-wider font-semibold shadow-lg border-none cursor-pointer"
             >
               Get Early Access
               <ArrowRight className="w-4 h-4" />
@@ -124,7 +120,7 @@ export default function InterviewHero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.55, delay: 0.2 }}
         >
-          <div className="w-full max-w-md p-4 sm:p-8 rounded-3xl bg-mn-background/80 border border-outline-variant/80 shadow-2xl backdrop-blur-md relative overflow-hidden flex flex-col items-center justify-center">
+          <div className="w-full max-w-md p-4 sm:p-8 rounded-3xl bg-mn-background/80 border border-outline-variant/80 shadow-pop backdrop-blur-md relative overflow-hidden flex flex-col items-center justify-center">
             <InterviewOrb
               size="180px"
               initialState="listening"

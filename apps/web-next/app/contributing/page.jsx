@@ -16,13 +16,9 @@ import {
   Accessibility,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
 
-const ParticleWave = dynamic(
-  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
-  { ssr: false }
-);
 
+import { PixelScene } from "@/components/pixel";
 const Contributing = () => {
   const waysToContribute = [
     {
@@ -57,16 +53,7 @@ const Contributing = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl">
-        {/* Background Particle Wave */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
-          <ParticleWave />
-        </div>
-
-        {/* Decorative Rings */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-primary-container/40 -translate-x-1/2 translate-y-1/2 pointer-events-none" />
+      <section className="relative pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden pixel-grid border-b border-line">
 
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-xs font-label-caps text-surface-tint tracking-widest uppercase mx-auto">
@@ -82,6 +69,9 @@ const Contributing = () => {
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body-lg text-body-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Mimir Nest welcomes community contributions. Whether you are fixing a bug, improving documentation, adding a useful feature, or improving an existing resource, your contribution can help make the project better for students.
           </motion.p>
+        </div>
+        <div className="relative z-10 mx-auto mt-10 max-w-5xl sm:mt-14">
+          <div className="frame"><PixelScene kind="project" h={90} /></div>
         </div>
       </section>
 

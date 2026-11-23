@@ -5,7 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
 import TrustedBy from "@/components/home/TrustedBy";
-import Features from "@/components/home/Features";
+import { Journey, StudySection, LearnSection, BuildSection, PrepareSection } from "@/components/home/Chapters";
 import HomeInterviewSection from "@/components/home/HomeInterviewSection";
 import FAQ from "@/components/home/FAQ";
 const Index = () => {
@@ -13,7 +13,11 @@ const Index = () => {
       <Navbar />
       <Hero />
       <TrustedBy />
-      <Features />
+      <Journey />
+      <StudySection />
+      <LearnSection />
+      <BuildSection />
+      <PrepareSection />
       <HomeInterviewSection />
       <FAQ />
       <Footer />

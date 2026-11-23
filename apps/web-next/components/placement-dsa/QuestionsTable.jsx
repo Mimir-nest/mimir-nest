@@ -112,7 +112,7 @@ const QuestionsTable = ({ filteredQuestions, copiedQuestionId, handleCopyQuestio
         : filteredQuestions;
     return (<motion.div className="space-y-6 mb-16" variants={cardVariants} initial="hidden" animate="visible">
       {/* ── Futuristic Mastery Analytics Bento ── */}
-      <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-[32px] p-6 md:p-8 shadow-[0_20px_50px_rgba(0,19,8,0.06)] relative overflow-hidden">
+      <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-[32px] p-6 md:p-8 shadow-pop relative overflow-hidden">
         {/* Subtle decorative ring */}
         <div className="absolute top-0 right-0 w-80 h-80 rounded-full border border-surface-tint/10 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
 
@@ -166,8 +166,8 @@ const QuestionsTable = ({ filteredQuestions, copiedQuestionId, handleCopyQuestio
         </div>
 
         {/* Global Progress Bar */}
-        <div className="relative h-2.5 bg-surface-container rounded-full overflow-hidden mb-8 shadow-inner">
-          <motion.div className="absolute top-0 left-0 h-full bg-gradient-to-r from-surface-tint via-primary-fixed-dim to-surface-tint rounded-full" initial={{ width: 0 }} animate={{ width: `${progressPercentage}%` }} transition={{ duration: 1, ease: "easeOut" }}/>
+        <div className="relative h-2.5 bg-surface-container rounded-full overflow-hidden mb-8">
+          <motion.div className="absolute top-0 left-0 h-full bg-surface-tint rounded-full" initial={{ width: 0 }} animate={{ width: `${progressPercentage}%` }} transition={{ duration: 1, ease: "easeOut" }}/>
         </div>
 
         {/* Difficulty Breakdown Bento Cards */}
@@ -229,7 +229,7 @@ const QuestionsTable = ({ filteredQuestions, copiedQuestionId, handleCopyQuestio
       </div>
 
       {/* ── Questions Table Terminal ── */}
-      <div className="border border-outline-variant/40 rounded-[32px] overflow-hidden bg-surface-container-lowest shadow-[0_20px_50px_rgba(0,19,8,0.06)]">
+      <div className="border border-outline-variant/40 rounded-[32px] overflow-hidden bg-surface-container-lowest shadow-pop">
         <ScrollArea className="h-[600px] md:h-[700px]">
           <Table className="min-w-[800px]">
             <TableHeader className="bg-surface-container/90 sticky top-0 z-20 backdrop-blur-md border-b border-outline-variant/30">
@@ -271,8 +271,8 @@ const QuestionsTable = ({ filteredQuestions, copiedQuestionId, handleCopyQuestio
                       <TableCell>
                         <Badge variant="outline" className={`
                             font-semibold text-xs border px-3 py-1 rounded-md
-                            ${question.difficulty === 'Easy' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
-                    question.difficulty === 'Medium' ? 'bg-amber-500/10 text-amber-400 border-amber-500/20' :
+                            ${question.difficulty === 'Easy' ? 'bg-emerald-500/10 text-good border-emerald-500/20' :
+                    question.difficulty === 'Medium' ? 'bg-amber-500/10 text-warn border-amber-500/20' :
                         'bg-rose-500/10 text-rose-400 border-rose-500/20'}
                           `}>
                           {question.difficulty}

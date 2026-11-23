@@ -22,14 +22,9 @@ import {
   Clock,
   Sparkles,
 } from "lucide-react";
-import dynamic from "next/dynamic";
 import { chapters, topics } from "./data/topics";
 
-// Dynamic import of the Mimir Nest ParticleWave background waves
-const ParticleWave = dynamic(
-  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
-  { ssr: false }
-);
+import { PixelScene } from "@/components/pixel";
 
 // ── Inline content block renderer ────────────────────────────────────────────
 const InlineText = ({ text }) => {
@@ -50,7 +45,7 @@ const InlineText = ({ text }) => {
           return (
             <code
               key={i}
-              className="bg-[#1e2022] text-[#FF7A5A] px-1.5 py-0.5 rounded font-mono text-[12px] border border-white/[0.08]"
+              className="bg-surface-container-high text-surface-tint px-1.5 py-0.5 rounded font-mono text-[12px] border border-white/[0.08]"
             >
               {part.slice(1, -1)}
             </code>
@@ -65,7 +60,7 @@ const InlineText = ({ text }) => {
                 href={match[2]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#FF5A36] hover:text-[#ff7a5a] underline underline-offset-2 inline-flex items-center gap-0.5 font-medium transition-colors"
+                className="text-surface-tint hover:text-surface-tint underline underline-offset-2 inline-flex items-center gap-0.5 font-medium transition-colors"
               >
                 {match[1]}
                 <ExternalLink className="w-2.5 h-2.5 opacity-70" />
@@ -84,7 +79,7 @@ const ContentBlock = ({ block }) => {
     case "h3":
       return (
         <h3 className="text-sm font-bold text-white/90 mt-6 mb-2.5 flex items-center gap-2.5 tracking-tight">
-          <span className="w-1 h-3.5 bg-[#FF5A36] inline-block shrink-0" />
+          <span className="w-1 h-3.5 bg-surface-tint inline-block shrink-0" />
           {block.text}
         </h3>
       );
@@ -96,7 +91,7 @@ const ContentBlock = ({ block }) => {
       );
     case "quote":
       return (
-        <blockquote className="my-4 pl-4 border-l-2 border-[#FF5A36] italic text-[13.5px] text-white/80 leading-relaxed bg-[#1e2022]/30 py-2 rounded-r-lg">
+        <blockquote className="my-4 pl-4 border-l-2 border-surface-tint italic text-[13.5px] text-white/80 leading-relaxed bg-surface-container-high/30 py-2 rounded-r-lg">
           {block.text}
         </blockquote>
       );
@@ -115,7 +110,7 @@ const ContentBlock = ({ block }) => {
       );
     case "table":
       return (
-        <div className="overflow-x-auto my-4 rounded-lg border border-white/[0.06] bg-[#141517]">
+        <div className="overflow-x-auto my-4 rounded-lg border border-white/[0.06] bg-surface-container-lowest">
           <table className="w-full text-xs">
             <thead>
               <tr className="bg-white/[0.02] border-b border-white/[0.06]">
@@ -181,7 +176,7 @@ const ChapterOverview = ({
         </div>
         <div className="flex items-center gap-3">
           <span className="text-xs font-mono text-white/50">{readInChapter} of {chapterTopics.length} completed</span>
-          <span className="text-xs font-bold text-[#FF5A36] font-mono bg-[#FF5A36]/10 px-2 py-0.5 border border-[#FF5A36]/20 rounded">{progressPercent}%</span>
+          <span className="text-xs font-bold text-surface-tint font-mono bg-surface-tint/10 px-2 py-0.5 border border-surface-tint/20 rounded">{progressPercent}%</span>
         </div>
       </div>
 
@@ -201,14 +196,14 @@ const ChapterOverview = ({
                   <div className="flex items-center justify-between gap-2 mb-1.5 font-sans">
                     <span className="text-[10px] font-mono text-white/30">Concept {String(index + 1).padStart(2, "0")}</span>
                     <div className="flex items-center gap-1.5">
-                      {isSaved && <Bookmark className="w-3 h-3 text-amber-500 fill-amber-500" />}
-                      {isRead && <Check className="w-3.5 h-3.5 text-[#FF5A36] stroke-[3]" />}
+                      {isSaved && <Bookmark className="w-3 h-3 text-warn fill-amber-500" />}
+                      {isRead && <Check className="w-3.5 h-3.5 text-surface-tint stroke-[3]" />}
                     </div>
                   </div>
                   <h4 className="text-sm font-semibold text-white/95 group-hover:text-white transition-colors font-sans">{topic.title}</h4>
                   <p className="text-xs text-white/45 mt-1 line-clamp-2 leading-relaxed font-sans">{topic.summary}</p>
                 </div>
-                <div className="mt-3 pt-2.5 border-t border-white/[0.03] flex items-center justify-end text-[10px] font-semibold text-white/40 group-hover:text-[#FF5A36] transition-colors gap-1 font-sans">
+                <div className="mt-3 pt-2.5 border-t border-white/[0.03] flex items-center justify-end text-[10px] font-semibold text-white/40 group-hover:text-surface-tint transition-colors gap-1 font-sans">
                   <span>Read Concept</span>
                   <ChevronRight className="w-3 h-3" />
                 </div>
@@ -275,7 +270,7 @@ const ConceptReader = ({
               title={isBookmarked ? "Remove bookmark" : "Bookmark topic"}
               className={`p-1.5 rounded-lg transition-colors border ${
                 isBookmarked
-                  ? "text-amber-500 border-amber-500/20 bg-amber-500/5 hover:bg-amber-500/10"
+                  ? "text-warn border-amber-500/20 bg-amber-500/5 hover:bg-amber-500/10"
                   : "text-white/40 hover:text-white border-white/[0.06] hover:bg-white/[0.04]"
               }`}
             >
@@ -287,7 +282,7 @@ const ConceptReader = ({
               onClick={onToggleRead}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold transition-all border ${
                 isRead
-                  ? "bg-[#FF5A36]/10 text-[#FF5A36] border-[#FF5A36]/30 hover:bg-[#FF5A36]/20"
+                  ? "bg-surface-tint/10 text-surface-tint border-surface-tint/30 hover:bg-surface-tint/20"
                   : "bg-white/[0.04] text-white/70 border-white/[0.08] hover:text-white hover:bg-white/[0.08]"
               }`}
             >
@@ -314,13 +309,13 @@ const ConceptReader = ({
       {/* Reader Body Content */}
       <div className="space-y-5 text-white/70 leading-[1.7] text-sm max-w-3xl font-sans">
         {/* Definition Summary */}
-        <p className="text-base text-white/95 font-medium leading-relaxed italic border-l-2 border-[#FF5A36] pl-4 py-0.5">
+        <p className="text-base text-white/95 font-medium leading-relaxed italic border-l-2 border-surface-tint pl-4 py-0.5">
           {topic.summary}
         </p>
 
         {/* Optional Architecture Diagram */}
         {topic.image && (
-          <div className="relative group/img rounded-xl overflow-hidden border border-white/[0.06] bg-[#0c0d0e] p-3 my-6">
+          <div className="relative group/img rounded-xl overflow-hidden border border-white/[0.06] bg-mn-background p-3 my-6">
             <div className="absolute top-2 right-2 z-10 opacity-0 group-hover/img:opacity-100 transition-opacity">
               <a
                 href={topic.image}
@@ -372,7 +367,7 @@ const ConceptReader = ({
         {hasNext ? (
           <button
             onClick={onNext}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold text-white/85 hover:text-white hover:bg-white/[0.04] border border-[#FF5A36]/30 hover:border-[#FF5A36]/50 bg-[#FF5A36]/5 transition-all"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold text-white/85 hover:text-white hover:bg-white/[0.04] border border-surface-tint/30 hover:border-surface-tint/50 bg-surface-tint/5 transition-all"
           >
             <span>Next Concept</span>
             <ChevronRight className="w-3.5 h-3.5" />
@@ -633,30 +628,18 @@ export default function SystemDesignGuidePage() {
   const hasActiveFilters = !!searchQuery.trim() || filterMode !== "all";
 
   return (
-    <div className="min-h-screen bg-[#0F1010] text-[#F4F1EA] selection:bg-[#FF5A36] selection:text-[#0F1010] flex flex-col font-sans">
+    <div className="min-h-screen bg-mn-background text-on-surface selection:bg-surface-tint selection:text-mn-background flex flex-col font-sans">
       <Navbar />
 
       {/* ── RESTORED SIGNATURE HERO SECTION (Matching DSA Hero Styling) ── */}
-      <section className="relative bg-[#151616] pt-[130px] md:pt-[160px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl border-b border-white/[0.06] bg-cover bg-center" style={{ backgroundImage: "url('/images/hero-bg.png')" }}>
-        {/* Dark overlay for contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#151616]/95 via-[#151616]/85 to-[#151616]/95 z-0 pointer-events-none" />
-
-        {/* Background Particle Wave waves */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
-          <ParticleWave />
-        </div>
-
-        {/* Decorative Rings */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-[#FF5A36]/10 translate-x-1/4 -translate-y-1/4 pointer-events-none z-0" />
-        <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-[#FF5A36]/15 translate-x-1/3 -translate-y-1/3 pointer-events-none z-0" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-white/[0.03] -translate-x-1/2 translate-y-1/2 pointer-events-none z-0" />
+      <section className="relative pt-[130px] md:pt-[160px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden pixel-grid border-b border-line">
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
             {/* Top pill badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-6 w-fit border border-white/[0.08] shadow-inner bg-white/[0.02] backdrop-blur-md">
-              <Sparkles className="w-4 h-4 text-[#FF5A36] animate-pulse" />
-              <span className="font-mono text-xs text-[#FF5A36] tracking-widest uppercase font-semibold">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-6 w-fit border border-white/[0.08] bg-white/[0.02] backdrop-blur-md">
+              <Sparkles className="w-4 h-4 text-surface-tint animate-pulse" />
+              <span className="font-mono text-xs text-surface-tint tracking-widest uppercase font-semibold">
                 System Design Guide
               </span>
             </div>
@@ -664,7 +647,7 @@ export default function SystemDesignGuidePage() {
             {/* Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-6 font-sans">
               System Design <br />
-              <span className="text-[#FF5A36]">Guide.</span>
+              <span className="text-surface-tint">Guide.</span>
             </h1>
 
             {/* Subtitle */}
@@ -679,7 +662,7 @@ export default function SystemDesignGuidePage() {
                 { label: "Chapters", val: "6 Unique" },
                 { label: "Study Material", val: "5.5 Hours" },
               ].map((stat, i) => (
-                <div key={i} className="p-4 rounded-xl glass-panel text-center border border-white/[0.08] bg-[#141517]/55 backdrop-blur-md">
+                <div key={i} className="p-4 rounded-xl glass-panel text-center border border-white/[0.08] bg-surface-container-lowest/55 backdrop-blur-md">
                   <div className="text-xl text-white font-bold">{stat.val}</div>
                   <div className="text-[10px] text-white/50 uppercase tracking-widest font-mono mt-0.5">{stat.label}</div>
                 </div>
@@ -689,17 +672,20 @@ export default function SystemDesignGuidePage() {
             {/* Start / Continue Button */}
             <button
               onClick={continueLearning}
-              className="px-8 py-3.5 rounded-full bg-[#FF5A36] text-black font-semibold text-xs uppercase tracking-widest hover:bg-[#ff7a5a] transition-all shadow-[0_0_20px_rgba(255,90,54,0.35)] flex items-center gap-2 group border border-[#FF5A36] font-sans"
+              className="px-8 py-3.5 rounded-full bg-surface-tint text-black font-semibold text-xs uppercase tracking-widest hover:bg-surface-tint transition-all flex items-center gap-2 group border border-surface-tint font-sans"
             >
               <span>Continue learning</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
         </div>
+        <div className="relative z-10 mx-auto mt-10 max-w-5xl sm:mt-14">
+          <div className="frame"><PixelScene kind="learn" h={90} /></div>
+        </div>
       </section>
 
       {/* ── PROGRESS SECTION ────────────────────────────────────────────────── */}
-      <section className="py-4 border-b border-white/[0.06] bg-[#121314]">
+      <section className="py-4 border-b border-white/[0.06] bg-mn-background">
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 font-sans">
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5">
             <span className="text-[10px] font-bold text-white/60 uppercase tracking-wider">YOUR PROGRESS</span>
@@ -707,7 +693,7 @@ export default function SystemDesignGuidePage() {
               <span className="text-xs font-mono text-white/60 bg-white/[0.03] px-2 py-0.5 border border-white/[0.06] rounded">
                 {readCount} / {totalCount} completed
               </span>
-              <span className="text-xs font-bold text-[#FF5A36] font-mono">
+              <span className="text-xs font-bold text-surface-tint font-mono">
                 {progressPercent}%
               </span>
             </div>
@@ -716,13 +702,13 @@ export default function SystemDesignGuidePage() {
           <div className="flex items-center gap-4 flex-1 sm:max-w-xs justify-between sm:justify-end">
             <div className="h-1.5 w-32 sm:w-full bg-white/[0.06] rounded-full overflow-hidden shrink-0">
               <div
-                className="h-full bg-[#FF5A36] rounded-full transition-all duration-500"
+                className="h-full bg-surface-tint rounded-full transition-all duration-500"
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
             <button
               onClick={continueLearning}
-              className="text-xs font-semibold text-[#FF5A36] hover:text-[#ff7a5a] transition-colors shrink-0 flex items-center gap-1 group"
+              className="text-xs font-semibold text-surface-tint hover:text-surface-tint transition-colors shrink-0 flex items-center gap-1 group"
             >
               Continue where you left off
               <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
@@ -736,7 +722,7 @@ export default function SystemDesignGuidePage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: CURRICULUM */}
           <aside className="lg:col-span-4 space-y-4">
-            <div className="border border-white/[0.06] bg-[#141517] rounded-xl p-4 space-y-4 shadow-sm">
+            <div className="border border-white/[0.06] bg-surface-container-lowest rounded-xl p-4 space-y-4 shadow-sm">
               <div className="flex items-center justify-between pb-2 border-b border-white/[0.04]">
                 <span className="text-xs font-bold text-white uppercase tracking-wider font-sans">CURRICULUM</span>
                 <span className="text-[10px] text-white/40 font-mono">{totalCount} concepts</span>
@@ -752,7 +738,7 @@ export default function SystemDesignGuidePage() {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search concepts... (Press / to focus)"
-                    className="w-full h-9 pl-9 pr-8 bg-[#0F1010] border border-white/[0.08] hover:border-white/[0.12] rounded-lg text-xs text-white placeholder:text-white/30 focus:outline-none focus:ring-1 focus:ring-[#FF5A36]/50 focus:border-[#FF5A36]/40 transition-all font-sans font-normal"
+                    className="w-full h-9 pl-9 pr-8 bg-mn-background border border-white/[0.08] hover:border-white/[0.12] rounded-lg text-xs text-white placeholder:text-white/30 focus:outline-none focus:ring-1 focus:ring-surface-tint/50 focus:border-surface-tint/40 transition-all font-sans font-normal"
                   />
                   {searchQuery && (
                     <button
@@ -765,7 +751,7 @@ export default function SystemDesignGuidePage() {
                 </div>
 
                 {/* Filters Segment */}
-                <div className="grid grid-cols-4 gap-1 bg-[#0F1010] p-0.5 rounded-lg border border-white/[0.06]">
+                <div className="grid grid-cols-4 gap-1 bg-mn-background p-0.5 rounded-lg border border-white/[0.06]">
                   {[
                     { id: "all", label: "All" },
                     { id: "unread", label: "Unread" },
@@ -779,7 +765,7 @@ export default function SystemDesignGuidePage() {
                         onClick={() => setFilterMode(tab.id)}
                         className={`py-1 rounded text-[10px] font-medium transition-all ${
                           isSel
-                            ? "bg-[#FF5A36] text-[#0F1010] font-bold shadow-sm"
+                            ? "bg-surface-tint text-mn-background font-bold shadow-sm"
                             : "text-white/50 hover:text-white"
                         }`}
                       >
@@ -835,7 +821,7 @@ export default function SystemDesignGuidePage() {
                           </span>
                           <ChevronRight
                             className={`w-3 h-3 opacity-40 transition-transform duration-200 ${
-                              isExpanded ? "rotate-90 text-[#FF5A36] opacity-100" : ""
+                              isExpanded ? "rotate-90 text-surface-tint opacity-100" : ""
                             }`}
                           />
                         </div>
@@ -856,7 +842,7 @@ export default function SystemDesignGuidePage() {
                                 onClick={() => selectTopic(t.id)}
                                 className={`w-full text-left text-[11px] py-1 px-1.5 rounded transition-all flex items-center justify-between gap-2 group/item font-sans ${
                                   isAct
-                                    ? "text-[#FF5A36] bg-[#FF5A36]/10 font-bold"
+                                    ? "text-surface-tint bg-surface-tint/10 font-bold"
                                     : "text-white/60 hover:text-white hover:bg-white/[0.02]"
                                 }`}
                               >
@@ -866,10 +852,10 @@ export default function SystemDesignGuidePage() {
                                 </div>
                                 <div className="flex items-center gap-1.5 shrink-0">
                                   {isBookmarked && (
-                                    <Bookmark className="w-2.5 h-2.5 text-amber-500 fill-amber-500 animate-in zoom-in-50" />
+                                    <Bookmark className="w-2.5 h-2.5 text-warn fill-amber-500 animate-in zoom-in-50" />
                                   )}
                                   {isRead ? (
-                                    <Check className="w-3.5 h-3.5 text-[#FF5A36] stroke-[3]" />
+                                    <Check className="w-3.5 h-3.5 text-surface-tint stroke-[3]" />
                                   ) : (
                                     <Circle className="w-2.5 h-2.5 text-white/10" />
                                   )}
@@ -895,7 +881,7 @@ export default function SystemDesignGuidePage() {
                   {hasActiveFilters && (
                     <button
                       onClick={() => { setSearchQuery(""); setFilterMode("all"); }}
-                      className="block mx-auto mt-2 text-[#FF5A36] hover:underline"
+                      className="block mx-auto mt-2 text-surface-tint hover:underline"
                     >
                       Reset filters
                     </button>
@@ -906,7 +892,7 @@ export default function SystemDesignGuidePage() {
           </aside>
 
           {/* Right Column: CONTENT READER */}
-          <main id="reader-pane" className="lg:col-span-8 border border-white/[0.06] bg-[#141517] rounded-xl p-5 md:p-7 min-h-[500px] shadow-sm flex flex-col justify-between">
+          <main id="reader-pane" className="lg:col-span-8 border border-white/[0.06] bg-surface-container-lowest rounded-xl p-5 md:p-7 min-h-[500px] shadow-sm flex flex-col justify-between">
             {activeTopicId && topics[activeTopicId] ? (
               <ConceptReader
                 topic={topics[activeTopicId]}

@@ -8,12 +8,8 @@ import { HelpCircle, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import dynamic from "next/dynamic";
 
-const ParticleWave = dynamic(
-  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
-  { ssr: false }
-);
+import { PixelScene } from "@/components/pixel";
 const FAQ = () => {
     const faqs = [
         {
@@ -61,16 +57,7 @@ const FAQ = () => {
       <Navbar />
 
       {/* ── Deep Green Sanctuary Hero ── */}
-      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl">
-        {/* Background Particle Wave */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
-          <ParticleWave />
-        </div>
-
-        {/* Decorative Rings */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
-        <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-primary-container/40 -translate-x-1/2 translate-y-1/2 pointer-events-none"/>
+      <section className="relative pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden pixel-grid border-b border-line">
 
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-xs font-label-caps text-surface-tint tracking-widest uppercase mx-auto">
@@ -86,6 +73,9 @@ const FAQ = () => {
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body-lg text-body-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Find comprehensive answers about Mimir Nest's tools, calculations, interview archives, and student benefits.
           </motion.p>
+        </div>
+        <div className="relative z-10 mx-auto mt-10 max-w-5xl sm:mt-14">
+          <div className="frame"><PixelScene kind="project" h={90} /></div>
         </div>
       </section>
 
@@ -103,7 +93,7 @@ const FAQ = () => {
         </Accordion>
 
         {/* ── Support Card ── */}
-        <div className="mt-16 bg-surface-container text-foreground rounded-2xl p-6 sm:p-8 md:p-12 text-center relative overflow-hidden border border-border/50 shadow-xl space-y-4">
+        <div className="mt-16 bg-surface-container text-foreground rounded-2xl p-6 sm:p-8 md:p-12 text-center relative overflow-hidden border border-border/50 shadow-pop space-y-4">
           <div className="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mx-auto text-surface-tint mb-2 border border-border/40">
             <Mail className="w-6 h-6"/>
           </div>

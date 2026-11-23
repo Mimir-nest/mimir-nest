@@ -44,29 +44,26 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-16 md:py-[120px] px-6 md:px-16 bg-mn-background border-t border-outline-variant/30">
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-16 max-w-2xl">
-          <span className="font-label-caps text-label-caps text-surface-tint tracking-widest block mb-3 uppercase">
-            Frequently Asked Questions
-          </span>
-          <h2 className="font-headline-lg text-headline-lg text-mn-primary mb-4">
-            Frequently Asked{" "}
-            <span className="text-surface-tint">Questions</span>
+    <section id="faq" className="py-14 sm:py-24 px-4 sm:px-5 bg-panel2 border-b border-line">
+      <div className="max-w-6xl mx-auto grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)]">
+        <div className="lg:sticky lg:top-24 lg:self-start">
+          <p className="kicker mb-3">07 · Questions</p>
+          <h2 className="display text-[2.1rem] leading-[1.08] sm:text-5xl text-fg mb-4">
+            Frequently asked questions
           </h2>
-          <p className="font-body-lg text-body-lg text-on-surface-variant">
+          <p className="text-base sm:text-lg text-on-surface-variant">
             Find answers to the most common questions about Mimir Nest
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="w-full space-y-4">
+        <Accordion type="single" collapsible className="w-full space-y-3">
           {faqs.map((faq, index) => (
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="border border-outline-variant/50 rounded-2xl px-6 bg-surface-container-lowest data-[state=open]:bg-surface-container/50 transition-all duration-300 shadow-sm"
+              className="border border-line rounded-2xl px-5 sm:px-6 bg-panel data-[state=open]:pop transition-shadow"
             >
-              <AccordionTrigger className="text-mn-primary hover:text-surface-tint text-left py-6 text-base md:text-lg font-semibold [&[data-state=open]>svg]:rotate-180 no-underline hover:no-underline">
+              <AccordionTrigger className="text-fg hover:text-surface-tint text-left py-5 text-base md:text-lg font-semibold [&[data-state=open]>svg]:rotate-180 no-underline hover:no-underline">
                 <span className="flex items-center gap-2.5 flex-wrap">
                   <span>{faq.question}</span>
                   {faq.badge && (

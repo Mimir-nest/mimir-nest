@@ -259,7 +259,7 @@ export default function QuestionDetailPage() {
               aria-label="Copy Question"
             >
               {copied ? (
-                <Check className="w-4 h-4 text-emerald-400" />
+                <Check className="w-4 h-4 text-good" />
               ) : (
                 <Copy className="w-4 h-4" />
               )}
@@ -269,7 +269,7 @@ export default function QuestionDetailPage() {
               onClick={toggleBookmark}
               className={`p-2 rounded-lg border transition-all cursor-pointer ${
                 isBookmarked
-                  ? "bg-amber-500/10 border-amber-500/30 text-amber-400"
+                  ? "bg-amber-500/10 border-amber-500/30 text-warn"
                   : "bg-surface-container border-border/60 text-muted-foreground hover:text-foreground hover:border-surface-tint/40"
               }`}
               title={isBookmarked ? "Saved" : "Save question"}
@@ -370,13 +370,13 @@ export default function QuestionDetailPage() {
                   onClick={togglePracticed}
                   className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold font-label-caps tracking-wider uppercase transition-all duration-200 cursor-pointer border ${
                     isPracticed
-                      ? "bg-emerald-500/15 border-emerald-500/40 text-emerald-400 shadow-sm"
+                      ? "bg-emerald-500/15 border-emerald-500/40 text-good shadow-sm"
                       : "bg-surface-container hover:bg-surface-container-high border-border text-foreground hover:border-surface-tint/40"
                   }`}
                 >
                   {isPracticed ? (
                     <>
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                      <CheckCircle2 className="w-4 h-4 text-good" />
                       <span>Practiced</span>
                     </>
                   ) : (
@@ -391,7 +391,7 @@ export default function QuestionDetailPage() {
                   onClick={toggleBookmark}
                   className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer border ${
                     isBookmarked
-                      ? "bg-amber-500/10 border-amber-500/30 text-amber-400"
+                      ? "bg-amber-500/10 border-amber-500/30 text-warn"
                       : "bg-surface-container hover:bg-surface-container-high border-border text-muted-foreground hover:text-foreground hover:border-surface-tint/40"
                   }`}
                 >
@@ -487,7 +487,7 @@ export default function QuestionDetailPage() {
                             setIsAnswerRevealed(true);
                             setTimeout(() => scrollToAnswerGuide(), 100);
                           }}
-                          className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-surface-tint text-on-primary font-semibold text-xs font-label-caps tracking-wider uppercase hover:opacity-90 transition-opacity cursor-pointer border-none shadow-md shadow-surface-tint/20"
+                          className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-surface-tint text-on-primary font-semibold text-xs font-label-caps tracking-wider uppercase hover:opacity-90 transition-opacity cursor-pointer border-none shadow-md"
                         >
                           <Sparkles className="w-3.5 h-3.5" />
                           <span>Reveal Answer Guide ↓</span>
@@ -502,7 +502,7 @@ export default function QuestionDetailPage() {
             {/* ── 3. ANSWER GUIDE & APPROACH (HIDDEN BY DEFAULT UNTIL REVEALED) ── */}
             {!isAnswerRevealed ? (
               <section id="answer-guide" className="p-8 sm:p-10 rounded-2xl bg-surface-container border border-dashed border-border/70 text-center space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-surface-tint/10 border border-surface-tint/25 text-surface-tint flex items-center justify-center mx-auto shadow-inner">
+                <div className="w-12 h-12 rounded-2xl bg-surface-tint/10 border border-surface-tint/25 text-surface-tint flex items-center justify-center mx-auto">
                   <BookOpen className="w-6 h-6" />
                 </div>
                 <div className="max-w-md mx-auto space-y-1.5">
@@ -518,7 +518,7 @@ export default function QuestionDetailPage() {
                     setIsAnswerRevealed(true);
                     setTimeout(() => scrollToAnswerGuide(), 100);
                   }}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all duration-200 shadow-lg shadow-surface-tint/20 cursor-pointer border-none"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all duration-200 shadow-lg cursor-pointer border-none"
                 >
                   <Sparkles className="w-4 h-4" />
                   <span>Reveal Answer Guide</span>
@@ -583,7 +583,7 @@ export default function QuestionDetailPage() {
                       {/* Evaluation Rubric */}
                       {question.evaluation_rubric && (
                         <div className="p-5 rounded-2xl bg-surface-container/70 border border-border/60 space-y-2.5">
-                          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
+                          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-warn">
                             <span className="w-2 h-2 rounded-full bg-amber-400" />
                             <span>Evaluation Rubric</span>
                           </div>
@@ -596,8 +596,8 @@ export default function QuestionDetailPage() {
                       {/* Strong Answer Signals */}
                       {strongSignals.length > 0 && (
                         <div className="p-5 rounded-2xl bg-surface-container/70 border border-border/60 space-y-3">
-                          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-emerald-400">
-                            <Target className="w-4 h-4 text-emerald-400" />
+                          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-good">
+                            <Target className="w-4 h-4 text-good" />
                             <span>Strong Answer Signals</span>
                           </div>
                           <ul className="space-y-2 list-none pl-0">
@@ -905,7 +905,7 @@ function StructuredDetailedAnswer({ text }) {
             >
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
-                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400">
+                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-good">
                   WHAT MAKES A STRONG ANSWER
                 </h4>
               </div>

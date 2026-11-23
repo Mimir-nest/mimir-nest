@@ -16,21 +16,21 @@ const HowItWorksDialog = () => {
             title: "Short Break",
             description: "Take a 5-minute break to relax.",
             icon: Coffee,
-            color: "bg-[#D6D2C9] text-black"
+            color: "bg-on-surface text-black"
         },
         {
             number: 3,
             title: "Long Break",
             description: "After 4 pomodoros, take a 15-minute break.",
             icon: RotateCcw,
-            color: "bg-[#9B9992] text-black"
+            color: "bg-on-surface-variant text-black"
         },
         {
             number: 4,
             title: "Customize",
             description: "Adjust timer settings to fit your needs.",
             icon: Settings,
-            color: "bg-[#5D5B56] text-white"
+            color: "bg-outline text-white"
         }
     ];
     return (<Dialog>

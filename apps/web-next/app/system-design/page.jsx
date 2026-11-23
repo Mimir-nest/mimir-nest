@@ -30,14 +30,10 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { sections, questions } from "./data/questions";
-import dynamic from "next/dynamic";
 import { redirect } from "next/navigation";
 
-const ParticleWave = dynamic(
-  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
-  { ssr: false }
-);
 
+import { PixelScene } from "@/components/pixel";
 // Grouping of 24 canonical topics for left sidebar navigation
 const topicGroups = [
   {
@@ -76,7 +72,7 @@ const InlineText = ({ text }) => {
         }
         if (part.startsWith("`") && part.endsWith("`")) {
           return (
-            <code key={i} className="bg-[#121313] px-1.5 py-0.5 rounded font-mono text-xs text-[#ff5a36] border border-outline-variant/20">
+            <code key={i} className="bg-mn-background px-1.5 py-0.5 rounded font-mono text-xs text-surface-tint border border-outline-variant/20">
               {part.slice(1, -1)}
             </code>
           );
@@ -455,26 +451,14 @@ export default function SystemDesignPage() {
       <Navbar />
 
       {/* ── FLAGSHIP HERO SECTION (DSA & Guide Style) ── */}
-      <section className="relative bg-[#151616] pt-[130px] md:pt-[160px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl border-b border-white/[0.06] bg-cover bg-center" style={{ backgroundImage: "url('/images/hero-bg.png')" }}>
-        {/* Dark overlay for contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#151616]/95 via-[#151616]/85 to-[#151616]/95 z-0 pointer-events-none" />
-
-        {/* Background Particle Wave waves */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
-          <ParticleWave />
-        </div>
-
-        {/* Decorative Rings */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-[#FF5A36]/10 translate-x-1/4 -translate-y-1/4 pointer-events-none z-0" />
-        <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-[#FF5A36]/15 translate-x-1/3 -translate-y-1/3 pointer-events-none z-0" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-white/[0.03] -translate-x-1/2 translate-y-1/2 pointer-events-none z-0" />
+      <section className="relative pt-[130px] md:pt-[160px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden pixel-grid border-b border-line">
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
             {/* Top pill badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-6 w-fit border border-white/[0.08] shadow-inner bg-white/[0.02] backdrop-blur-md">
-              <Sparkles className="w-4 h-4 text-[#FF5A36] animate-pulse" />
-              <span className="font-mono text-xs text-[#FF5A36] tracking-widest uppercase font-semibold">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-6 w-fit border border-white/[0.08] bg-white/[0.02] backdrop-blur-md">
+              <Sparkles className="w-4 h-4 text-surface-tint animate-pulse" />
+              <span className="font-mono text-xs text-surface-tint tracking-widest uppercase font-semibold">
                 Technical Interview Vault
               </span>
             </div>
@@ -482,7 +466,7 @@ export default function SystemDesignPage() {
             {/* Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-6 font-sans">
               System Design <br />
-              <span className="text-[#FF5A36]">Interview Vault.</span>
+              <span className="text-surface-tint">Interview Vault.</span>
             </h1>
 
             {/* Subtitle */}
@@ -497,7 +481,7 @@ export default function SystemDesignPage() {
                 { label: "Topics covered", val: "24 Core" },
                 { label: "Level Depth", val: "Basic → Adv" },
               ].map((stat, i) => (
-                <div key={i} className="p-4 rounded-xl glass-panel text-center border border-white/[0.08] bg-[#141517]/55 backdrop-blur-md">
+                <div key={i} className="p-4 rounded-xl glass-panel text-center border border-white/[0.08] bg-surface-container-lowest/55 backdrop-blur-md">
                   <div className="text-xl text-white font-bold">{stat.val}</div>
                   <div className="text-[10px] text-white/50 uppercase tracking-widest font-mono mt-0.5">{stat.label}</div>
                 </div>
@@ -511,7 +495,7 @@ export default function SystemDesignPage() {
                   const el = document.getElementById("questions-workspace");
                   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
                 }}
-                className="px-6 py-3 rounded-full bg-[#FF5A36] text-black font-semibold text-xs uppercase tracking-widest hover:bg-[#ff7a5a] transition-all shadow-[0_0_20px_rgba(255,90,54,0.35)] flex items-center gap-2 group border border-[#FF5A36] font-sans cursor-pointer"
+                className="px-6 py-3 rounded-full bg-surface-tint text-black font-semibold text-xs uppercase tracking-widest hover:bg-surface-tint transition-all flex items-center gap-2 group border border-surface-tint font-sans cursor-pointer"
               >
                 <span>Explore questions</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -519,28 +503,31 @@ export default function SystemDesignPage() {
 
               <Link
                 href="/system-design/problems"
-                className="px-6 py-3 rounded-full bg-[#161c1d] text-[#e1e7e3] hover:text-white font-semibold text-xs uppercase tracking-widest hover:bg-[#202729] transition-all border border-[#2e393b] flex items-center gap-2 font-sans no-underline"
+                className="px-6 py-3 rounded-full bg-surface-container-lowest text-on-surface hover:text-white font-semibold text-xs uppercase tracking-widest hover:bg-surface-container-high transition-all border border-outline-variant flex items-center gap-2 font-sans no-underline"
               >
-                <Boxes className="w-4 h-4 text-[#ff7657]" />
+                <Boxes className="w-4 h-4 text-surface-tint" />
                 <span>Architecture Challenges & Workflows</span>
               </Link>
 
               <Link
                 href="/playground"
-                className="px-6 py-3 rounded-full bg-[#161c1d] text-[#e1e7e3] hover:text-white font-semibold text-xs uppercase tracking-widest hover:bg-[#202729] transition-all border border-[#2e393b] flex items-center gap-2 font-sans no-underline"
+                className="px-6 py-3 rounded-full bg-surface-container-lowest text-on-surface hover:text-white font-semibold text-xs uppercase tracking-widest hover:bg-surface-container-high transition-all border border-outline-variant flex items-center gap-2 font-sans no-underline"
               >
-                <ExternalLink className="w-3.5 h-3.5 text-[#9aa6a5]" />
+                <ExternalLink className="w-3.5 h-3.5 text-on-surface-variant" />
                 <span>Canvas Playground</span>
               </Link>
             </div>
           </div>
+        </div>
+        <div className="relative z-10 mx-auto mt-10 max-w-5xl sm:mt-14">
+          <div className="frame"><PixelScene kind="prepare" h={90} /></div>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════
           2 & 3. GLOBAL PROGRESS & MODE CONTROLS
       ════════════════════════════════════════════════ */}
-      <div className="bg-[#111213] border-b border-outline-variant/20 px-6 sm:px-12 py-3">
+      <div className="bg-mn-background border-b border-outline-variant/20 px-6 sm:px-12 py-3">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3">
           
           {/* Global Progress Area */}
@@ -568,7 +555,7 @@ export default function SystemDesignPage() {
               onClick={() => changeMode("browse")}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all border ${
                 mode === "browse"
-                  ? "bg-surface-tint text-[#0f1010] border-surface-tint shadow-sm"
+                  ? "bg-surface-tint text-mn-background border-surface-tint shadow-sm"
                   : "text-on-surface-variant border-outline-variant/35 hover:text-foreground hover:bg-surface-container"
               }`}
             >
@@ -578,7 +565,7 @@ export default function SystemDesignPage() {
               onClick={() => changeMode("practice")}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all border ${
                 mode === "practice"
-                  ? "bg-surface-tint text-[#0f1010] border-surface-tint shadow-sm"
+                  ? "bg-surface-tint text-mn-background border-surface-tint shadow-sm"
                   : "text-on-surface-variant border-outline-variant/35 hover:text-foreground hover:bg-surface-container"
               }`}
             >
@@ -934,7 +921,7 @@ export default function SystemDesignPage() {
                                 {isReviewed && (
                                   <>
                                     <span>·</span>
-                                    <span className="text-emerald-500 font-bold flex items-center gap-0.5 text-[9px]">
+                                    <span className="text-good font-bold flex items-center gap-0.5 text-[9px]">
                                       ✓ Reviewed
                                     </span>
                                   </>
@@ -970,7 +957,7 @@ export default function SystemDesignPage() {
                                 initial={{ height: 0 }}
                                 animate={{ height: "auto" }}
                                 exit={{ height: 0 }}
-                                className="overflow-hidden border-t border-outline-variant/15 bg-[#121313]/20"
+                                className="overflow-hidden border-t border-outline-variant/15 bg-mn-background/20"
                               >
                                 <div className="p-5 md:p-6 space-y-4">
                                   <div className="space-y-1">
@@ -984,7 +971,7 @@ export default function SystemDesignPage() {
                                     <Button
                                       variant="outline"
                                       onClick={() => startPracticeForQuestion(q.id)}
-                                      className="border-[#ff5a36]/30 text-surface-tint hover:bg-[#ff5a36]/5 rounded-xl h-8 px-3 text-xs font-bold"
+                                      className="border-surface-tint/30 text-surface-tint hover:bg-surface-tint/5 rounded-xl h-8 px-3 text-xs font-bold"
                                     >
                                       Practice This Question
                                     </Button>
@@ -1053,7 +1040,7 @@ export default function SystemDesignPage() {
                           onClick={() => setCurrentPage(num)}
                           className={`w-8 h-8 rounded-lg text-xs font-bold border transition-all ${
                             currentPage === num
-                              ? "bg-surface-tint border-surface-tint text-[#0f1010]"
+                              ? "bg-surface-tint border-surface-tint text-mn-background"
                               : "border-outline-variant/30 text-on-surface-variant hover:text-foreground hover:border-outline-variant/70"
                           }`}
                         >
@@ -1091,7 +1078,7 @@ export default function SystemDesignPage() {
                       className="bg-surface-container-lowest border border-outline-variant/40 rounded-3xl overflow-hidden shadow-sm"
                     >
                       {/* Top Control strip */}
-                      <div className="bg-[#121313] border-b border-outline-variant/20 px-6 py-4 flex items-center justify-between">
+                      <div className="bg-mn-background border-b border-outline-variant/20 px-6 py-4 flex items-center justify-between">
                         <span className="font-mono text-xs font-bold text-surface-tint">
                           Question {practiceIndex + 1} of {filteredQuestions.length}
                         </span>
@@ -1112,8 +1099,8 @@ export default function SystemDesignPage() {
                             onClick={() => toggleReviewed(practiceQuestion.id)}
                             className={`p-2 rounded-lg border transition-all ${
                               reviewed.has(practiceQuestion.id)
-                                ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/30"
-                                : "text-on-surface-variant/50 border-outline-variant/20 hover:text-emerald-500 hover:bg-surface-container"
+                                ? "bg-emerald-500/10 text-good border-emerald-500/30"
+                                : "text-on-surface-variant/50 border-outline-variant/20 hover:text-good hover:bg-surface-container"
                             }`}
                           >
                             <CheckCircle2 className="w-3.5 h-3.5" />
@@ -1146,8 +1133,8 @@ export default function SystemDesignPage() {
                                   onClick={() => toggleReviewed(practiceQuestion.id)}
                                   className={`flex items-center gap-2 text-xs px-3.5 py-2 rounded-xl font-bold border transition-all ${
                                     reviewed.has(practiceQuestion.id)
-                                      ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/30"
-                                      : "text-on-surface-variant border-outline-variant/30 hover:text-emerald-400"
+                                      ? "bg-emerald-500/10 text-good border-emerald-500/30"
+                                      : "text-on-surface-variant border-outline-variant/30 hover:text-good"
                                   }`}
                                 >
                                   <CheckCircle2 className="w-3.5 h-3.5" />
@@ -1163,7 +1150,7 @@ export default function SystemDesignPage() {
                               </div>
                             </div>
                           ) : (
-                            <div className="flex flex-col items-center justify-center py-12 space-y-4 border border-dashed border-outline-variant/35 rounded-2xl bg-[#111213]/40">
+                            <div className="flex flex-col items-center justify-center py-12 space-y-4 border border-dashed border-outline-variant/35 rounded-2xl bg-mn-background/40">
                               <p className="text-xs font-semibold text-foreground">Answer is hidden</p>
                               <Button
                                 onClick={() => setPracticeAnswerRevealed(true)}

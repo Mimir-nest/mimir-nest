@@ -59,7 +59,7 @@ export default function InterviewDemo() {
         </div>
 
         {/* Live Conversation Window */}
-        <div className="rounded-2xl bg-mn-background border border-outline-variant/80 shadow-2xl overflow-hidden max-w-full">
+        <div className="rounded-2xl bg-mn-background border border-outline-variant/80 shadow-pop overflow-hidden max-w-full">
           {/* Top Session Bar */}
           <div className="px-4 sm:px-5 py-3 sm:py-3.5 bg-surface-container-high border-b border-outline-variant/60 flex flex-wrap items-center justify-between gap-2.5 text-xs font-mono max-w-full">
             <div className="flex flex-wrap items-center gap-2 sm:gap-3 max-w-full">

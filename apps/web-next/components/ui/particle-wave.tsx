@@ -29,8 +29,8 @@ const ParticleWave: React.FC<ParticleWaveProps> = ({ className = '' }) => {
   // Function to get particle color based on theme
   const getParticleColor = (theme: string) => {
     return theme === 'light' 
-      ? new THREE.Vector3(0.08, 0.09, 0.09) // #151616 (dark) for light background
-      : new THREE.Vector3(1.0, 0.42, 0.12); // Vibrant glowing orange
+      ? new THREE.Vector3(0.08, 0.09, 0.11) // Duskbot ink on a light background
+      : new THREE.Vector3(0.03, 0.48, 0.80); // Duskbot accent blue
   };
 
   const particleVertex = `

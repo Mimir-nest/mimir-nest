@@ -93,35 +93,35 @@ const FullscreenPomodoro = ({ isOpen, onClose, timeLeft, isActive, mode, onToggl
     };
     return (<div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
       {/* Close button */}
-      <Button variant="ghost" size="icon" className="absolute top-4 right-4 text-white hover:bg-zinc-800/50 rounded-xl z-10" onClick={handleClose}>
+      <Button variant="ghost" size="icon" className="absolute top-4 right-4 text-white hover:bg-panel3/50 rounded-xl z-10" onClick={handleClose}>
         <X className="h-6 w-6"/>
       </Button>
 
       {/* Minimalist Music Control */}
       <div className="absolute top-4 left-4 z-10">
         {!showMusicControl ? (<div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" className="text-white hover:bg-zinc-800/50 rounded-xl" onClick={() => setShowMusicControl(true)}>
+            <Button variant="ghost" size="icon" className="text-white hover:bg-panel3/50 rounded-xl" onClick={() => setShowMusicControl(true)}>
               <Music className="h-5 w-5"/>
             </Button>
             {youtubeVideoId && (<>
-                <Button variant="ghost" size="icon" className="text-white hover:bg-zinc-800/50 rounded-xl" onClick={onToggleYoutubePlay}>
+                <Button variant="ghost" size="icon" className="text-white hover:bg-panel3/50 rounded-xl" onClick={onToggleYoutubePlay}>
                   {isYoutubePlaying ? <Pause className="h-4 w-4"/> : <Play className="h-4 w-4"/>}
                 </Button>
-                <Button variant="ghost" size="icon" className="text-white hover:bg-zinc-800/50 rounded-xl" onClick={onToggleYoutubeMute}>
+                <Button variant="ghost" size="icon" className="text-white hover:bg-panel3/50 rounded-xl" onClick={onToggleYoutubeMute}>
                   {isYoutubeMuted ? <VolumeX className="h-4 w-4"/> : <Volume2 className="h-4 w-4"/>}
                 </Button>
                 <div className="flex items-center gap-2">
-                  <input type="range" min="0" max="100" value={youtubeVolume} onChange={(e) => onYoutubeVolumeChange(Number(e.target.value))} className="w-16 h-1 bg-zinc-700 rounded-lg appearance-none" style={{
-                    background: `linear-gradient(to right, #FF5A36 0%, #FF5A36 ${youtubeVolume}%, #4a5568 ${youtubeVolume}%, #4a5568 100%)`
+                  <input type="range" min="0" max="100" value={youtubeVolume} onChange={(e) => onYoutubeVolumeChange(Number(e.target.value))} className="w-16 h-1 bg-panel3 rounded-lg appearance-none" style={{
+                    background: `linear-gradient(to right, #087BCB 0%, #087BCB ${youtubeVolume}%, #4a5568 ${youtubeVolume}%, #4a5568 100%)`
                 }}/>
                 </div>
               </>)}
-          </div>) : (<form onSubmit={handleLoadMusic} className="flex items-center gap-2 bg-zinc-900/80 backdrop-blur-sm rounded-xl p-3">
-            <Input value={musicUrl} onChange={(e) => setMusicUrl(e.target.value)} placeholder="YouTube URL..." className="w-64 bg-zinc-800 border-zinc-700 text-white text-sm" autoFocus/>
+          </div>) : (<form onSubmit={handleLoadMusic} className="flex items-center gap-2 bg-panel3/80 backdrop-blur-sm rounded-xl p-3">
+            <Input value={musicUrl} onChange={(e) => setMusicUrl(e.target.value)} placeholder="YouTube URL..." className="w-64 bg-panel3 border-line text-white text-sm" autoFocus/>
             <Button type="submit" size="sm" variant="secondary">
               Load
             </Button>
-            <Button type="button" size="sm" variant="ghost" onClick={() => setShowMusicControl(false)} className="text-white hover:bg-zinc-800/50">
+            <Button type="button" size="sm" variant="ghost" onClick={() => setShowMusicControl(false)} className="text-white hover:bg-panel3/50">
               <X className="h-4 w-4"/>
             </Button>
           </form>)}
@@ -135,16 +135,16 @@ const FullscreenPomodoro = ({ isOpen, onClose, timeLeft, isActive, mode, onToggl
         <div className="relative mb-12">
           <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[32rem] lg:h-[32rem] rounded-full relative">
             {/* Background circle */}
-            <div className="absolute inset-0 rounded-full border-8 border-zinc-800/30"></div>
+            <div className="absolute inset-0 rounded-full border-8 border-line/30"></div>
             
             {/* Progress circle */}
             <svg className="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-              <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="8" fill="none" className="text-zinc-800/30"/>
+              <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="8" fill="none" className="text-on-surface-variant/30"/>
               <circle cx="50" cy="50" r="45" stroke="url(#gradient)" strokeWidth="8" fill="none" strokeLinecap="round" strokeDasharray={`${2 * Math.PI * 45}`} strokeDashoffset={`${2 * Math.PI * 45 * (1 - calculateProgress() / 100)}`} className="transition-all duration-1000 ease-out"/>
               <defs>
                 <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor={mode === 'pomodoro' ? '#FF5A36' : mode === 'shortBreak' ? '#D6D2C9' : '#5D5B56'}/>
-                  <stop offset="100%" stopColor={mode === 'pomodoro' ? '#FF6A3D' : mode === 'shortBreak' ? '#9B9992' : '#242525'}/>
+                  <stop offset="0%" stopColor={mode === 'pomodoro' ? '#087BCB' : mode === 'shortBreak' ? '#14171C' : '#858C96'}/>
+                  <stop offset="100%" stopColor={mode === 'pomodoro' ? '#087BCB' : mode === 'shortBreak' ? '#59606A' : '#C9CED6'}/>
                 </linearGradient>
               </defs>
             </svg>
@@ -154,7 +154,7 @@ const FullscreenPomodoro = ({ isOpen, onClose, timeLeft, isActive, mode, onToggl
               <div className="text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-4 font-mono tracking-tight">
                 {formatTime(timeLeft)}
               </div>
-              <div className="text-xl text-zinc-400 font-medium">
+              <div className="text-xl text-on-surface-variant font-medium">
                 {isActive ? 'Active' : 'Paused'}
               </div>
             </div>
@@ -164,12 +164,12 @@ const FullscreenPomodoro = ({ isOpen, onClose, timeLeft, isActive, mode, onToggl
         {/* Controls */}
         <div className="flex gap-6">
           <Button size="lg" className={`${isActive
-            ? 'bg-primary text-primary-foreground hover:opacity-90 shadow-lg shadow-primary/20'
-            : 'bg-zinc-800 text-white hover:bg-zinc-700'} px-12 py-6 text-xl font-semibold rounded-xl transition-all duration-300 hover:scale-105 border-none`} onClick={onToggleTimer}>
+            ? 'bg-primary text-primary-foreground hover:opacity-90 shadow-lg'
+            : 'bg-panel3 text-white hover:bg-panel3'} px-12 py-6 text-xl font-semibold rounded-xl transition-all duration-300 hover:scale-105 border-none`} onClick={onToggleTimer}>
             {isActive ? <Pause className="mr-4 h-8 w-8"/> : <Play className="mr-4 h-8 w-8"/>}
             {isActive ? 'Pause' : 'Start'}
           </Button>
-          <Button size="lg" variant="outline" className="border-2 border-zinc-700 bg-zinc-850 text-zinc-300 hover:text-white hover:border-zinc-650 hover:bg-zinc-700/80 px-10 py-6 text-xl font-semibold rounded-xl transition-all duration-300 hover:scale-105" onClick={onResetTimer}>
+          <Button size="lg" variant="outline" className="border-2 border-line bg-panel3 text-on-surface-variant hover:text-white hover:border-line hover:bg-panel3/80 px-10 py-6 text-xl font-semibold rounded-xl transition-all duration-300 hover:scale-105" onClick={onResetTimer}>
             <RotateCcw className="mr-4 h-8 w-8"/>
             Reset
           </Button>

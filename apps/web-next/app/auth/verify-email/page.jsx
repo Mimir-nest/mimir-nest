@@ -114,9 +114,7 @@ function VerifyEmailContent() {
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center px-4 py-12">
-      <div className="w-full max-w-md bg-mn-surface border border-outline-variant/40 shadow-2xl rounded-2xl p-8 text-center text-foreground relative overflow-hidden">
-        {/* Glow background accent */}
-        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-64 h-64 bg-surface-tint/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="w-full max-w-md bg-mn-surface border border-outline-variant/40 shadow-pop rounded-2xl p-8 text-center text-foreground relative overflow-hidden">
 
         {/* LOADING STATE */}
         {status === "loading" && (
@@ -138,7 +136,7 @@ function VerifyEmailContent() {
         {/* SUCCESS STATE */}
         {status === "success" && (
           <div className="space-y-6 py-2">
-            <div className="w-16 h-16 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mx-auto text-emerald-400">
+            <div className="w-16 h-16 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mx-auto text-good">
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <div className="space-y-2">
@@ -240,7 +238,7 @@ function VerifyEmailContent() {
         {/* NO TOKEN STATE */}
         {status === "no-token" && (
           <div className="space-y-6 py-2 text-left">
-            <div className="w-16 h-16 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mx-auto text-amber-400">
+            <div className="w-16 h-16 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mx-auto text-warn">
               <Mail className="w-8 h-8" />
             </div>
 

@@ -13,19 +13,15 @@ import { Calculator, Building2, RefreshCw, ChevronUp, ChevronDown, BarChart as C
 import { ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, } from "recharts";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogTrigger } from "@/components/ui/dialog";
 import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
 
-const ParticleWave = dynamic(
-  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
-  { ssr: false }
-);
+import { PixelScene } from "@/components/pixel";
 // Company data with tier categorization
 const companyTiers = {
-    'S+': { minCGPA: 8.0, companies: [], ctc: '₹30+ LPA', color: '#FF5A36' },
-    'A+': { minCGPA: 7.5, companies: [], ctc: '₹20-30 LPA', color: '#FF6A3D' },
+    'S+': { minCGPA: 8.0, companies: [], ctc: '₹30+ LPA', color: '#087BCB' },
+    'A+': { minCGPA: 7.5, companies: [], ctc: '₹20-30 LPA', color: '#087BCB' },
     'A': { minCGPA: 7.5, companies: [], ctc: '₹10-20 LPA', color: '#F4512C' },
-    'B': { minCGPA: 7.0, companies: [], ctc: '₹5-10 LPA', color: '#D6D2C9' },
-    'C': { minCGPA: 6.0, companies: [], ctc: 'Below ₹5 LPA', color: '#9B9992' }
+    'B': { minCGPA: 7.0, companies: [], ctc: '₹5-10 LPA', color: '#14171C' },
+    'C': { minCGPA: 6.0, companies: [], ctc: 'Below ₹5 LPA', color: '#59606A' }
 };
 // Company data
 const companyData = [
@@ -286,11 +282,11 @@ const CGPA = () => {
     // Get badge color by tier
     const getTierBadgeStyle = (tier) => {
         switch (tier) {
-            case 'S+': return 'text-[#FF5A36] bg-[#FF5A36]/10 border-[#FF5A36]/20';
-            case 'A+': return 'text-[#FF6A3D] bg-[#FF6A3D]/10 border-[#FF6A3D]/20';
-            case 'A': return 'text-[#F4512C] bg-[#F4512C]/10 border-[#F4512C]/20';
-            case 'B': return 'text-[#D6D2C9] bg-[#D6D2C9]/10 border-[#D6D2C9]/20';
-            case 'C': return 'text-[#9B9992] bg-[#9B9992]/10 border-[#9B9992]/20';
+            case 'S+': return 'text-surface-tint bg-surface-tint/10 border-surface-tint/20';
+            case 'A+': return 'text-surface-tint bg-surface-tint/10 border-surface-tint/20';
+            case 'A': return 'text-surface-tint bg-surface-tint/10 border-surface-tint/20';
+            case 'B': return 'text-on-surface bg-on-surface/10 border-on-surface/20';
+            case 'C': return 'text-on-surface-variant bg-on-surface-variant/10 border-on-surface-variant/20';
             default: return 'text-on-surface-variant bg-surface-container border-outline-variant/30';
         }
     };
@@ -348,16 +344,7 @@ const CGPA = () => {
       <Navbar />
       
       {/* ── Deep Green Sanctuary Hero ── */}
-      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl">
-        {/* Background Particle Wave */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
-          <ParticleWave />
-        </div>
-
-        {/* Decorative Rings */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
-        <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-primary-container/40 -translate-x-1/2 translate-y-1/2 pointer-events-none"/>
+      <section className="relative pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden pixel-grid border-b border-line">
 
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-xs font-label-caps text-surface-tint tracking-widest uppercase mx-auto">
@@ -374,6 +361,9 @@ const CGPA = () => {
             Calculate target semester requirements and discover verified company eligibility tiers across S+, A+, A, B, and C CTC bands.
           </motion.p>
         </div>
+        <div className="relative z-10 mx-auto mt-10 max-w-5xl sm:mt-14">
+          <div className="frame"><PixelScene kind="study" h={90} /></div>
+        </div>
       </section>
 
       {/* ── Main Calculation Content ── */}
@@ -381,7 +371,7 @@ const CGPA = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
           {/* Input Section Card */}
-          <div className="lg:col-span-4 bg-surface-container-lowest rounded-[32px] p-5 md:p-8 border border-outline-variant/40 shadow-[0_20px_50px_rgba(0,19,8,0.06)] flex flex-col justify-between">
+          <div className="lg:col-span-4 bg-surface-container-lowest rounded-[32px] p-5 md:p-8 border border-outline-variant/40 shadow-pop flex flex-col justify-between">
             <div className="space-y-6">
               <div className="flex items-center justify-between pb-4 border-b border-outline-variant/20">
                 <div className="flex items-center gap-2.5">
@@ -506,7 +496,7 @@ const CGPA = () => {
           </div>
           
           {/* Chart & Distribution Section */}
-          <div className="lg:col-span-8 bg-surface-container-lowest rounded-[32px] p-7 md:p-8 border border-outline-variant/40 shadow-[0_20px_50px_rgba(0,19,8,0.06)]">
+          <div className="lg:col-span-8 bg-surface-container-lowest rounded-[32px] p-7 md:p-8 border border-outline-variant/40 shadow-pop">
             <div className="flex items-center gap-2.5 mb-6">
               <div className="p-2.5 rounded-xl bg-surface-container text-surface-tint">
                 <ChartIcon className="h-5 w-5"/>
@@ -517,12 +507,12 @@ const CGPA = () => {
             {semesterChartData.length > 0 ? (<div className="h-64">
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={semesterChartData} margin={{ top: 20, right: 30, left: 0, bottom: 20 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#242525"/>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#C9CED6"/>
                     <XAxis dataKey="semester" stroke="#727973" fontSize={12}/>
                     <YAxis domain={[0, 10]} stroke="#727973" fontSize={12}/>
                     <Tooltip content={<CustomTooltip />}/>
                     <Legend />
-                    <Line type="monotone" dataKey="cgpa" stroke="#FF5A36" strokeWidth={3} dot={{ r: 4, fill: "#FF5A36" }} activeDot={{ r: 6, fill: "#0F1010" }}/>
+                    <Line type="monotone" dataKey="cgpa" stroke="#087BCB" strokeWidth={3} dot={{ r: 4, fill: "#087BCB" }} activeDot={{ r: 6, fill: "#FFFFFF" }}/>
                   </LineChart>
                 </ResponsiveContainer>
               </div>) : (<div className="h-64 flex items-center justify-center text-on-surface-variant/60 bg-surface-container/40 rounded-xl border border-dashed border-outline-variant/40">
@@ -540,7 +530,7 @@ const CGPA = () => {
                     <div className="h-56">
                       <ResponsiveContainer width="100%" height="100%">
                         <PieChart>
-                          <Pie data={tierDistribution} cx="50%" cy="50%" labelLine={false} outerRadius={60} fill="#FF5A36" dataKey="value" label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}>
+                          <Pie data={tierDistribution} cx="50%" cy="50%" labelLine={false} outerRadius={60} fill="#087BCB" dataKey="value" label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}>
                             {tierDistribution.map((entry, index) => {
                 return <Cell key={`cell-${index}`} fill={entry.color}/>;
             })}
@@ -573,7 +563,7 @@ const CGPA = () => {
           </div>
           
           {/* Company Section */}
-          {Object.keys(eligibleCompanies).length > 0 && (<div className="lg:col-span-12 bg-surface-container-lowest rounded-[32px] p-7 md:p-10 border border-outline-variant/40 shadow-[0_20px_50px_rgba(0,19,8,0.06)]" id="company-list-section">
+          {Object.keys(eligibleCompanies).length > 0 && (<div className="lg:col-span-12 bg-surface-container-lowest rounded-[32px] p-7 md:p-10 border border-outline-variant/40 shadow-pop" id="company-list-section">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-outline-variant/30 mb-8">
                 <div className="flex items-center gap-3">
                   <div className="p-3 rounded-2xl bg-surface-container text-surface-tint">
@@ -645,7 +635,7 @@ const CGPA = () => {
                           </div>
                           
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                            {filteredCompanies[tier].map(company => (<div key={company} className="flex items-center p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/20 text-xs font-semibold text-mn-primary shadow-2xl shadow-black/5">
+                            {filteredCompanies[tier].map(company => (<div key={company} className="flex items-center p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/20 text-xs font-semibold text-mn-primary shadow-pop">
                                 <span className="w-2 h-2 rounded-full mr-2.5 shrink-0" style={{ backgroundColor: processedCompanyTiers[tier].color }}></span>
                                 <span className="truncate">{company}</span>
                               </div>))}

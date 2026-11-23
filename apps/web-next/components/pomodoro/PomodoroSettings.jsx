@@ -62,9 +62,9 @@ const PomodoroSettings = ({ open, onOpenChange, pomodoroTime, shortBreakTime, lo
         }
     };
     const renderInputField = (label, value, onChange, error, min, max) => (<div className="space-y-2">
-      <label className="text-sm text-gray-400">{label}</label>
+      <label className="text-sm text-on-surface-variant">{label}</label>
       <Input type="number" min={min} max={max} value={value} onChange={onChange} className={`bg-dark-800 border-dark-700 ${error ? 'border-red-500' : ''}`}/>
-      {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
+      {error && <p className="text-xs text-alert mt-1">{error}</p>}
     </div>);
     // Mobile drawer version
     if (isMobile) {

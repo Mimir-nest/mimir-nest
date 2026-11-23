@@ -8,12 +8,8 @@ import Footer from "@/components/layout/Footer";
 import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogClose } from "@/components/ui/dialog";
 import { motion, AnimatePresence } from "framer-motion";
 import { contentApi } from "@/services/contentApi";
-import dynamic from "next/dynamic";
 
-const ParticleWave = dynamic(
-  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
-  { ssr: false }
-);
+import { PixelScene } from "@/components/pixel";
 const categories = [
     { id: "all", label: "All Curriculums", iconKey: "sparkles" },
     { id: "web-dev", label: "Web Development", iconKey: "globe" },
@@ -64,8 +60,8 @@ const categoryIcons = {
     "ai-ml": Brain,
 };
 const levelBadgeStyles = {
-    Beginner: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-    Intermediate: "bg-amber-500/10 text-amber-400 border-amber-500/20",
+    Beginner: "bg-emerald-500/10 text-good border-emerald-500/20",
+    Intermediate: "bg-amber-500/10 text-warn border-amber-500/20",
     Advanced: "bg-rose-500/10 text-rose-400 border-rose-500/20",
     "All Levels": "bg-surface-container text-surface-tint border-outline-variant/30",
 };
@@ -125,16 +121,7 @@ const Courses = () => {
       <Navbar />
 
       {/* ── Deep Green Sanctuary Hero ── */}
-      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl">
-        {/* Background Particle Wave */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
-          <ParticleWave />
-        </div>
-
-        {/* Decorative Rings */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
-        <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-primary-container/40 -translate-x-1/2 translate-y-1/2 pointer-events-none"/>
+      <section className="relative pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden pixel-grid border-b border-line">
 
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-xs font-label-caps text-surface-tint tracking-widest uppercase mx-auto">
@@ -154,7 +141,7 @@ const Courses = () => {
 
           {/* Search bar inside Hero */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="relative max-w-xl mx-auto pt-2">
-            <div className="relative flex items-center bg-surface-container border border-border rounded-full shadow-2xl transition-all focus-within:border-surface-tint">
+            <div className="relative flex items-center bg-surface-container border border-border rounded-full shadow-pop transition-all focus-within:border-surface-tint">
               <Search className="h-5 w-5 text-muted-foreground ml-5"/>
               <input type="text" placeholder="Search courses, universities, or technologies..." className="w-full bg-transparent border-none text-base px-4 py-4 focus:outline-none text-white placeholder:text-muted-foreground/60 font-body-md" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
               {searchQuery && (<button onClick={() => setSearchQuery("")} className="mr-4 p-1 rounded-full text-muted-foreground hover:text-white hover:bg-white/10">
@@ -162,6 +149,9 @@ const Courses = () => {
                 </button>)}
             </div>
           </motion.div>
+        </div>
+        <div className="relative z-10 mx-auto mt-10 max-w-5xl sm:mt-14">
+          <div className="frame"><PixelScene kind="learn" h={90} /></div>
         </div>
       </section>
 
@@ -245,7 +235,7 @@ const Courses = () => {
 
               {/* Course Details Dialog */}
               <Dialog open={!!selectedCourse} onOpenChange={(open) => { if (!open) setSelectedCourse(null); }}>
-                <DialogContent className="max-w-2xl w-full bg-surface-container-lowest text-mn-primary border-outline-variant/40 rounded-3xl p-6 md:p-8 shadow-2xl overflow-y-auto max-h-[90vh]">
+                <DialogContent className="max-w-2xl w-full bg-surface-container-lowest text-mn-primary border-outline-variant/40 rounded-3xl p-6 md:p-8 shadow-pop overflow-y-auto max-h-[90vh]">
                   {selectedCourse && (
                     <div className="space-y-6">
                       {/* Header */}

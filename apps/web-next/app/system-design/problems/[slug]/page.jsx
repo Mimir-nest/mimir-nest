@@ -2,15 +2,10 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { useParams } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const ParticleWave = dynamic(
-  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
-  { ssr: false }
-);
 import {
   ArrowLeft,
   ArrowRight,
@@ -37,16 +32,17 @@ import {
 import { getProblemBySlug, systemDesignProblems } from "../../data/problems";
 import CompanyLogo from "@/components/common/CompanyLogo";
 
+import { PixelScene } from "@/components/pixel";
 const difficultyColors = {
   Easy: {
     bg: "bg-emerald-500/10",
-    text: "text-emerald-400",
+    text: "text-good",
     border: "border-emerald-500/30",
     dot: "bg-emerald-400",
   },
   Medium: {
     bg: "bg-amber-500/10",
-    text: "text-amber-400",
+    text: "text-warn",
     border: "border-amber-500/30",
     dot: "bg-amber-400",
   },
@@ -160,13 +156,13 @@ export default function ProblemDetailPage() {
               className="p-2 rounded-xl bg-surface-container border border-border/60 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
               title="Copy Problem Link"
             >
-              {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+              {copied ? <Check className="w-3.5 h-3.5 text-good" /> : <Copy className="w-3.5 h-3.5" />}
             </button>
 
             {problem.referenceWorkflow && (
               <Link
                 href={`/playground?challenge=${problem.slug}&mode=solution`}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1a1e20] border border-[#ff7657]/40 text-[#ff7657] font-semibold text-xs font-mono tracking-wider hover:bg-[#ff7657]/10 transition-colors no-underline"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1a1e20] border border-surface-tint/40 text-surface-tint font-semibold text-xs font-mono tracking-wider hover:bg-surface-tint/10 transition-colors no-underline"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">Reference</span> Workflow
@@ -175,7 +171,7 @@ export default function ProblemDetailPage() {
 
             <Link
               href={`/playground?challenge=${problem.slug}`}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-wider hover:opacity-95 transition-opacity no-underline shadow-sm shadow-surface-tint/25"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-wider hover:opacity-95 transition-opacity no-underline shadow-sm"
             >
               <Zap className="w-3.5 h-3.5" />
               <span>Canvas</span>
@@ -185,18 +181,7 @@ export default function ProblemDetailPage() {
       </div>
 
       {/* ── 2. FLAGSHIP HERO HEADER ── */}
-      <section className="relative bg-[#151616] pt-12 pb-16 px-4 sm:px-6 lg:px-12 overflow-hidden border-b border-white/[0.06] bg-cover bg-center" style={{ backgroundImage: "url('/images/hero-bg.png')" }}>
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#151616]/95 via-[#151616]/88 to-[#151616]/98 z-0 pointer-events-none" />
-
-        {/* Ambient Particle Wave */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-45">
-          <ParticleWave />
-        </div>
-
-        {/* Decorative Rings */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full border border-[#FF5A36]/10 translate-x-1/4 -translate-y-1/4 pointer-events-none z-0" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-white/[0.03] -translate-x-1/3 translate-y-1/3 pointer-events-none z-0" />
+      <section className="relative pt-12 pb-16 px-4 sm:px-6 lg:px-12 overflow-hidden pixel-grid border-b border-line">
 
         <div className="max-w-6xl mx-auto relative z-10 space-y-8">
           {/* Metadata Badges Ribbon */}
@@ -236,8 +221,8 @@ export default function ProblemDetailPage() {
 
           {/* 4-Pillar Scale & Architecture Metrics Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
-            <div className="p-4 rounded-2xl bg-[#141517]/70 border border-white/[0.08] backdrop-blur-md flex items-start gap-3.5">
-              <div className="w-9 h-9 rounded-xl bg-[#FF5A36]/10 border border-[#FF5A36]/20 flex items-center justify-center text-[#FF5A36] shrink-0">
+            <div className="p-4 rounded-2xl bg-surface-container-lowest/70 border border-white/[0.08] backdrop-blur-md flex items-start gap-3.5">
+              <div className="w-9 h-9 rounded-xl bg-surface-tint/10 border border-surface-tint/20 flex items-center justify-center text-surface-tint shrink-0">
                 <Activity className="w-4 h-4" />
               </div>
               <div className="space-y-0.5">
@@ -250,8 +235,8 @@ export default function ProblemDetailPage() {
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-[#141517]/70 border border-white/[0.08] backdrop-blur-md flex items-start gap-3.5">
-              <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
+            <div className="p-4 rounded-2xl bg-surface-container-lowest/70 border border-white/[0.08] backdrop-blur-md flex items-start gap-3.5">
+              <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-good shrink-0">
                 <DollarSign className="w-4 h-4" />
               </div>
               <div className="space-y-0.5">
@@ -264,8 +249,8 @@ export default function ProblemDetailPage() {
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-[#141517]/70 border border-white/[0.08] backdrop-blur-md flex items-start gap-3.5">
-              <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0">
+            <div className="p-4 rounded-2xl bg-surface-container-lowest/70 border border-white/[0.08] backdrop-blur-md flex items-start gap-3.5">
+              <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-warn shrink-0">
                 <Gauge className="w-4 h-4" />
               </div>
               <div className="space-y-0.5">
@@ -278,7 +263,7 @@ export default function ProblemDetailPage() {
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-[#141517]/70 border border-white/[0.08] backdrop-blur-md flex items-start gap-3.5">
+            <div className="p-4 rounded-2xl bg-surface-container-lowest/70 border border-white/[0.08] backdrop-blur-md flex items-start gap-3.5">
               <div className="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shrink-0">
                 <ShieldCheck className="w-4 h-4" />
               </div>
@@ -297,7 +282,7 @@ export default function ProblemDetailPage() {
           <div className="flex items-center gap-3.5 flex-wrap pt-2">
             <Link
               href={`/playground?challenge=${problem.slug}`}
-              className="px-6 py-3.5 rounded-xl bg-[#FF5A36] text-black font-bold text-xs uppercase tracking-widest hover:bg-[#ff7a5a] transition-all shadow-[0_0_25px_rgba(255,90,54,0.35)] flex items-center gap-2 group font-sans no-underline"
+              className="px-6 py-3.5 rounded-xl bg-surface-tint text-black font-bold text-xs uppercase tracking-widest hover:bg-surface-tint transition-all flex items-center gap-2 group font-sans no-underline"
             >
               <Zap className="w-4 h-4" />
               <span>OPEN IN PLAYGROUND CANVAS</span>
@@ -307,9 +292,9 @@ export default function ProblemDetailPage() {
             {problem.referenceWorkflow && (
               <Link
                 href={`/playground?challenge=${problem.slug}&mode=solution`}
-                className="px-6 py-3.5 rounded-xl bg-[#161c1d] text-[#e1e7e3] hover:text-white font-semibold text-xs uppercase tracking-widest hover:bg-[#202729] transition-all border border-[#2e393b] flex items-center gap-2 font-sans no-underline"
+                className="px-6 py-3.5 rounded-xl bg-surface-container-lowest text-on-surface hover:text-white font-semibold text-xs uppercase tracking-widest hover:bg-surface-container-high transition-all border border-outline-variant flex items-center gap-2 font-sans no-underline"
               >
-                <Sparkles className="w-4 h-4 text-[#ff7657]" />
+                <Sparkles className="w-4 h-4 text-surface-tint" />
                 <span>VIEW REFERENCE WORKFLOW</span>
               </Link>
             )}
@@ -324,6 +309,9 @@ export default function ProblemDetailPage() {
               <span>SPECS &amp; CONSTRAINTS</span>
             </button>
           </div>
+        </div>
+        <div className="relative z-10 mx-auto mt-10 max-w-5xl sm:mt-14">
+          <div className="frame"><PixelStrip /></div>
         </div>
       </section>
 
@@ -346,7 +334,7 @@ export default function ProblemDetailPage() {
                     key={i}
                     className="p-3.5 rounded-xl bg-surface-container-low border border-border/40 flex items-start gap-3 text-xs sm:text-sm text-foreground/90 leading-relaxed font-body-md"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-good shrink-0 mt-0.5" />
                     <span>{req}</span>
                   </li>
                 ))}
@@ -395,7 +383,7 @@ export default function ProblemDetailPage() {
               <div className="space-y-2.5 pt-1">
                 <Link
                   href={`/playground?challenge=${problem.slug}`}
-                  className="w-full py-3.5 px-6 rounded-xl bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-widest uppercase hover:opacity-95 transition-all flex items-center justify-center gap-2 shadow-lg shadow-surface-tint/20 border-none cursor-pointer no-underline"
+                  className="w-full py-3.5 px-6 rounded-xl bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-widest uppercase hover:opacity-95 transition-all flex items-center justify-center gap-2 shadow-lg border-none cursor-pointer no-underline"
                 >
                   <span>OPEN IN PLAYGROUND</span>
                   <ArrowRight className="w-4 h-4" />

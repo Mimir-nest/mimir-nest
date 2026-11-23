@@ -23,7 +23,7 @@ const NotFound = () => {
           transition={{ duration: 0.5 }}
           className="w-full max-w-lg mx-auto text-center bg-surface-container-lowest rounded-2xl p-10 md:p-14 border border-border/50 relative z-10 space-y-6"
         >
-          <div className="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center mx-auto text-surface-tint border border-surface-tint/20 shadow-inner">
+          <div className="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center mx-auto text-surface-tint border border-surface-tint/20">
             <Compass className="w-8 h-8" />
           </div>
 

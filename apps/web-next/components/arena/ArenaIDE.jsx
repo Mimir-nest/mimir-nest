@@ -58,7 +58,7 @@ const TEST_FILE = /\.(test|spec|grader)\.[jt]sx?$/;
 
 function FileIcon({ path, className }) {
   const name = path.split("/").at(-1);
-  const icon = name.startsWith("package") && name.endsWith(".json") ? NPM : FILE_ICONS[name.split(".").at(-1)] ?? { label: "•", fg: "#8b8b8b" };
+  const icon = name.startsWith("package") && name.endsWith(".json") ? NPM : FILE_ICONS[name.split(".").at(-1)] ?? { label: "•", fg: "#59606A" };
   return (
     <span
       aria-hidden
@@ -72,9 +72,9 @@ function FileIcon({ path, className }) {
   );
 }
 
-const FOLDER_COLOR = { src: "text-emerald-400", test: "text-sky-400", tests: "text-sky-400", __graders__: "text-violet-400" };
+const FOLDER_COLOR = { src: "text-good", test: "text-sky-400", tests: "text-sky-400", __graders__: "text-violet-400" };
 const lineTone = (line) =>
-  line.startsWith("$") ? "text-mn-primary font-semibold" : /^(✗|not ok)/.test(line) ? "text-error" : /^(✓|ok \d)/.test(line) ? "text-emerald-400" : "text-on-surface-variant";
+  line.startsWith("$") ? "text-mn-primary font-semibold" : /^(✗|not ok)/.test(line) ? "text-error" : /^(✓|ok \d)/.test(line) ? "text-good" : "text-on-surface-variant";
 const handleCls = "bg-outline-variant hover:bg-surface-tint/60 data-[resize-handle-state=drag]:bg-surface-tint transition-colors";
 
 function defineTheme(monaco) {
@@ -84,15 +84,15 @@ function defineTheme(monaco) {
     inherit: true,
     rules: [],
     colors: {
-      "editor.background": "#0F1010",
-      "editor.lineHighlightBackground": "#151616",
-      "editorCursor.foreground": "#FF5A36",
+      "editor.background": "#FFFFFF",
+      "editor.lineHighlightBackground": "#FFFFFF",
+      "editorCursor.foreground": "#087BCB",
       "editor.selectionBackground": "#FF5A3633",
-      "editorLineNumber.foreground": "#5D5B56",
-      "editorLineNumber.activeForeground": "#F4F1EA",
-      "editorWidget.background": "#151616",
-      "editorWidget.border": "#242525",
-      focusBorder: "#FF5A36",
+      "editorLineNumber.foreground": "#858C96",
+      "editorLineNumber.activeForeground": "#14171C",
+      "editorWidget.background": "#FFFFFF",
+      "editorWidget.border": "#C9CED6",
+      focusBorder: "#087BCB",
     },
   });
   // Syntax errors only: the editor has no node typings, the sandbox is the source of truth.
@@ -421,7 +421,7 @@ export default function ArenaIDE({ meta, initialFiles }) {
             disabled={!ready}
             onClick={() => run(true)}
             title="Run visible + hidden graders (Ctrl/Cmd + Enter)"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-tint text-mn-background text-xs font-semibold shadow-[0_0_20px_-6px] shadow-surface-tint/60 hover:bg-primary-fixed disabled:opacity-40 disabled:shadow-none disabled:cursor-not-allowed transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-tint text-mn-background text-xs font-semibold hover:bg-primary-fixed disabled:opacity-40 disabled:shadow-none disabled:cursor-not-allowed transition-colors"
           >
             {busy ? <Loader2 className="w-3.5 h-3.5 animate-spin" aria-hidden /> : <FlaskConical className="w-3.5 h-3.5" aria-hidden />} Run Tests
           </button>
@@ -508,7 +508,7 @@ export default function ArenaIDE({ meta, initialFiles }) {
                         <div key={dir || "root"}>
                           {dir && (
                             <div className="flex items-center gap-1.5 px-3 pt-2 pb-1 text-xs text-on-surface-variant">
-                              <FolderOpen className={cn("w-3.5 h-3.5", FOLDER_COLOR[dir.split("/").at(-1)] ?? "text-amber-400")} aria-hidden /> {dir}
+                              <FolderOpen className={cn("w-3.5 h-3.5", FOLDER_COLOR[dir.split("/").at(-1)] ?? "text-warn")} aria-hidden /> {dir}
                             </div>
                           )}
                           {paths.map((p) => {
@@ -730,7 +730,7 @@ export default function ArenaIDE({ meta, initialFiles }) {
               <ResizablePanel id="tests" order={3} defaultSize={22} minSize={14} maxSize={40} className="flex flex-col bg-surface-container-low">
                 <aside aria-label="Test results" className="flex flex-col h-full min-h-0">
                   <div className={panelHeader}>
-                    <span className={cn(panelTitle, tests.length > 0 && (passedCount === tests.length ? "text-emerald-400" : "text-error"))}>
+                    <span className={cn(panelTitle, tests.length > 0 && (passedCount === tests.length ? "text-good" : "text-error"))}>
                       Tests{tests.length ? ` · ${passedCount}/${tests.length} passed` : ""}
                     </span>
                     <button type="button" aria-label="Close test results" onClick={() => setShowTests(false)} className="p-1 rounded text-on-surface-variant hover:text-mn-primary hover:bg-surface-container">
@@ -759,7 +759,7 @@ export default function ArenaIDE({ meta, initialFiles }) {
                               {st === "running" ? (
                                 <Loader2 className="w-3.5 h-3.5 animate-spin text-on-surface-variant" aria-label="running" />
                               ) : st ? (
-                                <span className={cn("px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase", st === "passed" ? "bg-emerald-500/15 text-emerald-400" : "bg-error/15 text-error")}>{st}</span>
+                                <span className={cn("px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase", st === "passed" ? "bg-emerald-500/15 text-good" : "bg-error/15 text-error")}>{st}</span>
                               ) : (
                                 <span className="text-[10px] uppercase text-outline">not run</span>
                               )}
@@ -770,11 +770,11 @@ export default function ArenaIDE({ meta, initialFiles }) {
                                 .map((t, i) => (
                                   <div key={i} className="flex items-start gap-2 px-1 py-1 rounded hover:bg-surface-container">
                                     {t.passed ? (
-                                      <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-400" aria-label="passed" />
+                                      <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 shrink-0 text-good" aria-label="passed" />
                                     ) : (
                                       <XCircle className="w-3.5 h-3.5 mt-0.5 shrink-0 text-error" aria-label="failed" />
                                     )}
-                                    <span className={t.passed ? "text-emerald-300" : "text-error"}>{t.name}</span>
+                                    <span className={t.passed ? "text-good" : "text-error"}>{t.name}</span>
                                   </div>
                                 ))}
                               {!st && <div className="px-1 py-1 text-outline">{suite === "visible" ? "Press Run or Run Tests." : "Runs after the visible suite passes."}</div>}
@@ -783,7 +783,7 @@ export default function ArenaIDE({ meta, initialFiles }) {
                         );
                       })}
                       {hiddenTotal > 0 && hiddenPassed === hiddenTotal && suiteState.hidden === "passed" && (
-                        <a href={`/arena/incident/${slug}/autopsy`} className="flex items-center gap-2 p-3 rounded-lg border border-emerald-500/50 bg-emerald-500/10 text-emerald-400 font-medium hover:bg-emerald-500/15">
+                        <a href={`/arena/incident/${slug}/autopsy`} className="flex items-center gap-2 p-3 rounded-lg border border-emerald-500/50 bg-emerald-500/10 text-good font-medium hover:bg-emerald-500/15">
                           <CheckCircle2 className="w-4 h-4 shrink-0" aria-hidden /> All {hiddenTotal} hidden graders pass. Write the autopsy →
                         </a>
                       )}
@@ -809,7 +809,7 @@ export default function ArenaIDE({ meta, initialFiles }) {
           {statusLabel}
         </span>
         {tests.length > 0 && (
-          <span className={passedCount === tests.length ? "text-emerald-400" : "text-error"}>
+          <span className={passedCount === tests.length ? "text-good" : "text-error"}>
             {passedCount}/{tests.length} tests passing
           </span>
         )}

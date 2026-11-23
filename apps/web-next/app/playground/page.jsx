@@ -203,7 +203,7 @@ const initialEdges = [
   label,
   type: "smoothstep",
   animated: true,
-  markerEnd: { type: MarkerType.ArrowClosed, color: "#ff7657" },
+  markerEnd: { type: MarkerType.ArrowClosed, color: "#087BCB" },
 }));
 
 function SystemDesignNode({ data, selected }) {
@@ -227,10 +227,10 @@ const defaultEdgeOptions = {
   type: "smoothstep",
   animated: true,
   reconnectable: true,
-  markerEnd: { type: MarkerType.ArrowClosed, color: "#ff7657" },
+  markerEnd: { type: MarkerType.ArrowClosed, color: "#087BCB" },
 };
 const connectionLineStyle = {
-  stroke: "#ffb09e",
+  stroke: "#087BCB",
   strokeWidth: 2,
   filter: "drop-shadow(0 0 5px #ff765799)",
 };
@@ -334,12 +334,12 @@ function Properties({ selection, onUpdate, onClose, onDelete, isReadOnly = false
             </div>
 
             {rationale && (
-              <div className="p-3 rounded-xl bg-[#ff7657]/10 border border-[#ff7657]/30 text-xs text-[#e9eeeb] space-y-1.5 my-2">
-                <div className="flex items-center gap-1.5 text-[#ff7657] font-mono font-bold text-[10px] uppercase tracking-wider">
+              <div className="p-3 rounded-xl bg-surface-tint/10 border border-surface-tint/30 text-xs text-on-surface space-y-1.5 my-2">
+                <div className="flex items-center gap-1.5 text-surface-tint font-mono font-bold text-[10px] uppercase tracking-wider">
                   <Sparkles size={12} />
                   <span>Why this component exists</span>
                 </div>
-                <p className="text-[11px] text-[#c2ccca] leading-relaxed m-0">
+                <p className="text-[11px] text-on-surface leading-relaxed m-0">
                   {rationale}
                 </p>
               </div>
@@ -369,10 +369,10 @@ function Properties({ selection, onUpdate, onClose, onDelete, isReadOnly = false
                 </label>
               </>
             ) : (
-              <div className="space-y-2 pt-2 text-xs font-mono text-[#9aa6a5]">
-                <div className="p-2.5 rounded-lg bg-[#0c0f10] border border-[#293032]">
-                  <span className="text-[#687678] block text-[10px] uppercase tracking-wider mb-0.5">Role / Subtitle</span>
-                  <span className="text-[#e1e7e3] font-semibold">{item.data?.subtitle || item.data?.type}</span>
+              <div className="space-y-2 pt-2 text-xs font-mono text-on-surface-variant">
+                <div className="p-2.5 rounded-lg bg-mn-background border border-outline-variant">
+                  <span className="text-outline block text-[10px] uppercase tracking-wider mb-0.5">Role / Subtitle</span>
+                  <span className="text-on-surface font-semibold">{item.data?.subtitle || item.data?.type}</span>
                 </div>
               </div>
             )}
@@ -418,9 +418,9 @@ function Properties({ selection, onUpdate, onClose, onDelete, isReadOnly = false
               </>
             ) : (
               <div className="space-y-2 text-xs font-mono">
-                <div className="p-2.5 rounded-lg bg-[#0c0f10] border border-[#293032]">
-                  <span className="text-[#687678] block text-[10px] uppercase tracking-wider mb-0.5">Protocol / Connection</span>
-                  <span className="text-[#e1e7e3] font-semibold">{item.label || "Direct Link"}</span>
+                <div className="p-2.5 rounded-lg bg-mn-background border border-outline-variant">
+                  <span className="text-outline block text-[10px] uppercase tracking-wider mb-0.5">Protocol / Connection</span>
+                  <span className="text-on-surface font-semibold">{item.label || "Direct Link"}</span>
                 </div>
               </div>
             )}
@@ -545,16 +545,16 @@ function ChallengePanel({ challenge, validation, onValidate, onReset, isCollapse
 
   if (isCollapsed) {
     return (
-      <div className="absolute top-4 left-4 z-20 flex items-center gap-3 p-2.5 px-3.5 rounded-xl bg-[#121617]/95 border border-[#293032] backdrop-blur-md shadow-2xl text-xs font-mono text-[#e9eeeb]">
-        <div className="w-2 h-2 rounded-full bg-[#ff7657] animate-pulse" />
+      <div className="absolute top-4 left-4 z-20 flex items-center gap-3 p-2.5 px-3.5 rounded-xl bg-mn-background/95 border border-outline-variant backdrop-blur-md shadow-pop text-xs font-mono text-on-surface">
+        <div className="w-2 h-2 rounded-full bg-surface-tint animate-pulse" />
         <div className="flex items-center gap-2">
-          <strong className="text-[#e1e7e3]">{challenge.title}</strong>
-          <span className="text-[#687678]">·</span>
-          <span className="text-emerald-400 font-semibold">{passedCount}/{totalCount} Passed</span>
+          <strong className="text-on-surface">{challenge.title}</strong>
+          <span className="text-outline">·</span>
+          <span className="text-good font-semibold">{passedCount}/{totalCount} Passed</span>
         </div>
         <button
           onClick={() => setIsCollapsed(false)}
-          className="p-1 text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors rounded hover:bg-white/5 border-none bg-transparent cursor-pointer"
+          className="p-1 text-on-surface-variant hover:text-on-surface transition-colors rounded hover:bg-white/5 border-none bg-transparent cursor-pointer"
           title="Expand Challenge Panel"
         >
           <ChevronDown size={15} />
@@ -567,12 +567,12 @@ function ChallengePanel({ challenge, validation, onValidate, onReset, isCollapse
   const isOverBudget = validation.totalCost > maxBudget;
 
   return (
-    <div className="absolute top-4 left-4 z-20 w-80 sm:w-96 rounded-2xl bg-[#121617]/95 border border-[#293032] backdrop-blur-md shadow-2xl overflow-hidden font-sans text-xs text-[#e9eeeb] max-h-[calc(100vh-140px)] flex flex-col">
+    <div className="absolute top-4 left-4 z-20 w-80 sm:w-96 rounded-2xl bg-mn-background/95 border border-outline-variant backdrop-blur-md shadow-pop overflow-hidden font-sans text-xs text-on-surface max-h-[calc(100vh-140px)] flex flex-col">
       {/* Panel Header */}
-      <div className="p-3.5 px-4 bg-[#161c1d] border-b border-[#293032] flex items-center justify-between gap-3 shrink-0">
+      <div className="p-3.5 px-4 bg-surface-container-lowest border-b border-outline-variant flex items-center justify-between gap-3 shrink-0">
         <div className="flex items-center gap-2 truncate">
-          <div className="w-2 h-2 rounded-full bg-[#ff7657] shrink-0" />
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#ff7657] font-semibold">
+          <div className="w-2 h-2 rounded-full bg-surface-tint shrink-0" />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-surface-tint font-semibold">
             {challenge.company} Challenge
           </span>
         </div>
@@ -580,16 +580,16 @@ function ChallengePanel({ challenge, validation, onValidate, onReset, isCollapse
         <div className="flex items-center gap-1.5 shrink-0">
           <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase ${
             challenge.difficulty === "Easy"
-              ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/30"
+              ? "bg-emerald-500/10 text-good border border-emerald-500/30"
               : challenge.difficulty === "Hard"
               ? "bg-rose-500/10 text-rose-400 border border-rose-500/30"
-              : "bg-amber-500/10 text-amber-400 border border-amber-500/30"
+              : "bg-amber-500/10 text-warn border border-amber-500/30"
           }`}>
             {challenge.difficulty}
           </span>
           <button
             onClick={() => setIsCollapsed(true)}
-            className="p-1 text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors rounded hover:bg-white/5 border-none bg-transparent cursor-pointer"
+            className="p-1 text-on-surface-variant hover:text-on-surface transition-colors rounded hover:bg-white/5 border-none bg-transparent cursor-pointer"
             title="Collapse Challenge Panel"
           >
             <ChevronUp size={15} />
@@ -600,27 +600,27 @@ function ChallengePanel({ challenge, validation, onValidate, onReset, isCollapse
       {/* Challenge Title & Stats */}
       <div className="p-4 space-y-3 overflow-y-auto flex-1">
         <div>
-          <h3 className="text-sm font-bold text-[#e1e7e3] tracking-tight">
+          <h3 className="text-sm font-bold text-on-surface tracking-tight">
             {challenge.title}
           </h3>
-          <p className="text-[11px] text-[#9aa6a5] leading-relaxed mt-1">
+          <p className="text-[11px] text-on-surface-variant leading-relaxed mt-1">
             {challenge.description}
           </p>
         </div>
 
         {/* Live Scale & Budget */}
         <div className="grid grid-cols-2 gap-2 text-[10px] font-mono">
-          <div className="p-2 rounded-lg bg-[#0c0f10] border border-[#293032]">
-            <span className="text-[#687678] block mb-0.5">Scale SLA</span>
-            <span className="text-[#e1e7e3] font-semibold truncate block" title={challenge.scale}>
+          <div className="p-2 rounded-lg bg-mn-background border border-outline-variant">
+            <span className="text-outline block mb-0.5">Scale SLA</span>
+            <span className="text-on-surface font-semibold truncate block" title={challenge.scale}>
               {challenge.scale.split("·")[0].trim()}
             </span>
           </div>
 
-          <div className={`p-2 rounded-lg bg-[#0c0f10] border ${
-            isOverBudget ? "border-rose-500/40 text-rose-400" : "border-[#293032] text-emerald-400"
+          <div className={`p-2 rounded-lg bg-mn-background border ${
+            isOverBudget ? "border-rose-500/40 text-rose-400" : "border-outline-variant text-good"
           }`}>
-            <span className="text-[#687678] block mb-0.5">Cost vs Budget</span>
+            <span className="text-outline block mb-0.5">Cost vs Budget</span>
             <span className="font-semibold block truncate">
               ${validation.totalCost.toLocaleString()} / {challenge.budget}
             </span>
@@ -629,9 +629,9 @@ function ChallengePanel({ challenge, validation, onValidate, onReset, isCollapse
 
         {/* Architecture Constraints List */}
         <div className="space-y-2 pt-1">
-          <div className="flex items-center justify-between text-[11px] font-mono font-semibold text-[#9aa6a5]">
+          <div className="flex items-center justify-between text-[11px] font-mono font-semibold text-on-surface-variant">
             <span className="uppercase tracking-wider">Architecture Constraints</span>
-            <span className={validation.allPassed ? "text-emerald-400" : "text-[#ff7657]"}>
+            <span className={validation.allPassed ? "text-good" : "text-surface-tint"}>
               {passedCount}/{totalCount}
             </span>
           </div>
@@ -642,14 +642,14 @@ function ChallengePanel({ challenge, validation, onValidate, onReset, isCollapse
                 key={rule.id}
                 className={`p-2 px-2.5 rounded-lg border text-[11px] flex items-start gap-2 transition-all ${
                   rule.passed
-                    ? "bg-emerald-500/5 border-emerald-500/25 text-[#e1e7e3]"
-                    : "bg-[#0c0f10] border-[#293032] text-[#9aa6a5]"
+                    ? "bg-emerald-500/5 border-emerald-500/25 text-on-surface"
+                    : "bg-mn-background border-outline-variant text-on-surface-variant"
                 }`}
               >
                 {rule.passed ? (
-                  <CheckCircle2 size={13} className="text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 size={13} className="text-good shrink-0 mt-0.5" />
                 ) : (
-                  <div className="w-3.5 h-3.5 rounded-full border border-[#687678] shrink-0 mt-0.5" />
+                  <div className="w-3.5 h-3.5 rounded-full border border-outline shrink-0 mt-0.5" />
                 )}
                 <span className="leading-snug flex-1">{rule.label}</span>
               </div>
@@ -659,28 +659,28 @@ function ChallengePanel({ challenge, validation, onValidate, onReset, isCollapse
       </div>
 
       {/* Validate / Reset / View Specs / Workflow Footer */}
-      <div className="p-3.5 bg-[#161c1d] border-t border-[#293032] flex items-center justify-between gap-2 shrink-0">
+      <div className="p-3.5 bg-surface-container-lowest border-t border-outline-variant flex items-center justify-between gap-2 shrink-0">
         <div className="flex items-center gap-2">
           <Link
             href={`/system-design/problems/${challenge.slug}`}
-            className="text-[11px] font-mono text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors"
+            className="text-[11px] font-mono text-on-surface-variant hover:text-on-surface transition-colors"
           >
             Specs ↗
           </Link>
-          <span className="text-[#293032]">|</span>
+          <span className="text-outline-variant">|</span>
           <button
             onClick={onReset}
-            className="text-[11px] font-mono text-[#9aa6a5] hover:text-rose-400 transition-colors bg-transparent border-none cursor-pointer p-0"
+            className="text-[11px] font-mono text-on-surface-variant hover:text-rose-400 transition-colors bg-transparent border-none cursor-pointer p-0"
             title="Reset challenge architecture"
           >
             Reset
           </button>
           {challenge.referenceWorkflow && (
             <>
-              <span className="text-[#293032]">|</span>
+              <span className="text-outline-variant">|</span>
               <Link
                 href={`/playground?challenge=${challenge.slug}&mode=solution`}
-                className="text-[11px] font-mono text-[#ff7657] hover:underline transition-colors flex items-center gap-0.5"
+                className="text-[11px] font-mono text-surface-tint hover:underline transition-colors flex items-center gap-0.5"
                 title="View reference architecture workflow"
               >
                 <Sparkles size={11} />
@@ -695,7 +695,7 @@ function ChallengePanel({ challenge, validation, onValidate, onReset, isCollapse
           className={`px-4 py-2 rounded-xl text-xs font-bold font-mono tracking-wider uppercase transition-all duration-200 cursor-pointer border-none shadow-md ${
             validation.allPassed
               ? "bg-emerald-500 hover:bg-emerald-400 text-black shadow-emerald-500/20"
-              : "bg-[#ff7657] hover:bg-[#ff8a6f] text-black shadow-[#ff7657]/20"
+              : "bg-surface-tint hover:bg-surface-tint text-black"
           }`}
         >
           {validation.allPassed ? "Complete ✓" : "Validate"}
@@ -710,23 +710,23 @@ function SolutionBanner({ challenge, onTryYourself }) {
   if (!challenge) return null;
 
   return (
-    <div className="absolute top-4 left-4 right-4 z-20 flex flex-col md:flex-row md:items-center justify-between gap-3 p-3.5 sm:px-5 rounded-2xl bg-[#121617]/95 border border-[#ff7657]/40 backdrop-blur-md shadow-2xl font-sans text-xs text-[#e9eeeb]">
+    <div className="absolute top-4 left-4 right-4 z-20 flex flex-col md:flex-row md:items-center justify-between gap-3 p-3.5 sm:px-5 rounded-2xl bg-mn-background/95 border border-surface-tint/40 backdrop-blur-md shadow-pop font-sans text-xs text-on-surface">
       <div className="flex items-center gap-3">
-        <div className="w-9 h-9 rounded-xl bg-[#ff7657]/15 border border-[#ff7657]/30 flex items-center justify-center text-[#ff7657] shrink-0">
+        <div className="w-9 h-9 rounded-xl bg-surface-tint/15 border border-surface-tint/30 flex items-center justify-center text-surface-tint shrink-0">
           <Sparkles size={17} />
         </div>
         <div>
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-[#ff7657] font-bold">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-surface-tint font-bold">
               Reference Workflow
             </span>
-            <span className="text-[#687678]">·</span>
-            <strong className="text-xs text-[#e1e7e3]">{challenge.title}</strong>
-            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/5 text-[#9aa6a5]">
+            <span className="text-outline">·</span>
+            <strong className="text-xs text-on-surface">{challenge.title}</strong>
+            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/5 text-on-surface-variant">
               Read-Only
             </span>
           </div>
-          <p className="text-[11px] text-[#9aa6a5] m-0 mt-0.5 leading-snug">
+          <p className="text-[11px] text-on-surface-variant m-0 mt-0.5 leading-snug">
             {challenge.referenceWorkflow?.explanation || "Explore one valid reference architecture with component rationales. Click any node to inspect why it exists."}
           </p>
         </div>
@@ -735,13 +735,13 @@ function SolutionBanner({ challenge, onTryYourself }) {
       <div className="flex items-center gap-2 shrink-0">
         <Link
           href={`/system-design/problems/${challenge.slug}`}
-          className="px-3 py-1.5 rounded-xl bg-[#161c1d] hover:bg-[#1f2728] border border-[#293032] text-xs font-mono text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors"
+          className="px-3 py-1.5 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high border border-outline-variant text-xs font-mono text-on-surface-variant hover:text-on-surface transition-colors"
         >
           Specs ↗
         </Link>
         <button
           onClick={onTryYourself}
-          className="px-4 py-2 rounded-xl bg-[#ff7657] hover:bg-[#ff8a6f] text-black text-xs font-bold font-mono tracking-wider uppercase transition-all shadow-md shadow-[#ff7657]/20 flex items-center gap-1.5 cursor-pointer border-none"
+          className="px-4 py-2 rounded-xl bg-surface-tint hover:bg-surface-tint text-black text-xs font-bold font-mono tracking-wider uppercase transition-all shadow-md flex items-center gap-1.5 cursor-pointer border-none"
         >
           <span>Try Yourself</span>
           <ArrowRight size={13} />
@@ -757,33 +757,33 @@ function CompletionModal({ challenge, validation, onClose, onReset, onNextChalle
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="max-w-md w-full p-6 sm:p-7 rounded-2xl bg-[#121617] border border-[#293032] shadow-2xl space-y-6 text-center">
-        <div className="w-14 h-14 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto shadow-inner">
+      <div className="max-w-md w-full p-6 sm:p-7 rounded-2xl bg-mn-background border border-outline-variant shadow-pop space-y-6 text-center">
+        <div className="w-14 h-14 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-good flex items-center justify-center mx-auto">
           <Award size={28} />
         </div>
 
         <div className="space-y-2">
-          <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold block">
+          <span className="text-xs font-mono uppercase tracking-widest text-good font-bold block">
             Challenge Complete
           </span>
-          <h2 className="text-xl sm:text-2xl font-extrabold text-[#e1e7e3] tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-extrabold text-on-surface tracking-tight">
             {challenge.title}
           </h2>
-          <p className="text-xs sm:text-sm text-[#9aa6a5] leading-relaxed">
+          <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
             All required architecture constraints, tier connectivity, and monthly cost thresholds have been successfully satisfied.
           </p>
         </div>
 
-        <div className="p-3.5 rounded-xl bg-[#0c0f10] border border-[#293032] grid grid-cols-2 gap-2 text-xs font-mono">
+        <div className="p-3.5 rounded-xl bg-mn-background border border-outline-variant grid grid-cols-2 gap-2 text-xs font-mono">
           <div>
-            <span className="text-[#687678] block text-[10px]">Monthly Architecture Cost</span>
-            <span className="text-emerald-400 font-bold">
+            <span className="text-outline block text-[10px]">Monthly Architecture Cost</span>
+            <span className="text-good font-bold">
               ${validation.totalCost.toLocaleString()}/mo
             </span>
           </div>
           <div>
-            <span className="text-[#687678] block text-[10px]">Constraints Passed</span>
-            <span className="text-[#e1e7e3] font-bold">
+            <span className="text-outline block text-[10px]">Constraints Passed</span>
+            <span className="text-on-surface font-bold">
               {validation.results.length}/{validation.results.length} (100%)
             </span>
           </div>
@@ -795,7 +795,7 @@ function CompletionModal({ challenge, validation, onClose, onReset, onNextChalle
               onClose();
               if (onReset) onReset();
             }}
-            className="w-full py-2.5 px-4 rounded-xl bg-[#161c1d] hover:bg-[#1f2728] border border-[#293032] text-xs font-mono font-medium text-[#e1e7e3] transition-colors cursor-pointer"
+            className="w-full py-2.5 px-4 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high border border-outline-variant text-xs font-mono font-medium text-on-surface transition-colors cursor-pointer"
           >
             Try Again
           </button>
@@ -803,14 +803,14 @@ function CompletionModal({ challenge, validation, onClose, onReset, onNextChalle
           {onNextChallenge ? (
             <button
               onClick={onNextChallenge}
-              className="w-full py-2.5 px-4 rounded-xl bg-[#ff7657] hover:bg-[#ff8a6f] text-black font-bold text-xs font-mono tracking-wider uppercase transition-all cursor-pointer border-none shadow-lg shadow-[#ff7657]/20"
+              className="w-full py-2.5 px-4 rounded-xl bg-surface-tint hover:bg-surface-tint text-black font-bold text-xs font-mono tracking-wider uppercase transition-all cursor-pointer border-none shadow-lg"
             >
               Next Challenge →
             </button>
           ) : (
             <Link
               href="/system-design/problems"
-              className="w-full py-2.5 px-4 rounded-xl bg-[#ff7657] hover:bg-[#ff8a6f] text-black font-bold text-xs font-mono tracking-wider uppercase transition-all text-center no-underline"
+              className="w-full py-2.5 px-4 rounded-xl bg-surface-tint hover:bg-surface-tint text-black font-bold text-xs font-mono tracking-wider uppercase transition-all text-center no-underline"
             >
               All Problems
             </Link>
@@ -875,7 +875,7 @@ function Toolbar({
         {activeChallenge && (
           <Link
             href="/system-design/problems"
-            className="px-3 py-1.5 rounded-lg bg-[#161c1d] border border-[#293032] text-xs font-mono text-[#9aa6a5] hover:text-[#e1e7e3] transition-colors no-underline hidden md:inline-flex items-center gap-1 mr-2"
+            className="px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-outline-variant text-xs font-mono text-on-surface-variant hover:text-on-surface transition-colors no-underline hidden md:inline-flex items-center gap-1 mr-2"
           >
             <span>Challenges</span>
             <ExternalLink size={12} />
@@ -884,7 +884,7 @@ function Toolbar({
         {isSolutionMode && onTryYourself && (
           <button
             onClick={onTryYourself}
-            className="px-3 py-1.5 rounded-lg bg-[#ff7657] hover:bg-[#ff8a6f] text-black text-xs font-mono font-bold uppercase transition-colors border-none cursor-pointer hidden sm:inline-flex items-center gap-1 mr-2"
+            className="px-3 py-1.5 rounded-lg bg-surface-tint hover:bg-surface-tint text-black text-xs font-mono font-bold uppercase transition-colors border-none cursor-pointer hidden sm:inline-flex items-center gap-1 mr-2"
           >
             <span>Try Yourself</span>
             <ArrowRight size={12} />
@@ -975,7 +975,7 @@ function Editor() {
             label: se.label || "",
             type: "smoothstep",
             animated: true,
-            markerEnd: { type: MarkerType.ArrowClosed, color: "#ff7657" },
+            markerEnd: { type: MarkerType.ArrowClosed, color: "#087BCB" },
           }));
           setEdges(customEdges);
         } else {
@@ -1020,7 +1020,7 @@ function Editor() {
           label: re.label || "",
           type: "smoothstep",
           animated: true,
-          markerEnd: { type: MarkerType.ArrowClosed, color: "#ff7657" },
+          markerEnd: { type: MarkerType.ArrowClosed, color: "#087BCB" },
           data: {
             label: re.label || "",
             rationale: re.rationale || "",
@@ -1344,7 +1344,7 @@ function Editor() {
   return (
     <>
       {loading ? (
-        <div className="flex items-center justify-center h-screen bg-[#0c0f10] text-[#9aa6a5] font-mono text-sm">
+        <div className="flex items-center justify-center h-screen bg-mn-background text-on-surface-variant font-mono text-sm">
           Loading canvas...
         </div>
       ) : (
@@ -1415,14 +1415,14 @@ function Editor() {
 
               {/* Invalid Challenge Notification Banner */}
               {challengeSlug && !activeChallenge && (
-                <div className="absolute top-4 left-4 z-20 flex items-center gap-3 p-3 px-4 rounded-xl bg-[#1a140d]/95 border border-amber-500/40 text-xs font-mono text-amber-300 backdrop-blur-md shadow-2xl">
-                  <AlertCircle size={15} className="shrink-0 text-amber-400" />
+                <div className="absolute top-4 left-4 z-20 flex items-center gap-3 p-3 px-4 rounded-xl bg-[#1a140d]/95 border border-amber-500/40 text-xs font-mono text-warn backdrop-blur-md shadow-pop">
+                  <AlertCircle size={15} className="shrink-0 text-warn" />
                   <span>
                     Challenge &quot;{challengeSlug}&quot; not found. Loaded blank playground.
                   </span>
                   <Link
                     href="/system-design/problems"
-                    className="underline text-amber-200 hover:text-white font-semibold ml-1 no-underline hover:underline"
+                    className="underline text-warn hover:text-white font-semibold ml-1 no-underline hover:underline"
                   >
                     Browse Challenges →
                   </Link>
@@ -1458,7 +1458,7 @@ function Editor() {
                         animated: true,
                         markerEnd: {
                           type: MarkerType.ArrowClosed,
-                          color: "#ff7657",
+                          color: "#087BCB",
                         },
                       },
                       items,
@@ -1502,14 +1502,14 @@ function Editor() {
                   variant={BackgroundVariant.Dots}
                   gap={20}
                   size={1.2}
-                  color="#30383a"
+                  color="#C9CED6"
                 />
                 <Controls showInteractive={false} />
                 <MiniMap
                   nodeColor={(item) =>
-                    item.data?.category === "Database" ? "#5b8def" : "#ff7657"
+                    item.data?.category === "Database" ? "#5b8def" : "#087BCB"
                   }
-                  maskColor="rgba(9,11,12,.72)"
+                  maskColor="rgba(20,23,28,.08)"
                   pannable
                   zoomable
                 />
@@ -1561,11 +1561,11 @@ function Editor() {
           box-sizing: border-box;
         }
         .editor {
-          --bg: #0c0f10;
-          --panel: #121617;
-          --line: #293032;
-          --text: #e9eeeb;
-          --orange: #ff7657;
+          --bg: rgb(var(--c-fg));
+          --panel: rgb(var(--c-fg));
+          --line: rgb(var(--c-fg));
+          --text: rgb(var(--c-onaccent));
+          --orange: rgb(var(--c-accent));
           display: flex;
           flex-direction: column;
           height: 100vh;
@@ -1582,7 +1582,7 @@ function Editor() {
           gap: 28px;
           padding: 0 20px;
           border-bottom: 1px solid var(--line);
-          background: #101415;
+          background: rgb(var(--c-panel3));
           flex: none;
         }
         .brand,
@@ -1614,7 +1614,7 @@ function Editor() {
         }
         .brand small {
           font-size: 11px;
-          color: #687678;
+          color: rgb(var(--c-muted));
           margin-top: 3px;
           font-family: "SFMono-Regular", Consolas, monospace;
         }
@@ -1647,17 +1647,17 @@ function Editor() {
           border-left: 1px solid var(--line);
         }
         .playground-heading strong {
-          color: #e1e7e3;
+          color: rgb(var(--c-onaccent));
           font-size: 13px;
           font-weight: 650;
         }
         .playground-heading small {
-          color: #687678;
+          color: rgb(var(--c-muted));
           font: 10px "SFMono-Regular", Consolas, monospace;
         }
         .diagram-title {
           gap: 8px;
-          color: #7d8989;
+          color: rgb(var(--c-muted));
           padding: 8px 10px;
         }
         .diagram-title input {
@@ -1665,7 +1665,7 @@ function Editor() {
           border: 0;
           outline: 0;
           background: none;
-          color: #e1e7e3;
+          color: rgb(var(--c-onaccent));
           font: 600 13px Inter, ui-sans-serif, system-ui, sans-serif;
         }
         .actions {
@@ -1679,7 +1679,7 @@ function Editor() {
           justify-content: center;
           background: none;
           border: 0;
-          color: #9aa6a5;
+          color: rgb(var(--c-dim));
           width: 31px;
           height: 31px;
           border-radius: 5px;
@@ -1688,7 +1688,7 @@ function Editor() {
         .tool:hover,
         .properties button:hover {
           color: var(--text);
-          background: #242b2c;
+          background: rgb(var(--c-panel3));
         }
         .tool:disabled {
           opacity: 0.3;
@@ -1711,7 +1711,7 @@ function Editor() {
           border: 0;
           border-radius: 5px;
           background: var(--orange);
-          color: #17110f;
+          color: rgb(var(--c-onaccent));
           font: 700 12px Inter, ui-sans-serif, system-ui, sans-serif;
           cursor: pointer;
         }
@@ -1740,7 +1740,7 @@ function Editor() {
           justify-content: space-between;
           align-items: center;
           padding: 20px 18px 16px;
-          color: #798685;
+          color: rgb(var(--c-muted));
         }
         .side-title h2 {
           font: 650 15px Inter, ui-sans-serif, system-ui, sans-serif;
@@ -1759,8 +1759,8 @@ function Editor() {
           height: 34px;
           margin: 0 14px 14px;
           padding: 0 9px;
-          color: #758384;
-          background: #0d1112;
+          color: rgb(var(--c-muted));
+          background: rgb(var(--c-panel2));
           border: 1px solid var(--line);
           border-radius: 5px;
         }
@@ -1775,10 +1775,10 @@ function Editor() {
         }
         .search kbd {
           font-size: 10px;
-          border: 1px solid #30393a;
+          border: 1px solid rgb(var(--c-linestrong));
           padding: 2px 5px;
           border-radius: 3px;
-          color: #687675;
+          color: rgb(var(--c-dim));
         }
         .component-list {
           overflow: auto;
@@ -1791,13 +1791,13 @@ function Editor() {
           display: flex;
           justify-content: space-between;
           padding: 0 8px 7px;
-          color: #7d8a89;
+          color: rgb(var(--c-muted));
           text-transform: uppercase;
           letter-spacing: 0.12em;
           font-size: 10px;
         }
         .category span {
-          color: #526061;
+          color: rgb(var(--c-dim));
         }
         .component-list button {
           width: 100%;
@@ -1813,8 +1813,8 @@ function Editor() {
           cursor: grab;
         }
         .component-list button:hover {
-          background: #1c2324;
-          border-color: #2e3939;
+          background: rgb(var(--c-panel3));
+          border-color: rgb(var(--c-linestrong));
         }
         .component-list button i,
         .preview i {
@@ -1825,8 +1825,8 @@ function Editor() {
           height: 28px;
           flex: none;
           border-radius: 5px;
-          background: #202829;
-          color: #ff866b;
+          background: rgb(var(--c-panel3));
+          color: rgb(var(--c-alert));
           font-style: normal;
         }
         .component-list b,
@@ -1842,13 +1842,13 @@ function Editor() {
         }
         .component-list small,
         .preview small {
-          color: #748081;
+          color: rgb(var(--c-muted));
           font-size: 10px;
           margin-top: 3px;
         }
         .plus {
           margin-left: auto;
-          color: #566263;
+          color: rgb(var(--c-dim));
           opacity: 0;
         }
         .component-list button:hover .plus {
@@ -1858,7 +1858,7 @@ function Editor() {
           margin-top: auto;
           border-top: 1px solid var(--line);
           padding: 13px 17px;
-          color: #687575;
+          color: rgb(var(--c-dim));
           font-size: 10px;
         }
         .sidebar footer span,
@@ -1868,29 +1868,27 @@ function Editor() {
           height: 6px;
           margin-right: 7px;
           border-radius: 50%;
-          background: #71bd8e;
+          background: rgb(var(--c-panel3));
         }
         .canvas {
           position: relative;
           flex: 1;
           min-width: 0;
           background:
-            radial-gradient(circle at 48% 42%, #ff76570d, transparent 34%),
-            radial-gradient(circle at 84% 82%, #5b8def0a, transparent 28%),
-            #0b0e0f;
+            rgb(var(--c-panel2));
         }
         .canvas-label {
           position: absolute;
           z-index: 5;
           top: 17px;
           left: 20px;
-          color: #8c9998;
+          color: rgb(var(--c-muted));
           font-size: 10px;
           letter-spacing: 0.08em;
           pointer-events: none;
         }
         .canvas-label small {
-          color: #4d5b5d;
+          color: rgb(var(--c-dim));
           letter-spacing: 0;
           margin-left: 10px;
         }
@@ -1902,20 +1900,20 @@ function Editor() {
           width: 196px;
           min-height: 58px;
           padding: 10px 13px;
-          background: #151b1c;
-          border: 1px solid #303c3d;
+          background: rgb(var(--c-panel));
+          border: 1px solid rgb(var(--c-linestrong));
           border-radius: 7px;
-          box-shadow: 0 7px 18px #0003;
+          box-shadow: 0 7px 18px rgb(var(--c-onaccent));
           transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
         }
         .sd-node:hover {
-          border-color: #6a7776;
+          border-color: rgb(var(--c-linestrong));
           transform: translateY(-1px);
-          box-shadow: 0 8px 22px #0005, 0 0 14px #ff76571a;
+          box-shadow: 0 8px 22px rgb(var(--c-onaccent)), 0 0 14px rgb(var(--c-alert));
         }
         .sd-node.selected {
           border-color: var(--orange);
-          box-shadow: 0 0 0 2px #ff76572e, 0 0 20px #ff765733;
+          box-shadow: 0 0 0 2px rgb(var(--c-alert)), 0 0 20px rgb(var(--c-alert));
         }
         .sd-node strong,
         .sd-node small {
@@ -1928,7 +1926,7 @@ function Editor() {
           font-size: 12px;
         }
         .sd-node small {
-          color: #849291;
+          color: rgb(var(--c-muted));
           font-size: 10px;
           margin-top: 4px;
         }
@@ -1941,18 +1939,18 @@ function Editor() {
           flex: none;
           border-radius: 6px;
           color: var(--orange);
-          background: #29201d;
+          background: rgb(var(--c-panel3));
         }
         .sd-node .react-flow__handle {
           width: 7px;
           height: 7px;
-          background: #253032;
-          border: 2px solid #73817f;
+          background: rgb(var(--c-panel3));
+          border: 2px solid rgb(var(--c-linestrong));
         }
         .react-flow__edge-path {
-          stroke: #ff7657;
+          stroke: rgb(var(--c-accent));
           stroke-width: 1.7;
-          filter: drop-shadow(0 0 3px #ff765766);
+          filter: drop-shadow(0 0 3px rgb(var(--c-alert)));
         }
         .react-flow__edge.animated .react-flow__edge-path {
           stroke-dasharray: 7 5;
@@ -1964,30 +1962,30 @@ function Editor() {
           }
         }
         .react-flow__edge.selected .react-flow__edge-path {
-          stroke: #ffb09e;
+          stroke: rgb(var(--c-accent));
           stroke-width: 2.5;
-          filter: drop-shadow(0 0 4px #ff765799);
+          filter: drop-shadow(0 0 4px rgb(var(--c-alert)));
         }
         .react-flow__edge-text {
-          fill: #e1e7e3;
+          fill: rgb(var(--c-onaccent));
           font: 10px / 1.2 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
           font-weight: 600;
           letter-spacing: -0.01em;
         }
         .react-flow__edge-textbg {
-          fill: #161c1d;
-          stroke: #364446;
+          fill: rgb(var(--c-fg));
+          stroke: rgb(var(--c-linestrong));
           stroke-width: 1px;
           rx: 5px;
           ry: 5px;
         }
         .react-flow__edge.selected .react-flow__edge-textbg {
-          stroke: #ff7657;
+          stroke: rgb(var(--c-accent));
           stroke-width: 1.5px;
-          fill: #1e1615;
+          fill: rgb(var(--c-onaccent));
         }
         .react-flow__edge.selected .react-flow__edge-text {
-          fill: #ffb09e;
+          fill: rgb(var(--c-accent));
         }
         .react-flow__controls {
           bottom: 18px;
@@ -2000,9 +1998,9 @@ function Editor() {
         .react-flow__controls-button {
           width: 28px;
           height: 28px;
-          background: #151b1c;
+          background: rgb(var(--c-panel));
           border-bottom: 1px solid var(--line);
-          fill: #aab5b2;
+          fill: rgb(var(--c-muted));
         }
         .react-flow__minimap {
           bottom: 18px;
@@ -2010,7 +2008,7 @@ function Editor() {
           border: 1px solid var(--line);
           border-radius: 7px;
           overflow: hidden;
-          background: #121819;
+          background: rgb(var(--c-panel3));
         }
         .property-body {
           padding: 0 17px;
@@ -2027,7 +2025,7 @@ function Editor() {
         .properties label {
           display: block;
           margin-bottom: 17px;
-          color: #879493;
+          color: rgb(var(--c-muted));
           font-size: 10px;
           letter-spacing: 0.04em;
         }
@@ -2038,9 +2036,9 @@ function Editor() {
           width: 100%;
           margin-top: 7px;
           padding: 9px 10px;
-          color: #e3eae7;
-          background: #0c1112;
-          border: 1px solid #2d3839;
+          color: rgb(var(--c-fg));
+          background: rgb(var(--c-panel2));
+          border: 1px solid rgb(var(--c-linestrong));
           border-radius: 5px;
           outline: 0;
           font: 11px monospace;
@@ -2058,27 +2056,27 @@ function Editor() {
           width: 100%;
           margin: 5px 0 20px;
           padding: 9px 10px;
-          border: 1px solid #633c3b;
+          border: 1px solid rgb(var(--c-linestrong));
           border-radius: 5px;
-          background: #241719;
-          color: #e88b82;
+          background: rgb(var(--c-panel3));
+          color: rgb(var(--c-accent));
           font: 11px monospace;
           cursor: pointer;
         }
         .delete-property:hover {
-          border-color: #a9534c;
-          background: #321c1d;
-          color: #ffaaa0;
+          border-color: rgb(var(--c-linestrong));
+          background: rgb(var(--c-panel));
+          color: rgb(var(--c-accent));
         }
         .context-menu {
           position: fixed;
           z-index: 30;
           min-width: 156px;
           padding: 4px;
-          background: #151b1c;
-          border: 1px solid #3a4748;
+          background: rgb(var(--c-panel));
+          border: 1px solid rgb(var(--c-linestrong));
           border-radius: 6px;
-          box-shadow: 0 12px 28px #0009;
+          box-shadow: 0 12px 28px rgb(var(--c-onaccent));
         }
         .context-menu button {
           display: flex;
@@ -2089,14 +2087,14 @@ function Editor() {
           border: 0;
           border-radius: 4px;
           background: none;
-          color: #e88b82;
+          color: rgb(var(--c-accent));
           font: 11px monospace;
           text-align: left;
           cursor: pointer;
         }
         .context-menu button:hover {
-          background: #321c1d;
-          color: #ffaaa0;
+          background: rgb(var(--c-panel));
+          color: rgb(var(--c-accent));
         }
         .properties textarea {
           height: 110px;
@@ -2109,10 +2107,10 @@ function Editor() {
           display: flex;
           gap: 8px;
           padding: 11px 14px;
-          background: #1a2921;
-          border: 1px solid #365c43;
+          background: rgb(var(--c-panel3));
+          border: 1px solid rgb(var(--c-linestrong));
           border-radius: 5px;
-          color: #a9d8b6;
+          color: rgb(var(--c-fg));
           font-size: 11px;
         }
         @media (max-width: 900px) {
@@ -2162,7 +2160,7 @@ function Editor() {
             right: 0;
             top: 64px;
             bottom: 0;
-            box-shadow: -10px 0 30px #0008;
+            box-shadow: -10px 0 30px rgb(var(--c-onaccent));
           }
           .actions i,
           .actions .tool:nth-of-type(3),
@@ -2186,9 +2184,9 @@ function Editor() {
 export default function PlaygroundPage() {
   return (
     <Suspense fallback={
-      <div className="flex h-screen w-screen items-center justify-center bg-[#0e1213] text-[#e1e7e3] font-mono text-sm">
+      <div className="flex h-screen w-screen items-center justify-center bg-[#0e1213] text-on-surface font-mono text-sm">
         <div className="flex items-center gap-3">
-          <div className="w-3 h-3 rounded-full bg-[#ff7657] animate-ping" />
+          <div className="w-3 h-3 rounded-full bg-surface-tint animate-ping" />
           <span>Loading System Design Canvas...</span>
         </div>
       </div>

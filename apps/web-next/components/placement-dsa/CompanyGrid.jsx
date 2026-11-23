@@ -69,7 +69,7 @@ const CompanyGrid = ({ companies, onCompanySelect }) => {
                   key={`spotlight-${company}`}
                   onClick={() => onCompanySelect(company)}
                   suppressHydrationWarning
-                  className="group relative bg-surface-container-lowest rounded-2xl p-3 border border-outline-variant/40 shadow-sm hover:shadow-[0_12px_28px_rgba(0,19,8,0.12)] hover:border-surface-tint/60 hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-200 flex flex-col items-center justify-center gap-2 text-center"
+                  className="group relative bg-surface-container-lowest rounded-2xl p-3 border border-outline-variant/40 shadow-sm hover:shadow-pop hover:border-surface-tint/60 hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-200 flex flex-col items-center justify-center gap-2 text-center"
                 >
                   <div className="w-10 h-10 rounded-xl bg-surface-container/60 p-2 flex items-center justify-center border border-outline-variant/20 group-hover:border-surface-tint/30 transition-colors">
                     <CompanyLogo company={company} className="w-full h-full object-contain"/>
@@ -134,14 +134,13 @@ const CompanyGrid = ({ companies, onCompanySelect }) => {
                 <Button
                   onClick={() => onCompanySelect(company)}
                   suppressHydrationWarning
-                  className="w-full h-auto p-4 bg-surface-container-lowest border border-outline-variant/30 hover:border-surface-tint/50 hover:bg-white transition-all duration-200 hover:shadow-[0_16px_36px_rgba(0,19,8,0.08)] rounded-2xl group relative overflow-hidden text-left flex flex-col items-start gap-3.5"
+                  className="w-full h-auto p-4 bg-surface-container-lowest border border-outline-variant/30 hover:border-surface-tint/50 hover:bg-white transition-all duration-200 hover:shadow-pop rounded-2xl group relative overflow-hidden text-left flex flex-col items-start gap-3.5"
                   variant="ghost"
                 >
                   {/* Subtle gradient hover highlight */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-surface-tint/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"/>
                   
                   <div className="w-full flex items-center justify-between relative z-10">
-                    <div className="w-11 h-11 rounded-xl bg-surface-container p-2 flex items-center justify-center border border-outline-variant/20 group-hover:border-surface-tint/30 transition-colors shadow-inner">
+                    <div className="w-11 h-11 rounded-xl bg-surface-container p-2 flex items-center justify-center border border-outline-variant/20 group-hover:border-surface-tint/30 transition-colors">
                       <CompanyLogo company={company} className="w-full h-full object-contain"/>
                     </div>
                     <div className="w-7 h-7 rounded-full bg-surface-container/60 group-hover:bg-mn-primary flex items-center justify-center transition-all duration-200">

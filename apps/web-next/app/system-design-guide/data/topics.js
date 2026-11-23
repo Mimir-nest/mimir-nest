@@ -4,14 +4,14 @@ export const chapters = [
   {
     id: "getting-started",
     label: "Getting Started",
-    color: "#FF5A36",
+    color: "#087BCB",
     icon: "🚀",
     topics: ["what-is-system-design"],
   },
   {
     id: "chapter-i",
     label: "Chapter I — Networking & Infrastructure",
-    color: "#FF7A5A",
+    color: "#087BCB",
     icon: "🌐",
     topics: [
       "ip",

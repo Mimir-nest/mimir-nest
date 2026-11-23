@@ -81,9 +81,8 @@ export default function EarlyAccessForm() {
 
       <div className="max-w-4xl mx-auto space-y-12 sm:space-y-16">
         {/* Main Early Access Card */}
-        <div className="rounded-3xl bg-surface-container border-2 border-surface-tint/30 p-5 sm:p-10 md:p-14 relative overflow-hidden shadow-2xl">
+        <div className="rounded-3xl bg-surface-container border-2 border-surface-tint/30 p-5 sm:p-10 md:p-14 relative overflow-hidden shadow-pop">
           {/* Subtle Glow & Rings */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-surface-tint/5 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-64 h-64 border border-surface-tint/10 rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
           <div className="relative z-10 max-w-2xl mx-auto text-center space-y-5 sm:space-y-6">
@@ -206,7 +205,7 @@ export default function EarlyAccessForm() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full h-12 mt-2 rounded-xl bg-primary text-primary-foreground font-label-caps text-sm hover:opacity-90 active:scale-[0.99] transition-all flex items-center justify-center gap-2 font-semibold cursor-pointer border-none disabled:opacity-50 tracking-wider shadow-lg shadow-primary/20"
+                  className="w-full h-12 mt-2 rounded-xl bg-primary text-primary-foreground font-label-caps text-sm hover:opacity-90 active:scale-[0.99] transition-all flex items-center justify-center gap-2 font-semibold cursor-pointer border-none disabled:opacity-50 tracking-wider shadow-lg"
                 >
                   {status === "loading" ? (
                     <>
@@ -222,7 +221,7 @@ export default function EarlyAccessForm() {
                 </button>
 
                 {errorMessage && (
-                  <div className="flex items-center gap-1.5 text-xs text-red-400 justify-center pt-1">
+                  <div className="flex items-center gap-1.5 text-xs text-alert justify-center pt-1">
                     <AlertCircle className="w-3.5 h-3.5 shrink-0" />
                     <span>{errorMessage}</span>
                   </div>

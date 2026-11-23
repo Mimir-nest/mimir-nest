@@ -33,13 +33,13 @@ export default function InterviewPreview() {
         </div>
 
         {/* Live Interview Stage Container */}
-        <div className="rounded-3xl bg-surface-container border-2 border-outline-variant/80 shadow-2xl overflow-hidden relative max-w-full">
+        <div className="rounded-3xl bg-surface-container border-2 border-outline-variant/80 shadow-pop overflow-hidden relative max-w-full">
           {/* Top Metadata Bar */}
           <div className="px-4 sm:px-6 py-3.5 sm:py-4 bg-surface-container-high border-b border-outline-variant/60 flex flex-wrap items-center justify-between gap-3 text-xs font-mono max-w-full">
             {/* Live Indicator & Status */}
             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-foreground font-semibold text-[11px] sm:text-xs">
-                <Radio className="w-3.5 h-3.5 text-red-500 animate-pulse shrink-0" />
+                <Radio className="w-3.5 h-3.5 text-alert animate-pulse shrink-0" />
                 LIVE INTERVIEW
               </span>
               <span className="text-[10px] uppercase font-bold text-surface-tint px-2 py-0.5 rounded bg-surface-tint/15 border border-surface-tint/25">
@@ -68,26 +68,14 @@ export default function InterviewPreview() {
 
           {/* Main Interview Stage Canvas */}
           <div className="py-10 sm:py-16 md:py-20 px-4 sm:px-6 flex flex-col items-center justify-center text-center relative max-w-full">
-            {/* Ambient Background Glow */}
-            <div
-              className="absolute w-72 sm:w-96 h-72 sm:h-96 rounded-full blur-3xl pointer-events-none transition-all duration-700 opacity-30"
-              style={{
-                background:
-                  activeState === "listening"
-                    ? "radial-gradient(circle, rgba(74, 222, 128, 0.3) 0%, rgba(255, 90, 54, 0.15) 50%, transparent 75%)"
-                    : activeState === "thinking"
-                    ? "radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, rgba(59, 130, 246, 0.15) 50%, transparent 75%)"
-                    : "radial-gradient(circle, rgba(255, 90, 54, 0.4) 0%, rgba(245, 158, 11, 0.2) 50%, transparent 75%)",
-              }}
-            />
 
             {/* Siri Orb Container */}
-            <div className="relative p-4 sm:p-8 rounded-full bg-surface-container-high/60 border border-outline-variant/60 backdrop-blur-md shadow-2xl flex items-center justify-center mb-6 max-w-full">
+            <div className="relative p-4 sm:p-8 rounded-full bg-surface-container-high/60 border border-outline-variant/60 backdrop-blur-md shadow-pop flex items-center justify-center mb-6 max-w-full">
               <SiriOrb
                 size="170px"
                 animationDuration={stateConfig.duration}
                 colors={stateConfig.colors}
-                className="shadow-2xl max-w-full"
+                className="shadow-pop max-w-full"
               />
             </div>
 
@@ -105,19 +93,19 @@ export default function InterviewPreview() {
                     ? "rgba(74, 222, 128, 0.4)"
                     : activeState === "thinking"
                     ? "rgba(168, 85, 247, 0.4)"
-                    : "rgba(255, 90, 54, 0.4)",
+                    : "rgba(8,123,203, 0.4)",
                 backgroundColor:
                   activeState === "listening"
                     ? "rgba(74, 222, 128, 0.1)"
                     : activeState === "thinking"
                     ? "rgba(168, 85, 247, 0.1)"
-                    : "rgba(255, 90, 54, 0.1)",
+                    : "rgba(8,123,203, 0.1)",
                 color:
                   activeState === "listening"
                     ? "#4ade80"
                     : activeState === "thinking"
                     ? "#c084fc"
-                    : "#FF5A36",
+                    : "#087BCB",
               }}
             >
               <span className={`w-2 h-2 rounded-full ${stateConfig.dotColor} animate-pulse shrink-0`} />
@@ -163,7 +151,7 @@ export default function InterviewPreview() {
                 title="Microphone (Preview)"
                 className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant text-muted-foreground opacity-75 cursor-not-allowed"
               >
-                <Mic className="w-3.5 h-3.5 text-green-400 shrink-0" />
+                <Mic className="w-3.5 h-3.5 text-good shrink-0" />
                 <span className="text-[11px]">Microphone</span>
               </div>
 
@@ -177,7 +165,7 @@ export default function InterviewPreview() {
 
               <div
                 title="End Interview (Preview)"
-                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 opacity-75 cursor-not-allowed"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg bg-red-500/10 border border-red-500/30 text-alert opacity-75 cursor-not-allowed"
               >
                 <PhoneOff className="w-3.5 h-3.5 shrink-0" />
                 <span className="text-[11px]">End Interview</span>

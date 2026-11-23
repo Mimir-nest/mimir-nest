@@ -38,14 +38,14 @@ const FeaturesSection = () => {
             title: "Real-Time Mastery Analytics",
             description: "Track your solved ratios, measure difficulty breakdown, and observe your rank progression live.",
             tag: "Smart Tracking",
-            accent: "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20",
+            accent: "bg-emerald-500/10 text-good border border-emerald-500/20",
         },
         {
             icon: Code2,
             title: "Precision Topic Filtering",
             description: "Filter problem sets by dynamic programming, graphs, trees, and specific data structures instantly.",
             tag: "Topic Deep-Dive",
-            accent: "bg-amber-500/10 text-amber-400 border border-amber-500/20",
+            accent: "bg-amber-500/10 text-warn border border-amber-500/20",
         },
         {
             icon: Users,

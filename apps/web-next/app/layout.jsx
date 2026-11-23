@@ -1,4 +1,4 @@
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Fraunces, Inter, JetBrains_Mono, Press_Start_2P } from "next/font/google";
 import { Toaster } from "sonner";
 import Script from "next/script";
 import CookieBanner from "@/components/layout/CookieBanner";
@@ -10,11 +10,19 @@ const inter = Inter({
   display: "swap",
 });
 
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-plus-jakarta",
-  display: "swap",
-});
+const mono = JetBrains_Mono({ variable: "--font-mono-face", subsets: ["latin"], display: "swap" });
+const display = Fraunces({ variable: "--font-display-face", subsets: ["latin"], axes: ["opsz"], display: "swap" });
+const pixel = Press_Start_2P({ variable: "--font-pixel", weight: "400", subsets: ["latin"], display: "swap" });
+
+// runs before paint so a reader who chose dark doesn't see a white flash; everyone else gets white, whatever their OS says
+const THEME_SCRIPT = `try{if(localStorage.getItem("theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}`;
+
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
+};
 
 export const metadata = {
   metadataBase: new URL("https://mimirnest.vercel.app"),
@@ -125,7 +133,10 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en" className={`${inter.variable} ${plusJakarta.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${mono.variable} ${pixel.variable} ${display.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      </head>
       <body
         className={`${inter.className} bg-mn-background text-on-background antialiased`}
         suppressHydrationWarning

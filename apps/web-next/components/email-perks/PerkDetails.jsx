@@ -67,7 +67,7 @@ const PerkDetails = ({
                     </span>
                 )}
                 {value && value !== "Not specified" && (
-                    <span className="px-3 py-1 border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 rounded-md text-xs font-semibold">
+                    <span className="px-3 py-1 border border-emerald-500/20 bg-emerald-500/10 text-good rounded-md text-xs font-semibold">
                         {value} {currency !== "None" ? currency : ""} Value
                     </span>
                 )}

@@ -7,13 +7,9 @@ import { ArrowRight, Github } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
-import dynamic from "next/dynamic";
 
-const ParticleWave = dynamic(
-  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
-  { ssr: false }
-);
 
+import { PixelScene } from "@/components/pixel";
 const About = () => {
   const router = useRouter();
 
@@ -59,15 +55,7 @@ const About = () => {
         <Navbar />
 
         {/* ── 1. HERO ── */}
-        <section className="relative bg-surface-container pt-[140px] md:pt-[180px] pb-20 md:pb-28 px-6 md:px-16 overflow-hidden rounded-b-3xl">
-          {/* Background Particle Wave */}
-          <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
-            <ParticleWave />
-          </div>
-
-          {/* Subtle Background Rings */}
-          <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full border border-surface-tint/10 translate-x-1/4 -translate-y-1/4 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full border border-primary-container/30 -translate-x-1/2 translate-y-1/2 pointer-events-none" />
+        <section className="relative pt-[140px] md:pt-[180px] pb-20 md:pb-28 px-6 md:px-16 overflow-hidden pixel-grid border-b border-line">
 
           <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
             <motion.div
@@ -99,7 +87,10 @@ const About = () => {
               MimirNest is an open-source platform built to help students learn, build, and launch — a collection of tools and resources designed to make everyday student life simpler.
             </motion.p>
           </div>
-        </section>
+        <div className="relative z-10 mx-auto mt-10 max-w-5xl sm:mt-14">
+          <div className="frame"><PixelScene kind="project" h={90} /></div>
+        </div>
+      </section>
 
         <motion.div
           variants={containerVariants}

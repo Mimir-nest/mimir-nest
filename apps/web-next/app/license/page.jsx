@@ -4,13 +4,9 @@ import React from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { FileText, Sparkles, CheckCircle2, AlertTriangle, Github } from "lucide-react";
-import dynamic from "next/dynamic";
 
-const ParticleWave = dynamic(
-  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
-  { ssr: false }
-);
 
+import { PixelScene } from "@/components/pixel";
 const License = () => {
   const permissions = [
     "You can use the software freely.",
@@ -52,16 +48,7 @@ THE SOFTWARE.`;
         <Navbar />
 
         {/* Hero Section */}
-        <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden rounded-b-3xl">
-          {/* Background Particle Wave */}
-          <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
-            <ParticleWave />
-          </div>
-
-          {/* Decorative Rings */}
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none" />
-          <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-primary-container/40 -translate-x-1/2 translate-y-1/2 pointer-events-none" />
+        <section className="relative pt-[120px] md:pt-[150px] pb-16 md:pb-24 px-6 md:px-16 overflow-hidden pixel-grid border-b border-line">
 
           <div className="max-w-4xl mx-auto relative z-10 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high/60 text-xs font-label-caps text-surface-tint tracking-widest uppercase font-semibold">
@@ -89,7 +76,10 @@ THE SOFTWARE.`;
               </div>
             </div>
           </div>
-        </section>
+        <div className="relative z-10 mx-auto mt-10 max-w-5xl sm:mt-14">
+          <div className="frame"><PixelScene kind="project" h={90} /></div>
+        </div>
+      </section>
 
         {/* Document Body */}
         <main className="max-w-4xl mx-auto px-6 py-16 space-y-16">
@@ -114,11 +104,11 @@ THE SOFTWARE.`;
               </div>
 
               <div className="space-y-3">
-                <span className="text-xs font-label-caps text-red-500 uppercase tracking-widest font-semibold block">Conditions & Disclaimers</span>
+                <span className="text-xs font-label-caps text-alert uppercase tracking-widest font-semibold block">Conditions & Disclaimers</span>
                 <ul className="space-y-2.5">
                   {conditions.map((cond, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-sm text-on-surface-variant font-body-md leading-relaxed">
-                      <AlertTriangle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                      <AlertTriangle className="w-4 h-4 text-alert shrink-0 mt-0.5" />
                       <span>{cond}</span>
                     </li>
                   ))}
@@ -150,7 +140,7 @@ THE SOFTWARE.`;
               </a>
             </div>
 
-            <div className="p-6 md:p-8 rounded-xl bg-surface-container/60 border border-outline-variant/30 font-mono text-sm leading-relaxed overflow-x-auto text-foreground whitespace-pre shadow-inner select-text">
+            <div className="p-6 md:p-8 rounded-xl bg-surface-container/60 border border-outline-variant/30 font-mono text-sm leading-relaxed overflow-x-auto text-foreground whitespace-pre select-text">
               {fullLicenseText}
             </div>
 

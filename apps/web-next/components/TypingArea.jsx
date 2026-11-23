@@ -198,23 +198,23 @@ export default function TypingArea({ snippet, timeLeft, onType, cursorPosition, 
     };
     return (<div className="relative">
       {/* Premium Header */}
-      <div className="flex justify-between items-center mb-4 md:mb-8 p-4 md:p-6 bg-gradient-to-r from-zinc-800/70 via-zinc-700/70 to-zinc-800/70 rounded-xl border border-zinc-600/50 backdrop-blur-sm">
+      <div className="flex justify-between items-center mb-4 md:mb-8 p-4 md:p-6 pop bg-panel rounded-2xl">
         <div className="flex items-center space-x-6">
           <div className="flex items-center space-x-3">
-            <div className="w-3 h-3 bg-gradient-to-r from-red-400 to-red-500 rounded-full shadow-lg shadow-red-500/30"></div>
-            <div className="w-3 h-3 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full shadow-lg shadow-yellow-500/30"></div>
-            <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-green-500 rounded-full shadow-lg shadow-green-500/30"></div>
+            <div className="w-3 h-3 bg-[#E5484D] rounded-full"></div>
+            <div className="w-3 h-3 bg-[#F5B83D] rounded-full"></div>
+            <div className="w-3 h-3 bg-[#3FAE4A] rounded-full"></div>
           </div>
-          <div className="text-sm px-4 py-2 bg-gradient-to-r from-white to-zinc-100 text-black rounded-lg font-semibold capitalize shadow-lg">
+          <div className="text-sm px-4 py-2 bg-accentsoft text-surface-tint rounded-full font-semibold capitalize">
             {snippet.language}
           </div>
         </div>
         
         <div className="flex items-center space-x-6">
           <div className="text-right">
-            <div className="text-xs text-zinc-400 uppercase tracking-wider font-medium mb-1">Time Left</div>
-            <div className={`text-3xl font-mono font-bold transition-all duration-300 ${timeLeft <= 10 ? 'text-red-400 animate-pulse' :
-            timeLeft <= 20 ? 'text-yellow-400' : 'text-green-400'}`}>
+            <div className="text-xs text-on-surface-variant uppercase tracking-wider font-medium mb-1">Time Left</div>
+            <div className={`text-3xl font-mono font-bold transition-all duration-300 ${timeLeft <= 10 ? 'text-alert animate-pulse' :
+            timeLeft <= 20 ? 'text-warn' : 'text-good'}`}>
               {timeLeft}s
             </div>
           </div>
@@ -228,11 +228,11 @@ export default function TypingArea({ snippet, timeLeft, onType, cursorPosition, 
       </div>
 
       {/* Premium Code Display */}
-      <div ref={containerRef} className={`relative font-mono text-sm md:text-lg leading-relaxed whitespace-pre-wrap outline-none bg-gradient-to-br from-zinc-900/50 via-black/50 to-zinc-900/50 p-4 md:p-8 rounded-xl border transition-all duration-300 min-h-[250px] md:min-h-[350px] backdrop-blur-sm ${isStarted ? 'focus:border-white/50 cursor-text border-zinc-600/50 shadow-inner' : 'cursor-pointer border-zinc-600/50 hover:border-zinc-500/50'}`} tabIndex={0} onBlur={handleBlur} onClick={handleContainerClick} style={{ lineHeight: '1.8' }}>
-        {!isStarted && (<div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-zinc-900/95 via-black/95 to-zinc-900/95 rounded-xl backdrop-blur-sm">
+      <div ref={containerRef} className={`relative font-mono text-sm md:text-lg leading-relaxed whitespace-pre-wrap outline-none bg-panel2 p-4 md:p-8 rounded-xl border transition-all duration-300 min-h-[250px] md:min-h-[350px] backdrop-blur-sm ${isStarted ? 'focus:border-white/50 cursor-text border-line' : 'cursor-pointer border-line hover:border-line'}`} tabIndex={0} onBlur={handleBlur} onClick={handleContainerClick} style={{ lineHeight: '1.8' }}>
+        {!isStarted && (<div className="absolute inset-0 flex items-center justify-center bg-panel/95 rounded-xl">
             <div className="text-center p-8">
-              <p className="text-zinc-300 text-xl mb-3 font-medium">Click here or press any key to start typing</p>
-              <p className="text-zinc-500 text-base">Make sure to click "Start Test" first</p>
+              <p className="text-on-surface-variant text-xl mb-3 font-medium">Click here or press any key to start typing</p>
+              <p className="text-on-surface-variant text-base">Make sure to click "Start Test" first</p>
             </div>
           </div>)}
         
@@ -244,12 +244,12 @@ export default function TypingArea({ snippet, timeLeft, onType, cursorPosition, 
             const isCursor = index === cursorPosition && isStarted;
             return (<span key={index} className={`relative transition-all duration-150 ${isTyped
                     ? isCorrect
-                        ? 'text-green-400 bg-green-400/10 shadow-sm'
+                        ? 'text-good bg-green-400/10 shadow-sm'
                         : isWrong
-                            ? 'text-red-400 bg-red-400/20 rounded-sm'
+                            ? 'text-alert bg-red-400/20 rounded-sm'
                             : ''
-                    : 'text-zinc-500'}`}>
-              {isCursor && isCursorVisible && (<span className="absolute w-0.5 -ml-0.5 bg-white animate-pulse shadow-lg shadow-white/50" style={{ height: '1.6em' }} data-cursor/>)}
+                    : 'text-on-surface-variant'}`}>
+              {isCursor && isCursorVisible && (<span className="absolute w-0.5 -ml-0.5 bg-white animate-pulse shadow-lg" style={{ height: '1.6em' }} data-cursor/>)}
               {char}
             </span>);
         })}
@@ -257,12 +257,12 @@ export default function TypingArea({ snippet, timeLeft, onType, cursorPosition, 
 
       {/* Premium Progress Bar */}
       <div className="mt-6">
-        <div className="flex justify-between text-sm text-zinc-400 mb-2">
+        <div className="flex justify-between text-sm text-on-surface-variant mb-2">
           <span className="font-medium">Progress</span>
           <span className="font-mono">{Math.round((currentText.length / snippet.code.length) * 100)}%</span>
         </div>
-        <div className="w-full bg-zinc-800/50 rounded-full h-3 overflow-hidden shadow-inner">
-          <div className="bg-gradient-to-r from-white to-zinc-200 h-3 rounded-full transition-all duration-500 ease-out shadow-lg" style={{ width: `${Math.min(100, (currentText.length / snippet.code.length) * 100)}%` }}></div>
+        <div className="w-full bg-panel3 rounded-full h-3 overflow-hidden">
+          <div className="bg-surface-tint h-3 rounded-full transition-all duration-500 ease-out" style={{ width: `${Math.min(100, (currentText.length / snippet.code.length) * 100)}%` }}></div>
         </div>
       </div>
     </div>);

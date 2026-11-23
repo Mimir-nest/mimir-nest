@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { motion, AnimatePresence } from "framer-motion";
@@ -29,11 +28,8 @@ import {
 import CompanyLogo from "@/components/common/CompanyLogo";
 import { findCompanyBySlug, difficultyMeta } from "@/lib/interviewPrepUtils";
 
-const ParticleWave = dynamic(
-  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
-  { ssr: false }
-);
 
+import { PixelScene } from "@/components/pixel";
 export default function CompanyInterviewPage() {
   const params = useParams();
   const router = useRouter();
@@ -249,16 +245,7 @@ export default function CompanyInterviewPage() {
       <Navbar />
 
       {/* ── Sanctuary Flagship Company Hero Header ── */}
-      <section className="relative bg-surface-container pt-[120px] md:pt-[150px] pb-12 md:pb-16 px-4 sm:px-6 md:px-16 overflow-hidden rounded-b-3xl border-b border-border/40">
-        {/* Background Particle Wave */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
-          <ParticleWave />
-        </div>
-
-        {/* Ambient Decorative Glowing Rings */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border border-surface-tint/15 translate-x-1/4 -translate-y-1/4 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full border border-surface-tint/20 translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-primary-container/40 -translate-x-1/2 translate-y-1/2 pointer-events-none" />
+      <section className="relative pt-[120px] md:pt-[150px] pb-12 md:pb-16 px-4 sm:px-6 md:px-16 overflow-hidden pixel-grid border-b border-line">
 
         <div className="max-w-6xl mx-auto relative z-10 space-y-6">
           {/* Breadcrumbs */}
@@ -309,7 +296,7 @@ export default function CompanyInterviewPage() {
           {companyData && !loading && (
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pt-2">
               <div className="flex items-start gap-4 sm:gap-6">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-surface-container-high p-3 flex items-center justify-center border border-border/40 shadow-xl shrink-0">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-surface-container-high p-3 flex items-center justify-center border border-border/40 shadow-pop shrink-0">
                   <CompanyLogo company={companyData.name} className="w-10 h-10 sm:w-12 sm:h-12" />
                 </div>
 
@@ -337,7 +324,7 @@ export default function CompanyInterviewPage() {
               <div className="flex flex-row md:flex-col gap-3 shrink-0 pt-2 md:pt-0">
                 <Link
                   href={`/interview-prep/company/${slug}/practice`}
-                  className="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all duration-200 shadow-lg shadow-surface-tint/20 cursor-pointer border-none text-center"
+                  className="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-surface-tint text-on-primary font-bold text-xs font-label-caps tracking-widest uppercase hover:scale-105 transition-all duration-200 shadow-lg cursor-pointer border-none text-center"
                 >
                   <span>{practiceBtnText}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -376,6 +363,9 @@ export default function CompanyInterviewPage() {
             </div>
           )}
         </div>
+        <div className="relative z-10 mx-auto mt-10 max-w-5xl sm:mt-14">
+          <div className="frame"><PixelScene kind="interview" h={90} /></div>
+        </div>
       </section>
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
@@ -384,10 +374,10 @@ export default function CompanyInterviewPage() {
             {/* ── 2. Category Breakdown ── */}
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-mono uppercase tracking-widest text-[#FF5A36] font-semibold">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-surface-tint font-semibold">
                   Category Breakdown
                 </span>
-                <span className="text-xs text-[#9B9992]">
+                <span className="text-xs text-on-surface-variant">
                   Click a category to filter
                 </span>
               </div>
@@ -397,8 +387,8 @@ export default function CompanyInterviewPage() {
                   onClick={() => setSelectedCategory("all")}
                   className={`px-3.5 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer border ${
                     selectedCategory === "all"
-                      ? "bg-[#FF5A36] text-[#0F1010] font-semibold border-[#FF5A36]"
-                      : "bg-[#151616] text-[#9B9992] hover:text-[#F4F1EA] border-[#242525] hover:border-[#FF5A36]/40"
+                      ? "bg-surface-tint text-mn-background font-semibold border-surface-tint"
+                      : "bg-surface-container-lowest text-on-surface-variant hover:text-on-surface border-outline-variant hover:border-surface-tint/40"
                   }`}
                 >
                   All Categories ({questions.length})
@@ -411,8 +401,8 @@ export default function CompanyInterviewPage() {
                       onClick={() => setSelectedCategory(isSelected ? "all" : cat)}
                       className={`px-3.5 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer border ${
                         isSelected
-                          ? "bg-[#FF5A36] text-[#0F1010] font-semibold border-[#FF5A36]"
-                          : "bg-[#151616] text-[#9B9992] hover:text-[#F4F1EA] border-[#242525] hover:border-[#FF5A36]/40"
+                          ? "bg-surface-tint text-mn-background font-semibold border-surface-tint"
+                          : "bg-surface-container-lowest text-on-surface-variant hover:text-on-surface border-outline-variant hover:border-surface-tint/40"
                       }`}
                     >
                       {cat} ({count})
@@ -426,22 +416,22 @@ export default function CompanyInterviewPage() {
             <div id="company-questions" className="space-y-6 pt-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <h2 className="text-lg font-bold text-[#F4F1EA] tracking-tight">
+                  <h2 className="text-lg font-bold text-on-surface tracking-tight">
                     Interview Questions
                   </h2>
-                  <p className="text-xs text-[#9B9992] mt-0.5">
+                  <p className="text-xs text-on-surface-variant mt-0.5">
                     Showing {filteredQuestions.length} of {questions.length} questions
                   </p>
                 </div>
 
                 {/* State Tabs: All / Practiced / Saved */}
-                <div className="inline-flex p-1 rounded-xl bg-[#151616] border border-[#242525] text-xs font-medium self-start sm:self-auto">
+                <div className="inline-flex p-1 rounded-xl bg-surface-container-lowest border border-outline-variant text-xs font-medium self-start sm:self-auto">
                   <button
                     onClick={() => setActiveTab("all")}
                     className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer border-none ${
                       activeTab === "all"
-                        ? "bg-[#1E2020] text-[#F4F1EA] font-semibold shadow-sm"
-                        : "bg-transparent text-[#9B9992] hover:text-[#F4F1EA]"
+                        ? "bg-surface-container-high text-on-surface font-semibold shadow-sm"
+                        : "bg-transparent text-on-surface-variant hover:text-on-surface"
                     }`}
                   >
                     All ({questions.length})
@@ -450,8 +440,8 @@ export default function CompanyInterviewPage() {
                     onClick={() => setActiveTab("practiced")}
                     className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer border-none ${
                       activeTab === "practiced"
-                        ? "bg-[#1E2020] text-[#F4F1EA] font-semibold shadow-sm"
-                        : "bg-transparent text-[#9B9992] hover:text-[#F4F1EA]"
+                        ? "bg-surface-container-high text-on-surface font-semibold shadow-sm"
+                        : "bg-transparent text-on-surface-variant hover:text-on-surface"
                     }`}
                   >
                     Practiced ({companyPracticedCount})
@@ -460,8 +450,8 @@ export default function CompanyInterviewPage() {
                     onClick={() => setActiveTab("saved")}
                     className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer border-none ${
                       activeTab === "saved"
-                        ? "bg-[#1E2020] text-[#F4F1EA] font-semibold shadow-sm"
-                        : "bg-transparent text-[#9B9992] hover:text-[#F4F1EA]"
+                        ? "bg-surface-container-high text-on-surface font-semibold shadow-sm"
+                        : "bg-transparent text-on-surface-variant hover:text-on-surface"
                     }`}
                   >
                     Saved (
@@ -477,18 +467,18 @@ export default function CompanyInterviewPage() {
               {/* Search & Difficulty Filter Bar */}
               <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
                 <div className="sm:col-span-8 relative">
-                  <Search className="w-4 h-4 text-[#9B9992] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <Search className="w-4 h-4 text-on-surface-variant absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder={`Search questions for ${companyData.name}...`}
-                    className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-[#151616] border border-[#242525] text-sm text-[#F4F1EA] placeholder:text-[#9B9992]/60 focus:outline-none focus:border-[#FF5A36]/60 transition-colors"
+                    className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant text-sm text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none focus:border-surface-tint/60 transition-colors"
                   />
                   {searchQuery && (
                     <button
                       onClick={() => setSearchQuery("")}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9B9992] hover:text-[#F4F1EA] p-1 border-none bg-transparent cursor-pointer"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface p-1 border-none bg-transparent cursor-pointer"
                     >
                       <X className="w-3.5 h-3.5" />
                     </button>
@@ -499,7 +489,7 @@ export default function CompanyInterviewPage() {
                   <select
                     value={selectedDifficulty}
                     onChange={(e) => setSelectedDifficulty(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#151616] border border-[#242525] text-sm text-[#F4F1EA] focus:outline-none focus:border-[#FF5A36]/60 cursor-pointer transition-colors"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant text-sm text-on-surface focus:outline-none focus:border-surface-tint/60 cursor-pointer transition-colors"
                   >
                     <option value="all">All Difficulties</option>
                     <option value="Easy">Easy</option>
@@ -523,23 +513,23 @@ export default function CompanyInterviewPage() {
                     return (
                       <div
                         key={q.question_id}
-                        className={`p-5 rounded-2xl border transition-all duration-200 bg-[#151616] ${
+                        className={`p-5 rounded-2xl border transition-all duration-200 bg-surface-container-lowest ${
                           isPracticed
-                            ? "border-emerald-500/20 bg-[#151616]/80"
-                            : "border-[#242525] hover:border-[#FF5A36]/40"
+                            ? "border-emerald-500/20 bg-surface-container-lowest/80"
+                            : "border-outline-variant hover:border-surface-tint/40"
                         }`}
                       >
                         {/* Meta Header */}
                         <div className="flex items-center justify-between gap-3 mb-2.5 flex-wrap">
                           <div className="flex items-center gap-2">
-                            <span className="font-mono text-xs font-semibold text-[#FF5A36]">
+                            <span className="font-mono text-xs font-semibold text-surface-tint">
                               {q.question_id}
                             </span>
-                            <span className="text-[#9B9992]/40">·</span>
-                            <span className="text-[11px] font-medium px-2 py-0.5 rounded bg-[#1E2020] text-[#9B9992] border border-[#242525]">
+                            <span className="text-on-surface-variant/40">·</span>
+                            <span className="text-[11px] font-medium px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant border border-outline-variant">
                               {q.category}
                             </span>
-                            <span className="text-[#9B9992]/40">·</span>
+                            <span className="text-on-surface-variant/40">·</span>
                             <span
                               className={`inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded border ${meta.bg} ${meta.text} ${meta.border}`}
                             >
@@ -550,8 +540,8 @@ export default function CompanyInterviewPage() {
                             </span>
                           </div>
 
-                          <div className="flex items-center gap-1.5 text-xs text-[#9B9992]">
-                            <Clock className="w-3.5 h-3.5 text-[#9B9992]" />
+                          <div className="flex items-center gap-1.5 text-xs text-on-surface-variant">
+                            <Clock className="w-3.5 h-3.5 text-on-surface-variant" />
                             <span>{q.expected_time || "5–15 min"}</span>
                           </div>
                         </div>
@@ -559,33 +549,33 @@ export default function CompanyInterviewPage() {
                         {/* Question Text */}
                         <Link
                           href={`/interview-prep/${q.question_id}`}
-                          className="block text-base sm:text-lg font-semibold text-[#F4F1EA] hover:text-[#FF5A36] transition-colors leading-snug my-2 group"
+                          className="block text-base sm:text-lg font-semibold text-on-surface hover:text-surface-tint transition-colors leading-snug my-2 group"
                         >
                           <span>{q.question}</span>
                         </Link>
 
                         {/* Bottom Row */}
-                        <div className="mt-4 pt-3.5 border-t border-[#242525] flex items-center justify-between gap-4 flex-wrap">
-                          <div className="flex items-center gap-2 text-xs text-[#9B9992]">
+                        <div className="mt-4 pt-3.5 border-t border-outline-variant flex items-center justify-between gap-4 flex-wrap">
+                          <div className="flex items-center gap-2 text-xs text-on-surface-variant">
                             <CompanyLogo
                               company={q.company}
                               className="w-4 h-4"
                             />
-                            <span className="text-[#F4F1EA] font-medium">
+                            <span className="text-on-surface font-medium">
                               {q.company}
                             </span>
-                            <span className="text-[#9B9992]/40">·</span>
+                            <span className="text-on-surface-variant/40">·</span>
                             <span>{q.industry || companyData.industry}</span>
                           </div>
 
                           <div className="flex items-center gap-2">
                             <button
                               onClick={() => handleCopy(q)}
-                              className="p-1.5 rounded-lg text-[#9B9992] hover:text-[#F4F1EA] hover:bg-[#1E2020] transition-colors border-none bg-transparent cursor-pointer"
+                              className="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors border-none bg-transparent cursor-pointer"
                               title="Copy Question"
                             >
                               {isCopied ? (
-                                <Check className="w-4 h-4 text-emerald-400" />
+                                <Check className="w-4 h-4 text-good" />
                               ) : (
                                 <Copy className="w-4 h-4" />
                               )}
@@ -595,8 +585,8 @@ export default function CompanyInterviewPage() {
                               onClick={() => toggleBookmark(q.question_id)}
                               className={`p-1.5 rounded-lg transition-colors border-none bg-transparent cursor-pointer ${
                                 isBookmarked
-                                  ? "text-amber-400"
-                                  : "text-[#9B9992] hover:text-[#F4F1EA] hover:bg-[#1E2020]"
+                                  ? "text-warn"
+                                  : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
                               }`}
                               title={
                                 isBookmarked
@@ -615,13 +605,13 @@ export default function CompanyInterviewPage() {
                               onClick={() => togglePracticed(q.question_id)}
                               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer border ${
                                 isPracticed
-                                  ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30 font-semibold"
-                                  : "bg-[#1E2020] text-[#9B9992] hover:text-[#F4F1EA] border-[#242525] hover:border-[#FF5A36]/30"
+                                  ? "bg-emerald-500/10 text-good border-emerald-500/30 font-semibold"
+                                  : "bg-surface-container-high text-on-surface-variant hover:text-on-surface border-outline-variant hover:border-surface-tint/30"
                               }`}
                             >
                               {isPracticed ? (
                                 <>
-                                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                                  <CheckCircle2 className="w-3.5 h-3.5 text-good" />
                                   <span>Practiced</span>
                                 </>
                               ) : (
@@ -634,7 +624,7 @@ export default function CompanyInterviewPage() {
 
                             <Link
                               href={`/interview-prep/${q.question_id}`}
-                              className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-[#FF5A36] text-[#0F1010] font-semibold text-xs font-label-caps tracking-wider hover:opacity-90 transition-opacity"
+                              className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-surface-tint text-mn-background font-semibold text-xs font-label-caps tracking-wider hover:opacity-90 transition-opacity"
                             >
                               <span>Practice</span>
                               <ChevronRight className="w-3.5 h-3.5" />
@@ -645,12 +635,12 @@ export default function CompanyInterviewPage() {
                     );
                   })
                 ) : (
-                  <div className="p-12 text-center rounded-2xl bg-[#151616] border border-[#242525]">
-                    <Search className="w-8 h-8 text-[#9B9992] mx-auto mb-3 opacity-60" />
-                    <h3 className="text-sm font-semibold text-[#F4F1EA] mb-1">
+                  <div className="p-12 text-center rounded-2xl bg-surface-container-lowest border border-outline-variant">
+                    <Search className="w-8 h-8 text-on-surface-variant mx-auto mb-3 opacity-60" />
+                    <h3 className="text-sm font-semibold text-on-surface mb-1">
                       No matching questions found
                     </h3>
-                    <p className="text-xs text-[#9B9992] max-w-sm mx-auto mb-4">
+                    <p className="text-xs text-on-surface-variant max-w-sm mx-auto mb-4">
                       Try adjusting your search terms, difficulty, or category filter.
                     </p>
                     <button
@@ -660,7 +650,7 @@ export default function CompanyInterviewPage() {
                         setSelectedDifficulty("all");
                         setActiveTab("all");
                       }}
-                      className="px-4 py-2 rounded-xl bg-[#1E2020] text-[#F4F1EA] text-xs font-medium border border-[#242525] hover:border-[#FF5A36]/30 cursor-pointer"
+                      className="px-4 py-2 rounded-xl bg-surface-container-high text-on-surface text-xs font-medium border border-outline-variant hover:border-surface-tint/30 cursor-pointer"
                     >
                       Reset Filters
                     </button>

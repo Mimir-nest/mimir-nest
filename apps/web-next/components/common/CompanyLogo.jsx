@@ -76,7 +76,7 @@ export default function CompanyLogo({
   if (sourceIndex >= logoSources.length) {
     return (
       <div
-        className={`flex items-center justify-center rounded-xl bg-[#1E2020] text-[#FF5A36] font-bold text-xs tracking-wider border border-[#242525] shrink-0 select-none ${className}`}
+        className={`flex items-center justify-center rounded-xl bg-surface-container-high text-surface-tint font-bold text-xs tracking-wider border border-outline-variant shrink-0 select-none ${className}`}
       >
         <span>{fallbackLabel}</span>
       </div>

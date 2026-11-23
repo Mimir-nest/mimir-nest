@@ -84,7 +84,7 @@ export default function InterviewComparison() {
           </div>
 
           {/* Mimir Interview Card */}
-          <div className="rounded-2xl bg-surface-container border-2 border-surface-tint/40 p-5 sm:p-6 md:p-8 flex flex-col justify-between relative overflow-hidden shadow-xl shadow-surface-tint/5">
+          <div className="rounded-2xl bg-surface-container border-2 border-surface-tint/40 p-5 sm:p-6 md:p-8 flex flex-col justify-between relative overflow-hidden shadow-pop">
             <div className="absolute top-0 right-0 w-32 h-32 bg-surface-tint/5 rounded-bl-full pointer-events-none" />
 
             <div>

@@ -12,10 +12,6 @@ import PomodoroStats from '@/components/pomodoro/PomodoroStats';
 import FullscreenPomodoro from '@/components/pomodoro/FullscreenPomodoro';
 import dynamic from 'next/dynamic';
 
-const ParticleWave = dynamic(
-  () => import("@/components/ui/particle-wave").then((mod) => mod.ParticleWave),
-  { ssr: false }
-);
 const Pomodoro = () => {
     // Timer durations (customizable now)
     const [pomodoroTime, setPomodoroTime] = useState(25 * 60);
@@ -287,18 +283,8 @@ const Pomodoro = () => {
         }
     };
     // Progress ring accent color per mode
-    const ringColor = mode === 'pomodoro' ? '#FF5A36' : mode === 'shortBreak' ? '#D6D2C9' : '#9B9992';
-    return (<div className="min-h-screen bg-mn-background text-on-background relative overflow-hidden">
-      {/* Background Particle Wave */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-65">
-        <ParticleWave />
-      </div>
-
-      {/* Decorative rings */}
-      <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full border border-surface-tint/5 translate-x-1/3 -translate-y-1/3 pointer-events-none"/>
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full border border-surface-tint/10 translate-x-1/4 -translate-y-1/4 pointer-events-none"/>
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-primary-container/20 -translate-x-1/2 translate-y-1/2 pointer-events-none"/>
-      <div className="absolute bottom-40 right-20 w-[200px] h-[200px] rounded-full border border-surface-tint/5 pointer-events-none"/>
+    const ringColor = mode === 'pomodoro' ? '#087BCB' : mode === 'shortBreak' ? '#14171C' : '#59606A';
+    return (<div className="min-h-screen bg-mn-background text-on-background relative overflow-hidden pixel-grid">
 
       <Navbar />
 
@@ -322,7 +308,7 @@ const Pomodoro = () => {
           </div>
 
           {/* ── Main Timer Card ── */}
-          <div className="bg-surface-container rounded-2xl border border-border shadow-[0_16px_48px_rgba(0,0,0,0.45)] mb-6 overflow-hidden">
+          <div className="bg-surface-container rounded-2xl border border-border shadow-pop mb-6 overflow-hidden">
 
             {/* Tab bar + controls */}
             <div className="flex flex-col sm:flex-row items-center justify-between px-4 sm:px-6 md:px-8 pt-5 pb-4 border-b border-border/40 gap-4">
@@ -352,11 +338,11 @@ const Pomodoro = () => {
               {/* Clock with progress ring */}
               <div className="relative w-52 h-52 md:w-60 md:h-60 mb-6">
                 <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="46" stroke="#242525" strokeWidth="2" fill="none"/>
+                  <circle cx="50" cy="50" r="46" stroke="#C9CED6" strokeWidth="2" fill="none"/>
                   <circle cx="50" cy="50" r="46" stroke={ringColor} strokeWidth="2.5" fill="none" strokeLinecap="round" strokeDasharray={`${2 * Math.PI * 46}`} strokeDashoffset={`${2 * Math.PI * 46 * (1 - calculateProgress() / 100)}`} style={{ transition: 'stroke-dashoffset 1s linear, stroke 0.5s ease' }}/>
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className="tabular-nums tracking-tighter text-foreground font-bold leading-none" style={{ fontSize: 'clamp(2.8rem, 9vw, 4rem)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  <span className="tabular-nums tracking-tighter text-foreground font-bold leading-none" style={{ fontSize: 'clamp(2.8rem, 9vw, 4rem)', fontFamily: "var(--font-display-face), Georgia, serif" }}>
                     {formatTime(timeLeft)}
                   </span>
                   <span className={`mt-2 text-xs font-label-caps tracking-widest uppercase px-3 py-1 rounded-md ${isActive ? 'bg-surface-container-high text-surface-tint' : 'bg-surface-container-low text-on-surface-variant'}`}>
@@ -390,7 +376,7 @@ const Pomodoro = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
             {/* Daily Progress */}
-            <div className="bg-surface-container-lowest rounded-[32px] p-8 shadow-[0_12px_40px_rgba(0,0,0,0.25)]">
+            <div className="bg-surface-container-lowest rounded-[32px] p-8 shadow-pop">
               <div className="flex items-center gap-2 mb-6">
                 <BarChart3 className="h-5 w-5 text-surface-tint"/>
                 <h3 className="font-headline-md text-headline-md text-mn-primary">Daily Progress</h3>
@@ -399,7 +385,7 @@ const Pomodoro = () => {
             </div>
 
             {/* Focus Soundscapes */}
-            <div className="bg-surface-container-lowest rounded-[32px] p-8 shadow-[0_12px_40px_rgba(0,0,0,0.25)] overflow-hidden relative">
+            <div className="bg-surface-container-lowest rounded-[32px] p-8 shadow-pop overflow-hidden relative">
               <div className="absolute top-0 right-0 w-24 h-24 rounded-bl-[80px] bg-surface-container pointer-events-none"/>
               <div className="relative z-10 mb-5">
                 <h3 className="font-headline-md text-headline-md text-mn-primary mb-1">Focus Soundscapes</h3>
