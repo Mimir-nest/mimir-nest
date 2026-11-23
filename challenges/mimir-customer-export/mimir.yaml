@@ -1,0 +1,11 @@
+incident_id: INC-118
+title: Nightly CRM export is missing customers
+severity: SEV-3
+bug_class: off-by-one
+language: typescript
+difficulty: easy
+estimated_minutes: 20
+mode: standard
+visible_test_cmd: npm test
+hidden_test_cmd: npm run test:graders
+postmortem_slug:

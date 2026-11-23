@@ -90,6 +90,25 @@ Copy `.env.example` to set up environment variables:
 - `CORS_ORIGIN`: Allowed CORS origin for the API (default: `http://localhost:3000`)
 - `CONTENT_DIR`: Data directory path relative to `apps/api` (default: `content`)
 
+## Bug Squash Arena (`/arena`)
+
+Challenges live in `challenges/<slug>/` (`mimir.yaml`, `tickets/`, `src/`, `test/`, `__graders__/`). The IDE runs them entirely in the browser with WebContainers, so it needs desktop Chrome, Edge or Firefox. Grading works with no configuration; these variables in `apps/web-next/.env.local` turn on the rest:
+
+| Variable | Needed for |
+| --- | --- |
+| `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | GitHub sign-in, recorded completions, completion counts on the wall, saved autopsies |
+| `ANTHROPIC_API_KEY` | The Mimir Assistant pane (`/api/assistant`) |
+
+Supabase setup, once:
+
+1. Create a project, then run `supabase/arena.sql` in its SQL editor.
+2. Authentication → Providers → GitHub: enable it with a GitHub OAuth app whose callback URL is `https://<project>.supabase.co/auth/v1/callback`.
+3. Authentication → URL Configuration: add `http://localhost:3000/**` and your production URL to the redirect allow list.
+
+With Supabase configured, the assistant only answers signed-in users. Without it, the assistant only works under `pnpm dev`.
+
+To add a challenge, copy `challenges/mimir-rate-limiter`. Its visible tests must pass on the seeded code and its graders must fail until the bug is fixed. Test output has to be TAP (`--test-reporter=tap`), because that's what the Tests panel parses.
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for local setup, development guidelines, and pull request requirements.

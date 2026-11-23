@@ -1,0 +1,11 @@
+incident_id: INC-207
+title: Partners receiving duplicate webhooks
+severity: SEV-1
+bug_class: dropped job
+language: python
+difficulty: hard
+estimated_minutes: 60
+mode: interview
+visible_test_cmd: pytest tests
+hidden_test_cmd: pytest tests/graders
+postmortem_slug: gitlab-2017-database-outage

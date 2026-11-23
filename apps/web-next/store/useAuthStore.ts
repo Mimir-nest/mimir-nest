@@ -32,6 +32,9 @@ interface AuthState {
   closeAuthModal: () => void;
 }
 
+// One /auth/me per page load: every page's Navbar calls checkAuth on mount; login/logout set state themselves.
+let authCheck: Promise<void> | null = null;
+
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   isAuthenticated: false,
@@ -50,7 +53,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   closeAuthModal: () => set({ isAuthModalOpen: false }),
   setUnverifiedEmail: (email) => set({ unverifiedEmail: email }),
 
-  checkAuth: async () => {
+  checkAuth: () => (authCheck ??= (async () => {
     set({ isLoading: true, error: null });
     try {
       const res = await getCurrentUser();
@@ -66,10 +69,11 @@ export const useAuthStore = create<AuthState>((set) => ({
       if (err.status === 401) {
         set({ user: null, isAuthenticated: false, isLoading: false });
       } else {
+        authCheck = null; // network/server error: let the next mount retry
         set({ user: null, isAuthenticated: false, isLoading: false, error: err.message });
       }
     }
-  },
+  })()),
 
   login: async (email, password) => {
     set({ isLoading: true, error: null });

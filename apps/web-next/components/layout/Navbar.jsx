@@ -22,6 +22,7 @@ import {
   Sparkles,
   Briefcase,
   Boxes,
+  Bug,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuthStore } from "@/store/useAuthStore";
@@ -43,6 +44,7 @@ const categories = [
     key: "prepare",
     label: "Prepare",
     items: [
+      { name: "Bug Squash Arena", path: "/arena", icon: Bug, description: "Fix real incidents in an in-browser IDE" },
       { name: "Placement DSA", path: "/placement-dsa", icon: Code, description: "Technical interview coding prep" },
       { name: "System Design Problems", path: "/system-design/problems", icon: Boxes, description: "Real-world architecture problems & constraints" },
       { name: "System Design", path: "/system-design", icon: BookOpen, description: "500+ system design interview Q&A" },

@@ -1,0 +1,11 @@
+incident_id: INC-288
+title: Payouts sent twice, failed payouts silently dropped
+severity: SEV-1
+bug_class: race
+language: typescript
+difficulty: hard
+estimated_minutes: 60
+mode: interview
+visible_test_cmd: npm test
+hidden_test_cmd: npm run test:graders
+postmortem_slug:

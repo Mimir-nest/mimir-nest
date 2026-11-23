@@ -1,0 +1,11 @@
+incident_id: INC-311
+title: "perf: cache feed pages per tenant"
+severity: SEV-3
+bug_class: cache
+language: go
+difficulty: medium
+estimated_minutes: 45
+mode: ai-pr
+visible_test_cmd: go test ./...
+hidden_test_cmd: go test ./graders/...
+postmortem_slug: multi-tenant-cache-isolation

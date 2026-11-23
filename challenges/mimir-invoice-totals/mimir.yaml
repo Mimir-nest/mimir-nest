@@ -1,0 +1,11 @@
+incident_id: INC-163
+title: Customer invoices are off by a cent
+severity: SEV-3
+bug_class: money
+language: typescript
+difficulty: easy
+estimated_minutes: 25
+mode: standard
+visible_test_cmd: npm test
+hidden_test_cmd: npm run test:graders
+postmortem_slug:

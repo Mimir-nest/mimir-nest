@@ -1,0 +1,13 @@
+{
+  "name": "payout-worker",
+  "version": "1.4.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "tsx --test --test-reporter=tap test/worker.test.ts",
+    "test:graders": "tsx --test --test-reporter=tap __graders__/worker.grader.ts"
+  },
+  "devDependencies": {
+    "tsx": "4.19.2"
+  }
+}

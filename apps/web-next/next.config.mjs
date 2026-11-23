@@ -32,7 +32,20 @@ const nextConfig = {
           },
         ],
       },
+      {
+        // WebContainers need cross-origin isolation; scoped to the IDE page only.
+        // `credentialless` (not require-corp) so the Monaco CDN and avatars still load.
+        source: "/arena/incident/:slug",
+        headers: [
+          { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+          { key: "Cross-Origin-Embedder-Policy", value: "credentialless" },
+        ],
+      },
     ];
+  },
+  // The assistant route reads challenge metadata and tickets from the repo at runtime.
+  outputFileTracingIncludes: {
+    "/api/assistant": ["../../challenges/*/mimir.yaml", "../../challenges/*/tickets/*.md"],
   },
   // Ensure Next infers the monorepo workspace root correctly for tracing
   outputFileTracingRoot: path.resolve(__dirname, "..", ".."),

@@ -1,0 +1,11 @@
+incident_id: INC-229
+title: Customers are seeing another company's dashboard
+severity: SEV-1
+bug_class: cache
+language: typescript
+difficulty: medium
+estimated_minutes: 35
+mode: standard
+visible_test_cmd: npm test
+hidden_test_cmd: npm run test:graders
+postmortem_slug:

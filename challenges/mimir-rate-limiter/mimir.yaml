@@ -1,0 +1,11 @@
+incident_id: INC-142
+title: Retry storm sails through the rate limiter
+severity: SEV-2
+bug_class: race
+language: typescript
+difficulty: medium
+estimated_minutes: 45
+mode: standard
+visible_test_cmd: npm test
+hidden_test_cmd: npm run test:graders
+postmortem_slug: stripe-rate-limiters

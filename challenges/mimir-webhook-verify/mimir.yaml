@@ -1,0 +1,11 @@
+incident_id: INC-251
+title: Forged webhooks marked invoices as paid
+severity: SEV-1
+bug_class: security
+language: typescript
+difficulty: medium
+estimated_minutes: 35
+mode: standard
+visible_test_cmd: npm test
+hidden_test_cmd: npm run test:graders
+postmortem_slug:
