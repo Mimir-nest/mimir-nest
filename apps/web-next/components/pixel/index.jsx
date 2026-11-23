@@ -175,5 +175,5 @@ export function PixelIcon({ name, size = 28, className = "" }) {
 }
 
 export function Logo({ size = 24 }) {
-  return <img src="/logo/logo.png" width={size} height={size} alt="" aria-hidden className="shrink-0" />;
+  return <img src="/logo/logo.png?v=2" width={size} height={size} alt="" aria-hidden className="shrink-0" />;
 }

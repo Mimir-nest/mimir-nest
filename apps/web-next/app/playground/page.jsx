@@ -845,7 +845,7 @@ function Toolbar({
     <header>
       <div className="brand">
         <Link href="/" className="brand-link" aria-label="Go to Mimir Nest home">
-          <img className="brand-logo" src="/logo/logo.png" alt="Mimir Nest" />
+          <img className="brand-logo" src="/logo/logo.png?v=2" alt="Mimir Nest" />
           <div>
             <b>Mimir <span>Nest</span></b>
             <small>Developer workspace</small>

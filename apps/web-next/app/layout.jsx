@@ -16,6 +16,8 @@ const pixel = Press_Start_2P({ variable: "--font-pixel", weight: "400", subsets:
 
 // runs before paint so a reader who chose dark doesn't see a white flash; everyone else gets white, whatever their OS says
 const THEME_SCRIPT = `try{if(localStorage.getItem("theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}`;
+// swaps the tab title while the visitor is on another tab; restores whatever the page's title is when they return
+const AWAY_SCRIPT = `(function(){var AWAY=["Come back! 👀 · Mimir Nest","We miss you already 🥺","Your study streak is waiting ⏳","Psst… your tab is still here 👋"],real=null;document.addEventListener("visibilitychange",function(){if(document.hidden){real=document.title;document.title=AWAY[Math.floor(Math.random()*AWAY.length)]}else if(real!==null){if(AWAY.indexOf(document.title)!==-1)document.title=real;real=null}})})()`;
 
 export const viewport = {
   themeColor: [
@@ -58,16 +60,16 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.png", type: "image/png", sizes: "512x512" },
-      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
-      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon.ico?v=2", sizes: "any" },
+      { url: "/icon.png?v=2", type: "image/png", sizes: "512x512" },
+      { url: "/favicon-16x16.png?v=2", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32x32.png?v=2", type: "image/png", sizes: "32x32" },
     ],
     apple: [
-      { url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" },
+      { url: "/apple-touch-icon.png?v=2", type: "image/png", sizes: "180x180" },
     ],
   },
-  manifest: "/site.webmanifest",
+  manifest: "/site.webmanifest?v=2",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -136,6 +138,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable} ${mono.variable} ${pixel.variable} ${display.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{ __html: AWAY_SCRIPT }} />
       </head>
       <body
         className={`${inter.className} bg-mn-background text-on-background antialiased`}
